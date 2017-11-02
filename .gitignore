@@ -3,6 +3,8 @@
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
+/[Ll]ightmap/
+/[Ll]ightmaps/
 /Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
@@ -32,3 +34,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Lightmap Files for Levels
+Assets/Scenes/Levels/Tutorial
+Assets/Scenes/Levels/Level 1

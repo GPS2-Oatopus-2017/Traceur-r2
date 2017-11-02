@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Environment
+  - SphereCheck
+  - Detector
+  - Effector
+  - TrapTag
+  - Interactable
+  - MountainDew
+  - DoorSwitch
+  - TrapSwitch
+  - Waypoint
+  - DialogueManager
+  - SoundManager
+  - Enemy
+  - Pushable
   layers:
   - Default
   - TransparentFX
@@ -13,11 +27,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Environment
+  - SphereCheck
+  - Building
+  - WallCheck
+  - SlowTime
   - 
   - 
   - 
