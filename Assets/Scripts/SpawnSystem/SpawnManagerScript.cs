@@ -22,7 +22,7 @@ public class SpawnManagerScript : MonoBehaviour {
 
 	//calculation
 	public bool isHorizontal;
-	public Transform target; //change to waypoints
+	//public Transform target; //change to waypoints
 	public float prevDistance;
 	public float distance;
 	public Vector3 spawnPoint;
@@ -147,19 +147,68 @@ public class SpawnManagerScript : MonoBehaviour {
 		return range;
 	}
 
+//	public void CalculateSpawnPoint()
+//	{
+//		spawnPoint = Vector3.zero;
+//		target = WaypointManagerScript.Instance.tracePlayerNodes[WaypointManagerScript.Instance.tracePlayerNodes.Count-1].transform;
+//		distance = Vector3.Distance(player.position,target.transform.position);
+//		if(distance == spawn_Data.spawnDistance)
+//		{
+//			spawnPoint = target.transform.position;
+//			currentSpawnIndex = WaypointManagerScript.Instance.tracePlayerNodes.Count-1;
+//		}
+//		else if (distance > spawn_Data.spawnDistance)
+//		{
+//			spawnPoint = Vector3.Lerp(player.position,target.transform.position,CalculateRange(player.position,target.transform.position,spawn_Data.spawnDistance));
+//			currentSpawnIndex = WaypointManagerScript.Instance.tracePlayerNodes.Count-1;
+//		}
+//		else if(distance < spawn_Data.spawnDistance)
+//		{
+//			for(int i = WaypointManagerScript.Instance.tracePlayerNodes.Count-2; i >= 0; i--)
+//			{
+//				prevDistance = distance;
+//				distance += Vector3.Distance(target.transform.position,WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position);
+//				if(distance >= spawn_Data.spawnDistance)
+//				{
+//					if(distance == spawn_Data.spawnDistance)
+//					{
+//						spawnPoint = WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position;
+//						currentSpawnIndex = i;
+//						break;
+//					}
+//					else if(distance > spawn_Data.spawnDistance)
+//					{
+//						distance = spawn_Data.spawnDistance - prevDistance;
+//						spawnPoint = Vector3.Lerp(target.transform.position,WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position,CalculateRange(target.transform.position,WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position,distance));
+//						currentSpawnIndex = i;
+//						break;
+//					}
+//				}
+//				else
+//				{
+//					target = WaypointManagerScript.Instance.tracePlayerNodes[i].transform;
+//				}
+//			}
+//
+//		}
+//	}
+
 	public void CalculateSpawnPoint()
 	{
 		spawnPoint = Vector3.zero;
-		target = WaypointManagerScript.Instance.tracePlayerNodes[WaypointManagerScript.Instance.tracePlayerNodes.Count-1].transform;
-		distance = Vector3.Distance(player.position,target.transform.position);
+		Vector3 target = WaypointManagerScript.Instance.tracePlayerNodes[WaypointManagerScript.Instance.tracePlayerNodes.Count-1].transform.position;
+		Vector3 playerPos = player.position;
+		playerPos.y = 0f;
+		target.y = 0f;
+		distance = Vector3.Distance(playerPos,target);
 		if(distance == spawn_Data.spawnDistance)
 		{
-			spawnPoint = target.transform.position;
+			spawnPoint = target;
 			currentSpawnIndex = WaypointManagerScript.Instance.tracePlayerNodes.Count-1;
 		}
 		else if (distance > spawn_Data.spawnDistance)
 		{
-			spawnPoint = Vector3.Lerp(player.position,target.transform.position,CalculateRange(player.position,target.transform.position,spawn_Data.spawnDistance));
+			spawnPoint = Vector3.Lerp(playerPos,target,CalculateRange(playerPos,target,spawn_Data.spawnDistance));
 			currentSpawnIndex = WaypointManagerScript.Instance.tracePlayerNodes.Count-1;
 		}
 		else if(distance < spawn_Data.spawnDistance)
@@ -167,30 +216,34 @@ public class SpawnManagerScript : MonoBehaviour {
 			for(int i = WaypointManagerScript.Instance.tracePlayerNodes.Count-2; i >= 0; i--)
 			{
 				prevDistance = distance;
-				distance += Vector3.Distance(target.transform.position,WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position);
+				Vector3 target2 = WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position;
+				target2.y = 0;
+				distance += Vector3.Distance(target,target2);
 				if(distance >= spawn_Data.spawnDistance)
 				{
 					if(distance == spawn_Data.spawnDistance)
 					{
-						spawnPoint = WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position;
+						spawnPoint = target2;
 						currentSpawnIndex = i;
 						break;
 					}
 					else if(distance > spawn_Data.spawnDistance)
 					{
 						distance = spawn_Data.spawnDistance - prevDistance;
-						spawnPoint = Vector3.Lerp(target.transform.position,WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position,CalculateRange(target.transform.position,WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position,distance));
+						spawnPoint = Vector3.Lerp(target,target2,CalculateRange(target,target2,distance));
 						currentSpawnIndex = i;
 						break;
 					}
 				}
 				else
 				{
-					target = WaypointManagerScript.Instance.tracePlayerNodes[i].transform;
+					target = WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position;
+					target.y = 0;
 				}
 			}
 
 		}
+		spawnPoint.y += 2.0f;
 	}
 
 	public void Spawn(string name)
