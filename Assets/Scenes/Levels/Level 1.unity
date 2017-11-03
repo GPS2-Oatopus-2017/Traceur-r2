@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 367491234}
-  m_IndirectSpecularColor: {r: 0.17803514, g: 0.15211931, b: 0.11308732, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -806,11 +806,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e80c18a5ced881942bdf880e707d07ec, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &34168634 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1985219180281790, guid: e80c18a5ced881942bdf880e707d07ec,
-    type: 2}
-  m_PrefabInternal: {fileID: 34168633}
 --- !u!1 &41408881
 GameObject:
   m_ObjectHideFlags: 0
@@ -20512,7 +20507,7 @@ Prefab:
         type: 2}
       propertyPath: fence
       value: 
-      objectReference: {fileID: 278247600}
+      objectReference: {fileID: 780686202}
     - target: {fileID: 4636509489323684, guid: e25817b833736c04caa7190fff62a363, type: 2}
       propertyPath: m_LocalPosition.x
       value: 5.56
@@ -20593,6 +20588,36 @@ Prefab:
       propertyPath: otherLever
       value: 
       objectReference: {fileID: 1970704656}
+    - target: {fileID: 4701967629010046, guid: e25817b833736c04caa7190fff62a363, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4701967629010046, guid: e25817b833736c04caa7190fff62a363, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4701967629010046, guid: e25817b833736c04caa7190fff62a363, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4701967629010046, guid: e25817b833736c04caa7190fff62a363, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114553768215445264, guid: e25817b833736c04caa7190fff62a363,
+        type: 2}
+      propertyPath: otherSwitch
+      value: 
+      objectReference: {fileID: 1465904216}
+    - target: {fileID: 1659954888169454, guid: e25817b833736c04caa7190fff62a363, type: 2}
+      propertyPath: m_TagString
+      value: InteractableObjects
+      objectReference: {fileID: 0}
+    - target: {fileID: 114958592601383156, guid: e25817b833736c04caa7190fff62a363,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65596795000409448, guid: e25817b833736c04caa7190fff62a363, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e25817b833736c04caa7190fff62a363, type: 2}
@@ -22656,6 +22681,10 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1048672645696052, guid: abae2e33037f7d04f8292e8849501ea5, type: 2}
+      propertyPath: m_TagString
+      value: InteractableObjects
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abae2e33037f7d04f8292e8849501ea5, type: 2}
   m_IsPrefabParent: 0
@@ -23690,7 +23719,7 @@ Prefab:
         type: 2}
       propertyPath: fence
       value: 
-      objectReference: {fileID: 34168634}
+      objectReference: {fileID: 2100937194}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
       value: 5.64
@@ -23781,6 +23810,11 @@ Prefab:
       propertyPath: otherLever
       value: 
       objectReference: {fileID: 489428764}
+    - target: {fileID: 114553768215445264, guid: e25817b833736c04caa7190fff62a363,
+        type: 2}
+      propertyPath: otherSwitch
+      value: 
+      objectReference: {fileID: 1499537828}
     m_RemovedComponents:
     - {fileID: 65596795000409448, guid: e25817b833736c04caa7190fff62a363, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e25817b833736c04caa7190fff62a363, type: 2}
@@ -25275,7 +25309,7 @@ Prefab:
         type: 2}
       propertyPath: fence
       value: 
-      objectReference: {fileID: 34168634}
+      objectReference: {fileID: 2100937194}
     - target: {fileID: 1659954888169454, guid: e25817b833736c04caa7190fff62a363, type: 2}
       propertyPath: m_Name
       value: Switch (3)
@@ -25355,6 +25389,15 @@ Prefab:
       propertyPath: otherLever
       value: 
       objectReference: {fileID: 65940501}
+    - target: {fileID: 1659954888169454, guid: e25817b833736c04caa7190fff62a363, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114553768215445264, guid: e25817b833736c04caa7190fff62a363,
+        type: 2}
+      propertyPath: otherSwitch
+      value: 
+      objectReference: {fileID: 832672270}
     m_RemovedComponents:
     - {fileID: 65596795000409448, guid: e25817b833736c04caa7190fff62a363, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e25817b833736c04caa7190fff62a363, type: 2}
@@ -26332,6 +26375,10 @@ Prefab:
     - target: {fileID: 1048672645696052, guid: abae2e33037f7d04f8292e8849501ea5, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048672645696052, guid: abae2e33037f7d04f8292e8849501ea5, type: 2}
+      propertyPath: m_TagString
+      value: InteractableObjects
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abae2e33037f7d04f8292e8849501ea5, type: 2}
@@ -28309,6 +28356,10 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1048672645696052, guid: abae2e33037f7d04f8292e8849501ea5, type: 2}
+      propertyPath: m_TagString
+      value: InteractableObjects
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abae2e33037f7d04f8292e8849501ea5, type: 2}
   m_IsPrefabParent: 0
@@ -28597,7 +28648,7 @@ Prefab:
         type: 2}
       propertyPath: fence
       value: 
-      objectReference: {fileID: 278247600}
+      objectReference: {fileID: 780686202}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
       value: 5.68
@@ -28688,6 +28739,11 @@ Prefab:
       propertyPath: otherLever
       value: 
       objectReference: {fileID: 617552196}
+    - target: {fileID: 114553768215445264, guid: e25817b833736c04caa7190fff62a363,
+        type: 2}
+      propertyPath: otherSwitch
+      value: 
+      objectReference: {fileID: 1566055520}
     m_RemovedComponents:
     - {fileID: 65596795000409448, guid: e25817b833736c04caa7190fff62a363, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e25817b833736c04caa7190fff62a363, type: 2}
@@ -29720,6 +29776,10 @@ Prefab:
     - target: {fileID: 1048672645696052, guid: abae2e33037f7d04f8292e8849501ea5, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048672645696052, guid: abae2e33037f7d04f8292e8849501ea5, type: 2}
+      propertyPath: m_TagString
+      value: InteractableObjects
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abae2e33037f7d04f8292e8849501ea5, type: 2}

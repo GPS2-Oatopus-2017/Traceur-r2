@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23141613661448470}
   m_Layer: 0
   m_Name: Cylinder001
-  m_TagString: Untagged
+  m_TagString: SwitchLevel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,8 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3e930106d45b541bb105dafa0e80fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anotherLevel: {fileID: 0}
-  level: {fileID: 1478661939296812}
+  otherSwitch: {fileID: 0}
   fence: {fileID: 0}
   isOn: 0
 --- !u!114 &114958592601383156
@@ -293,3 +292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f633ca46917ec7a4790751ca8ed85d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowTime: 0.25
+  originalTime: 0
+  nearSwitch: 0
+  switchToLook: {fileID: 0}
+  lookDuration: 2
+  lookCounter: 0

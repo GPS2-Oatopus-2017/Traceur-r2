@@ -56,13 +56,43 @@ public class InteractScript : MonoBehaviour
 	void FixedUpdate ()
 	{
 		//CheckInteract ();
-		CheckDoor ();
-		CheckSwitch ();
+		Interaction();
+		//CheckDoor ();
+		//CheckSwitch ();
 		CheckPushable ();
 	}
 
 	//When left mouse button is pressed, shoot out a ray cast from screen to pointer.//
 	//If the player is within the radius of the object, it will go towards it.//
+
+	void Interaction()
+	{
+		if ((Input.touchCount > 0) && (Input.GetTouch (0).phase == TouchPhase.Began)) {
+			Ray raycast = Camera.main.ScreenPointToRay (Input.GetTouch (0).position);
+			RaycastHit raycastHit;
+
+			if (Physics.Raycast (raycast, out raycastHit)) {
+				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
+					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable>();
+					interact.Interated();
+				}
+			}
+		}
+		//* For Testing Only -- Mouse Input
+		if (Input.GetMouseButtonDown (0)) {
+			Ray raycast = Camera.main.ScreenPointToRay (Input.mousePosition);
+			RaycastHit raycastHit;
+
+			if (Physics.Raycast (raycast, out raycastHit)) {
+				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
+					Debug.Log(Vector3.Distance(this.transform.position,hit.transform.position));
+					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable>();
+					interact.Interated();
+				}
+			}
+		}
+		//* To Be Deleted When Testing Is Completed
+	}
 
 	void CheckInteract ()
 	{

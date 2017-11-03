@@ -2,7 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MotionSensorScript : MonoBehaviour {
+public class MotionSensorScript : MonoBehaviour,Iinteractable 
+{
+	public void Interated()
+	{
+		if(isActive)
+			isActive = false;
+	}
 
 	public TrapData motionSensor_Data;
 
@@ -26,7 +32,7 @@ public class MotionSensorScript : MonoBehaviour {
 
 	void Update()
 	{
-		checkIfTapped();
+		//checkIfTapped();
 		motionDetectorMainFunctions();
 
 		distanceOfPlayer = Vector3.Distance(transform.position, player.transform.position);

@@ -81,7 +81,7 @@ public class SlowDownTimeScript : MonoBehaviour
 	{
 		if (nearSwitch) {
 
-			Debug.Log ("LOOKING AT OBJECT: " + switchToLook);
+//			Debug.Log ("LOOKING AT OBJECT: " + switchToLook); !!
 
 			lookCounter += Time.deltaTime;
 

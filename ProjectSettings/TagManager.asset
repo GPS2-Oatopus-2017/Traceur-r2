@@ -18,6 +18,8 @@ TagManager:
   - SoundManager
   - Enemy
   - Pushable
+  - SwitchLevel
+  - InteractableObjects
   layers:
   - Default
   - TransparentFX
