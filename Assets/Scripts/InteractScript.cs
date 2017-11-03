@@ -50,13 +50,12 @@ public class InteractScript : MonoBehaviour
 
 	void Update ()
 	{
-		
+		Interaction();
 	}
 
 	void FixedUpdate ()
 	{
 		//CheckInteract ();
-		Interaction();
 		//CheckDoor ();
 		//CheckSwitch ();
 		CheckPushable ();
@@ -82,10 +81,8 @@ public class InteractScript : MonoBehaviour
 		if (Input.GetMouseButtonDown (0)) {
 			Ray raycast = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit raycastHit;
-
 			if (Physics.Raycast (raycast, out raycastHit)) {
 				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
-					Debug.Log(Vector3.Distance(this.transform.position,hit.transform.position));
 					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable>();
 					interact.Interated();
 				}
