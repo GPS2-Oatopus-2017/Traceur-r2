@@ -24,4 +24,25 @@ public class GameManagerScript : MonoBehaviour
 		if(playerGO) player = playerGO.GetComponent<PlayerCoreController>();
 		else Debug.LogError("GameManager: Unable to find Player!");
 	}
+
+	void Update()
+	{
+		CheckWinLoseConditions();
+	}
+
+	[Header("WinLoseConditions")]
+	public TimerScript timerScript;
+
+	void CheckWinLoseConditions () 
+	{
+		if(timerScript.totalTimeLevel1 > 0) return;// After count-down timer reaches "0" change scene to [LoseScene]
+		if(player.status.health > 0) return; //After character health reaches "0" change scene to [LoseScene]
+
+		DialogueManager.Instance.LoseSceneDialogue();
+
+		if(DialogueManager.Instance.loseIndex >= DialogueManager.Instance.loseDialogue.Count)
+		{
+			GetComponent<ChangeSceneScript>().ChangeScenes(1);
+		}
+	}
 }
