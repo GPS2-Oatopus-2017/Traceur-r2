@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5bcbb9499ae4d4a821959d0e07ad9b, type: 3}
   m_Name: Surveillance_Drone
   m_EditorClassIdentifier: 
-  movementSpeed: 14
+  movementSpeed: 11.5
   turnSpeed: 8
-  attackCount: 1
-  attackSpeed: 8
-  taserSlow: -1
-  taserSlowDuration: 3
+  attackCount: 0
+  attackSpeed: 0
+  taserSlow: 0
+  taserSlowDuration: 0
   damage: 0
   alertDistance: 25
   safeDistance: 75

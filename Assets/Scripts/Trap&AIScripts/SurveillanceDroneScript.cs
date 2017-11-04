@@ -7,25 +7,20 @@ public class SurveillanceDroneScript : MonoBehaviour {
 	public EnemyData surveillance_Droid;
 	public GameObject player;
 	public Vector3 chasingPosition;
-
-	//public float movementSpeed = 14.0f;
 	public float turnSpeed = 8.0f;
-
-	//public float alertDistance = 18.0f;
-	//public float safeDistance = 50.0f;
-
 	public float hoverForce = 90.0f;
 	public float hoverHeight = 3.5f;
 
 	private Rigidbody surveillanceDroneRigidbody;
 
 	public bool hasBeenDetected;
-	public bool isSpawned; // If TRUE, it is a spawned SD, if FALSE, it is a SD in the map *use for player detection*
+	public bool isSpawned; // If TRUE, it is a spawned SD, if FALSE, it is a SD in the map - *Used for player detection*
 	private bool hasCalculatedPlayerPosition;
 
 	public int currentPoint = 0; 
 
-	public float distanceOfPlayer;
+	//public float distanceOfPlayer;
+
 
 	void Awake()
 	{
@@ -50,7 +45,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		surveillanceDroneChaseFunctions();
 		surveillanceDroneMainFunctions();
 
-		distanceOfPlayer = Vector3.Distance(transform.position, player.transform.position);
+		//distanceOfPlayer = Vector3.Distance(transform.position, player.transform.position);
 	}
 
 
@@ -69,14 +64,12 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 		if(isSpawned == true)
 		{
-			//if(Vector3.Distance(transform.position, player.transform.position) <= alertDistance && WaypointManagerScript.Instance.tracePlayerNodes.Count > 0)
 			if(Vector3.Distance(transform.position, player.transform.position) <= surveillance_Droid.alertDistance && WaypointManagerScript.Instance.tracePlayerNodes.Count > 0)
 			{
 				hasBeenDetected = true;
 			}
-
-			//if(ReputationManagerScript.Instance.currentRep == 0 && Vector3.Distance(transform.position, player.transform.position) >= safeDistance) // Can possibly be changed to be despawned when out of Player's sight
-			if(ReputationManagerScript.Instance.currentRep == 0 && Vector3.Distance(transform.position, player.transform.position) >= surveillance_Droid.safeDistance)
+				
+			if(ReputationManagerScript.Instance.currentRep == 0 && Vector3.Distance(transform.position, player.transform.position) >= surveillance_Droid.safeDistance) // Can possibly be changed to be despawned when out of Player's sight
 			{
 				PoolManagerScript.Instance.Despawn(this.gameObject);
 				TimelineScript.Instance.DestroyEnemyIcon(this.gameObject.name, surveillance_Droid.spawnHDAmount);
@@ -87,7 +80,6 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	void playerDetection()
 	{
-		//if(Vector3.Distance(transform.position, player.transform.position) <= alertDistance && WaypointManagerScript.Instance.tracePlayerNodes.Count > 0)
 		if(Vector3.Distance(transform.position, player.transform.position) <= surveillance_Droid.alertDistance && WaypointManagerScript.Instance.tracePlayerNodes.Count > 0)
 		{
 			hasBeenDetected = true;
@@ -101,10 +93,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 			}
 
 			// SpawnFunction
-			//SpawnManagerScript.Instance.CalculateSpawnPoint();
-			//currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
 			SpawnManagerScript.Instance.Spawn("Hunting_Droid");
-			//PoolManagerScript.Instance.Spawn("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity);
 
 			if(ReputationManagerScript.Instance.currentRep == 0)
 			{
@@ -142,7 +131,6 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 		if(hasBeenDetected == true)
 		{
-			//if(Vector3.Distance(transform.position, player.transform.position) >= safeDistance)
 			if(Vector3.Distance(transform.position, player.transform.position) >= surveillance_Droid.safeDistance)
 			{
 				hasBeenDetected = false;
@@ -151,7 +139,6 @@ public class SurveillanceDroneScript : MonoBehaviour {
 			}
 			else
 			{
-				//transform.position += transform.forward * movementSpeed * Time.deltaTime;
 				transform.position += transform.forward * surveillance_Droid.movementSpeed * Time.deltaTime;
 			}
 		}

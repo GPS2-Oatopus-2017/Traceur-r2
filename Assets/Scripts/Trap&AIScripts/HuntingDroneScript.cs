@@ -8,23 +8,14 @@ public class HuntingDroneScript : MonoBehaviour {
 	public GameObject player;
 	public GameObject enemyAttackIndicator;
 	public Vector3 chasingPosition;
-
 	private Vector3 target;
 	public float targetOffset;
-
-//	public float movementSpeed = 12.5f;
-//	public float turnSpeed = 4.0f;
-//
-//	public float safeDistance = 50.0f;
-
 	public float hoverForce = 90.0f;
 	public float hoverHeight = 3.5f;
-
 	private Rigidbody huntingDroneRigidbody;
 	public GameObject bullet;
 	public Transform droneGunHardPointUp;
 	public Transform droneGunHardPointDown;
-	//public float fireRate = 4.0f;
 	public float fireIndication = 1.5f;
 	private float nextFire;
 
@@ -32,7 +23,8 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	public int currentPoint = 0;
 
-	public float distanceOfPlayer;
+	//public float distanceOfPlayer;
+
 
 	void Awake()
 	{
@@ -50,7 +42,6 @@ public class HuntingDroneScript : MonoBehaviour {
 		float randNum = Random.Range(3,6);
 		hoverHeight = randNum;
 
-		//nextFire = fireRate;
 		nextFire = hunting_Drone.attackSpeed;
 	}
 
@@ -66,7 +57,7 @@ public class HuntingDroneScript : MonoBehaviour {
 			TimelineScript.Instance.DestroyEnemyIcon(this.gameObject.name, 1);
 		}
 
-		distanceOfPlayer = Vector3.Distance(transform.position, player.transform.position);
+		//distanceOfPlayer = Vector3.Distance(transform.position, player.transform.position);
 	}
 
 
@@ -100,9 +91,9 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	void huntingDroneMainFunctions()
 	{
+		nextFire -= Time.deltaTime;
 		transform.LookAt(chasingPosition);
 
-		//if(Vector3.Distance(transform.position, player.transform.position) >= safeDistance)
 		if(Vector3.Distance(transform.position, player.transform.position) >= hunting_Drone.safeDistance)
 		{
 			isWithinRange = false;
@@ -113,8 +104,6 @@ public class HuntingDroneScript : MonoBehaviour {
 		else
 		{
 			isWithinRange = true;
-
-			//transform.position += transform.forward * movementSpeed * Time.deltaTime;
 			transform.position += transform.forward * hunting_Drone.movementSpeed * Time.deltaTime;
 		}
 			
@@ -122,25 +111,30 @@ public class HuntingDroneScript : MonoBehaviour {
 		{
 			if(Time.time > fireIndication)
 			{
-				//fireIndication = Time.time + fireRate;
 				fireIndication = Time.time + hunting_Drone.attackSpeed;
 				target = player.transform.position + (player.transform.forward * targetOffset);
 				GameObject indicator = Instantiate(enemyAttackIndicator, new Vector3(target.x, 0.1f, target.z), enemyAttackIndicator.transform.rotation);
 				Destroy(indicator, 2f);
 			}
 
-			if(Time.time > nextFire)
+			if(nextFire <= 0)
 			{
 				int randUpDown = Random.Range(0,2);
-				//nextFire = Time.time + fireRate;
-				nextFire = Time.time + hunting_Drone.attackSpeed;
+				nextFire = hunting_Drone.attackSpeed;
+
 				if(randUpDown == 0)
 				{
-					Instantiate(bullet, droneGunHardPointUp.position, droneGunHardPointUp.rotation); // Shoot from TOP HARDPOINT
+					GameObject newBullet = Instantiate(bullet, droneGunHardPointUp.position, droneGunHardPointUp.rotation); // Shoot from TOP HARDPOINT
+					BulletScript bulletScript = newBullet.GetComponent<BulletScript>();
+					bulletScript.fromTopHardpoint = true;
+					newBullet = null;
 				}
 				else
 				{
-					Instantiate(bullet, droneGunHardPointDown.position, droneGunHardPointDown.rotation); // Shoot from BOTTOM HARDPOINT
+					GameObject newBullet = Instantiate(bullet, droneGunHardPointDown.position, droneGunHardPointDown.rotation); // Shoot from BOTTOM HARDPOINT
+					BulletScript bulletScript = newBullet.GetComponent<BulletScript>();
+					bulletScript.fromTopHardpoint = false;
+					newBullet = null;
 				}
 			}
 		}
