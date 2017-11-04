@@ -11,6 +11,14 @@ public class DialogueManager : MonoBehaviour
     public int loseIndex = 0; // Lose Scene transition dialogue count.
     public int winIndex = 0; // Win Scene transition dialogue count.
 
+    [Header("Beginning Scene Settings")]
+    public Image startingDialogue;
+    public float fadeTime;
+    Color colorToFadeTo;
+    public Text beginningText;
+    public GameObject beginningDialogue;
+    public float nextLetter;
+
     [Header("Text Settings")]
     public Text dialogue;   
     public Text countDown;
@@ -46,6 +54,7 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine("TypeEffect");
         timer = showTimer; //Set Timers to desired amount.
         cdTimer = setTime;
 
@@ -92,7 +101,28 @@ public class DialogueManager : MonoBehaviour
 
     public void BeginningSceneDialogue() // Displays Dialogue in the beginning of the game 
     {
-        dialogueBox.SetActive(true);
+        beginningDialogue.SetActive(true);
+
+        if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) && bsIndex <= beginningScene.Count )
+        {
+            beginningText.text = " ";
+            StopCoroutine("TypeEffect"); // Stop ongoing coroutine.
+            beginningScene.RemoveAt(bsIndex);
+            StartCoroutine("TypeEffect"); // Start typing effect.
+        }
+
+        if(bsIndex >= beginningScene.Count) //Once beginning dialogue is done, :
+        {
+            beginningDialogue.SetActive(false);
+            colorToFadeTo = new Color(1f, 1f, 1f, 0f);
+            startingDialogue.CrossFadeColor(colorToFadeTo, fadeTime, true, true);
+
+            initDialogue = true; //Set initialDialogue boolean to true.
+            startCD = true; //Start counting-down.
+        }
+
+        // Previous Beginning Dialogue System.
+        /*dialogueBox.SetActive(true);
         ttcText.SetActive(true);
         dialogue.text = beginningScene[bsIndex];
 
@@ -114,9 +144,12 @@ public class DialogueManager : MonoBehaviour
         if(bsIndex >= beginningScene.Count) //Once beginning dialogue is done, :
         {
             dialogueBox.SetActive(false); //Dialogue Box UI is disabled.
+            colorToFadeTo = new Color(1f, 1f, 1f, 0f);
+            startingDialogue.CrossFadeColor(colorToFadeTo, fadeTime, true, true);
+
             initDialogue = true; //Set initialDialogue boolean to true.
             startCD = true; //Start counting-down.
-        }
+        }*/
     }
 
     public void WinSceneDialogue() // Call this function at win scene, may not be nessecary if we transition to win scene.
@@ -181,6 +214,18 @@ public class DialogueManager : MonoBehaviour
 			GameManagerScript.Instance.player.StartRunning();
 			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_LEVEL1);
 			timerScript.hasStarted = true;
+        }
+    }
+
+    IEnumerator TypeEffect() // Simulate typing effect
+    {
+        foreach(char letter in beginningScene[bsIndex].ToCharArray()) // Get each character from the dialogues written in Inspector.
+        {
+            beginningText.text += letter; // Show next Text.
+
+            //Can put sound effect for text typing here
+
+            yield return new WaitForSeconds(nextLetter); // Delay between each text.
         }
     }
 }
