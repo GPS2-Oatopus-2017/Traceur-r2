@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class ElectricWallScript : MonoBehaviour 
 {
-    [Header("Electric Wall Settings")]
 	public TrapData electricFence_Data;
-  //  public float slowDuration;
     public float slowTimer;
     public float speedReducedValue;
     public GameObject player;
     public bool playerIsSlowed;
 
+
 	void Start() 
 	{
 		player = GameObject.FindWithTag("Player");
-      //  slowTimer = slowDuration; // Set Countdown timer to the duration player is slowed
-		slowTimer = electricFence_Data.slowDuration;
+		slowTimer = electricFence_Data.slowDuration; // Set Countdown timer to the duration player is slowed
         playerIsSlowed = false; // Boolean indicating if player is slowed
 	}
 
@@ -62,7 +60,7 @@ public class ElectricWallScript : MonoBehaviour
 				ReputationManagerScript.Instance.deadHD++;
 			}
 
-			Debug.Log("enemy despwan");
+			Debug.Log("Enemy Despawned");
 		}
     }
 }

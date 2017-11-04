@@ -73,7 +73,7 @@ public class InteractScript : MonoBehaviour
 			if (Physics.Raycast (raycast, out raycastHit)) {
 				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
 					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable>();
-					interact.Interated();
+					interact.Interacted();
 				}
 			}
 		}
@@ -84,7 +84,7 @@ public class InteractScript : MonoBehaviour
 			if (Physics.Raycast (raycast, out raycastHit)) {
 				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
 					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable>();
-					interact.Interated();
+					interact.Interacted();
 				}
 			}
 		}

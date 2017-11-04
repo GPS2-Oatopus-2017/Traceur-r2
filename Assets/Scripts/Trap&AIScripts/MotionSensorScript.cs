@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MotionSensorScript : MonoBehaviour,Iinteractable 
+public class MotionSensorScript : MonoBehaviour, Iinteractable 
 {
-	public void Interated()
+	public void Interacted()
 	{
-		if(isActive)
+		if(isActive == true)
+		{
 			isActive = false;
+		}	
 	}
 
 	public TrapData motionSensor_Data;
 
 	public GameObject player;
 	public bool isActive;
-	public Material mat;
-	//public float alertDistance = 12;
-	public float distanceOfPlayer;
+	public Renderer rend;
+
+	//public float distanceOfPlayer;
+
 
 	void Awake()
 	{
@@ -27,6 +30,10 @@ public class MotionSensorScript : MonoBehaviour,Iinteractable
 	void Start() 
 	{
 		isActive = true;
+
+		//Temporary colours until animation or finalised textures are given
+		rend = GetComponent<Renderer>();
+		rend.material.color = Color.red;
 	}
 
 
@@ -35,45 +42,45 @@ public class MotionSensorScript : MonoBehaviour,Iinteractable
 		//checkIfTapped();
 		motionDetectorMainFunctions();
 
-		distanceOfPlayer = Vector3.Distance(transform.position, player.transform.position);
+		//distanceOfPlayer = Vector3.Distance(transform.position, player.transform.position);
 	}
 
 
-	void checkIfTapped()
-	{
-		if(isActive == true)
-		{
-			if((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
-			{
-				Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-				RaycastHit raycastHit;
-
-				if(Physics.Raycast(raycast, out raycastHit))
-				{
-					if(raycastHit.collider.CompareTag("TrapTag"))
-					{
-						isActive = false;
-					}
-				}
-			}
-
-			//* For Testing Only -- Mouse Input
-			if(Input.GetMouseButtonDown(0))
-			{
-				Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
-				RaycastHit raycastHit;
-
-				if(Physics.Raycast(raycast, out raycastHit))
-				{
-					if(raycastHit.collider.CompareTag("TrapTag"))
-					{
-						isActive = false;
-					}
-				}
-			}
-			//* To Be Deleted When Testing Is Completed
-		}
-	}
+//	void checkIfTapped()
+//	{
+//		if(isActive == true)
+//		{
+//			if((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
+//			{
+//				Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+//				RaycastHit raycastHit;
+//
+//				if(Physics.Raycast(raycast, out raycastHit))
+//				{
+//					if(raycastHit.collider.CompareTag("TrapTag"))
+//					{
+//						isActive = false;
+//					}
+//				}
+//			}
+//
+//			//* For Testing Only -- Mouse Input
+//			if(Input.GetMouseButtonDown(0))
+//			{
+//				Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
+//				RaycastHit raycastHit;
+//
+//				if(Physics.Raycast(raycast, out raycastHit))
+//				{
+//					if(raycastHit.collider.CompareTag("TrapTag"))
+//					{
+//						isActive = false;
+//					}
+//				}
+//			}
+//			//* To Be Deleted When Testing Is Completed
+//		}
+//	}
 
 
 	void motionDetectorMainFunctions()
@@ -93,7 +100,7 @@ public class MotionSensorScript : MonoBehaviour,Iinteractable
 		}
 		else if(isActive == false)
 		{
-			GetComponent<MeshRenderer>().material = mat;
+			rend.material.color = Color.green;
 		}
 	}
 }

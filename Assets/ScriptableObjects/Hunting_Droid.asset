@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5bcbb9499ae4d4a821959d0e07ad9b, type: 3}
   m_Name: Hunting_Droid
   m_EditorClassIdentifier: 
-  movementSpeed: 12.5
+  movementSpeed: 9.5
   turnSpeed: 4
   attackCount: 1
   attackSpeed: 4
