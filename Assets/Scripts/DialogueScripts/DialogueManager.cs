@@ -59,8 +59,14 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         StartCoroutine("TypeEffect");
-        timer = showTimer; //Set Timers to desired amount.
+
         cdTimer = setTime;
+        timer = showTimer; // Set all First Encounter timers to desired set amount.
+
+//        for(int i = 0; i < timer.Length; i++)
+//        {
+//            timer[i] = showTimer; // Set all First Encounter timers to desired set amount.
+//        }
 
         for(int i = 0; i < objectSeen.Length; i++) // Have player ever seen these objects? No. So all booleans are set to false;
         {
