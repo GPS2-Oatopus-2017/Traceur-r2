@@ -18,6 +18,8 @@ public class DialogueManager : MonoBehaviour
     public Text beginningText;
     public GameObject beginningDialogue;
     public float nextLetter;
+    public float speed;
+    public Transform target;
 
     [Header("Text Settings")]
     public Text dialogue;   
@@ -113,43 +115,20 @@ public class DialogueManager : MonoBehaviour
 
         if(bsIndex >= beginningScene.Count) //Once beginning dialogue is done, :
         {
-            beginningDialogue.SetActive(false);
-            colorToFadeTo = new Color(1f, 1f, 1f, 0f);
+            /*colorToFadeTo = new Color(1f, 1f, 1f, 0f);
             startingDialogue.CrossFadeColor(colorToFadeTo, fadeTime, true, true);
+            fadeTime -= Time.deltaTime;*/
 
-            initDialogue = true; //Set initialDialogue boolean to true.
-            startCD = true; //Start counting-down.
+            beginningDialogue.transform.position = Vector3.MoveTowards(beginningDialogue.transform.position, target.position, speed * Time.deltaTime);
+
+            if(beginningDialogue.transform.position.y == target.transform.position.y) // After beginning scene has faded, start the game.
+            {
+                beginningDialogue.SetActive(false);
+
+                initDialogue = true; //Set initialDialogue boolean to true.
+                startCD = true; //Start counting-down.
+            }
         }
-
-        // Previous Beginning Dialogue System.
-        /*dialogueBox.SetActive(true);
-        ttcText.SetActive(true);
-        dialogue.text = beginningScene[bsIndex];
-
-		if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) && bsIndex <= beginningScene.Count )
-        {
-            bsIndex++;
-        }
-
-        if(bsIndex == 1)
-        {
-            popUps[0].SetActive(true); //Enable TimeLine Prefab.
-        }
-
-        if(bsIndex == 2)
-        {
-            popUps[1].SetActive(true); //Enable HealthBar/Reputation Prefab.   
-        }
-
-        if(bsIndex >= beginningScene.Count) //Once beginning dialogue is done, :
-        {
-            dialogueBox.SetActive(false); //Dialogue Box UI is disabled.
-            colorToFadeTo = new Color(1f, 1f, 1f, 0f);
-            startingDialogue.CrossFadeColor(colorToFadeTo, fadeTime, true, true);
-
-            initDialogue = true; //Set initialDialogue boolean to true.
-            startCD = true; //Start counting-down.
-        }*/
     }
 
     public void WinSceneDialogue() // Call this function at win scene, may not be nessecary if we transition to win scene.
@@ -182,7 +161,7 @@ public class DialogueManager : MonoBehaviour
         for(int i = 0; i < objectSeen.Length; i++)
         {
             if(FirstEncounterScript.Instance.seenObj[i] == true && objectSeen[i] == false) //seenObj = Is player currently looking at an object?
-            {                                                                              //objectSeen = Have player already seen this object before?
+            {
                 dialogueBox.SetActive(true); // Enable dialogue box.
                 dialogue.text = firstEncounter[feIndex + i]; //Displays text based on which enemy it is (feIndex);
                 initTimer = true;  

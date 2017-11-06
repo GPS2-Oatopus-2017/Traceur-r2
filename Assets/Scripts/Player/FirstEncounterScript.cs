@@ -65,42 +65,6 @@ public class FirstEncounterScript : MonoBehaviour
 
     public void ObjectEncounter()
     {
-        for(int i = 0; i < turn.Count; i++)
-        {
-            if(Vector3.Distance(transform.position, turn[i].transform.position)  <= distanceFromObject[5] && seenObj[5] == false)
-            {
-                activateTimer = true;
-                seenObj[5] = true; // Player is currently withing range of an obj.
-                dirIndicator.SetActive(true);
-            }
-        }
-
-        for(int i = 0; i < lowObstacle.Count; i++)
-        {
-            // Calculates distance of player and obj and decides if it is in range. 
-            if (Vector3.Distance(transform.position, lowObstacle[i].transform.position)  <= distanceFromObject[6] && seenObj[6] == false)
-            {
-                seenObj[6] = true; // Player is currently withing range of an obj.
-
-                // Highlight that particular object
-                defaultMat= lowObstacle[i].transform.GetComponentInChildren<MeshRenderer>().material; // Set objects' default material to it's current material.
-                lowObstacle[i].transform.GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
-            }
-        }
-
-        for(int i = 0; i < highObstacle.Count; i++)
-        {
-            // Calculates distance of player and obj and decides if it is in range. 
-            if (Vector3.Distance(transform.position, highObstacle[i].transform.position)  <= distanceFromObject[7] && seenObj[7] == false)
-            {
-                seenObj[7] = true; // Player is currently withing range of an obj.
-
-                // Highlight that particular object
-                defaultMat= highObstacle[i].transform.GetComponentInChildren<MeshRenderer>().material; // Set objects' default material to it's current material.
-                highObstacle[i].transform.GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
-            }
-        }
-
         for(int i = 0; i < surveillanceDrones.Count; i++)
 		{
             // Calculates distance of player and obj and decides if it is in range. 
@@ -150,8 +114,14 @@ public class FirstEncounterScript : MonoBehaviour
                 seenObj[3] = true;
 
                 // Highlight that particular object
-                defaultMat= electricFences[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-                electricFences[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+                List<MeshRenderer> childRenderer2 = new List<MeshRenderer>();
+
+                electricFences[i].GetComponentsInChildren<MeshRenderer>(childRenderer2);
+
+                for(int j = 0; j < childRenderer2.Count; j++)
+                {
+                    childRenderer2[j].material = highlightMat;
+                }
             }
         }
 
@@ -164,6 +134,42 @@ public class FirstEncounterScript : MonoBehaviour
                 // Highlight that particular object
                 defaultMat= doors[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
                 doors[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+            }
+        }
+
+        for(int i = 0; i < turn.Count; i++)
+        {
+            if(Vector3.Distance(transform.position, turn[i].transform.position)  <= distanceFromObject[5] && seenObj[5] == false)
+            {
+                activateTimer = true;
+                seenObj[5] = true; // Player is currently withing range of an obj.
+                dirIndicator.SetActive(true);
+            }
+        }
+
+        for(int i = 0; i < lowObstacle.Count; i++)
+        {
+            // Calculates distance of player and obj and decides if it is in range. 
+            if (Vector3.Distance(transform.position, lowObstacle[i].transform.position)  <= distanceFromObject[6] && seenObj[6] == false)
+            {
+                seenObj[6] = true; // Player is currently withing range of an obj.
+
+                // Highlight that particular object
+                defaultMat= lowObstacle[i].transform.GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
+                lowObstacle[i].transform.GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+            }
+        }
+
+        for(int i = 0; i < highObstacle.Count; i++)
+        {
+            // Calculates distance of player and obj and decides if it is in range. 
+            if (Vector3.Distance(transform.position, highObstacle[i].transform.position)  <= distanceFromObject[7] && seenObj[7] == false)
+            {
+                seenObj[7] = true; // Player is currently withing range of an obj.
+
+                // Highlight that particular object
+                defaultMat= highObstacle[i].transform.GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
+                highObstacle[i].transform.GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
             }
         }
     }    
