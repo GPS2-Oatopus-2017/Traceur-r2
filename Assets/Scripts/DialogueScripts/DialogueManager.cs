@@ -17,9 +17,11 @@ public class DialogueManager : MonoBehaviour
     Color colorToFadeTo;
     public Text beginningText;
     public GameObject beginningDialogue;
-    public float nextLetter;
     public float speed;
     public Transform target;
+
+    [Range(0.0f, 1.0f)]
+    public float nextLetter;
 
     [Header("Text Settings")]
     public Text dialogue;   
