@@ -17,9 +17,11 @@ public class DialogueManager : MonoBehaviour
     Color colorToFadeTo;
     public Text beginningText;
     public GameObject beginningDialogue;
-    public float nextLetter;
     public float speed;
     public Transform target;
+
+    [Range(0.0f, 1.0f)]
+    public float nextLetter;
 
     [Header("Text Settings")]
     public Text dialogue;   
@@ -57,8 +59,14 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         StartCoroutine("TypeEffect");
-        timer = showTimer; //Set Timers to desired amount.
+
         cdTimer = setTime;
+        timer = showTimer; // Set all First Encounter timers to desired set amount.
+
+//        for(int i = 0; i < timer.Length; i++)
+//        {
+//            timer[i] = showTimer; // Set all First Encounter timers to desired set amount.
+//        }
 
         for(int i = 0; i < objectSeen.Length; i++) // Have player ever seen these objects? No. So all booleans are set to false;
         {
