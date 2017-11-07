@@ -36,6 +36,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject ttcText; // ttc = touch-to-continue
     public GameObject[] popUps; // An array of GameObjects for pop-up UIs (i.e HealthBar, Time-line).
 
+    [Header("SoundList")]
+
     [Header("Timers")]
     public float timer; 
     public float showTimer;
@@ -208,9 +210,10 @@ public class DialogueManager : MonoBehaviour
     {
         foreach(char letter in beginningScene[bsIndex].ToCharArray()) // Get each character from the dialogues written in Inspector.
         {
-            beginningText.text += letter; // Show next Text.
-
             //Can put sound effect for text typing here
+
+
+            beginningText.text += letter; // Show next Text.
 
             yield return new WaitForSeconds(nextLetter); // Delay between each text.
         }
