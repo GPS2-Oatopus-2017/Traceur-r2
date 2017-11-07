@@ -23,15 +23,21 @@ AnimationClip:
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.75
-        value: {x: 0, y: -90, z: -90.00001}
+        time: 0.5
+        value: {x: -20, y: 0, z: 0}
+        inSlope: {x: -80, y: 0, z: 0}
+        outSlope: {x: -80, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: {x: -90, y: 0, z: 90.00001}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: PlayerCamParent/MainCamera
+    path: PlayerCamParent/MainCamera/HandsEmpty
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -43,20 +49,20 @@ AnimationClip:
         tangentMode: 0
       - serializedVersion: 2
         time: 0.5
-        value: {x: -45, y: 45, z: 45}
-        inSlope: {x: -120, y: 0, z: 138.93066}
-        outSlope: {x: -120, y: 0, z: 138.93066}
+        value: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.75
-        value: {x: -90, y: -14.260986, z: 104.198}
+        time: 1
+        value: {x: 0, y: -90.00001, z: -90}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: PlayerCamParent/MainCamera/HandsEmpty
+    path: PlayerCamParent
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -70,25 +76,19 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.5
         value: {x: 0, y: 0.75, z: 0.25}
-        inSlope: {x: 0, y: -0.96000004, z: 1.3333334}
-        outSlope: {x: 0, y: -0.96000004, z: 1.3333334}
+        inSlope: {x: 0, y: -0.81497085, z: 0.9065075}
+        outSlope: {x: 0, y: -0.81497085, z: 0.9065075}
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.75
-        value: {x: 0.07229805, y: 0.28, z: 1.3290596}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 1.25
-        value: {x: 0.07229805, y: 0.28, z: 1.3290596}
+        time: 1
+        value: {x: 0.40727997, y: 0.18502915, z: 0.9065075}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: PlayerCamParent/MainCamera
+    path: PlayerCamParent
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -100,13 +100,13 @@ AnimationClip:
         tangentMode: 0
       - serializedVersion: 2
         time: 0.5
-        value: {x: 0.136, y: -0.46, z: -0.214}
-        inSlope: {x: 0.6946667, y: 0.53333336, z: 0}
-        outSlope: {x: 0.6946667, y: 0.53333336, z: 0}
+        value: {x: 0, y: -0.6758558, z: 0.13111115}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.75
-        value: {x: 0.521, y: -0.2, z: 0.029}
+        time: 1
+        value: {x: 0.315, y: -0.25, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -125,7 +125,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 717470300
+      path: 3691272360
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -139,14 +139,14 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 717470300
+      path: 3792719235
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 14
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3792719235
+      path: 3691272360
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -158,7 +158,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.25
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -190,14 +190,8 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.75
-        value: 0.07229805
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 1.25
-        value: 0.07229805
+        time: 1
+        value: 0.40727997
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -205,7 +199,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: PlayerCamParent/MainCamera
+    path: PlayerCamParent
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -220,18 +214,12 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.5
         value: 0.75
-        inSlope: -0.96000004
-        outSlope: -0.96000004
+        inSlope: -0.81497085
+        outSlope: -0.81497085
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.75
-        value: 0.28
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 1.25
-        value: 0.28
+        time: 1
+        value: 0.18502915
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -239,7 +227,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: PlayerCamParent/MainCamera
+    path: PlayerCamParent
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -254,18 +242,12 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.5
         value: 0.25
-        inSlope: 1.3333334
-        outSlope: 1.3333334
+        inSlope: 0.9065075
+        outSlope: 0.9065075
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.75
-        value: 1.3290596
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 1.25
-        value: 1.3290596
+        time: 1
+        value: 0.9065075
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -273,73 +255,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: PlayerCamParent/MainCamera
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 0.75
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: PlayerCamParent/MainCamera
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 0.75
-        value: -90
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: PlayerCamParent/MainCamera
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 0.75
-        value: -90.00001
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: PlayerCamParent/MainCamera
+    path: PlayerCamParent
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -353,12 +269,12 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.5
-        value: -45
-        inSlope: -120
-        outSlope: -120
+        value: -20
+        inSlope: -80
+        outSlope: -80
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.75
+        time: 1
         value: -90
         inSlope: 0
         outSlope: 0
@@ -381,13 +297,13 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.5
-        value: 45
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.75
-        value: -14.260986
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -409,13 +325,13 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.5
-        value: 45
-        inSlope: 138.93066
-        outSlope: 138.93066
+        value: 0
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.75
-        value: 104.198
+        time: 1
+        value: 90.00001
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -437,13 +353,13 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.5
-        value: 0.136
-        inSlope: 0.6946667
-        outSlope: 0.6946667
+        value: 0
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.75
-        value: 0.521
+        time: 1
+        value: 0.315
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -465,13 +381,13 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.5
-        value: -0.46
-        inSlope: 0.53333336
-        outSlope: 0.53333336
+        value: -0.6758558
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.75
-        value: -0.2
+        time: 1
+        value: -0.25
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -493,13 +409,13 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.5
-        value: -0.214
+        value: 0.13111115
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.75
-        value: 0.029
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -510,6 +426,90 @@ AnimationClip:
     path: PlayerCamParent/MainCamera/HandsEmpty
     classID: 4
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: PlayerCamParent
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1
+        value: -90.00001
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: PlayerCamParent
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1
+        value: -90
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: PlayerCamParent
+    classID: 4
+    script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
       serializedVersion: 2
@@ -518,7 +518,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: PlayerCamParent/MainCamera
+    path: PlayerCamParent/MainCamera/HandsEmpty
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -528,17 +528,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: PlayerCamParent/MainCamera
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: PlayerCamParent/MainCamera
+    path: PlayerCamParent/MainCamera/HandsEmpty
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -557,8 +547,18 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: PlayerCamParent
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: PlayerCamParent/MainCamera/HandsEmpty
+    path: PlayerCamParent
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -568,7 +568,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: PlayerCamParent/MainCamera/HandsEmpty
+    path: PlayerCamParent
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
