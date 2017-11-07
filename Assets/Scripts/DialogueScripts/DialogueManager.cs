@@ -120,7 +120,7 @@ public class DialogueManager : MonoBehaviour
         switch(curTimeCount)
         {
             case 5:
-                countDown.text = "!";
+                countDown.text = "<T>";
                 popUps[2].SetActive(true);
                 SoundManagerScript.Instance.PlayOneShotSFX2D(countDownSound);
                 break;
@@ -140,7 +140,7 @@ public class DialogueManager : MonoBehaviour
 
                 GameManagerScript.Instance.player.StartRunning();
                 SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_TUTO);
-                timerScript.hasStarted = true;
+//                timerScript.hasStarted = true;
                 break;
         }
     }
