@@ -211,7 +211,7 @@ public class DialogueManager : MonoBehaviour
         foreach(char letter in beginningScene[bsIndex].ToCharArray()) // Get each character from the dialogues written in Inspector.
         {
             //Can put sound effect for text typing here
-
+            SoundManagerScript.Instance.PlaySFX2D(AudioClipID.SFX_TYPING);
 
             beginningText.text += letter; // Show next Text.
 
