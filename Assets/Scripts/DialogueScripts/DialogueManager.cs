@@ -37,6 +37,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject[] popUps; // An array of GameObjects for pop-up UIs (i.e HealthBar, Time-line).
 
     [Header("SoundList")]
+    public List<AudioClipID> sound;
 
     [Header("Timers")]
     public float timer; 
@@ -61,6 +62,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         StartCoroutine("TypeEffect");
+        SoundManagerScript.Instance.PlaySFX2D(sound[bsIndex], false);
 
         cdTimer = setTime;
         timer = showTimer; // Set all First Encounter timers to desired set amount.
@@ -113,17 +115,25 @@ public class DialogueManager : MonoBehaviour
 
     public void BeginningSceneDialogue() // Displays Dialogue in the beginning of the game 
     {
-        beginningDialogue.SetActive(true);
-
-        if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) && bsIndex <= beginningScene.Count )
+        if(bsIndex < beginningScene.Count) //Beginning dialogue is not done :
         {
-            beginningText.text = " ";
-            StopCoroutine("TypeEffect"); // Stop ongoing coroutine.
-            beginningScene.RemoveAt(bsIndex);
-            StartCoroutine("TypeEffect"); // Start typing effect.
-        }
+            beginningDialogue.SetActive(true);
 
-        if(bsIndex >= beginningScene.Count) //Once beginning dialogue is done, :
+            if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) && bsIndex <= beginningScene.Count )
+            {
+                SoundManagerScript.Instance.StopSFX2D(sound[bsIndex]);
+                beginningText.text = " ";
+                StopCoroutine("TypeEffect"); // Stop ongoing coroutine.
+                //beginningScene.RemoveAt(bsIndex);
+                bsIndex++;
+                if(bsIndex < beginningScene.Count)
+                {
+                    StartCoroutine("TypeEffect"); // Start typing effect.
+                    SoundManagerScript.Instance.PlaySFX2D(sound[bsIndex], false);
+                }
+            }
+        }
+        else //Once beginning dialogue is done, :
         {
             /*colorToFadeTo = new Color(1f, 1f, 1f, 0f);
             startingDialogue.CrossFadeColor(colorToFadeTo, fadeTime, true, true);
@@ -208,12 +218,9 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeEffect() // Simulate typing effect
     {
-        foreach(char letter in beginningScene[bsIndex].ToCharArray()) // Get each character from the dialogues written in Inspector.
+        for(int i = 1; i <= beginningScene[bsIndex].Length; i++)
         {
-            //Can put sound effect for text typing here
-            SoundManagerScript.Instance.PlaySFX2D(AudioClipID.SFX_TYPING);
-
-            beginningText.text += letter; // Show next Text.
+            beginningText.text = beginningScene[bsIndex].Substring(0, i); // Show next Text.
 
             yield return new WaitForSeconds(nextLetter); // Delay between each text.
         }

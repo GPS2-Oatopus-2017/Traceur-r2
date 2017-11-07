@@ -174,7 +174,7 @@ public class SoundManagerScript : MonoBehaviour
 
 
 	//! SOUND EFFECTS (SFX)
-	public void PlaySFX(AudioClipID audioClipID, GameObject go)
+	public void PlayOneShotSFX3D(AudioClipID audioClipID, GameObject go)
 	{
 		AudioClip clipToPlay = FindAudioClip(audioClipID);
 
@@ -191,38 +191,38 @@ public class SoundManagerScript : MonoBehaviour
 
 		source.volume = sfxVolume * FindAudioClipVolumeMultipliers(audioClipID);
 		source.PlayOneShot(clipToPlay, source.volume);
-	}
+    }
 
-	public void PlayLoopingSFX(AudioClipID audioClipID, GameObject go)
-	{
-		AudioClip clipToPlay = FindAudioClip(audioClipID);
+    public void PlaySFX3D(AudioClipID audioClipID, GameObject go, bool loop = true)
+    {
+        AudioClip clipToPlay = FindAudioClip(audioClipID);
 
-		AudioSource source = FindAudioSource3D(go);
+        AudioSource source = FindAudioSource3D(go);
 
-		if(source == null)
-		{
-			source = go.AddComponent<AudioSource>();
-			source.loop = true;
-			source.spatialBlend = 1.0f; //For 3D sounds
-			sfxAudioSourceList3D.Add(source);
-			sfxAudioClipID3D.Add(audioClipID);
-		}
+        if(source == null)
+        {
+            source = go.AddComponent<AudioSource>();
+            source.spatialBlend = 1.0f; //For 3D sounds
+            sfxAudioSourceList3D.Add(source);
+            sfxAudioClipID3D.Add(audioClipID);
+        }
 
-		if(source.clip != clipToPlay)
-		{
-			source.clip = clipToPlay;
-		}
+        if(source.clip != clipToPlay)
+        {
+            source.clip = clipToPlay;
+        }
 
-		if(source.isPlaying)
-		{
-			return;
-		}
+        if(source.isPlaying)
+        {
+            return;
+        }
 
-		source.volume = sfxVolume * FindAudioClipVolumeMultipliers(audioClipID);
-		source.Play();
-	}
+        source.loop = loop;
+        source.volume = sfxVolume * FindAudioClipVolumeMultipliers(audioClipID);
+        source.Play();
+    }
 
-	public void PauseLoopingSFX(AudioClipID audioClipID, GameObject go)
+	public void PauseSFX3D(AudioClipID audioClipID, GameObject go)
 	{
 		AudioClip clipToPause = FindAudioClip(audioClipID);
 
@@ -236,7 +236,7 @@ public class SoundManagerScript : MonoBehaviour
 		}
 	}	
 
-	public void StopLoopingSFX(AudioClipID audioClipID, GameObject go)
+	public void StopSFX3D(AudioClipID audioClipID, GameObject go)
 	{
 		AudioClip clipToStop = FindAudioClip(audioClipID);
 
@@ -248,30 +248,44 @@ public class SoundManagerScript : MonoBehaviour
 		{
 			source.Stop();
 		}
-	}
+    }
 
-	public void ChangePitchLoopingSFX(AudioClipID audioClipID, float value, GameObject go)
-	{
-		AudioClip clipToChange = FindAudioClip(audioClipID);
+    public void ChangeLoopSFX3D(AudioClipID audioClipID, bool value, GameObject go)
+    {
+        AudioClip clipToChange = FindAudioClip(audioClipID);
 
-		AudioSource source = FindAudioSource3D(go);
+        AudioSource source = FindAudioSource3D(go);
 
-		if(source == null) return;
+        if(source == null) return;
 
-		if(source.clip == clipToChange)
-		{
-			source.pitch = value;
-		}
-	}
+        if(source.clip == clipToChange)
+        {
+            source.loop = value;
+        }
+    }
+
+    public void ChangePitchSFX3D(AudioClipID audioClipID, float value, GameObject go)
+    {
+        AudioClip clipToChange = FindAudioClip(audioClipID);
+
+        AudioSource source = FindAudioSource3D(go);
+
+        if(source == null) return;
+
+        if(source.clip == clipToChange)
+        {
+            source.pitch = value;
+        }
+    }
 
 	//! SOUND EFFECTS (SFX) 2D
-	public void PlaySFX2D(AudioClipID audioClipID)
+	public void PlayOneShotSFX2D(AudioClipID audioClipID)
 	{
 		sfxAudioClipID2DOneShot = audioClipID;
 		sfxAudioSource2DOneshot.PlayOneShot(FindAudioClip(audioClipID), sfxVolume * FindAudioClipVolumeMultipliers(audioClipID));
 	}
 
-	public void PlayLoopingSFX2D(AudioClipID audioClipID)
+    public void PlaySFX2D(AudioClipID audioClipID, bool loop = true)
 	{
 		AudioClip clipToPlay = FindAudioClip(audioClipID);
 
@@ -283,7 +297,7 @@ public class SoundManagerScript : MonoBehaviour
 				{
 					return;
 				}
-
+                sfxAudioSourceList2DLoop[i].loop = loop;
 				sfxAudioSourceList2DLoop[i].volume = sfxVolume * FindAudioClipVolumeMultipliers(audioClipID);
 				sfxAudioSourceList2DLoop[i].Play();
 				return;
@@ -293,14 +307,14 @@ public class SoundManagerScript : MonoBehaviour
 		AudioSource newInstance = gameObject.AddComponent<AudioSource>();
 		newInstance.clip = clipToPlay;
 		newInstance.volume = sfxVolume * FindAudioClipVolumeMultipliers(audioClipID);
-		newInstance.loop = true;
+		newInstance.loop = loop;
 		newInstance.spatialBlend = 0.0f; //For 2D sounds
 		newInstance.Play();
 		sfxAudioSourceList2DLoop.Add(newInstance);
 		sfxAudioClipID2DLoop.Add(audioClipID);
 	}
 
-	public void PauseLoopingSFX2D(AudioClipID audioClipID)
+	public void PauseSFX2D(AudioClipID audioClipID)
 	{
 		AudioClip clipToPause = FindAudioClip(audioClipID);
 
@@ -314,7 +328,7 @@ public class SoundManagerScript : MonoBehaviour
 		}
 	}	
 
-	public void StopLoopingSFX2D(AudioClipID audioClipID)
+	public void StopSFX2D(AudioClipID audioClipID)
 	{
 		AudioClip clipToStop = FindAudioClip(audioClipID);
 
@@ -326,21 +340,35 @@ public class SoundManagerScript : MonoBehaviour
 				return;
 			}
 		}
-	}
+    }
 
-	public void ChangePitchLoopingSFX2D(AudioClipID audioClipID, float value)
-	{
-		AudioClip clipToStop = FindAudioClip(audioClipID);
+    public void ChangeLoopSFX2D(AudioClipID audioClipID, bool value)
+    {
+        AudioClip clipToStop = FindAudioClip(audioClipID);
 
-		for(int i=0; i<sfxAudioSourceList2DLoop.Count; i++)
-		{
-			if(sfxAudioSourceList2DLoop[i].clip == clipToStop)
-			{
-				sfxAudioSourceList2DLoop[i].pitch = value;
-				return;
-			}
-		}
-	}
+        for(int i=0; i<sfxAudioSourceList2DLoop.Count; i++)
+        {
+            if(sfxAudioSourceList2DLoop[i].clip == clipToStop)
+            {
+                sfxAudioSourceList2DLoop[i].loop = value;
+                return;
+            }
+        }
+    }
+
+    public void ChangePitchSFX2D(AudioClipID audioClipID, float value)
+    {
+        AudioClip clipToStop = FindAudioClip(audioClipID);
+
+        for(int i=0; i<sfxAudioSourceList2DLoop.Count; i++)
+        {
+            if(sfxAudioSourceList2DLoop[i].clip == clipToStop)
+            {
+                sfxAudioSourceList2DLoop[i].pitch = value;
+                return;
+            }
+        }
+    }
 
 	public void SetBGMVolume(float value)
 	{
