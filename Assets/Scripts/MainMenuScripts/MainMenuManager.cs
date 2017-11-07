@@ -78,11 +78,11 @@ public class MainMenuManager : MonoBehaviour
 
 	public void onClick()
 	{
-		SoundManagerScript.Instance.PlaySFX2D(AudioClipID.SFX_UI_BUTTON);
+		SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.SFX_UI_BUTTON);
 	}
 
 	public void sliderchangeSFX()
 	{
-		SoundManagerScript.Instance.PlaySFX2D(AudioClipID.SFX_MAIN_MENU);
+		SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.SFX_MAIN_MENU);
 	}
 }
