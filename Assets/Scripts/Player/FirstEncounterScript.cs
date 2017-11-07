@@ -18,6 +18,7 @@ public class FirstEncounterScript : MonoBehaviour
 
     [Header("HighLight Variables")]
     private Material defaultMat; // Game Objects' default material.
+	public Shader outlineHighlight;
     public Material highlightMat; // Highlight material.
 
     public float[] distanceFromObject;
@@ -74,7 +75,8 @@ public class FirstEncounterScript : MonoBehaviour
 
                 // Highlight that particular object
 				defaultMat= surveillanceDrones[i].transform.GetComponentInChildren<MeshRenderer>().material; // Set objects' default material to it's current material.
-				surveillanceDrones[i].transform.GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+				//surveillanceDrones[i].transform.GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+				surveillanceDrones[i].transform.GetComponentInChildren<MeshRenderer>().material.shader = outlineHighlight;
 			}
 		}
 
@@ -86,7 +88,8 @@ public class FirstEncounterScript : MonoBehaviour
 
                 // Highlight that particular object
                 defaultMat= motionDetectors[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-                motionDetectors[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+                //motionDetectors[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+				motionDetectors[i].GetComponent<MeshRenderer>().material.shader = outlineHighlight;
             }
         }
 
@@ -102,7 +105,8 @@ public class FirstEncounterScript : MonoBehaviour
 
                 for(int j = 0; j < childRenderer.Count; j++)
                 {
-                    childRenderer[j].material = highlightMat;
+                    //childRenderer[j].material = highlightMat;
+					childRenderer[j].material.shader = outlineHighlight;
                 }
             }
         }
@@ -120,7 +124,8 @@ public class FirstEncounterScript : MonoBehaviour
 
                 for(int j = 0; j < childRenderer2.Count; j++)
                 {
-                    childRenderer2[j].material = highlightMat;
+                    //childRenderer2[j].material = highlightMat;
+					childRenderer2[j].material.shader = outlineHighlight;
                 }
             }
         }
@@ -133,7 +138,8 @@ public class FirstEncounterScript : MonoBehaviour
 
                 // Highlight that particular object
                 defaultMat= doors[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-                doors[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+                //doors[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+				doors[i].GetComponent<MeshRenderer>().material.shader = outlineHighlight;
             }
         }
 
@@ -156,7 +162,8 @@ public class FirstEncounterScript : MonoBehaviour
 
                 // Highlight that particular object
                 defaultMat= lowObstacle[i].transform.GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-                lowObstacle[i].transform.GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+                //lowObstacle[i].transform.GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+				lowObstacle[i].transform.GetComponent<MeshRenderer>().material.shader = outlineHighlight;
             }
         }
 
@@ -169,7 +176,8 @@ public class FirstEncounterScript : MonoBehaviour
 
                 // Highlight that particular object
                 defaultMat= highObstacle[i].transform.GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-                highObstacle[i].transform.GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+                //highObstacle[i].transform.GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+				highObstacle[i].transform.GetComponent<MeshRenderer>().material.shader = outlineHighlight;
             }
         }
     }    
