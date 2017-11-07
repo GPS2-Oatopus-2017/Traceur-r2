@@ -33,17 +33,19 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Game Objects")]
     public GameObject dialogueBox;
-    public GameObject ttcText; // ttc = touch-to-continue
     public GameObject[] popUps; // An array of GameObjects for pop-up UIs (i.e HealthBar, Time-line).
 
     [Header("SoundList")]
-    public List<AudioClipID> sound;
+    public List<AudioClipID> beginningSound;
+    public List<AudioClipID> firstEncounterSound;
+    public AudioClipID countDownSound;
 
     [Header("Timers")]
     public float timer; 
     public float showTimer;
     public float cdTimer; 
     public float setTime;
+    private int curTimeCount = 5;
 
     [Header("Booleans")]
     public bool[] objectSeen;
@@ -62,15 +64,10 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         StartCoroutine("TypeEffect");
-        SoundManagerScript.Instance.PlaySFX2D(sound[bsIndex], false);
+        SoundManagerScript.Instance.PlaySFX2D(beginningSound[bsIndex], false);
 
         cdTimer = setTime;
         timer = showTimer; // Set all First Encounter timers to desired set amount.
-
-//        for(int i = 0; i < timer.Length; i++)
-//        {
-//            timer[i] = showTimer; // Set all First Encounter timers to desired set amount.
-//        }
 
         for(int i = 0; i < objectSeen.Length; i++) // Have player ever seen these objects? No. So all booleans are set to false;
         {
@@ -95,7 +92,11 @@ public class DialogueManager : MonoBehaviour
         if(startCD == true) // Starts counting down UI after beginning dialogue is completed.
         {
             cdTimer -= Time.deltaTime;
-            CountDownTimer();
+            if(cdTimer <= curTimeCount)
+            {
+                CountDownTimer();
+                curTimeCount--;
+            }
         }
 
         if(timer <= 0) //Disable dialogue box after timer expires
@@ -113,6 +114,37 @@ public class DialogueManager : MonoBehaviour
         FirstEncounterDialogue(); 
     }
 
+    void CountDownTimer() //Countdown UI
+    {
+        //Amanda's countdown 
+        switch(curTimeCount)
+        {
+            case 5:
+                countDown.text = "!";
+                popUps[2].SetActive(true);
+                SoundManagerScript.Instance.PlayOneShotSFX2D(countDownSound);
+                break;
+            case 3:
+                countDown.text = "3";
+                break;
+            case 2:
+                countDown.text = "2";
+                break;
+            case 1:
+                countDown.text = "1";
+                break;
+            case 0:
+                startCD = false;
+                popUps[2].SetActive(false);
+                cdTimer = 0;
+
+                GameManagerScript.Instance.player.StartRunning();
+                SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_TUTO);
+                timerScript.hasStarted = true;
+                break;
+        }
+    }
+
     public void BeginningSceneDialogue() // Displays Dialogue in the beginning of the game 
     {
         if(bsIndex < beginningScene.Count) //Beginning dialogue is not done :
@@ -121,7 +153,7 @@ public class DialogueManager : MonoBehaviour
 
             if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) && bsIndex <= beginningScene.Count )
             {
-                SoundManagerScript.Instance.StopSFX2D(sound[bsIndex]);
+                SoundManagerScript.Instance.StopSFX2D(beginningSound[bsIndex]);
                 beginningText.text = " ";
                 StopCoroutine("TypeEffect"); // Stop ongoing coroutine.
                 //beginningScene.RemoveAt(bsIndex);
@@ -129,16 +161,12 @@ public class DialogueManager : MonoBehaviour
                 if(bsIndex < beginningScene.Count)
                 {
                     StartCoroutine("TypeEffect"); // Start typing effect.
-                    SoundManagerScript.Instance.PlaySFX2D(sound[bsIndex], false);
+                    SoundManagerScript.Instance.PlaySFX2D(beginningSound[bsIndex], false);
                 }
             }
         }
         else //Once beginning dialogue is done, :
         {
-            /*colorToFadeTo = new Color(1f, 1f, 1f, 0f);
-            startingDialogue.CrossFadeColor(colorToFadeTo, fadeTime, true, true);
-            fadeTime -= Time.deltaTime;*/
-
             beginningDialogue.transform.position = Vector3.MoveTowards(beginningDialogue.transform.position, target.position, speed * Time.deltaTime);
 
             if(beginningDialogue.transform.position.y == target.transform.position.y) // After beginning scene has faded, start the game.
@@ -182,37 +210,17 @@ public class DialogueManager : MonoBehaviour
         {
             if(FirstEncounterScript.Instance.seenObj[i] == true && objectSeen[i] == false) //seenObj = Is player currently looking at an object?
             {
+                //SoundManagerScript.Instance.StopSFX2D(firstEncounterSound[feIndex - i]); // Stop previous sound if it is still playing.
+
                 dialogueBox.SetActive(true); // Enable dialogue box.
-                dialogue.text = firstEncounter[feIndex + i]; //Displays text based on which enemy it is (feIndex);
+
+                //SoundManagerScript.Instance.PlaySFX2D(firstEncounterSound[feIndex + i], false); // Plays sound description based on which object it is (feIndex).
+
+                dialogue.text = firstEncounter[feIndex + i]; //Displays text based on which object it is (feIndex);
                 initTimer = true;  
 
-                objectSeen[i] = true; // Mark particular object as seen.
-                ttcText.SetActive(false); // Disable touch-to-continue text.
+                objectSeen[i] = true; // Mark particular object as seen.sable touch-to-continue text.
             }
-        }
-    }
-
-    void CountDownTimer() //Countdown UI
-    {
-        popUps[2].SetActive(true);
-   
-        if(cdTimer <= 4 && cdTimer > 3)
-            countDown.text = "!";
-        else if(cdTimer <= 3 && cdTimer > 2)
-            countDown.text = "3";
-        else if(cdTimer <= 2 && cdTimer > 1)
-            countDown.text = "2";
-        else if(cdTimer <= 1 && cdTimer > 0)
-            countDown.text = "1";
-        else if(cdTimer <= 0)
-        {
-            popUps[2].SetActive(false);
-            startCD = false;
-            cdTimer = 0;
-
-			GameManagerScript.Instance.player.StartRunning();
-			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_TUTO);
-			timerScript.hasStarted = true;
         }
     }
 

@@ -24,7 +24,8 @@ public enum AudioClipID
 	SFX_RUNNING = 7,
 	SFX_DRONE_HOVER = 8,
 	SFX_SR_OPENDOOR = 9,
-	SFX_SR_CLOSEDOOR = 10
+    SFX_SR_CLOSEDOOR = 10,
+    SFX_COUNTDOWN
 }
 
 //Audioclip Type
@@ -183,7 +184,6 @@ public class SoundManagerScript : MonoBehaviour
 		if(source == null)
 		{
 			source = go.AddComponent<AudioSource>();
-			source.loop = true;
 			source.spatialBlend = 1.0f; //For 3D sounds
 			sfxAudioSourceList3D.Add(source);
 			sfxAudioClipID3D.Add(audioClipID);
