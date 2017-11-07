@@ -9,10 +9,11 @@ public class ElectricWallScript : MonoBehaviour
     public float speedReducedValue;
     public GameObject player;
     public bool playerIsSlowed;
-
+	public bool isActived;
 
 	void Start() 
 	{
+		isActived = true;
 		player = GameObject.FindWithTag("Player");
 		slowTimer = electricFence_Data.slowDuration; // Set Countdown timer to the duration player is slowed
         playerIsSlowed = false; // Boolean indicating if player is slowed
@@ -40,27 +41,30 @@ public class ElectricWallScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other) //Apply knockback and speed reduction upon collision
 	{
-		if(other.gameObject.tag == "Player")
+		if(isActived)
 		{
-			playerIsSlowed = true;
-
-			Debug.Log("Player speed is reduced by " + speedReducedValue);
-		}
-
-		if(other.gameObject.tag == "Enemy")
-		{
-			PoolManagerScript.Instance.Despawn(other.gameObject);
-
-			if(other.gameObject.GetComponent<SurveillanceDroneScript>())
+			if(other.gameObject.tag == "Player")
 			{
-				ReputationManagerScript.Instance.deadSD++;
-			}
-			else if(other.gameObject.GetComponent<HuntingDroneScript>())
-			{
-				ReputationManagerScript.Instance.deadHD++;
+				playerIsSlowed = true;
+
+				Debug.Log("Player speed is reduced by " + speedReducedValue);
 			}
 
-			Debug.Log("Enemy Despawned");
+			if(other.gameObject.tag == "Enemy")
+			{
+				PoolManagerScript.Instance.Despawn(other.gameObject);
+
+				if(other.gameObject.GetComponent<SurveillanceDroneScript>())
+				{
+					ReputationManagerScript.Instance.deadSD++;
+				}
+				else if(other.gameObject.GetComponent<HuntingDroneScript>())
+				{
+					ReputationManagerScript.Instance.deadHD++;
+				}
+
+				Debug.Log("Enemy Despawned");
+			}
 		}
     }
 }

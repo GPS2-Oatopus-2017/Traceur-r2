@@ -55,27 +55,27 @@ public class SlowDownTimeScript : MonoBehaviour
 		}
 	}
 
-	void OnTriggerStay (Collider other)
-	{
-		if (other.gameObject.tag == "Player" && this.gameObject.layer == 12) {
-
-			Time.timeScale = slowTime;
-
-			//Debug.Log ("IN Slow Motion");
-
-		}
-	}
-
-	void OnTriggerExit (Collider other)
-	{
-		if (other.gameObject.tag == "Player" && this.gameObject.layer == 12) {
-
-			Time.timeScale = originalTime;
-
-			//Debug.Log ("OUT Slow Motion");
-
-		}
-	}
+//	void OnTriggerStay (Collider other)
+//	{
+//		if (other.gameObject.tag == "Player" && this.gameObject.layer == 12) {
+//
+//			Time.timeScale = slowTime;
+//
+//			//Debug.Log ("IN Slow Motion");
+//
+//		}
+//	}
+//
+//	void OnTriggerExit (Collider other)
+//	{
+//		if (other.gameObject.tag == "Player" && this.gameObject.layer == 12) {
+//
+//			Time.timeScale = originalTime;
+//
+//			//Debug.Log ("OUT Slow Motion");
+//
+//		}
+//	}
 
 	void CheckLookSwitch ()
 	{
@@ -100,6 +100,8 @@ public class SlowDownTimeScript : MonoBehaviour
 				nearSwitch = false;
 
 				rollCamera.isEvent = false;
+
+				Time.timeScale = originalTime;
 			}
 		}
 	}
