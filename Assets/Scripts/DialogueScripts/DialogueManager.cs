@@ -38,6 +38,8 @@ public class DialogueManager : MonoBehaviour
     [Header("SoundList")]
     public List<AudioClipID> beginningSound;
     public List<AudioClipID> firstEncounterSound;
+    public List<AudioClipID> winSound;
+    public List<AudioClipID> loseSound;
     public AudioClipID countDownSound;
 
     [Header("Timers")]
@@ -49,7 +51,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Booleans")]
     public bool[] objectSeen;
-    public bool initTimer, initDialogue, startCD;
+    public bool initTimer, initDialogue, startCD, youWin, youLose;
 
 	[Header("Last Minute Stuff")]
 	public TimerScript timerScript;
@@ -77,6 +79,8 @@ public class DialogueManager : MonoBehaviour
         initTimer = false;      //Initiate timer is set to false.
         initDialogue = false;   //Initial dialogue once scene is loaded is only played once.
         startCD = false;        //Timer for CountDownTimer is set to false.
+        youWin = false;
+        youLose = false;
 
 		GameManagerScript.Instance.player.StopRunning();
 		SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_MAIN_MENU);
@@ -180,26 +184,40 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void WinSceneDialogue() // Call this function at win scene, may not be nessecary if we transition to win scene.
-    {                              // DialogueManager.Instance.WinSceneDialogue();
-        Time.timeScale = 0;
-        dialogueBox.SetActive(true);
-        dialogue.text = winDialogue[winIndex];
-
-        if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) && winIndex <= winDialogue.Count )
+    {                              // DialogueManager.Instance.WinSceneDialogue();\
+        if(youWin == false)
         {
-            winIndex++;
+            Time.timeScale = 0;
+
+            int randomWinSoundList = Random.Range(0, winSound.Count);
+
+            SoundManagerScript.Instance.StopSFX2D(winSound[randomWinSoundList]);
+
+            dialogueBox.SetActive(true);
+            dialogue.text = winDialogue[randomWinSoundList];
+
+            SoundManagerScript.Instance.PlayOneShotSFX2D(winSound[randomWinSoundList]);
+
+            youWin = true;
         }
     }
 
     public void LoseSceneDialogue() // Call this function when player loses the game either by dying or by failing to reach end point in time, may not be nessecary if we transition to lose scene.
     {                               // DialogueManager.Instance.LoseSceneDialogue();
-        Time.timeScale = 0;
-        dialogueBox.SetActive(true);
-        dialogue.text = loseDialogue[loseIndex];
-
-        if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) && loseIndex <= loseDialogue.Count )
+        if(youLose == false)
         {
-            loseIndex++;
+            Time.timeScale = 0;
+
+            int randomLoseSoundList = Random.Range(0, loseSound.Count);
+
+            SoundManagerScript.Instance.StopSFX2D(loseSound[randomLoseSoundList]);
+
+            dialogueBox.SetActive(true);
+            dialogue.text = loseDialogue[randomLoseSoundList];
+
+            SoundManagerScript.Instance.PlayOneShotSFX2D(loseSound[randomLoseSoundList]);
+
+            youLose = true;
         }
     }
 
@@ -210,11 +228,11 @@ public class DialogueManager : MonoBehaviour
         {
             if(FirstEncounterScript.Instance.seenObj[i] == true && objectSeen[i] == false) //seenObj = Is player currently looking at an object?
             {
-                //SoundManagerScript.Instance.StopSFX2D(firstEncounterSound[feIndex - i]); // Stop previous sound if it is still playing.
+                SoundManagerScript.Instance.PlayOneShotSFX2D(firstEncounterSound[feIndex + i]); // Play dialogue for seen obj.
+                Time.timeScale = 0.1f;
+                StartCoroutine("RestoreTimeWhenAudioFinish");
 
                 dialogueBox.SetActive(true); // Enable dialogue box.
-
-                //SoundManagerScript.Instance.PlaySFX2D(firstEncounterSound[feIndex + i], false); // Plays sound description based on which object it is (feIndex).
 
                 dialogue.text = firstEncounter[feIndex + i]; //Displays text based on which object it is (feIndex);
                 initTimer = true;  
@@ -222,6 +240,12 @@ public class DialogueManager : MonoBehaviour
                 objectSeen[i] = true; // Mark particular object as seen.sable touch-to-continue text.
             }
         }
+    }
+
+    IEnumerator RestoreTimeWhenAudioFinish()
+    {
+        yield return new WaitUntil(() => !SoundManagerScript.Instance.sfxAudioSource2DOneshot.isPlaying);
+        Time.timeScale = 1.0f;
     }
 
     IEnumerator TypeEffect() // Simulate typing effect

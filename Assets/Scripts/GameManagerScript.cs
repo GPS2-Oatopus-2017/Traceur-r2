@@ -40,8 +40,8 @@ public class GameManagerScript : MonoBehaviour
 
 		DialogueManager.Instance.LoseSceneDialogue();
 
-		if(DialogueManager.Instance.loseIndex >= DialogueManager.Instance.loseDialogue.Count)
-		{
+        if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
+        {
 			GetComponent<ChangeSceneScript>().ChangeScenes(1);
 		}
 	}

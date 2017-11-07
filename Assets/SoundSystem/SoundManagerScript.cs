@@ -18,14 +18,36 @@ public enum AudioClipID
 
 	// UI
 	SFX_UI_BUTTON = 30,
-	SFX_TYPING,
 
 	//SFXs
 	SFX_RUNNING = 40,
 	SFX_DRONE_HOVER,
 	SFX_SR_OPENDOOR,
 	SFX_SR_CLOSEDOOR,
-    SFX_COUNTDOWN
+    SFX_COUNTDOWN,
+
+    //Amanda's
+    A_BS_ONE = 50,
+    A_BS_TWO,
+    A_BS_THREE,
+
+    A_IL_ONE,
+    A_IL_TWO,
+    A_IL_THREE,
+    A_IL_FOUR,
+    A_IL_FIVE,
+    A_IL_SIX,
+    A_IL_SEVEN,
+    A_IL_EIGHT,
+
+    A_WS_ONE,
+    A_WS_TWO,
+    A_WS_THREE,
+    A_WS_FOUR,
+
+    A_LS_ONE,
+    A_LS_TWO,
+    A_LS_THREE,
 }
 
 //Audioclip Type

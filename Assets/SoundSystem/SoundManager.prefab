@@ -213,12 +213,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086bbc0d58f49d544a997db12db45154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmVolume: 0.5
-  sfxVolume: 0.5
+  bgmVolume: 0
+  sfxVolume: 1
   volumeMultiplier:
   - 1
   - 0.8
-  - 0.6
+  - 0.02
   audioClipInfoList:
   - audioClipID: 30
     audioClip: {fileID: 8300000, guid: dfbf31b1f7219da48b81c79b7f88e24b, type: 3}
@@ -232,6 +232,63 @@ MonoBehaviour:
   - audioClipID: 20
     audioClip: {fileID: 8300000, guid: fdd09d7fb37d6f74db9e510351d17697, type: 3}
     priority: 2
+  - audioClipID: 44
+    audioClip: {fileID: 8300000, guid: 5363753e0aada9d4cbd01d141e254be5, type: 3}
+    priority: 1
+  - audioClipID: 50
+    audioClip: {fileID: 8300000, guid: 6a8a694175e7112409538b208478f10c, type: 3}
+    priority: 1
+  - audioClipID: 51
+    audioClip: {fileID: 8300000, guid: 457cd7a50f174254d92b34e4c303c898, type: 3}
+    priority: 1
+  - audioClipID: 52
+    audioClip: {fileID: 8300000, guid: bce3864892115c842bc59ae07cfe900d, type: 3}
+    priority: 1
+  - audioClipID: 53
+    audioClip: {fileID: 8300000, guid: 6583b1505faa07e4d97037cb9ec40c1d, type: 3}
+    priority: 1
+  - audioClipID: 54
+    audioClip: {fileID: 8300000, guid: f63618d2e53579f4d8a2dec5cf895af1, type: 3}
+    priority: 1
+  - audioClipID: 55
+    audioClip: {fileID: 8300000, guid: e41220f63fc1b694b8fce5d6da7d7985, type: 3}
+    priority: 1
+  - audioClipID: 56
+    audioClip: {fileID: 8300000, guid: 9fd75507d1b8d2f4eb2c7cd226703224, type: 3}
+    priority: 1
+  - audioClipID: 57
+    audioClip: {fileID: 8300000, guid: e6e6743f0c8a24c4ead70453021a5e79, type: 3}
+    priority: 1
+  - audioClipID: 58
+    audioClip: {fileID: 8300000, guid: 2aeccea90a06e354aab41fe39d99270e, type: 3}
+    priority: 1
+  - audioClipID: 59
+    audioClip: {fileID: 8300000, guid: 1f6821890fad61d4f88683a1c063c7d8, type: 3}
+    priority: 1
+  - audioClipID: 60
+    audioClip: {fileID: 8300000, guid: 1613208713bfd13479fe0456d2e4d571, type: 3}
+    priority: 1
+  - audioClipID: 61
+    audioClip: {fileID: 8300000, guid: e65866a687ca0574fac9dd51d5a4553b, type: 3}
+    priority: 1
+  - audioClipID: 62
+    audioClip: {fileID: 8300000, guid: 5a581eb85764405419e8b621dd00c873, type: 3}
+    priority: 1
+  - audioClipID: 63
+    audioClip: {fileID: 8300000, guid: 2c0304f2e10f0874f9a76a1ac7603136, type: 3}
+    priority: 1
+  - audioClipID: 64
+    audioClip: {fileID: 8300000, guid: 44a2b34e35383ae4a8d2de2b15e59fb7, type: 3}
+    priority: 1
+  - audioClipID: 65
+    audioClip: {fileID: 8300000, guid: a57aec81887674d468b53de2d5840ac3, type: 3}
+    priority: 1
+  - audioClipID: 66
+    audioClip: {fileID: 8300000, guid: b25af10bd5193a547996519620359f5a, type: 3}
+    priority: 1
+  - audioClipID: 67
+    audioClip: {fileID: 8300000, guid: d324d01f63a0826488232ee037a485c0, type: 3}
+    priority: 1
   bgmAudioSource: {fileID: 82067185432837428}
   bgmAudioClipID: 0
   sfxAudioSource2DOneshot: {fileID: 82373236289609088}
