@@ -14,16 +14,17 @@ public enum AudioClipID
 	BGM_WIN = 3,
 
 	// Levels
-	BGM_LEVEL1 = 4,
+	BGM_TUTO = 4,
 
 	// UI
 	SFX_UI_BUTTON = 5,
+	SFX_TYPING = 6,
 
 	//SFXs
-	SFX_RUNNING = 6,
-	SFX_DRONE_HOVER = 7,
-	SFX_SR_OPENDOOR = 8,
-	SFX_SR_CLOSEDOOR = 9
+	SFX_RUNNING = 7,
+	SFX_DRONE_HOVER = 8,
+	SFX_SR_OPENDOOR = 9,
+	SFX_SR_CLOSEDOOR = 10
 }
 
 //Audioclip Type

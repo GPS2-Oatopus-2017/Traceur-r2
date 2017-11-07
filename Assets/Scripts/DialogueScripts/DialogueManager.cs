@@ -199,7 +199,7 @@ public class DialogueManager : MonoBehaviour
             cdTimer = 0;
 
 			GameManagerScript.Instance.player.StartRunning();
-			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_LEVEL1);
+			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_TUTO);
 			timerScript.hasStarted = true;
         }
     }
