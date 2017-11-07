@@ -189,7 +189,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -215,24 +215,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmVolume: 0.5
   sfxVolume: 0.5
+  volumeMultiplier:
+  - 1
+  - 0.8
+  - 0.6
   audioClipInfoList:
-  - audioClipID: 0
-    audioClip: {fileID: 8300000, guid: 87b168b23aa36d6449cec593bee350f4, type: 3}
-  - audioClipID: 4
-    audioClip: {fileID: 8300000, guid: bc62d0229b4cdb348a4fc57ffec70683, type: 3}
   - audioClipID: 5
     audioClip: {fileID: 8300000, guid: dfbf31b1f7219da48b81c79b7f88e24b, type: 3}
+    priority: 0
+  - audioClipID: 0
+    audioClip: {fileID: 8300000, guid: c7c7d5faa0ccfe149a5a6bbd27c0e75e, type: 3}
+    priority: 2
   - audioClipID: 1
     audioClip: {fileID: 8300000, guid: 3caa6fed8efd8a54e895f2a04215e8fc, type: 3}
-  - audioClipID: 6
-    audioClip: {fileID: 8300000, guid: 3caa6fed8efd8a54e895f2a04215e8fc, type: 3}
-  - audioClipID: 7
-    audioClip: {fileID: 8300000, guid: dea7d7ebe6acab8449895006e682d863, type: 3}
-  - audioClipID: 3
-    audioClip: {fileID: 8300000, guid: e9edcd752962a0c48ac268b0876927fa, type: 3}
-  - audioClipID: 2
-    audioClip: {fileID: 8300000, guid: 661fcbc16ccbfee4b9da32d7ceecbf07, type: 3}
+    priority: 0
   bgmAudioSource: {fileID: 82067185432837428}
-  sfxAudioSource2D: {fileID: 82373236289609088}
-  sfxAudioSourceList2D: []
+  bgmAudioClipID: 0
+  sfxAudioSource2DOneshot: {fileID: 82373236289609088}
+  sfxAudioClipID2DOneShot: 0
+  sfxAudioSourceList2DLoop: []
+  sfxAudioClipID2DLoop: 
   sfxAudioSourceList3D: []
+  sfxAudioClipID3D: 
