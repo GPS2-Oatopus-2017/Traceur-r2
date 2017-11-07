@@ -3436,46 +3436,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: sound.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: popUps.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: objectSeen.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: winDialogue.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: loseDialogue.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: firstEncounter.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: beginningScene.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: beginningSound.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4915457647039098, guid: 6ab66f474c2fe5a49a9f84cf9006be47, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3510,9 +3470,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
-      propertyPath: objectSeen.Array.data[2]
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: startingDialogue
+      value: 
+      objectReference: {fileID: 1086587166}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: beginningText
+      value: 
+      objectReference: {fileID: 1019323149}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: beginningDialogue
+      value: 
+      objectReference: {fileID: 2135488230}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1634208450}
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
       propertyPath: dialogue
@@ -3530,243 +3505,9 @@ Prefab:
       objectReference: {fileID: 1168361640}
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
-      propertyPath: ttcText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: showTimer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: setTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: firstEncounter.Array.data[0]
-      value: '"You have alerted a nearby surveillance drone, look for a way to get
-        rid of them."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: firstEncounter.Array.data[1]
-      value: '"Tap on the motion detector to initiate hacking protocol."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: firstEncounter.Array.data[2]
-      value: '"Disable the electric fence to secure a safe passage"'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: firstEncounter.Array.data[3]
-      value: '"You can turn it back on to stop the drone."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: firstEncounter.Array.data[4]
-      value: '"Please observe your surroundings."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
       propertyPath: popUps.Array.data[2]
       value: 
       objectReference: {fileID: 628464227}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: popUps.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: popUps.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: objectSeen.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: popUps.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: popUps.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: initTimer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: highlightMat
-      value: 
-      objectReference: {fileID: 2100000, guid: b86aae0e0b501c740bbb84e65d6730ba, type: 2}
-    - target: {fileID: 1153383281926712, guid: 6ab66f474c2fe5a49a9f84cf9006be47, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1153383281926712, guid: 6ab66f474c2fe5a49a9f84cf9006be47, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: timerScript
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: startingDialogue
-      value: 
-      objectReference: {fileID: 1086587166}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: fadeTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: showNextCharacter
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: beginningDialogue
-      value: 
-      objectReference: {fileID: 2135488230}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: textHider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: beginningText
-      value: 
-      objectReference: {fileID: 1019323149}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: beginningScene.Array.data[0]
-      value: '"Please follow my instructions carefully."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: beginningScene.Array.data[1]
-      value: '"I will be guiding you through this simulation."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: beginningScene.Array.data[2]
-      value: '"01000111 01001100"'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: beginningScene.Array.data[3]
-      value: '"01000111 01001100"'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: nextLetter
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: firstEncounter.Array.data[5]
-      value: '"Please make a turn in front."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: firstEncounter.Array.data[6]
-      value: '"Jump over the obstacle."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: firstEncounter.Array.data[7]
-      value: '"Looks like you are able to roll under it."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: winDialogue.Array.data[0]
-      value: '"Training sequence completed, proceeding to the pickup mission."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: winDialogue.Array.data[1]
-      value: '"You passed the training sequence, be ready for the pickup mission."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: loseDialogue.Array.data[0]
-      value: '"Subject 22 failed the simulation, run subject 23."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: loseDialogue.Array.data[1]
-      value: '"Training sequence failed."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: speed
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1634208450}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: firstEncounter.Array.data[8]
-      value: '"You can turn it back on to stop the drone."'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: bsIndex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: sound.Array.data[0]
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: sound.Array.data[1]
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: sound.Array.data[2]
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: countDownSound
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: beginningSound.Array.data[0]
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: beginningSound.Array.data[1]
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: beginningSound.Array.data[2]
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ab66f474c2fe5a49a9f84cf9006be47, type: 2}
   m_IsPrefabParent: 0
@@ -4616,6 +4357,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4483281715670864, guid: 3ea2d61422ae7154f999e13a63aac0d3,
     type: 2}
   m_PrefabInternal: {fileID: 339448318}
+--- !u!1 &554264286 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1598697142153716, guid: 79431f983c2c95645b94578fa63da915,
+    type: 2}
+  m_PrefabInternal: {fileID: 995486249}
 --- !u!4 &558198621 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4061224134374656, guid: 7de407c3d94ccd8438a533b23d03dfc3,
@@ -7775,28 +7521,33 @@ MonoBehaviour:
   - {fileID: 1306333152}
   - {fileID: 1416067641}
   - {fileID: 2091646538}
-  lowObstacle: []
-  highObstacle: []
+  lowObstacle:
+  - {fileID: 554264286}
+  highObstacle:
+  - {fileID: 1293057418}
+  - {fileID: 1924947096}
+  - {fileID: 1712241464}
+  - {fileID: 1488435141}
+  - {fileID: 1725417082}
+  - {fileID: 1284972895}
   surveillanceDrones: []
   motionDetectors:
   - {fileID: 1609122331}
   - {fileID: 1052672613}
-  switches:
+  onSwitches:
   - {fileID: 1809208569}
+  offSwitches:
   - {fileID: 1542090163}
-  electricFences:
-  - {fileID: 1675364420}
   doors:
-  - {fileID: 500588034}
-  - {fileID: 979873870}
+  - {fileID: 1289368222}
+  - {fileID: 1544748312}
   outlineHighlight: {fileID: 4800000, guid: 19e3ad5c3d8d968498060588d57140b9, type: 3}
-  highlightMat: {fileID: 2100000, guid: b86aae0e0b501c740bbb84e65d6730ba, type: 2}
   distanceFromObject:
   - 15
   - 15
   - 15
   - 15
-  - 15
+  - 20
   - 15
   - 15
   - 15
@@ -10950,6 +10701,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ea2d61422ae7154f999e13a63aac0d3, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1284972895 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1015982200660066, guid: bc460a0f0b0077c41913ff6eec4b7e70,
+    type: 2}
+  m_PrefabInternal: {fileID: 4606443}
 --- !u!1 &1287072608
 GameObject:
   m_ObjectHideFlags: 0
@@ -11032,6 +10788,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1287072608}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1289368222 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1424337800900154, guid: 987726c3d8783e347939728b92b15f3e,
+    type: 2}
+  m_PrefabInternal: {fileID: 814393088}
+--- !u!1 &1293057418 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1015982200660066, guid: bc460a0f0b0077c41913ff6eec4b7e70,
+    type: 2}
+  m_PrefabInternal: {fileID: 1639015596}
 --- !u!1 &1293497426
 GameObject:
   m_ObjectHideFlags: 0
@@ -12603,6 +12369,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8827100c401c7294f89a99f156836fbd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1488435141 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1015982200660066, guid: bc460a0f0b0077c41913ff6eec4b7e70,
+    type: 2}
+  m_PrefabInternal: {fileID: 1498955619}
 --- !u!1001 &1498955619
 Prefab:
   m_ObjectHideFlags: 0
@@ -12983,6 +12754,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1659954888169454, guid: e25817b833736c04caa7190fff62a363,
     type: 2}
   m_PrefabInternal: {fileID: 1774991597}
+--- !u!1 &1544748312 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1424337800900154, guid: 987726c3d8783e347939728b92b15f3e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1002459877}
 --- !u!1001 &1546243965
 Prefab:
   m_ObjectHideFlags: 0
@@ -14007,6 +13783,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4483281715670864, guid: 3ea2d61422ae7154f999e13a63aac0d3,
     type: 2}
   m_PrefabInternal: {fileID: 1238913854}
+--- !u!1 &1712241464 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1015982200660066, guid: bc460a0f0b0077c41913ff6eec4b7e70,
+    type: 2}
+  m_PrefabInternal: {fileID: 1994901325}
 --- !u!1001 &1712831744
 Prefab:
   m_ObjectHideFlags: 0
@@ -14103,6 +13884,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ea2d61422ae7154f999e13a63aac0d3, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1725417082 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1015982200660066, guid: bc460a0f0b0077c41913ff6eec4b7e70,
+    type: 2}
+  m_PrefabInternal: {fileID: 258384185}
 --- !u!1 &1747393125
 GameObject:
   m_ObjectHideFlags: 0
@@ -14449,7 +14235,7 @@ Prefab:
     - target: {fileID: 114958592601383156, guid: e25817b833736c04caa7190fff62a363,
         type: 2}
       propertyPath: lookDuration
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114958592601383156, guid: e25817b833736c04caa7190fff62a363,
         type: 2}
@@ -15721,11 +15507,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: audioClipInfoList.Array.size
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4986141098329564, guid: 2eec1bf49352f7e499119ba2fac11c14, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -15757,36 +15538,6 @@ Prefab:
     - target: {fileID: 4986141098329564, guid: 2eec1bf49352f7e499119ba2fac11c14, type: 2}
       propertyPath: m_RootOrder
       value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: audioClipInfoList.Array.data[4].audioClipID
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: audioClipInfoList.Array.data[4].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4c60fa1c28f45064daebe4768ce768e6, type: 3}
-    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: audioClipInfoList.Array.data[4].priority
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: audioClipInfoList.Array.data[5].audioClipID
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: audioClipInfoList.Array.data[5].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 5363753e0aada9d4cbd01d141e254be5, type: 3}
-    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: audioClipInfoList.Array.data[5].priority
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2eec1bf49352f7e499119ba2fac11c14, type: 2}
@@ -15891,6 +15642,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8827100c401c7294f89a99f156836fbd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1924947096 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1015982200660066, guid: bc460a0f0b0077c41913ff6eec4b7e70,
+    type: 2}
+  m_PrefabInternal: {fileID: 1533307280}
 --- !u!4 &1929407222 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4483281715670864, guid: 3ea2d61422ae7154f999e13a63aac0d3,
@@ -16452,7 +16208,7 @@ Prefab:
     - target: {fileID: 114958592601383156, guid: e25817b833736c04caa7190fff62a363,
         type: 2}
       propertyPath: lookDuration
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114958592601383156, guid: e25817b833736c04caa7190fff62a363,
         type: 2}

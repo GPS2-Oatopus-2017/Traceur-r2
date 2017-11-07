@@ -14,10 +14,15 @@ public class StepOnMeToWin : MonoBehaviour
         {
             DialogueManager.Instance.WinSceneDialogue();
 
-            if(DialogueManager.Instance.winIndex >= DialogueManager.Instance.winDialogue.Count)
+            if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
             {
                 GameObject.FindWithTag(gameManager).GetComponent<ChangeSceneScript>().ChangeScenes(0);
             }
+
+            /*if(DialogueManager.Instance.winIndex >= DialogueManager.Instance.winDialogue.Count)
+            {
+                GameObject.FindWithTag(gameManager).GetComponent<ChangeSceneScript>().ChangeScenes(0);
+            }*/
         }
     }
 

@@ -7,25 +7,48 @@ public enum AudioClipID
 {
 	// Main Menu
 	BGM_MAIN_MENU = 0,
-	SFX_MAIN_MENU = 1,
+	SFX_MAIN_MENU,
 
 	// Lose & Win
-	BGM_LOSE = 2,
-	BGM_WIN = 3,
+	BGM_LOSE = 10,
+	BGM_WIN,
 
 	// Levels
-	BGM_TUTO = 4,
+	BGM_TUTO = 20,
 
 	// UI
-	SFX_UI_BUTTON = 5,
-	SFX_TYPING = 6,
+	SFX_UI_BUTTON = 30,
 
 	//SFXs
-	SFX_RUNNING = 7,
-	SFX_DRONE_HOVER = 8,
-	SFX_SR_OPENDOOR = 9,
-    SFX_SR_CLOSEDOOR = 10,
-    SFX_COUNTDOWN
+	SFX_RUNNING = 40,
+	SFX_DRONE_HOVER,
+	SFX_SR_OPENDOOR,
+    SFX_SR_CLOSEDOOR,
+
+    //Amanda's
+    A_B_ONE =50,
+    A_B_TWO,
+    A_B_THREE,
+    A_COUTNDOWN,
+
+    A_IL_ONE,
+    A_IL_TWO,
+    A_IL_THREE,
+    A_IL_FOUR,
+    A_IL_FIVE,
+    A_IL_SIX,
+    A_IL_SEVEN,
+    A_IL_EIGTH,
+
+    A_WS_ONE,
+    A_WS_TWO,
+    A_WS_THREE,
+    A_WS_FOUR,
+
+    A_LS_ONE,
+    A_LS_TWO,
+    A_LS_THREE,
+
 }
 
 //Audioclip Type

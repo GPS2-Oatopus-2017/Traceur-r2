@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1153383281926712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 19.021698}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,23 +53,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bsIndex: 0
   feIndex: 0
+  loseIndex: 0
+  winIndex: 0
+  startingDialogue: {fileID: 0}
+  fadeTime: 3
+  beginningText: {fileID: 0}
+  beginningDialogue: {fileID: 0}
+  speed: 200
+  target: {fileID: 0}
+  nextLetter: 0.06
   dialogue: {fileID: 0}
   countDown: {fileID: 0}
   beginningScene:
-  - '"Traceur, your first mission is to retrieve the package located at the nearby
-    greenhouse."'
-  - "\"Here\u2019s the location.\""
-  - '"Keep low and stay alive."'
+  - '"Hello, Traceur. Please follow my instructions carefully."'
+  - '"I will be guiding you through this simulation."'
   - '"01000111 01001100"'
-  firstEncounter: []
+  firstEncounter:
+  - '"You have alerted a nearby surveillance drone, look for a way to get rid of them."'
+  - '"Tap on the motion detector to initiate hacking protocol."'
+  - '"Disable the electric fence to secure a safe passage"'
+  - '"You can turn it back on to stop the drone."'
+  - '"Please observe your surroundings."'
+  - '"Please make a turn in front."'
+  - '"Jump over the obstacle."'
+  - '"Looks like you are able to roll under it."'
+  loseDialogue:
+  - '"Simulation failed, run subject 23."'
+  - '"Training sequence failed."'
+  - '"Simulation failed! What another waste of time."'
+  winDialogue:
+  - '"Training sequence completed, proceeding to the pickup mission."'
+  - '"You passed the training sequence, initiate pickup mission."'
+  - '"Seems like you''re not such a failure after all Subject 22, proceed to pickup
+    mission."'
+  - '"Hmph! Impressive! Proceed with pickup mission."'
   dialogueBox: {fileID: 0}
-  ttcText: {fileID: 0}
-  popUps: []
+  popUps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  beginningSound: 320000003300000034000000
+  firstEncounterSound: 390000003a0000003b0000003c0000003d000000360000003700000038000000
+  winSound: 3e0000003f0000004000000041000000
+  loseSound: 420000004300000044000000
+  countDownSound: 53
   timer: 0
-  showTimer: 0
+  showTimer: 5
   cdTimer: 0
-  setTime: 0
-  objectSeen: 
+  setTime: 5
+  objectSeen: 0000000000000000
   initTimer: 0
   initDialogue: 0
   startCD: 0
+  youWin: 0
+  youLose: 0
+  timerScript: {fileID: 0}
