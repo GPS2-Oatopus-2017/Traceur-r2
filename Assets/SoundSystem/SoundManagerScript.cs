@@ -7,24 +7,24 @@ public enum AudioClipID
 {
 	// Main Menu
 	BGM_MAIN_MENU = 0,
-	SFX_MAIN_MENU = 1,
+	SFX_MAIN_MENU,
 
 	// Lose & Win
-	BGM_LOSE = 2,
-	BGM_WIN = 3,
+	BGM_LOSE = 10,
+	BGM_WIN,
 
 	// Levels
-	BGM_TUTO = 4,
+	BGM_TUTO = 20,
 
 	// UI
-	SFX_UI_BUTTON = 5,
-	SFX_TYPING = 6,
+	SFX_UI_BUTTON = 30,
+	SFX_TYPING,
 
 	//SFXs
-	SFX_RUNNING = 7,
-	SFX_DRONE_HOVER = 8,
-	SFX_SR_OPENDOOR = 9,
-    SFX_SR_CLOSEDOOR = 10,
+	SFX_RUNNING = 40,
+	SFX_DRONE_HOVER,
+	SFX_SR_OPENDOOR,
+	SFX_SR_CLOSEDOOR,
     SFX_COUNTDOWN
 }
 

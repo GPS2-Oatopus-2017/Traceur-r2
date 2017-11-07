@@ -43,7 +43,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: MainCamera/HandsEmpty/Joint.L
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -74,7 +74,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: MainCamera/HandsEmpty/Joint.R
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.R
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
@@ -87,14 +87,14 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2347284545
+      path: 2638834072
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 14
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1910998306
+      path: 1732662523
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -153,7 +153,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: MainCamera/HandsEmpty/Joint.L
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -187,7 +187,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: MainCamera/HandsEmpty/Joint.L
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -221,7 +221,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: MainCamera/HandsEmpty/Joint.L
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -255,7 +255,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: MainCamera/HandsEmpty/Joint.R
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -289,7 +289,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: MainCamera/HandsEmpty/Joint.R
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -323,7 +323,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: MainCamera/HandsEmpty/Joint.R
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.R
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -334,7 +334,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: MainCamera/HandsEmpty/Joint.L
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -344,7 +344,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: MainCamera/HandsEmpty/Joint.L
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -354,7 +354,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: MainCamera/HandsEmpty/Joint.L
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -364,7 +364,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: MainCamera/HandsEmpty/Joint.R
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -374,7 +374,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: MainCamera/HandsEmpty/Joint.R
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -384,7 +384,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: MainCamera/HandsEmpty/Joint.R
+    path: PlayerCamParent/MainCamera/HandsEmpty/Joint.R
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
