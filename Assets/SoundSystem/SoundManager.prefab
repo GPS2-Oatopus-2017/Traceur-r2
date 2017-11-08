@@ -289,6 +289,12 @@ MonoBehaviour:
   - audioClipID: 67
     audioClip: {fileID: 8300000, guid: d324d01f63a0826488232ee037a485c0, type: 3}
     priority: 1
+  - audioClipID: 11
+    audioClip: {fileID: 8300000, guid: 50cb0ba8a07470147a29a221097a1e84, type: 3}
+    priority: 0
+  - audioClipID: 10
+    audioClip: {fileID: 8300000, guid: 936176debd9b4394eb3b6bacb0f07c1c, type: 3}
+    priority: 0
   bgmAudioSource: {fileID: 82067185432837428}
   bgmAudioClipID: 0
   sfxAudioSource2DOneshot: {fileID: 82373236289609088}
