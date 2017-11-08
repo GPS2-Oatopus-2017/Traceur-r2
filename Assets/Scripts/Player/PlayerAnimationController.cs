@@ -26,4 +26,15 @@ public class PlayerAnimationController : MonoBehaviour, IPlayerComponent
 		m_Animator.SetBool ("Jumping", m_Player.rigidController.Jumping);
 		m_Animator.SetFloat ("VerticalVelocity", m_Player.rigidController.Velocity.y);
 	}
+
+	public void PlayDeathAnim()
+	{
+		m_Animator.SetTrigger("Dies");
+		m_Animator.SetBool("isAlive",false);
+	}
+
+	public void SetisAlive()
+	{
+		m_Animator.SetBool("isAlive",true);
+	}
 }
