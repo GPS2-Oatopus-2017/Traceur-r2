@@ -144,7 +144,7 @@ public class DialogueManager : MonoBehaviour
 
                 GameManagerScript.Instance.player.StartRunning();
                 SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_TUTO);
-//                timerScript.hasStarted = true;
+                timerScript.hasStarted = true;
                 break;
         }
     }
