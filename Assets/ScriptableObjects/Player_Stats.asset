@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c8151d2453c29439c377fb71d2b7fb, type: 3}
   m_Name: Player_Stats
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 4
   movementSpeed: 20
   observeTime: 3
   cameraTUurnSpeed: 7
