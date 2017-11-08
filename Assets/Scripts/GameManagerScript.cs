@@ -36,6 +36,18 @@ public class GameManagerScript : MonoBehaviour
 	void CheckWinLoseConditions () 
 	{
 		if(timerScript.totalTimeLevel1 > 0) return;// After count-down timer reaches "0" change scene to [LoseScene]
+		else
+		{
+			DialogueManager.Instance.LoseSceneDialogue();
+
+			if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
+			{
+				Time.timeScale = 1.0f;
+				GetComponent<ChangeSceneScript>().ChangeScenes(1);
+			}
+		}
+
+
 		if(player.status.health > 0) return; //After character health reaches "0" change scene to [LoseScene]
 
 		DialogueManager.Instance.LoseSceneDialogue();

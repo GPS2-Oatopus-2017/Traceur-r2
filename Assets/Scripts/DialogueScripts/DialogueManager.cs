@@ -205,7 +205,7 @@ public class DialogueManager : MonoBehaviour
 
     public void LoseSceneDialogue() // Call this function when player loses the game either by dying or by failing to reach end point in time, may not be nessecary if we transition to lose scene.
     {                               // DialogueManager.Instance.LoseSceneDialogue();
-        if(youLose == false)
+		if(youLose == false)
         {
             Time.timeScale = 0;
 
