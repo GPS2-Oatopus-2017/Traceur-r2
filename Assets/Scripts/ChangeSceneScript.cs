@@ -16,6 +16,7 @@ public class ChangeSceneScript : MonoBehaviour
 
     public void ChangeScenes(int scene)
     {
+//        StopAllCoroutines();
         SceneManager.LoadScene(switchScenes[scene]);
     }
 }

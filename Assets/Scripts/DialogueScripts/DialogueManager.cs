@@ -171,6 +171,7 @@ public class DialogueManager : MonoBehaviour
         }
         else //Once beginning dialogue is done, :
         {
+            StopCoroutine("TypeEffect"); // Stop ongoing coroutine.
             beginningDialogue.transform.position = Vector3.MoveTowards(beginningDialogue.transform.position, target.position, speed * Time.deltaTime);
 
             if(beginningDialogue.transform.position.y == target.transform.position.y) // After beginning scene has faded, start the game.
