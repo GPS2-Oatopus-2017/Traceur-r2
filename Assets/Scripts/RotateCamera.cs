@@ -91,6 +91,7 @@ public class RotateCamera : MonoBehaviour
 		} else {
 
 			rotationCounter = rotationAmount;
+			rbController.cam.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
 
 		}
 	}
