@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4069698467517052}
   - component: {fileID: 33954494700905022}
   - component: {fileID: 23095919379753522}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4294788014336974}
   - component: {fileID: 95474704901883856}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4619203941070758}
-  m_Layer: 0
+  - component: {fileID: 65202154285852968}
+  m_Layer: 10
   m_Name: Building_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +70,7 @@ GameObject:
   - component: {fileID: 4239136171209568}
   - component: {fileID: 33327771716937584}
   - component: {fileID: 23374649747438374}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +87,7 @@ GameObject:
   - component: {fileID: 4636122773649436}
   - component: {fileID: 33103592862756264}
   - component: {fileID: 23141262830686222}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BuildingBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,14 +142,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1885950362180478}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -2, y: 0.0021160303, z: 56.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4294788014336974}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4636122773649436
 Transform:
   m_ObjectHideFlags: 1
@@ -282,6 +283,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627984409094080}
   m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!65 &65202154285852968
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1885950362180478}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 9.5, z: 7}
+  m_Center: {x: 0, y: 4.75, z: 1.25}
 --- !u!95 &95474704901883856
 Animator:
   serializedVersion: 3

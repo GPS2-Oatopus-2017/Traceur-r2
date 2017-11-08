@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4977821464072952}
   - component: {fileID: 95598177179114292}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4403394673374396}
   - component: {fileID: 33800591304327946}
   - component: {fileID: 23014441971194386}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4315431148014238}
   - component: {fileID: 33595004779462868}
   - component: {fileID: 23661913091468396}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BuildingBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4865203620255624}
-  m_Layer: 0
+  - component: {fileID: 65784362721342682}
+  m_Layer: 10
   m_Name: Building_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,14 +109,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1704840902131418}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -80.91, y: -0.00039456, z: 60.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4977821464072952}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4977821464072952
 Transform:
   m_ObjectHideFlags: 1
@@ -211,6 +212,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1306659411443780}
   m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
+--- !u!65 &65784362721342682
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1704840902131418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.5, y: 6.5, z: 6}
+  m_Center: {x: 0, y: 3, z: 1}
 --- !u!95 &95598177179114292
 Animator:
   serializedVersion: 3

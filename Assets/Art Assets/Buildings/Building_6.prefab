@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4264041621310744}
   - component: {fileID: 33792465638688146}
   - component: {fileID: 23330258927585122}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 33663782114791366}
   - component: {fileID: 23230676834242558}
   - component: {fileID: 65457579377760460}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4515836862455358}
   - component: {fileID: 95837240420156390}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}

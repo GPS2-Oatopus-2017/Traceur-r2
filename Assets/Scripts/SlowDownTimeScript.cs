@@ -51,7 +51,6 @@ public class SlowDownTimeScript : MonoBehaviour
 			nearSwitch = true;
 
 			rollCamera.isEvent = true;
-
 		}
 	}
 
@@ -89,8 +88,8 @@ public class SlowDownTimeScript : MonoBehaviour
 
 			Camera.main.transform.LookAt (switchToLook.transform.position);
 
-			if (lookCounter >= lookDuration) {
-
+			if (lookCounter >= lookDuration)
+			{
 				//Quaternion.Lerp (Camera.main.transform.rotation, rbController.transform.rotation, 1f);
 
 				Camera.main.transform.rotation = rbController.transform.rotation;
