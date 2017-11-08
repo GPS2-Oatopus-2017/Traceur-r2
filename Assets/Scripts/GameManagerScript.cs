@@ -35,26 +35,30 @@ public class GameManagerScript : MonoBehaviour
 
 	void CheckWinLoseConditions () 
 	{
-		if(timerScript.totalTimeLevel1 > 0) return;// After count-down timer reaches "0" change scene to [LoseScene]
-		else
+      //  if(PlayerStatusScript.Instance.health > 0) return; //After character health reaches "0" change scene to [LoseScene]
+        if(PlayerStatusScript.Instance.health <= 0)
+        {
+            DialogueManager.Instance.LoseSceneDialogue();
+
+            if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
+            {
+                Time.timeScale = 1.0f;
+                GetComponent<ChangeSceneScript>().ChangeScenes(1);
+            }
+        }
+		//else if(timerScript.totalTimeLevel1 > 0) return;// After count-down timer reaches "0" change scene to [LoseScene]
+		//else
+        if(timerScript.totalTimeLevel1 <= 0)
 		{
 			DialogueManager.Instance.LoseSceneDialogue();
+
+            PlayerStatusScript.Instance.health = 0;
 
 			if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
 			{
 				Time.timeScale = 1.0f;
 				GetComponent<ChangeSceneScript>().ChangeScenes(1);
 			}
-		}
-
-
-		if(player.status.health > 0) return; //After character health reaches "0" change scene to [LoseScene]
-
-		DialogueManager.Instance.LoseSceneDialogue();
-
-        if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
-        {
-			GetComponent<ChangeSceneScript>().ChangeScenes(1);
 		}
 	}
 }

@@ -25,10 +25,6 @@ public class FirstEncounterScript : MonoBehaviour
     public static FirstEncounterScript Instance;
 
     public bool[] seenObj; 
-
-    float timer;
-    float setTimer = 3f;
-    bool activateTimer;
    
     void Awake()
     {
@@ -39,8 +35,6 @@ public class FirstEncounterScript : MonoBehaviour
 	void Start () 
     {
         dirIndicator.SetActive(false);
-        timer = setTimer;
-        activateTimer = false;
 
         for(int i = 0; i < seenObj.Length; i++) // Seen Object is all set to false because player have not seen these objects before.
         {
@@ -50,14 +44,12 @@ public class FirstEncounterScript : MonoBehaviour
 
     void Update()
     {
-        if(activateTimer == true)
+        if(seenObj[5] == true)
         {
-            timer -= Time.deltaTime;
-        }
-
-        if(timer <= 0)
-        {
-            dirIndicator.SetActive(false);
+            if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+            {
+                dirIndicator.SetActive(false);
+            }
         }
 
         ObjectEncounter();
@@ -69,7 +61,7 @@ public class FirstEncounterScript : MonoBehaviour
         {
             if(Vector3.Distance(transform.position, turn[i].transform.position)  <= distanceFromObject[5] && seenObj[5] == false)
             {
-                activateTimer = true;
+                //activateTimer = true;
                 seenObj[5] = true; // Player is currently withing range of an obj.
                 dirIndicator.SetActive(true);
             }

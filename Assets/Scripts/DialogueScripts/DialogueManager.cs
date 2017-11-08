@@ -48,6 +48,8 @@ public class DialogueManager : MonoBehaviour
     public float cdTimer; 
     public float setTime;
     private int curTimeCount = 5;
+    public float b_Timer;
+    public float setB_Timer;
 
     [Header("Booleans")]
     public bool[] objectSeen;
@@ -70,6 +72,7 @@ public class DialogueManager : MonoBehaviour
 
         cdTimer = setTime;
         timer = showTimer; // Set all First Encounter timers to desired set amount.
+        b_Timer = setB_Timer;
 
         for(int i = 0; i < objectSeen.Length; i++) // Have player ever seen these objects? No. So all booleans are set to false;
         {
@@ -124,7 +127,7 @@ public class DialogueManager : MonoBehaviour
         switch(curTimeCount)
         {
             case 5:
-                countDown.text = "<T>";
+                countDown.text = "T";
                 popUps[2].SetActive(true);
                 SoundManagerScript.Instance.PlayOneShotSFX2D(countDownSound);
                 break;
@@ -172,9 +175,15 @@ public class DialogueManager : MonoBehaviour
         else //Once beginning dialogue is done, :
         {
             StopCoroutine("TypeEffect"); // Stop ongoing coroutine.
-            beginningDialogue.transform.position = Vector3.MoveTowards(beginningDialogue.transform.position, target.position, speed * Time.deltaTime);
 
-            if(beginningDialogue.transform.position.y == target.transform.position.y) // After beginning scene has faded, start the game.
+            b_Timer -= Time.deltaTime;
+
+            if(b_Timer > 0)
+            {
+                beginningDialogue.transform.position = Vector3.MoveTowards(beginningDialogue.transform.position, target.position, speed * Time.deltaTime);
+            }
+
+            else
             {
                 beginningDialogue.SetActive(false);
 
@@ -207,7 +216,7 @@ public class DialogueManager : MonoBehaviour
     {                               // DialogueManager.Instance.LoseSceneDialogue();
 		if(youLose == false)
         {
-            Time.timeScale = 0;
+           // Time.timeScale = 0;
 
             int randomLoseSoundList = Random.Range(0, loseSound.Count);
 
