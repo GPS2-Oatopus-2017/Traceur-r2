@@ -30,7 +30,7 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 		lever = this.transform.GetChild(1).gameObject;
 		otherLever = otherSwitch.transform.GetChild(1).gameObject;
 		fenceBar = fence.transform.GetChild(1).gameObject;
-		wall = fenceBar.GetComponent<ElectricWallScript>();
+		wall = fence.GetComponent<ElectricWallScript>();
 	}
 
 

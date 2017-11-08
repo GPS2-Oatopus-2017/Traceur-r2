@@ -69,7 +69,6 @@ public class InteractScript : MonoBehaviour
 		if ((Input.touchCount > 0) && (Input.GetTouch (0).phase == TouchPhase.Began)) {
 			Ray raycast = Camera.main.ScreenPointToRay (Input.GetTouch (0).position);
 			RaycastHit raycastHit;
-
 			if (Physics.Raycast (raycast, out raycastHit)) {
 				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
 					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable>();
