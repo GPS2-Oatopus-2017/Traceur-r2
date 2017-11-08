@@ -12,7 +12,8 @@ TrueTypeFontImporter:
   fontName: DS-Digital
   fontNames:
   - DS-Digital
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1345ef4c2ba4a9442a1f7edc63488631, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
