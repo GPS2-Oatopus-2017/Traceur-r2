@@ -30,8 +30,6 @@ public class TimelineScript : MonoBehaviour {
 	public float enemyDistanceTraveledA;
 	public float enemyDistanceTraveledB;
 
-	//To be replaced by distance remaining to end point for character and enemies
-	[Range(1000.0f, 10000.0f)]
 	public float calculatedDistanceAwayFromEnd;
 
 	public float speed;
@@ -62,6 +60,8 @@ public class TimelineScript : MonoBehaviour {
 		surveillanceDrone.transform.position = startPoint;
 		huntingDrone.transform.position = startPoint;
 
+		calculatedDistanceAwayFromEnd = DistanceCalculation.Instance.calculatedDistanceAwayFromEnd;
+
 		distance = endPoint.x - startPoint.x;
 
 		characterDistanceTraveled = 0;
@@ -81,6 +81,8 @@ public class TimelineScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		calculatedDistanceAwayFromEnd = DistanceCalculation.Instance.calculatedDistanceAwayFromEnd;
+		characterDistanceTraveled = DistanceCalculation.Instance.characterDistanceTraveled;
 		//temporary character running simulation
 //		if(characterDistanceTraveled >= calculatedDistanceAwayFromEnd)
 //		{

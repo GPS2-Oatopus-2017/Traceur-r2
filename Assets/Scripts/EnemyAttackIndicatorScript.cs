@@ -8,12 +8,16 @@ public class EnemyAttackIndicatorScript : MonoBehaviour {
 	private float defaultScale;
 	public float smallestScale = 0.2f;
 	private bool enlarging = false;
+	private Transform player;
 
 	// Use this for initialization
 	void Start () 
 	{
+		player = GameObject.FindWithTag("Player").transform;
 		defaultScale = transform.localScale.x;
 		enlarging = false;
+
+		transform.LookAt(player.position);
 	}
 	
 	// Update is called once per frame
@@ -38,6 +42,14 @@ public class EnemyAttackIndicatorScript : MonoBehaviour {
 			{
 				enlarging = false;
 			}
+		}
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if(other.tag == ("Bullet"))
+		{
+			Destroy(gameObject);
 		}
 	}
 }
