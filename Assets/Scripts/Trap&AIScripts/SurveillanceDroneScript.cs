@@ -44,7 +44,11 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		droneStartType();
 		surveillanceDroneChaseFunctions();
 		surveillanceDroneMainFunctions();
-
+		if(ReputationManagerScript.Instance.currentRep == 0)
+		{
+			PoolManagerScript.Instance.Despawn(this.gameObject);
+			TimelineScript.Instance.DestroyEnemyIcon(this.gameObject.name, 1);
+		}
 		//distanceOfPlayer = Vector3.Distance(transform.position, player.transform.position);
 	}
 

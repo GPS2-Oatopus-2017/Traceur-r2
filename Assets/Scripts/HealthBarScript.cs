@@ -5,16 +5,15 @@ using UnityEngine.UI;
 
 public class HealthBarScript : MonoBehaviour {
 
-	public static HealthBarScript Instance;
-
+	public PlayerStatsData data;
 	public Sprite barFilled;
 	public Image[] healthBars;
 
 	private Image[] tempHealthBars;
 
+
 	void Awake()
 	{
-		Instance = this;
 	}
 
 	// Use this for initialization
@@ -45,5 +44,20 @@ public class HealthBarScript : MonoBehaviour {
 	public void ResetHealthBar(int playerHealth)
 	{
 		healthBars[playerHealth].enabled = false;
+	}
+
+	void Update()
+	{
+		for(int i=0; i < data.maxHealth; i++)
+		{
+			if(GameManagerScript.Instance.player.status.currentHealth > i)
+			{
+				healthBars[i].enabled = true;
+			}
+			else
+			{
+				healthBars[i].enabled = false;
+			}
+		}
 	}
 }

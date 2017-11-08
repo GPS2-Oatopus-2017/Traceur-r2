@@ -74,14 +74,14 @@ public class FirstEncounterScript : MonoBehaviour
             {
                 seenObj[6] = true; // Player is currently withing range of an obj.
 
-                List<MeshRenderer> childRenderer = new List<MeshRenderer>();
-
-                lowObstacle[i].GetComponentsInChildren<MeshRenderer>(childRenderer);
-
-                for(int j = 0; j < childRenderer.Count; j++)
-                {
-                    childRenderer[j].material.shader = outlineHighlight;
-                }
+//                List<MeshRenderer> childRenderer = new List<MeshRenderer>();
+//
+//                lowObstacle[i].GetComponentsInChildren<MeshRenderer>(childRenderer);
+//
+//                for(int j = 0; j < childRenderer.Count; j++)
+//                {
+//                    childRenderer[j].material.shader = outlineHighlight;
+//                }
             }
         }
 
@@ -91,14 +91,14 @@ public class FirstEncounterScript : MonoBehaviour
             if (Vector3.Distance(transform.position, highObstacle[i].transform.position)  <= distanceFromObject[7])
             {
                 seenObj[7] = true; // Player is currently withing range of an obj
-                List<MeshRenderer> childRenderer = new List<MeshRenderer>();
+              //  List<MeshRenderer> childRenderer = new List<MeshRenderer>();
 
-                highObstacle[i].GetComponentsInChildren<MeshRenderer>(childRenderer);
-
-                for(int j = 0; j < childRenderer.Count; j++)
-                {
-                    childRenderer[j].material.shader = outlineHighlight;
-                }
+//                highObstacle[i].GetComponentsInChildren<MeshRenderer>(childRenderer);
+//
+//                for(int j = 0; j < childRenderer.Count; j++)
+//                {
+//                    childRenderer[j].material.shader = outlineHighlight;
+//                }
             }
         }
 
@@ -110,9 +110,9 @@ public class FirstEncounterScript : MonoBehaviour
                 seenObj[0] = true; // Player is currently withing range of an obj.
 
                 // Highlight that particular object
-				defaultMat= surveillanceDrones[i].transform.GetComponentInChildren<MeshRenderer>().material; // Set objects' default material to it's current material.
+			//	defaultMat= surveillanceDrones[i].transform.GetComponentInChildren<MeshRenderer>().material; // Set objects' default material to it's current material.
 				
-				surveillanceDrones[i].transform.GetComponentInChildren<MeshRenderer>().material.shader = outlineHighlight;
+				//surveillanceDrones[i].transform.GetComponentInChildren<MeshRenderer>().material.shader = outlineHighlight;
 			}
 		}
 
@@ -123,9 +123,9 @@ public class FirstEncounterScript : MonoBehaviour
                 seenObj[1] = true; 
 
                 // Highlight that particular object
-                defaultMat= motionDetectors[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
+             //   defaultMat= motionDetectors[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
                
-				motionDetectors[i].GetComponent<MeshRenderer>().material.shader = outlineHighlight;
+			//	motionDetectors[i].GetComponent<MeshRenderer>().material.shader = outlineHighlight;
             }
         }
 
@@ -135,14 +135,14 @@ public class FirstEncounterScript : MonoBehaviour
             {
                 seenObj[2] = true;
 
-                List<MeshRenderer> childRenderer = new List<MeshRenderer>();
+            //    List<MeshRenderer> childRenderer = new List<MeshRenderer>();
 
-                onSwitches[i].GetComponentsInChildren<MeshRenderer>(childRenderer);
+             //   onSwitches[i].GetComponentsInChildren<MeshRenderer>(childRenderer);
 
-                for(int j = 0; j < childRenderer.Count; j++)
-                {
-					childRenderer[j].material.shader = outlineHighlight;
-                }
+            //    for(int j = 0; j < childRenderer.Count; j++)
+            //    {
+			//		childRenderer[j].material.shader = outlineHighlight;
+           //     }
             }
         }
 
@@ -152,15 +152,15 @@ public class FirstEncounterScript : MonoBehaviour
             {
                 seenObj[3] = true;
 
-                // Highlight that particular object
-                List<MeshRenderer> childRenderer = new List<MeshRenderer>();
-
-                offSwitches[i].GetComponentsInChildren<MeshRenderer>(childRenderer);
-
-                for(int j = 0; j < childRenderer.Count; j++)
-                {
-					childRenderer[j].material.shader = outlineHighlight;
-                }
+//                // Highlight that particular object
+//                List<MeshRenderer> childRenderer = new List<MeshRenderer>();
+//
+//                offSwitches[i].GetComponentsInChildren<MeshRenderer>(childRenderer);
+//
+//                for(int j = 0; j < childRenderer.Count; j++)
+//                {
+//					childRenderer[j].material.shader = outlineHighlight;
+//                }
             }
         }
 
@@ -171,9 +171,9 @@ public class FirstEncounterScript : MonoBehaviour
                 seenObj[4] = true;
 
                 // Highlight that particular object
-                defaultMat= doors[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-
-				doors[i].GetComponent<MeshRenderer>().material.shader = outlineHighlight;
+//                defaultMat= doors[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
+//
+//				doors[i].GetComponent<MeshRenderer>().material.shader = outlineHighlight;
             }
         }
     }    

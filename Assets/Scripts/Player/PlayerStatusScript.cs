@@ -10,7 +10,8 @@ public class PlayerStatusScript : MonoBehaviour, IPlayerComponent
 		this.m_Player = m_Player;
 	}
 
-	public int health = 3;
+	public PlayerStatsData data;
+	public int currentHealth;
 	public bool isAlive;
 	int temp;
 	public static PlayerStatusScript Instance;
@@ -23,7 +24,8 @@ public class PlayerStatusScript : MonoBehaviour, IPlayerComponent
 	// Use this for initialization
 	void Start () 
 	{
-		temp = health;
+		//temp = health;
+		currentHealth = data.maxHealth;
 		isAlive = true;
 		//m_Player.animController.SetisAlive();
 	}
@@ -35,7 +37,7 @@ public class PlayerStatusScript : MonoBehaviour, IPlayerComponent
 		{
 			m_Player.animController.SetisAlive();
 			m_Player.ToggleDead(false);
-			if(health <= 0)
+			if(currentHealth <= 0)
 			{
 				isAlive = false;
 			//	m_Player.ToggleisAlive(false);
@@ -43,11 +45,11 @@ public class PlayerStatusScript : MonoBehaviour, IPlayerComponent
 				m_Player.ToggleDead(true);
 			}
 
-			if(health != temp)
-			{
-				TakeDamage();
-				temp = health;
-			}
+//			if(health != temp)
+//			{
+//				TakeDamage();
+//				temp = health;
+//			}
 		}
 
 
@@ -67,9 +69,9 @@ public class PlayerStatusScript : MonoBehaviour, IPlayerComponent
 //		}
 	}
 
-	void TakeDamage()
-	{
-		HealthBarScript.Instance.ResetHealthBar(health);
-	}
+//	void TakeDamage()
+//	{
+//		HealthBarScript.Instance.ResetHealthBar(health);
+//	}
 		
 }

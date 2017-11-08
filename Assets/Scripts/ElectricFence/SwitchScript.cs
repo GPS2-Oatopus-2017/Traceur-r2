@@ -20,6 +20,7 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 	GameObject otherLever;
 	GameObject fenceBar;
 	ElectricWallScript wall;
+	SwitchScript other;
 	public bool isOn;
 
 
@@ -29,6 +30,7 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 		fence.SetActive (true);
 		lever = this.transform.GetChild(1).gameObject;
 		otherLever = otherSwitch.transform.GetChild(1).gameObject;
+		other = otherSwitch.GetComponent<SwitchScript>();
 		fenceBar = fence.transform.GetChild(1).gameObject;
 		wall = fence.GetComponent<ElectricWallScript>();
 	}
@@ -47,6 +49,7 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 			lever.transform.localEulerAngles = new Vector3(-90,0,0);
 			otherLever.transform.localEulerAngles = new Vector3(-90,0,0);
 			isOn = true;
+			other.isOn = true;
 			fenceBar.SetActive (true);
 			wall.isActived = true;
 		} 
@@ -55,6 +58,7 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 			lever.transform.localEulerAngles = new Vector3(0,0,0);
 			otherLever.transform.localEulerAngles = new Vector3(0,0,0);
 			isOn = false;
+			other.isOn = false;
 			fenceBar.SetActive (false);
 			wall.isActived = false;
 		}

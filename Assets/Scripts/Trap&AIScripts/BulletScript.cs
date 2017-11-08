@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour {
 
-	public GameObject player;
 	public float bulletSpeed;
 	public float selfDestructTimer = 5.0f;
 	public bool fromTopHardpoint;
@@ -15,7 +14,6 @@ public class BulletScript : MonoBehaviour {
 
 	void Awake()
 	{
-		player = GameObject.FindWithTag("Player");
 		bulletRigidbody = GetComponent<Rigidbody>();
 		bulletSphereCollider = GetComponent<SphereCollider>();
 	}
@@ -29,6 +27,7 @@ public class BulletScript : MonoBehaviour {
 
 	void Update() 
 	{
+		transform.LookAt(GameManagerScript.Instance.player.transform);
 		collisionChecker();
 		selfDestructFunction();
 	}
@@ -47,11 +46,9 @@ public class BulletScript : MonoBehaviour {
 
 	void collisionChecker()
 	{
-		PlayerCoreController playerCoreController = player.GetComponent<PlayerCoreController>();
-
 		if(fromTopHardpoint == true)
 		{
-			if(playerCoreController.rigidController.isSliding == true)
+			if(GameManagerScript.Instance.player.rigidController.isSliding == true)
 			{
 				this.bulletSphereCollider.enabled = false;
 			}
@@ -59,10 +56,19 @@ public class BulletScript : MonoBehaviour {
 
 		if(fromTopHardpoint == false)
 		{
-			if(playerCoreController.rigidController.Jumping == true)
+			if(GameManagerScript.Instance.player.rigidController.Jumping == true)
 			{
 				this.bulletSphereCollider.enabled = false;
 			}
 		}
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if(other.gameObject.tag == "Player")
+		{
+			GameManagerScript.Instance.player.status.currentHealth -= 1;
+		}
+		Destroy(gameObject);
 	}
 }
