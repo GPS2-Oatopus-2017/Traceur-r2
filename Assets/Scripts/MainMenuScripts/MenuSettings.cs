@@ -21,7 +21,7 @@ public class MenuSettings : MonoBehaviour
         {
             if(mInstance == null)
             {
-                GameObject tempObject = GameObject.FindWithTag("SoundManager");
+                GameObject tempObject = GameObject.FindWithTag("SettingManager");
     
                 if(tempObject == null)
                 {

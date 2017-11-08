@@ -20,6 +20,7 @@ TagManager:
   - Pushable
   - SwitchLevel
   - InteractableObjects
+  - SettingManager
   layers:
   - Default
   - TransparentFX

@@ -530,12 +530,12 @@ GameObject:
   - component: {fileID: 235804777}
   - component: {fileID: 235804776}
   m_Layer: 0
-  m_Name: GameManager
-  m_TagString: GameController
+  m_Name: SettingManager
+  m_TagString: SettingManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &235804776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2635,28 +2635,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1302080030}
---- !u!1 &1316761651 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1893631929508356, guid: 2eec1bf49352f7e499119ba2fac11c14,
-    type: 2}
-  m_PrefabInternal: {fileID: 1704062930}
---- !u!114 &1316761652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1316761651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b20673c6f676204a95bd8dbb4c2bfda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bgmVolume: 1
-  sfxVolume: 1
-  brightness: 0.75
-  bgmAudioSource: {fileID: 1858161928}
-  sfxAudioSource: {fileID: 1356903826}
-  brightnessMask: {fileID: 889068578}
 --- !u!1 &1322411963
 GameObject:
   m_ObjectHideFlags: 0
