@@ -33,6 +33,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 			//#if !MOBILE_INPUT
 			public bool m_Running;
+			public bool m_Dead;
 			//#endif
 			public bool isAutoRun = false;
 
@@ -57,6 +58,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				if (m_Running) {
 					CurrentTargetSpeed *= RunMultiplier; 
 				}
+
+				if(m_Dead) {
+					CurrentTargetSpeed *= 0;
+				}
+					
 //				CurrentTargetSpeed *= RunMultiplier;
 //				m_Running = true;
 

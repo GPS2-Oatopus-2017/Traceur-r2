@@ -56,6 +56,11 @@ public class PlayerCoreController : MonoBehaviour
         rigidController.movementSettings.m_Running = isRunning;
 	}
 
+	public void ToggleDead(bool isDead)
+	{
+		rigidController.movementSettings.m_Dead = isDead;
+	}
+
 	public void StartRunning()
 	{
 		rigidController.movementSettings.isAutoRun = true;
@@ -65,4 +70,14 @@ public class PlayerCoreController : MonoBehaviour
 	{
 		rigidController.movementSettings.isAutoRun = false;
 	}
+
+	public void KillPlayer()
+	{
+		animController.PlayDeathAnim();
+	}
+
+//	public void ToggleisAlive()
+//	{
+//		animController.SetisAlive();
+//	}
 }
