@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1153383281926712}
+  m_IsPrefabParent: 1
+--- !u!1 &1153383281926712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4915457647039098}
+  - component: {fileID: 114786937011414914}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: DialogueManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4915457647039098
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153383281926712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114786937011414914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153383281926712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b898f779851b64bb8c2d538ae890a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bsIndex: 0
+  feIndex: 0
+  loseIndex: 0
+  winIndex: 0
+  startingDialogue: {fileID: 0}
+  fadeTime: 3
+  beginningText: {fileID: 0}
+  beginningDialogue: {fileID: 0}
+  speed: 200
+  target: {fileID: 0}
+  nextLetter: 0.06
+  dialogue: {fileID: 0}
+  countDown: {fileID: 0}
+  beginningScene:
+  - '"Hello, Traceur. Please follow my instructions carefully."'
+  - '"I will be guiding you through this simulation."'
+  - '"01000111 01001100"'
+  firstEncounter:
+  - '"You have alerted a nearby surveillance drone, look for a way to get rid of them."'
+  - '"Tap on the motion detector to initiate hacking protocol."'
+  - '"Disable the electric fence to secure a safe passage"'
+  - '"You can turn it back on to stop the drone."'
+  - '"Please observe your surroundings."'
+  - '"Please make a turn in front."'
+  - '"Jump over the obstacle."'
+  - '"Looks like you are able to roll under it."'
+  loseDialogue:
+  - '"Simulation failed, run subject 23."'
+  - '"Training sequence failed."'
+  - '"Simulation failed! What another waste of time."'
+  winDialogue:
+  - '"Training sequence completed, proceeding to the pickup mission."'
+  - '"You passed the training sequence, initiate pickup mission."'
+  - '"Seems like you''re not such a failure after all Subject 22, proceed to pickup
+    mission."'
+  - '"Hmph! Impressive! Proceed with pickup mission."'
+  dialogueBox: {fileID: 0}
+  popUps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  beginningSound: 320000003300000034000000
+  firstEncounterSound: 390000003a0000003b0000003c0000003d000000360000003700000038000000
+  winSound: 3e0000003f0000004000000041000000
+  loseSound: 420000004300000044000000
+  countDownSound: 53
+  timer: 0
+  showTimer: 5
+  cdTimer: 0
+  setTime: 5
+  objectSeen: 0000000000000000
+  initTimer: 0
+  initDialogue: 0
+  startCD: 0
+  youWin: 0
+  youLose: 0
+  timerScript: {fileID: 0}
