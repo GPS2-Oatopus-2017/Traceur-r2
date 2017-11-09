@@ -57,6 +57,7 @@ public class DialogueManager : MonoBehaviour
 
 	[Header("Last Minute Stuff")]
 	public TimerScript timerScript;
+	private bool sceneReady = false;
 
     public static DialogueManager Instance;
 
@@ -67,9 +68,6 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine("TypeEffect");
-        SoundManagerScript.Instance.PlaySFX2D(beginningSound[bsIndex], false);
-
         cdTimer = setTime;
         timer = showTimer; // Set all First Encounter timers to desired set amount.
         b_Timer = setB_Timer;
@@ -87,6 +85,8 @@ public class DialogueManager : MonoBehaviour
 
 		GameManagerScript.Instance.player.StopRunning();
 		SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_MAIN_MENU);
+
+		sceneReady = true;
     }
 
     void Update()
@@ -158,6 +158,14 @@ public class DialogueManager : MonoBehaviour
         {
             beginningDialogue.SetActive(true);
 
+			if(sceneReady)
+			{
+				sceneReady = false;
+
+				StartCoroutine("TypeEffect"); // Start typing effect.
+				SoundManagerScript.Instance.PlaySFX2D(beginningSound[bsIndex], false);
+				return;
+			}
             if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) && bsIndex <= beginningScene.Count )
             {
                 SoundManagerScript.Instance.StopSFX2D(beginningSound[bsIndex]);

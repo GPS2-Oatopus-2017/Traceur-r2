@@ -46,7 +46,7 @@ public class FirstEncounterScript : MonoBehaviour
     {
         if(seenObj[5] == true)
         {
-            if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+			if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Left || SwipeScript.Instance.GetSwipe() == SwipeDirection.Right || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
             {
                 dirIndicator.SetActive(false);
             }
