@@ -9,8 +9,9 @@ public class InteractScript : MonoBehaviour
 	RaycastHit hit;
 	Ray mouseRay;
 
-	UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController controller;
 	PlayerCoreController player;
+
+	RigidbodyFirstPersonController rbController;
 
 	public float rayDistance = 10f;
 
@@ -25,6 +26,7 @@ public class InteractScript : MonoBehaviour
 	public static InteractScript Instance { get { return _instance; } }
 
 	public bool isUsingObject = false;
+	public bool isUsingSteelDoor = false;
 
 	public float activateObjectTimer = 2f;
 	public float activateCounter = 0f;
@@ -45,12 +47,12 @@ public class InteractScript : MonoBehaviour
 
 	void Start ()
 	{
-		
+		rbController = FindObjectOfType<RigidbodyFirstPersonController> ();
 	}
 
 	void Update ()
 	{
-		Interaction();
+		Interaction ();
 	}
 
 	void FixedUpdate ()
@@ -64,15 +66,15 @@ public class InteractScript : MonoBehaviour
 	//When left mouse button is pressed, shoot out a ray cast from screen to pointer.//
 	//If the player is within the radius of the object, it will go towards it.//
 
-	void Interaction()
+	void Interaction ()
 	{
 		if ((Input.touchCount > 0) && (Input.GetTouch (0).phase == TouchPhase.Began)) {
 			Ray raycast = Camera.main.ScreenPointToRay (Input.GetTouch (0).position);
 			RaycastHit raycastHit;
 			if (Physics.Raycast (raycast, out raycastHit)) {
 				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
-					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable>();
-					interact.Interacted();
+					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable> ();
+					interact.Interacted ();
 				}
 			}
 		}
@@ -82,8 +84,8 @@ public class InteractScript : MonoBehaviour
 			RaycastHit raycastHit;
 			if (Physics.Raycast (raycast, out raycastHit)) {
 				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
-					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable>();
-					interact.Interacted();
+					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable> ();
+					interact.Interacted ();
 				}
 			}
 		}
@@ -223,6 +225,15 @@ public class InteractScript : MonoBehaviour
 					isUsingObject = true;
 
 				}
+
+				if (hit.transform.tag == "SteelFence" && !isUsingSteelDoor) {
+
+					objectToStore = hit.transform.gameObject;
+
+					Debug.Log ("Steel Door Detected");
+
+					isUsingSteelDoor = true;
+				}
 			}
 		}
 
@@ -262,6 +273,59 @@ public class InteractScript : MonoBehaviour
 
 				isUsingObject = false;
 
+			}
+		}
+
+		if (isUsingSteelDoor) {
+
+			SteelFenceScript steelFence = objectToStore.GetComponent<SteelFenceScript> ();
+
+			activateCounter += Time.deltaTime;
+
+			//Vector3 playerPosition = new Vector3 (player.transform.position.x, objectToStore.transform.position.y, player.transform.position.z);
+
+			//objectToStore.transform.LookAt (playerPosition);
+
+			//gameObject.transform.LookAt (objectToStore.transform.position);
+
+			if (activateCounter >= activateObjectTimer) {
+
+				activateCounter = 0f;
+
+				isUsingSteelDoor = false;
+
+			}
+
+			if (steelFence.canSteelDoorUp) {
+				
+				if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.UP)) {
+
+					objectToStore.transform.Translate (Vector3.up * pushDistance, Space.Self);
+
+					//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
+
+					activateCounter = 0f;
+
+					isUsingSteelDoor = false;
+
+					steelFence.canSteelDoorUp = false;
+					steelFence.canSteelDoorDown = true;
+				}
+			} else if (steelFence.canSteelDoorDown) {
+				
+				if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.DOWN)) {
+
+					objectToStore.transform.Translate (-Vector3.up * pushDistance, Space.Self);
+
+					//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
+
+					activateCounter = 0f;
+
+					isUsingSteelDoor = false;
+
+					steelFence.canSteelDoorUp = true;
+					steelFence.canSteelDoorDown = false;
+				}
 			}
 		}
 	}

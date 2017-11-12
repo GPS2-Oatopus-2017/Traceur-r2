@@ -21,6 +21,7 @@ TagManager:
   - SwitchLevel
   - InteractableObjects
   - SettingManager
+  - SteelFence
   layers:
   - Default
   - TransparentFX

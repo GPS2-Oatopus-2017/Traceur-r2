@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -2210,6 +2210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd56e8c7c9417242bf9d7143ec24499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEntered: 0
+  gameManager: 
 --- !u!1 &111932375
 GameObject:
   m_ObjectHideFlags: 0
@@ -10587,11 +10589,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c9bc139a269234d9358e1e38a490cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowDuration: 3
+  electricFence_Data: {fileID: 0}
   slowTimer: 0
   speedReducedValue: 2
   player: {fileID: 1640676984}
   playerIsSlowed: 0
+  isActived: 0
 --- !u!1 &294395945
 GameObject:
   m_ObjectHideFlags: 0
@@ -11356,7 +11359,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &337637317
 MonoBehaviour:
@@ -11369,15 +11372,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6e815246c83c94aa88472936d866d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawn_Data: {fileID: 0}
   player: {fileID: 1640676996}
   reputation: 0
   countDownTimer: 0
-  spawnTime: 10
   sdCount: 0
   hdCount: 0
   isHorizontal: 0
-  spawnDistance: 4
-  target: {fileID: 0}
   prevDistance: 0
   distance: 0
   spawnPoint: {x: 0, y: 0, z: 0}
@@ -11773,7 +11774,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -8.609, y: 0, z: 0}
 --- !u!1 &376658660
 GameObject:
@@ -14029,7 +14030,7 @@ Transform:
   m_LocalScale: {x: 40, y: 1, z: 37}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &555284082
 GameObject:
@@ -17577,7 +17578,7 @@ Transform:
   m_LocalScale: {x: 40, y: 1, z: 37}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &866682588
 MonoBehaviour:
@@ -26081,7 +26082,7 @@ Prefab:
         type: 2}
       propertyPath: popUps.Array.data[1]
       value: 
-      objectReference: {fileID: 2093141700}
+      objectReference: {fileID: 0}
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
       propertyPath: initTimer
@@ -34823,11 +34824,6 @@ Transform:
   m_Father: {fileID: 1767504024}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2093141700 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1829777013788578, guid: 97f2ed329ededc14ab3590315d71cf8e,
-    type: 2}
-  m_PrefabInternal: {fileID: 492822166}
 --- !u!1 &2100937194 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1051612255711556, guid: e80c18a5ced881942bdf880e707d07ec,
