@@ -23,7 +23,7 @@ public class MakePlayerLookScript : MonoBehaviour
 	}
 
 
-	void FixedUpdate ()
+	void LateUpdate ()
 	{
 		CheckLook ();
 	}

@@ -35,7 +35,7 @@ public class SlowDownTimeScript : MonoBehaviour
 		
 	}
 
-	void FixedUpdate ()
+	void LateUpdate ()
 	{
 		CheckLookSwitch ();
 	}
@@ -54,27 +54,27 @@ public class SlowDownTimeScript : MonoBehaviour
 		}
 	}
 
-//	void OnTriggerStay (Collider other)
-//	{
-//		if (other.gameObject.tag == "Player" && this.gameObject.layer == 12) {
-//
-//			Time.timeScale = slowTime;
-//
-//			//Debug.Log ("IN Slow Motion");
-//
-//		}
-//	}
-//
-//	void OnTriggerExit (Collider other)
-//	{
-//		if (other.gameObject.tag == "Player" && this.gameObject.layer == 12) {
-//
-//			Time.timeScale = originalTime;
-//
-//			//Debug.Log ("OUT Slow Motion");
-//
-//		}
-//	}
+	//	void OnTriggerStay (Collider other)
+	//	{
+	//		if (other.gameObject.tag == "Player" && this.gameObject.layer == 12) {
+	//
+	//			Time.timeScale = slowTime;
+	//
+	//			//Debug.Log ("IN Slow Motion");
+	//
+	//		}
+	//	}
+	//
+	//	void OnTriggerExit (Collider other)
+	//	{
+	//		if (other.gameObject.tag == "Player" && this.gameObject.layer == 12) {
+	//
+	//			Time.timeScale = originalTime;
+	//
+	//			//Debug.Log ("OUT Slow Motion");
+	//
+	//		}
+	//	}
 
 	void CheckLookSwitch ()
 	{
@@ -88,8 +88,7 @@ public class SlowDownTimeScript : MonoBehaviour
 
 			Camera.main.transform.LookAt (switchToLook.transform.position);
 
-			if (lookCounter >= lookDuration)
-			{
+			if (lookCounter >= lookDuration) {
 				//Quaternion.Lerp (Camera.main.transform.rotation, rbController.transform.rotation, 1f);
 
 				Camera.main.transform.rotation = rbController.transform.rotation;
