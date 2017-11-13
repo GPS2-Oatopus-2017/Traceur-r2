@@ -263,7 +263,9 @@ public class InteractScript : MonoBehaviour
 
 				isUsingObject = false;
 
-			} else if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT)) {
+			} 
+
+			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT)) {
 
 				objectToStore.transform.Translate (-Vector3.right * pushDistance, Space.Self);
 
@@ -296,37 +298,38 @@ public class InteractScript : MonoBehaviour
 
 			}
 
-			if (steelFence.canSteelDoorUp) {
-				
-				if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.UP)) {
+			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.UP) && steelFence.canSteelDoorUp) {
 
-					objectToStore.transform.Translate (Vector3.up * pushDistance, Space.Self);
+				steelFence.isActivated = true;
 
-					//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
+				//objectToStore.transform.Translate (Vector3.up * pushDistance, Space.Self);
 
-					activateCounter = 0f;
+				//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
 
-					isUsingSteelDoor = false;
+				activateCounter = 0f;
 
-					steelFence.canSteelDoorUp = false;
-					steelFence.canSteelDoorDown = true;
-				}
-			} else if (steelFence.canSteelDoorDown) {
-				
-				if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.DOWN)) {
+				isUsingSteelDoor = false;
 
-					objectToStore.transform.Translate (-Vector3.up * pushDistance, Space.Self);
-
-					//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
-
-					activateCounter = 0f;
-
-					isUsingSteelDoor = false;
-
-					steelFence.canSteelDoorUp = true;
-					steelFence.canSteelDoorDown = false;
-				}
+				//steelFence.canSteelDoorUp = false;
+				//steelFence.canSteelDoorDown = true;
 			}
+		
+			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.DOWN) && steelFence.canSteelDoorDown) {
+				
+				steelFence.isActivated = true;
+
+				//objectToStore.transform.Translate (-Vector3.up * pushDistance, Space.Self);
+
+				//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
+
+				activateCounter = 0f;
+
+				isUsingSteelDoor = false;
+
+				//steelFence.canSteelDoorUp = true;
+				//steelFence.canSteelDoorDown = false;
+			}
+			
 		}
 	}
 }
