@@ -2728,7 +2728,32 @@ Prefab:
     - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
         type: 2}
       propertyPath: movementSettings.ForwardSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114043706768302908, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: rotationCounter
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114043706768302908, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: rotationAmount
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 114043706768302908, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: rotationSpeed
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: slideDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: slideCooldown
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}

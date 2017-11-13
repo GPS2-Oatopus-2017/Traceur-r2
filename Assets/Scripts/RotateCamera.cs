@@ -29,7 +29,6 @@ public class RotateCamera : MonoBehaviour
 		rotationCounter = rotationAmount;
 	}
 
-
 	void Update ()
 	{
 		//CheckRollBrace ();
@@ -63,36 +62,37 @@ public class RotateCamera : MonoBehaviour
 		// Causes rotation within 1 second. ---//
 		float rotation = rotationSpeed * Time.deltaTime;
 
-		if (rbController.isSliding) {
+		if (rbController.canSlide && !isRolling && (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down || Input.GetKeyDown (KeyCode.S))) {
 			
 			isRolling = true;
 
 		}
 
 		if (isRolling) {
-			
+
+			// Player movement is actually dependent on camera position, this problem needs to be fixed. ---//
+			rbController.cam.transform.Rotate (Vector3.right * rotation, Space.Self);
+
+			//rotationCounter += Time.deltaTime;
+
 			if (rotationCounter > rotation) {
 
 				rotationCounter -= rotation;
 
 			} else {
 
-				rotation = rotationCounter;
+				rbController.cam.transform.localRotation = Quaternion.Euler (0.0f, 0.0f, 0.0f);
 
-				rotationCounter = 0f;
+				rotationCounter = rotationAmount;
 
 				isRolling = false;
-
 			}
-
-			// Player movement is actually dependent on camera position, this problem needs to be fixed. ---//
-			rbController.cam.transform.Rotate (Vector3.right * rotation, Space.Self);
-
-		} else {
-
-			rotationCounter = rotationAmount;
-			rbController.cam.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
-
-		}
+		} 
+//		else if (!isRolling || !isEvent) {
+//
+//			rotationCounter = rotationAmount;
+//			rbController.cam.transform.localRotation = Quaternion.Euler (0.0f, 0.0f, 0.0f);
+//
+//		}
 	}
 }

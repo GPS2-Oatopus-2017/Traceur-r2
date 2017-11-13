@@ -8,6 +8,7 @@ public class MakePlayerLookScript : MonoBehaviour
 	public Transform objectToLookAt;
 
 	RigidbodyFirstPersonController rbController;
+	RotateCamera rotCam;
 
 	public bool toLookAt = false;
 
@@ -17,6 +18,8 @@ public class MakePlayerLookScript : MonoBehaviour
 	void Start ()
 	{
 		rbController = FindObjectOfType<RigidbodyFirstPersonController> ();
+
+		rotCam = FindObjectOfType<RotateCamera> ();
 	}
 
 
@@ -43,6 +46,12 @@ public class MakePlayerLookScript : MonoBehaviour
 
 			Camera.main.transform.LookAt (objectToLookAt.transform.position);
 
+			//Quaternion targetRotation = Quaternion.LookRotation (objectToLookAt.transform.position - gameObject.transform.position);
+
+			//transform.rotation = Quaternion.Lerp (gameObject.transform.rotation, targetRotation, 1000f * Time.deltaTime);
+
+			rotCam.isEvent = true;
+
 			if (timeToLookCounter >= timeToLookAt) {
 				
 				Camera.main.transform.rotation = rbController.transform.rotation;
@@ -50,6 +59,8 @@ public class MakePlayerLookScript : MonoBehaviour
 				toLookAt = false;
 
 				timeToLookCounter = 0f;
+
+				rotCam.isEvent = false;
 			}
 		}
 	}
