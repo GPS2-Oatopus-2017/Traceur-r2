@@ -98,7 +98,7 @@ public class CheckForWallScript : MonoBehaviour
 			*/
 
 			if (knockbackCountdown <= knockbackTime) {
-				
+
 				rbController.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionY;
 
 				knockbackCountdown += Time.deltaTime;

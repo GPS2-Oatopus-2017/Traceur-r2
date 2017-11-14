@@ -17,6 +17,8 @@ public class SlowDownTimeScript : MonoBehaviour
 	public float lookDuration = 2f;
 	public float lookCounter = 0f;
 
+	public int animCount;
+
 	RigidbodyFirstPersonController rbController;
 
 	RotateCamera rollCamera;
@@ -42,7 +44,7 @@ public class SlowDownTimeScript : MonoBehaviour
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.gameObject.tag == "Player" && this.gameObject.layer == 12) {
+		if (other.gameObject.tag == "Player" && this.gameObject.layer == 12 && !rollCamera.isRolling) {
 
 			Time.timeScale = slowTime;
 
@@ -84,22 +86,38 @@ public class SlowDownTimeScript : MonoBehaviour
 
 			lookCounter += Time.deltaTime;
 
-			//Vector3 switchPosition = new Vector3 (Camera.main.transform.position.x, switchToLook.transform.position.y, Camera.main.transform.position.z);
+			if (animCount == 0) {
+				//Vector3 switchPosition = new Vector3 (Camera.main.transform.position.x, switchToLook.transform.position.y, Camera.main.transform.position.z);
 
-			Camera.main.transform.LookAt (switchToLook.transform.position);
+				//Camera.main.transform.LookAt (switchToLook.transform.position);
 
-			if (lookCounter >= lookDuration) {
+				Quaternion targetRotation = Quaternion.LookRotation (switchToLook.transform.position - Camera.main.transform.position);
+
+				Camera.main.transform.rotation = Quaternion.Lerp (Camera.main.transform.rotation, targetRotation, 5f * Time.deltaTime);
+
+			} else if (animCount == 1) {
+				
 				//Quaternion.Lerp (Camera.main.transform.rotation, rbController.transform.rotation, 1f);
 
-				Camera.main.transform.rotation = rbController.transform.rotation;
+				Camera.main.transform.rotation = Quaternion.Lerp (Camera.main.transform.rotation, rbController.transform.rotation, 5f * Time.deltaTime);
+			}
+
+			if (lookCounter >= lookDuration) {
+				
+				animCount++;
 
 				lookCounter = 0f;
 
-				nearSwitch = false;
-
-				rollCamera.isEvent = false;
-
 				Time.timeScale = originalTime;
+
+				if (animCount >= 2) {
+					
+					animCount = 0;
+
+					nearSwitch = false;
+
+					rollCamera.isEvent = false;
+				}
 			}
 		}
 	}

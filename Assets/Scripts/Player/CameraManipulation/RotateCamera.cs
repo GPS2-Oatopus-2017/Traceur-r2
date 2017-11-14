@@ -62,7 +62,7 @@ public class RotateCamera : MonoBehaviour
 		// Causes rotation within 1 second. ---//
 		float rotation = rotationSpeed * Time.deltaTime;
 
-		if (rbController.canSlide && !isRolling && (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down || Input.GetKeyDown (KeyCode.S))) {
+		if (!isEvent && !isRolling && rbController.canSlide && (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down || Input.GetKeyDown (KeyCode.S))) {
 			
 			isRolling = true;
 

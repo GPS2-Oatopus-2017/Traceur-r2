@@ -79,7 +79,7 @@ public class InteractScript : MonoBehaviour
 			}
 		}
 		//* For Testing Only -- Mouse Input
-		if (Input.GetMouseButtonDown (0)) {
+		if (Input.GetMouseButton (0)) {
 			Ray raycast = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit raycastHit;
 			if (Physics.Raycast (raycast, out raycastHit)) {
@@ -94,7 +94,7 @@ public class InteractScript : MonoBehaviour
 
 	void CheckInteract ()
 	{
-		if (Input.GetMouseButtonDown (0) || Input.touchCount > 0) {
+		if (Input.GetMouseButton (0) || Input.touchCount > 0) {
 
 			mouseRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 
@@ -133,7 +133,7 @@ public class InteractScript : MonoBehaviour
 
 	void CheckSwitch ()
 	{
-		if (Input.GetMouseButtonDown (0) || Input.touchCount > 0) {
+		if (Input.GetMouseButton (0) || Input.touchCount > 0) {
 
 			mouseRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 
@@ -329,7 +329,6 @@ public class InteractScript : MonoBehaviour
 				//steelFence.canSteelDoorUp = true;
 				//steelFence.canSteelDoorDown = false;
 			}
-			
 		}
 	}
 }

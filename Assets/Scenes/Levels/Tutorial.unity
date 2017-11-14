@@ -2728,7 +2728,7 @@ Prefab:
     - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
         type: 2}
       propertyPath: movementSettings.ForwardSpeed
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114043706768302908, guid: 4ef5f8b54447a1e42805771279bfb24e,
         type: 2}
@@ -2754,6 +2754,10 @@ Prefab:
         type: 2}
       propertyPath: slideCooldown
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078900665523428, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
@@ -8535,7 +8539,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 883354003}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -8605,9 +8609,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToLookAt: {fileID: 1023752013}
+  slowTime: 0.25
+  originalTime: 0
+  lookOnce: 1
   toLookAt: 0
   animCount: 0
-  timeToLookAt: 1.5
+  timeToLookAt: 2
   timeToLookCounter: 0
 --- !u!54 &883354009
 Rigidbody:

@@ -39,14 +39,14 @@ public class FallThenRollScript : MonoBehaviour
 
 	void CheckFall ()
 	{
-		if (!rbController.Grounded && !toRoll) {
+		if (!rbController.Grounded && !toRoll && !rotateCam.isEvent) {
 
 			timeFallCounter += Time.deltaTime;
 
 			if (timeFallCounter >= timeToFall) {
 
 				//cam.transform.Rotate (new Vector3 (transform.rotation.x + 30.0f, transform.rotation.y, transform.rotation.z));
-				newXRotation = Mathf.LerpAngle (oldXRotation, 30.0f, 10 * Time.deltaTime);
+				//newXRotation = Mathf.LerpAngle (oldXRotation, 30.0f, 10 * Time.deltaTime);
 				//Quaternion.Lerp (transform.rotation, Quaternion.Euler (transform.rotation.x + 30f, transform.rotation.y, transform.rotation.z), 1f);
 
 				timeFallCounter = 0f;
@@ -63,8 +63,9 @@ public class FallThenRollScript : MonoBehaviour
 
 		// Player looks down to brace for fall. //
 		if (rbController.Grounded && toRoll) {
+			
 			//cam.transform.Rotate (new Vector3 (transform.rotation.x - 30.0f, transform.rotation.y, transform.rotation.z));
-			newXRotation = Mathf.LerpAngle (oldXRotation, 0.0f, 10 * Time.deltaTime);
+			//newXRotation = Mathf.LerpAngle (oldXRotation, 0.0f, 10 * Time.deltaTime);
 			//Quaternion.Lerp (transform.rotation, Quaternion.Euler (transform.rotation.x - 30f, transform.rotation.y, transform.rotation.z), 1f);
 
 			toRoll = false;

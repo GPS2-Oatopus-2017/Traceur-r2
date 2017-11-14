@@ -10,6 +10,10 @@ public class MakePlayerLookScript : MonoBehaviour
 	RigidbodyFirstPersonController rbController;
 	RotateCamera rotCam;
 
+	public float slowTime = 0.25f;
+	public float originalTime;
+
+	public bool lookOnce = true;
 	public bool toLookAt = false;
 	public int animCount;
 
@@ -21,6 +25,8 @@ public class MakePlayerLookScript : MonoBehaviour
 		rbController = FindObjectOfType<RigidbodyFirstPersonController> ();
 
 		rotCam = FindObjectOfType<RotateCamera> ();
+
+		originalTime = Time.timeScale;
 	}
 
 
@@ -31,45 +37,52 @@ public class MakePlayerLookScript : MonoBehaviour
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.gameObject.tag == "Player")
-		{
+		if (other.gameObject.tag == "Player") {
+			
 			Debug.Log ("Player Turns BACK!");
 
-			toLookAt = true;
-			animCount = 0;
+			if (!rotCam.isRolling && lookOnce) {
+				
+				Time.timeScale = slowTime;
+				toLookAt = true;
+				lookOnce = false;
+				animCount = 0;
+			}
 		}
 	}
 
 	void CheckLook ()
 	{
-		if (toLookAt)
-		{
+		if (toLookAt) {
 			timeToLookCounter += Time.deltaTime;
 
-			if(animCount == 0)
-			{
+			if (animCount == 0) {
 				//Camera.main.transform.LookAt (objectToLookAt.transform.position);
 
 				Quaternion targetRotation = Quaternion.LookRotation (objectToLookAt.transform.position - Camera.main.transform.position);
 
 				Camera.main.transform.rotation = Quaternion.Lerp (Camera.main.transform.rotation, targetRotation, 5f * Time.deltaTime);
-			}
-			else if(animCount == 1)
-			{
+
+			} else if (animCount == 1) {
 				//Camera.main.transform.rotation = rbController.transform.rotation;
+
 				Camera.main.transform.rotation = Quaternion.Lerp (Camera.main.transform.rotation, rbController.transform.rotation, 5f * Time.deltaTime);
 			}
 
 			rotCam.isEvent = true;
 
-			if (timeToLookCounter >= timeToLookAt)
-			{
+			if (timeToLookCounter >= timeToLookAt) {
+				
 				animCount++;
+
 				timeToLookCounter = 0f;
 
-				if(animCount >= 2)
-				{
+				if (animCount >= 2) {
+
+					Time.timeScale = originalTime;
+					
 					toLookAt = false;
+
 					animCount = 0;
 
 					rotCam.isEvent = false;
