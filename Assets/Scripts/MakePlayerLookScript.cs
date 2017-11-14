@@ -11,6 +11,7 @@ public class MakePlayerLookScript : MonoBehaviour
 	RotateCamera rotCam;
 
 	public bool toLookAt = false;
+	public int animCount;
 
 	public float timeToLookAt = 2f;
 	public float timeToLookCounter = 0f;
@@ -30,37 +31,49 @@ public class MakePlayerLookScript : MonoBehaviour
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.gameObject.tag == "Player") {
-
+		if (other.gameObject.tag == "Player")
+		{
 			Debug.Log ("Player Turns BACK!");
 
 			toLookAt = true;
+			animCount = 0;
 		}
 	}
 
 	void CheckLook ()
 	{
-		if (toLookAt) {
-			
+		if (toLookAt)
+		{
 			timeToLookCounter += Time.deltaTime;
 
-			Camera.main.transform.LookAt (objectToLookAt.transform.position);
+			if(animCount == 0)
+			{
+				//Camera.main.transform.LookAt (objectToLookAt.transform.position);
 
-			//Quaternion targetRotation = Quaternion.LookRotation (objectToLookAt.transform.position - gameObject.transform.position);
+				Quaternion targetRotation = Quaternion.LookRotation (objectToLookAt.transform.position - Camera.main.transform.position);
 
-			//transform.rotation = Quaternion.Lerp (gameObject.transform.rotation, targetRotation, 1000f * Time.deltaTime);
+				Camera.main.transform.rotation = Quaternion.Lerp (Camera.main.transform.rotation, targetRotation, 5f * Time.deltaTime);
+			}
+			else if(animCount == 1)
+			{
+				//Camera.main.transform.rotation = rbController.transform.rotation;
+				Camera.main.transform.rotation = Quaternion.Lerp (Camera.main.transform.rotation, rbController.transform.rotation, 5f * Time.deltaTime);
+			}
 
 			rotCam.isEvent = true;
 
-			if (timeToLookCounter >= timeToLookAt) {
-				
-				Camera.main.transform.rotation = rbController.transform.rotation;
-				
-				toLookAt = false;
-
+			if (timeToLookCounter >= timeToLookAt)
+			{
+				animCount++;
 				timeToLookCounter = 0f;
 
-				rotCam.isEvent = false;
+				if(animCount >= 2)
+				{
+					toLookAt = false;
+					animCount = 0;
+
+					rotCam.isEvent = false;
+				}
 			}
 		}
 	}
