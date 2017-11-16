@@ -38,7 +38,7 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 
 	void Update ()
 	{
-		//checkIfTappedAndSwitchMainFunction();
+		
 	}
 
 
@@ -63,33 +63,4 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 			wall.isActived = false;
 		}
 	}
-
-
-//	void checkIfTappedAndSwitchMainFunction()
-//	{
-//		if ((Input.touchCount > 0) && (Input.GetTouch (0).phase == TouchPhase.Began)) {
-//			Ray raycast = Camera.main.ScreenPointToRay (Input.GetTouch (0).position);
-//			RaycastHit raycastHit;
-//
-//			if (Physics.Raycast (raycast, out raycastHit)) {
-//				if (raycastHit.collider.CompareTag ("TrapSwitch")) {
-//					TurnLever ();
-//				}
-//			}
-//		}
-//
-//		//* For Testing Only -- Mouse Input
-//		if (Input.GetMouseButtonDown (0)) {
-//			//Debug.Log("Hi");
-//			Ray raycast = Camera.main.ScreenPointToRay (Input.mousePosition);
-//			RaycastHit raycastHit;
-//
-//			if (Physics.Raycast (raycast, out raycastHit)) {
-//				if (raycastHit.collider.CompareTag ("TrapSwitch")) {
-//					TurnLever ();
-//				}
-//			}
-//		}
-//		//* To Be Deleted When Testing Is Completed
-//	}
 }

@@ -46,7 +46,7 @@ public class BulletScript : MonoBehaviour {
 
 	void collisionChecker()
 	{
-		if(fromTopHardpoint == true)
+		if(fromTopHardpoint == true) // Bullet is from TOP Hardpoint
 		{
 			if(GameManagerScript.Instance.player.rigidController.isSliding == true)
 			{
@@ -54,7 +54,7 @@ public class BulletScript : MonoBehaviour {
 			}
 		}
 
-		if(fromTopHardpoint == false)
+		if(fromTopHardpoint == false) // Bullet is from BOTTOM Hardpoint
 		{
 			if(GameManagerScript.Instance.player.rigidController.Jumping == true)
 			{
@@ -65,10 +65,14 @@ public class BulletScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.tag == "Player")
+		if(this.bulletSphereCollider.enabled == true)
 		{
-			GameManagerScript.Instance.player.status.currentHealth -= 1;
+			if(other.gameObject.tag == "Player")
+			{
+				GameManagerScript.Instance.player.status.currentHealth -= 1;
+			}
 		}
+			
 		Destroy(gameObject);
 	}
 }

@@ -5,9 +5,9 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class InteractScript : MonoBehaviour
 {
-
 	RaycastHit hit;
 	Ray mouseRay;
+	public float sphereCastThickness = 3.0f;
 
 	PlayerCoreController player;
 
@@ -66,25 +66,34 @@ public class InteractScript : MonoBehaviour
 	//When left mouse button is pressed, shoot out a ray cast from screen to pointer.//
 	//If the player is within the radius of the object, it will go towards it.//
 
-	void Interaction ()
+	void Interaction()
 	{
-		if ((Input.touchCount > 0) && (Input.GetTouch (0).phase == TouchPhase.Began)) {
+		if((Input.touchCount > 0) && (Input.GetTouch (0).phase == TouchPhase.Began)) 
+		{
 			Ray raycast = Camera.main.ScreenPointToRay (Input.GetTouch (0).position);
 			RaycastHit raycastHit;
-			if (Physics.Raycast (raycast, out raycastHit)) {
-				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
-					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable> ();
+
+			if(Physics.SphereCast (raycast, sphereCastThickness, out raycastHit)) 
+			{
+				if(raycastHit.collider.CompareTag ("InteractableObjects")) 
+				{
+					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable>();
 					interact.Interacted ();
 				}
 			}
 		}
+
 		//* For Testing Only -- Mouse Input
-		if (Input.GetMouseButton (0)) {
+		if(Input.GetMouseButton (0)) 
+		{
 			Ray raycast = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit raycastHit;
-			if (Physics.Raycast (raycast, out raycastHit)) {
-				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
-					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable> ();
+
+			if(Physics.SphereCast (raycast, sphereCastThickness, out raycastHit)) 
+			{
+				if(raycastHit.collider.CompareTag ("InteractableObjects")) 
+				{
+					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable>();
 					interact.Interacted ();
 				}
 			}

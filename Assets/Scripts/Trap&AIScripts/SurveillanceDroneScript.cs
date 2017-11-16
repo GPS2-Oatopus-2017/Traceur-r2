@@ -18,6 +18,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 	private bool hasCalculatedPlayerPosition;
 
 	public int currentPoint = 0; 
+	private bool slowDown;
 
 	//public float distanceOfPlayer;
 
@@ -36,6 +37,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		currentPoint = SpawnManagerScript.Instance.currentSpawnIndex;
 		hasBeenDetected = false;
 		hasCalculatedPlayerPosition = false;
+		slowDown = false;
 	}
 
 
@@ -44,11 +46,13 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		droneStartType();
 		surveillanceDroneChaseFunctions();
 		surveillanceDroneMainFunctions();
+
 		if(ReputationManagerScript.Instance.currentRep == 0)
 		{
 			PoolManagerScript.Instance.Despawn(this.gameObject);
 			TimelineScript.Instance.DestroyEnemyIcon(this.gameObject.name, 1);
 		}
+
 		//distanceOfPlayer = Vector3.Distance(transform.position, player.transform.position);
 	}
 
@@ -135,6 +139,16 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 		if(hasBeenDetected == true)
 		{
+			if(Vector3.Distance(transform.position, player.transform.position) <= 2.0f)
+			{
+				surveillanceDroneRigidbody.velocity = surveillanceDroneRigidbody.velocity * 0.9f;
+				slowDown = true;
+			}
+			else
+			{
+				slowDown = false;
+			}
+
 			if(Vector3.Distance(transform.position, player.transform.position) >= surveillance_Droid.safeDistance)
 			{
 				hasBeenDetected = false;
@@ -143,7 +157,10 @@ public class SurveillanceDroneScript : MonoBehaviour {
 			}
 			else
 			{
-				transform.position += transform.forward * surveillance_Droid.movementSpeed * Time.deltaTime;
+				if(slowDown == false)
+				{
+					transform.position += transform.forward * surveillance_Droid.movementSpeed * Time.deltaTime;
+				}
 			}
 		}
 		else

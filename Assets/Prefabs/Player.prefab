@@ -3620,6 +3620,9 @@ MonoBehaviour:
   isSliding: 0
   slideDuration: 2
   doOnce: 1
+  canSlide: 1
+  slideCooldown: 2
+  slideCooldownCounter: 0
 --- !u!114 &114827863200848438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3700,6 +3703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3423c198cf73e34fb17a9853c52549a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sphereCastThickness: 3
   rayDistance: 1000000
   toOpenDoor: 0
   currentDoor: {fileID: 0}

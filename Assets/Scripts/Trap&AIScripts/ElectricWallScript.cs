@@ -60,6 +60,7 @@ public class ElectricWallScript : MonoBehaviour
 				{
 					ReputationManagerScript.Instance.deadHD++;
 				}
+
 				Debug.Log("Enemy Despawned");
 				PoolManagerScript.Instance.Despawn(other.gameObject);
 			}

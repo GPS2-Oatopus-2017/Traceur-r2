@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slowAmount: 0
   slowDuration: 0
-  alertDistance: 12
+  alertDistance: 5
   spawnHDCount: 2
   increaseReputation: 1

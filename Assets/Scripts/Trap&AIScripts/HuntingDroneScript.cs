@@ -19,6 +19,7 @@ public class HuntingDroneScript : MonoBehaviour {
 	public float fireIndication = 0.5f;
 	private float nextFire;
 	private int randUpDown;
+	private bool slowDown;
 
 	public bool isIndicated = false;
 	public bool isWithinRange;
@@ -45,6 +46,8 @@ public class HuntingDroneScript : MonoBehaviour {
 		hoverHeight = randNum;
 
 		nextFire = hunting_Drone.attackSpeed;
+
+		slowDown = false;
 	}
 
 
@@ -96,6 +99,16 @@ public class HuntingDroneScript : MonoBehaviour {
 		nextFire -= Time.deltaTime;
 		transform.LookAt(chasingPosition);
 
+		if(Vector3.Distance(transform.position, player.transform.position) <= 2.0f)
+		{
+			huntingDroneRigidbody.velocity = huntingDroneRigidbody.velocity * 0.9f;
+			slowDown = true;
+		}
+		else
+		{
+			slowDown = false;
+		}
+
 		if(Vector3.Distance(transform.position, player.transform.position) >= hunting_Drone.safeDistance)
 		{
 			isWithinRange = false;
@@ -106,7 +119,11 @@ public class HuntingDroneScript : MonoBehaviour {
 		else
 		{
 			isWithinRange = true;
-			transform.position += transform.forward * hunting_Drone.movementSpeed * Time.deltaTime;
+
+			if(slowDown == false)
+			{
+				transform.position += transform.forward * hunting_Drone.movementSpeed * Time.deltaTime;
+			}
 		}
 
 		if(isWithinRange == true)
