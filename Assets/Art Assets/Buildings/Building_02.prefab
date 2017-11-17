@@ -19,13 +19,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4454788497877724}
-  - component: {fileID: 65342407558487044}
   m_Layer: 10
   m_Name: Building_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 23
   m_IsActive: 1
 --- !u!1 &1381171732285564
 GameObject:
@@ -42,7 +41,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 23
   m_IsActive: 1
 --- !u!1 &1853483991867984
 GameObject:
@@ -52,13 +51,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4712841682928520}
-  - component: {fileID: 95807930638861418}
   m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 23
   m_IsActive: 1
 --- !u!1 &1878737668993220
 GameObject:
@@ -75,7 +73,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 23
   m_IsActive: 1
 --- !u!4 &4402236110414826
 Transform:
@@ -213,32 +211,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1381171732285564}
   m_Mesh: {fileID: 4300002, guid: 8de71f2a4c2af82408e677f9a255fde9, type: 3}
---- !u!65 &65342407558487044
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1291366501400478}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.5, y: 10, z: 5}
-  m_Center: {x: -0, y: 5, z: -0}
---- !u!95 &95807930638861418
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1853483991867984}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8de71f2a4c2af82408e677f9a255fde9, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1

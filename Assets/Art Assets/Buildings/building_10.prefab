@@ -19,13 +19,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4296156352714254}
-  - component: {fileID: 95087969922474772}
   m_Layer: 10
   m_Name: building_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 23
   m_IsActive: 1
 --- !u!1 &1410394396958992
 GameObject:
@@ -37,13 +36,12 @@ GameObject:
   - component: {fileID: 4157277138026048}
   - component: {fileID: 33319258749172328}
   - component: {fileID: 23586367931851690}
-  - component: {fileID: 65290925587887716}
   m_Layer: 10
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 23
   m_IsActive: 1
 --- !u!1 &1781676254584420
 GameObject:
@@ -60,7 +58,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 23
   m_IsActive: 1
 --- !u!4 &4157277138026048
 Transform:
@@ -82,7 +80,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1309460001569186}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.917503, y: 9.008845, z: -25.219446}
+  m_LocalPosition: {x: 3.91, y: -0.00039411, z: -37.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4157277138026048}
@@ -181,32 +179,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1781676254584420}
   m_Mesh: {fileID: 4300002, guid: 2203e55053749114da30895d595ec925, type: 3}
---- !u!65 &65290925587887716
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1410394396958992}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 8.398827, y: 4.4152536, z: 8.000002}
-  m_Center: {x: 0, y: -0.24629062, z: 3.9922516}
---- !u!95 &95087969922474772
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1309460001569186}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 2203e55053749114da30895d595ec925, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1

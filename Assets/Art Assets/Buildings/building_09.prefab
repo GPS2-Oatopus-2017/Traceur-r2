@@ -19,13 +19,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4061224134374656}
-  - component: {fileID: 95552960231604358}
   m_Layer: 10
   m_Name: building_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 23
   m_IsActive: 1
 --- !u!1 &1213742309822796
 GameObject:
@@ -42,7 +41,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 23
   m_IsActive: 1
 --- !u!1 &1343936887568728
 GameObject:
@@ -54,13 +53,12 @@ GameObject:
   - component: {fileID: 4289900651002670}
   - component: {fileID: 33899589803775686}
   - component: {fileID: 23687163850937934}
-  - component: {fileID: 65189124865568520}
   m_Layer: 10
   m_Name: Building_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 23
   m_IsActive: 1
 --- !u!4 &4061224134374656
 Transform:
@@ -68,8 +66,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1084809464488706}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.65601, y: 0.008845234, z: -24.293219}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -28.74, y: 0.00064936, z: -32.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4289900651002670}
@@ -181,32 +179,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1343936887568728}
   m_Mesh: {fileID: 4300000, guid: c671800dbe5f10d43879575e71d57a94, type: 3}
---- !u!65 &65189124865568520
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1343936887568728}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.2753124, y: 4.2980027, z: 7.0010448}
-  m_Center: {x: 0.023618221, y: 0, z: 3.4994793}
---- !u!95 &95552960231604358
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1084809464488706}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: c671800dbe5f10d43879575e71d57a94, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
