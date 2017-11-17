@@ -80,7 +80,8 @@ public class InteractScript : MonoBehaviour
 			Ray raycast = Camera.main.ScreenPointToRay (Input.GetTouch (0).position);
 			RaycastHit raycastHit;
 
-			if(Physics.SphereCast (raycast, sphereCastThickness, out raycastHit)) 
+//			if(Physics.SphereCast (raycast, sphereCastThickness, out raycastHit)) 
+			if(Physics.Raycast(raycast, out raycastHit, 1000.0f))
 			{
 				if(raycastHit.collider.CompareTag ("InteractableObjects")) 
 				{
@@ -99,8 +100,8 @@ public class InteractScript : MonoBehaviour
 //			if(Physics.SphereCast (raycast, sphereCastThickness, out raycastHit)) 
 			if(Physics.Raycast(raycast, out raycastHit, 1000.0f))
 			{
-				Debug.Log(raycastHit.collider.tag);
-				Debug.Log(raycastHit.collider.gameObject.name);
+				//Debug.Log(raycastHit.collider.tag);
+				//Debug.Log(raycastHit.collider.gameObject.name);
 				if(raycastHit.collider.CompareTag ("InteractableObjects")) 
 				{
 					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable>();

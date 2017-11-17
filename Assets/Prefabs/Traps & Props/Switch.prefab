@@ -73,10 +73,9 @@ GameObject:
   - component: {fileID: 95777587108139690}
   - component: {fileID: 65576994844137376}
   - component: {fileID: 114553768215445264}
-  - component: {fileID: 65596795000409448}
   m_Layer: 0
   m_Name: Switch
-  m_TagString: TrapSwitch
+  m_TagString: InteractableObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,18 +237,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 1}
   m_Center: {x: 0, y: 0.4, z: 0}
---- !u!65 &65596795000409448
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1659954888169454}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 1}
-  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!95 &95777587108139690
 Animator:
   serializedVersion: 3
@@ -298,3 +285,4 @@ MonoBehaviour:
   switchToLook: {fileID: 0}
   lookDuration: 2
   lookCounter: 0
+  animCount: 0

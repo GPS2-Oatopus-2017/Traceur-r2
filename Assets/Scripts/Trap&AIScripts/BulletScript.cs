@@ -67,7 +67,7 @@ public class BulletScript : MonoBehaviour {
 	{
 		if(this.bulletSphereCollider.enabled == true)
 		{
-			if(other.tag == "Player")
+			if(other.tag == "PlayerBulletCollider")
 			{
 				PlayerStatusScript.Instance.currentHealth -= 1;
 				//GameManagerScript.Instance.player.status.currentHealth -= 1;

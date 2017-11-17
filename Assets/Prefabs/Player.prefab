@@ -312,6 +312,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1257104473087760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4118244047688206}
+  - component: {fileID: 136007207504479302}
+  m_Layer: 0
+  m_Name: ForBulletCollision
+  m_TagString: PlayerBulletCollider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1259503172021900
 GameObject:
   m_ObjectHideFlags: 1
@@ -676,7 +692,6 @@ GameObject:
   - component: {fileID: 114497469779155040}
   - component: {fileID: 114311740497562904}
   - component: {fileID: 114343504900976674}
-  - component: {fileID: 136114020217257836}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1276,6 +1291,19 @@ Transform:
   m_Father: {fileID: 4848596515395698}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4118244047688206
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1257104473087760}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4734511995618848}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4134916213244738
 Transform:
   m_ObjectHideFlags: 1
@@ -1862,6 +1890,7 @@ Transform:
   - {fileID: 4587862122901410}
   - {fileID: 4026873568303378}
   - {fileID: 4078900665523428}
+  - {fileID: 4118244047688206}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3744,19 +3773,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.3
   m_Center: {x: 0, y: -0.4, z: 0}
---- !u!136 &136114020217257836
+--- !u!136 &136007207504479302
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1615084222219014}
+  m_GameObject: {fileID: 1257104473087760}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.69931316
-  m_Height: 4.0272317
+  m_Radius: 0.6993132
+  m_Height: 4.027232
   m_Direction: 1
-  m_Center: {x: -0.002360344, y: 1.6798155, z: 0}
+  m_Center: {x: -0.002360344, y: 1.679816, z: 0}
 --- !u!136 &136128970076697708
 CapsuleCollider:
   m_ObjectHideFlags: 1
