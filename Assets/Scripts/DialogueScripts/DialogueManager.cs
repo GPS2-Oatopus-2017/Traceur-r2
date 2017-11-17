@@ -53,7 +53,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Booleans")]
     public bool[] objectSeen;
-    public bool initTimer, initDialogue, startCD, youWin, youLose;
+    public bool initTimer, initDialogue, startCD, youWin, youLose, canPress;
 
 	[Header("Last Minute Stuff")]
 	public TimerScript timerScript;
@@ -82,6 +82,7 @@ public class DialogueManager : MonoBehaviour
         startCD = false;        //Timer for CountDownTimer is set to false.
         youWin = false;
         youLose = false;
+        canPress = false;
 
 		GameManagerScript.Instance.player.StopRunning();
 		SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_MAIN_MENU);
@@ -154,25 +155,25 @@ public class DialogueManager : MonoBehaviour
 
     public void BeginningSceneDialogue() // Displays Dialogue in the beginning of the game 
     {
-        if(bsIndex < beginningScene.Count) //Beginning dialogue is not done :
+        if(bsIndex < beginningScene.Count && MenuSettings.Instance.skipBS == false) //Beginning dialogue is not done :
         {
             beginningDialogue.SetActive(true);
 
-			if(sceneReady)
-			{
-				sceneReady = false;
+            if(sceneReady)
+            {
+                sceneReady = false;
 
-				StartCoroutine("TypeEffect"); // Start typing effect.
-				SoundManagerScript.Instance.PlaySFX2D(beginningSound[bsIndex], false);
-				return;
-			}
-            if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) && bsIndex <= beginningScene.Count )
+                StartCoroutine("TypeEffect"); // Start typing effect.
+                SoundManagerScript.Instance.PlaySFX2D(beginningSound[bsIndex], false);
+                return;
+            }
+            if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) && canPress == true || Input.GetMouseButtonDown(0)) && bsIndex <= beginningScene.Count && canPress == true)
             {
                 SoundManagerScript.Instance.StopSFX2D(beginningSound[bsIndex]);
                 beginningText.text = " ";
                 StopCoroutine("TypeEffect"); // Stop ongoing coroutine.
-                //beginningScene.RemoveAt(bsIndex);
-                bsIndex++;
+                bsIndex++; // Next line of dialogue.
+                canPress = false;
                 if(bsIndex < beginningScene.Count)
                 {
                     StartCoroutine("TypeEffect"); // Start typing effect.
@@ -186,7 +187,7 @@ public class DialogueManager : MonoBehaviour
 
             b_Timer -= Time.deltaTime;
 
-            if(b_Timer > 0)
+            if(b_Timer > 0 && MenuSettings.Instance.skipBS == false)
             {
                 beginningDialogue.transform.position = Vector3.MoveTowards(beginningDialogue.transform.position, target.position, speed * Time.deltaTime);
             }
@@ -197,6 +198,7 @@ public class DialogueManager : MonoBehaviour
 
                 initDialogue = true; //Set initialDialogue boolean to true.
                 startCD = true; //Start counting-down.
+                MenuSettings.Instance.skipBS = true;
             }
         }
     }
@@ -273,6 +275,11 @@ public class DialogueManager : MonoBehaviour
             beginningText.text = beginningScene[bsIndex].Substring(0, i); // Show next Text.
 
             yield return new WaitForSeconds(nextLetter); // Delay between each text.
+
+            if(i >= beginningScene[bsIndex].Length) //Check if all letters are already typed
+            {
+                canPress = true;
+            }
         }
     }
 }

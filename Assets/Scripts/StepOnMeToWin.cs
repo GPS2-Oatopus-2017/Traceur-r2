@@ -18,12 +18,8 @@ public class StepOnMeToWin : MonoBehaviour
             {
                 Time.timeScale = 1.0f;
                 GameObject.FindWithTag(gameManager).GetComponent<ChangeSceneScript>().ChangeScenes(0);
+                MenuSettings.Instance.skipBS = false;
             }
-
-            /*if(DialogueManager.Instance.winIndex >= DialogueManager.Instance.winDialogue.Count)
-            {
-                GameObject.FindWithTag(gameManager).GetComponent<ChangeSceneScript>().ChangeScenes(0);
-            }*/
         }
     }
 
