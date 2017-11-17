@@ -55,6 +55,12 @@ public class InteractScript : MonoBehaviour
 		Interaction ();
 	}
 
+	void OnDrawGizmos()
+	{
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawSphere(transform.position, sphereCastThickness);
+	}
+
 	void FixedUpdate ()
 	{
 		//CheckInteract ();
@@ -68,6 +74,7 @@ public class InteractScript : MonoBehaviour
 
 	void Interaction()
 	{
+		#if UNITY_ANDROID && !UNITY_EDITOR
 		if((Input.touchCount > 0) && (Input.GetTouch (0).phase == TouchPhase.Began)) 
 		{
 			Ray raycast = Camera.main.ScreenPointToRay (Input.GetTouch (0).position);
@@ -82,15 +89,18 @@ public class InteractScript : MonoBehaviour
 				}
 			}
 		}
-
+		#elif UNITY_EDITOR
 		//* For Testing Only -- Mouse Input
-		if(Input.GetMouseButton (0)) 
+		if(Input.GetMouseButtonDown (0)) 
 		{
 			Ray raycast = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit raycastHit;
 
-			if(Physics.SphereCast (raycast, sphereCastThickness, out raycastHit)) 
+//			if(Physics.SphereCast (raycast, sphereCastThickness, out raycastHit)) 
+			if(Physics.Raycast(raycast, out raycastHit, 1000.0f))
 			{
+				Debug.Log(raycastHit.collider.tag);
+				Debug.Log(raycastHit.collider.gameObject.name);
 				if(raycastHit.collider.CompareTag ("InteractableObjects")) 
 				{
 					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable>();
@@ -99,6 +109,7 @@ public class InteractScript : MonoBehaviour
 			}
 		}
 		//* To Be Deleted When Testing Is Completed
+		#endif
 	}
 
 	void CheckInteract ()

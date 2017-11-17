@@ -50,7 +50,8 @@ public class CheckForWallScript : MonoBehaviour
 
 	void OnTriggerStay (Collider other)
 	{
-		if (other.gameObject.layer == 10 && this.gameObject.layer == 11 || other.gameObject.tag == "Pushable") {
+		if (other.gameObject.layer == LayerMask.NameToLayer("Building") || other.gameObject.tag == "Pushable")
+		{
 	
 			Debug.Log ("Hit The Wall");
 	
