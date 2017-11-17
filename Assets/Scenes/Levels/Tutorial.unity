@@ -2866,6 +2866,16 @@ Prefab:
       propertyPath: doors.Array.data[1]
       value: 
       objectReference: {fileID: 1544748312}
+    - target: {fileID: 114275308034884388, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: knockbackForce
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114275308034884388, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: stunDuration
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
   m_IsPrefabParent: 0

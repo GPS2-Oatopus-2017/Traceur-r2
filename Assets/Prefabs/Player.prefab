@@ -3480,13 +3480,13 @@ MonoBehaviour:
   playerRb: {fileID: 54979846990232922}
   isStun: 0
   isKnockingBack: 0
-  stunDuration: 1
+  stunDuration: 0.25
   stunCounter: 0
   originalSpeed: 0
   knockbackSpeed: 0.02
   knockbackCounter: 0
   knockbackDistance: 25
-  knockbackForce: 50
+  knockbackForce: 25
   knockbackTime: 0.5
   knockbackCountdown: 0
   endPos: {x: 0, y: 0, z: 0}
