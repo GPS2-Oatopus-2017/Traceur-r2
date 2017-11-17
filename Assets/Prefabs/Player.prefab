@@ -676,6 +676,7 @@ GameObject:
   - component: {fileID: 114497469779155040}
   - component: {fileID: 114311740497562904}
   - component: {fileID: 114343504900976674}
+  - component: {fileID: 136114020217257836}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1243,7 +1244,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1454558705084866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.9, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4734511995618848}
@@ -3430,7 +3431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationAmount: 360
   rotationSpeed: 360
-  rotationCounter: 360
+  rotationCounter: 0
   isRolling: 0
   isEvent: 0
   isAbleToRoll: 0
@@ -3576,7 +3577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 20381359996814306}
   movementSettings:
-    ForwardSpeed: 4
+    ForwardSpeed: 2
     BackwardSpeed: 6
     StrafeSpeed: 8
     RunMultiplier: 4
@@ -3618,10 +3619,10 @@ MonoBehaviour:
     shellOffset: 0
   rotAngle: 270
   isSliding: 0
-  slideDuration: 2
+  slideDuration: 1
   doOnce: 1
   canSlide: 1
-  slideCooldown: 2
+  slideCooldown: 1
   slideCooldownCounter: 0
 --- !u!114 &114827863200848438
 MonoBehaviour:
@@ -3743,6 +3744,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.3
   m_Center: {x: 0, y: -0.4, z: 0}
+--- !u!136 &136114020217257836
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1615084222219014}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.69931316
+  m_Height: 4.0272317
+  m_Direction: 1
+  m_Center: {x: -0.002360344, y: 1.6798155, z: 0}
 --- !u!136 &136128970076697708
 CapsuleCollider:
   m_ObjectHideFlags: 1
