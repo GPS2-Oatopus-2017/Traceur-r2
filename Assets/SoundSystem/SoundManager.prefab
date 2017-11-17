@@ -213,11 +213,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086bbc0d58f49d544a997db12db45154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmVolume: 0.8
-  sfxVolume: 1
+  bgmVolume: 0.02
+  sfxVolume: 0.5
   volumeMultiplier:
-  - 1
-  - 0.8
+  - 0.95
+  - 0.6
   - 0.02
   audioClipInfoList:
   - audioClipID: 30
