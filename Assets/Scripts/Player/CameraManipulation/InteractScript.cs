@@ -55,11 +55,11 @@ public class InteractScript : MonoBehaviour
 		Interaction ();
 	}
 
-	void OnDrawGizmos()
-	{
-		Gizmos.color = Color.yellow;
-		Gizmos.DrawSphere(transform.position, sphereCastThickness);
-	}
+//	void OnDrawGizmos()
+//	{
+//		Gizmos.color = Color.yellow;
+//		Gizmos.DrawSphere(transform.position, sphereCastThickness);
+//	}
 
 	void FixedUpdate ()
 	{
