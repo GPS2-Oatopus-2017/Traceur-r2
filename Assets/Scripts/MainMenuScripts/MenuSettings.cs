@@ -13,6 +13,8 @@ public class MenuSettings : MonoBehaviour
     public AudioSource sfxAudioSource;
     public Image brightnessMask;
 
+    public bool skipBS;
+
     private static MenuSettings mInstance = null;
     
     public static MenuSettings Instance
@@ -49,6 +51,11 @@ public class MenuSettings : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
+        skipBS = false;
     }
 
     public void SetBGMVolume(float value)
