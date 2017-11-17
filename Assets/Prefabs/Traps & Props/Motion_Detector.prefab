@@ -23,12 +23,13 @@ GameObject:
   - component: {fileID: 23583243291915996}
   - component: {fileID: 95498212375227634}
   - component: {fileID: 114121100793835614}
+  - component: {fileID: 65081961065739314}
   m_Layer: 0
   m_Name: Motion_Detector
-  m_TagString: TrapTag
+  m_TagString: InteractableObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 19
   m_IsActive: 1
 --- !u!4 &4935044913590020
 Transform:
@@ -36,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1048672645696052}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -63.67, y: -0.00011529, z: 111.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,6 +83,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1048672645696052}
   m_Mesh: {fileID: 4300000, guid: c4668987e48bc3f44a0e8cff5a1772dc, type: 3}
+--- !u!65 &65081961065739314
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1048672645696052}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0.5}
 --- !u!95 &95498212375227634
 Animator:
   serializedVersion: 3
@@ -113,5 +126,5 @@ MonoBehaviour:
   motionSensor_Data: {fileID: 11400000, guid: 3881bc8e847e9e7429cd2fa6999d895c, type: 2}
   player: {fileID: 0}
   isActive: 0
-  mat: {fileID: 2100000, guid: 53ea2be2502e8114baf9d0177e2323a1, type: 2}
-  distanceOfPlayer: 0
+  rend: {fileID: 0}
+  isTapped: 0

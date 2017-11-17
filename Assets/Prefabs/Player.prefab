@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 114275308034884388}
   - component: {fileID: 65556928717575720}
   - component: {fileID: 135045308250135966}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1856,7 +1856,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1615084222219014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.000034, y: -0.0003938675, z: -30}
+  m_LocalPosition: {x: 10.000034, y: 0.282, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4587862122901410}
@@ -3254,8 +3254,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3, z: 0.3}
-  m_Center: {x: 0, y: -0.4, z: 0}
+  m_Size: {x: 1.3999996, y: 1.0020645, z: 0.3}
+  m_Center: {x: 0.05000019, y: -0.04896772, z: 0}
 --- !u!81 &81191965907833656
 AudioListener:
   m_ObjectHideFlags: 1
@@ -3704,7 +3704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3423c198cf73e34fb17a9853c52549a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereCastThickness: 3
+  sphereCastThickness: 0.5
   rayDistance: 1000000
   toOpenDoor: 0
   currentDoor: {fileID: 0}
