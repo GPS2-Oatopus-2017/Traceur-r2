@@ -54,6 +54,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Booleans")]
     public bool[] objectSeen;
     public bool initTimer, initDialogue, startCD, youWin, youLose, canPress;
+	public bool startSystem = false;
 
 	[Header("Last Minute Stuff")]
 	public TimerScript timerScript;
@@ -92,6 +93,8 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
+		if(!startSystem) return;
+
         if(initTimer == true) //Timer only starts counting down after player sees an object for the first time
         {
             timer -= Time.deltaTime;
@@ -114,7 +117,7 @@ public class DialogueManager : MonoBehaviour
             initTimer = false;
         }
 
-        if(!initDialogue) //Displays Beginning Dialogue once
+		if(!initDialogue) //Displays Beginning Dialogue once
         {
             BeginningSceneDialogue();
         }

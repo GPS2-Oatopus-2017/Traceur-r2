@@ -49,10 +49,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1768135534388154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fd89963697e3f24aad003cbfb8eeb6f, type: 3}
+  m_Script: {fileID: 11500000, guid: b15c8544c97661242a80aeaeea7df6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instanceID: 10970
+  instanceID: 13000
   data:
     directionalNodes:
     - {fileID: 0}

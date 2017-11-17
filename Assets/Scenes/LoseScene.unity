@@ -550,7 +550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScenes:
-  - Tutorial
+  - LoadingScreen
 --- !u!224 &1617800017
 RectTransform:
   m_ObjectHideFlags: 0
