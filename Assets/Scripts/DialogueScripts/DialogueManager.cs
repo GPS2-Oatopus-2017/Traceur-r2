@@ -161,6 +161,7 @@ public class DialogueManager : MonoBehaviour
 
             if(sceneReady)
             {
+                Debug.Log("start");
                 sceneReady = false;
 
                 StartCoroutine("TypeEffect"); // Start typing effect.

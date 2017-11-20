@@ -59,9 +59,9 @@ MonoBehaviour:
   fadeTime: 3
   beginningText: {fileID: 0}
   beginningDialogue: {fileID: 0}
-  speed: 200
+  speed: 250
   target: {fileID: 0}
-  nextLetter: 0.06
+  nextLetter: 0.04
   dialogue: {fileID: 0}
   countDown: {fileID: 0}
   beginningScene:
@@ -93,18 +93,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   beginningSound: 320000003300000034000000
-  firstEncounterSound: 390000003a0000003b0000003c0000003d000000360000003700000038000000
-  winSound: 3e0000003f0000004000000041000000
-  loseSound: 420000004300000044000000
-  countDownSound: 53
+  firstEncounterSound: 38000000390000003a0000003b0000003c000000350000003600000037000000
+  winSound: 3d0000003e0000003f00000040000000
+  loseSound: 410000004200000043000000
+  countDownSound: 44
   timer: 0
-  showTimer: 5
+  showTimer: 0.5
   cdTimer: 0
   setTime: 5
+  b_Timer: 0
+  setB_Timer: 3.5
   objectSeen: 0000000000000000
   initTimer: 0
   initDialogue: 0
   startCD: 0
   youWin: 0
   youLose: 0
+  canPress: 0
   timerScript: {fileID: 0}
