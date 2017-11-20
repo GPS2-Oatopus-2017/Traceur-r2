@@ -437,7 +437,6 @@ GameObject:
   - component: {fileID: 124580129867538278}
   - component: {fileID: 81191965907833656}
   - component: {fileID: 114903065098811766}
-  - component: {fileID: 114043706768302908}
   - component: {fileID: 114319927686527128}
   m_Layer: 0
   m_Name: MainCamera
@@ -692,6 +691,8 @@ GameObject:
   - component: {fileID: 114497469779155040}
   - component: {fileID: 114311740497562904}
   - component: {fileID: 114343504900976674}
+  - component: {fileID: 114557377533426022}
+  - component: {fileID: 114896054835884984}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1884,7 +1885,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1615084222219014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.000034, y: 0.282, z: -30}
+  m_LocalPosition: {x: 94.55, y: 0.09999993, z: -99.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4587862122901410}
@@ -3447,25 +3448,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114043706768302908
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1335751498434552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2158eacc09a038a4fa8af605203d81c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationAmount: 360
-  rotationSpeed: 360
-  rotationCounter: 0
-  isRolling: 0
-  isEvent: 0
-  isAbleToRoll: 0
-  eventBraceTime: 1
-  eventCounter: 0
 --- !u!114 &114275308034884388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3502,10 +3484,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef2e7f663950a1845ab196dfd7356eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 20381359996814306}
-  timeToFall: 1
-  timeFallCounter: 0
   toRoll: 0
+  playerGroundPos: {x: 0, y: 0, z: 0}
+  playerAirPos: {x: 0, y: 0, z: 0}
+  fallDistanceToRoll: 5
 --- !u!114 &114319927686527128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3546,6 +3528,9 @@ MonoBehaviour:
   rigidController: {fileID: 114677140464309904}
   animController: {fileID: 114827863200848438}
   status: {fileID: 114343504900976674}
+  interact: {fileID: 114903738382757782}
+  fallThenRoll: {fileID: 114311740497562904}
+  rotateCamera: {fileID: 114557377533426022}
 --- !u!114 &114497469779155040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3593,6 +3578,23 @@ MonoBehaviour:
   - 15
   - 15
   seenObj: 0000000000000000
+--- !u!114 &114557377533426022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1615084222219014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2158eacc09a038a4fa8af605203d81c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAmount: 360
+  rotationSpeed: 360
+  rotationCounter: 0
+  isRolling: 0
+  isEvent: 0
+  isLookBack: 0
 --- !u!114 &114677140464309904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3664,6 +3666,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4d5e6bf87b1194886c062dffa1e907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114896054835884984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1615084222219014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45495b5412e53a74184b443a937af678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curWaypoint: {fileID: 0}
+  playerCollider: {fileID: 0}
+  waypointCollider: {fileID: 0}
+  waypointCenter: {x: 0, y: 0, z: 0}
+  playerCenter: {x: 0, y: 0, z: 0}
+  swipeLocation: 0
+  playerDirection: 0
+  time: 0
+  health: 0
+  reputation: 0
+  waypointScore: []
 --- !u!114 &114903065098811766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3730,7 +3754,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1615084222219014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3423c198cf73e34fb17a9853c52549a, type: 3}
+  m_Script: {fileID: 11500000, guid: c2e3bbd788f38c6479034352c471eae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sphereCastThickness: 0.5
