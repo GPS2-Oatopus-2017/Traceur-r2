@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
 
 public class SteelFenceScript : MonoBehaviour
 {
@@ -19,17 +18,11 @@ public class SteelFenceScript : MonoBehaviour
 
 	public bool isOpen = false;
 
-	RigidbodyFirstPersonController rbController;
-
-	WaypointManagerScript waypoint;
-
-	RotateCamera rotCam;
+	private RotateCamera rotCam;
 
 	void Start ()
 	{
-		rbController = FindObjectOfType<RigidbodyFirstPersonController> ();
-		waypoint = FindObjectOfType<WaypointManagerScript> ();
-		rotCam = FindObjectOfType<RotateCamera> ();
+		rotCam = GameManagerScript.Instance.player.rotateCamera;
 	}
 
 	void Update ()
@@ -41,7 +34,7 @@ public class SteelFenceScript : MonoBehaviour
 	void CheckDirectionInteraction ()
 	{
 		// Face the opposite direction of player. //
-		if (waypoint.playerDirection == Direction.North) {
+		if (WaypointManagerScript.Instance.playerDirection == Direction.North) {
 
 			if (!rotCam.isLookBack) {
 
@@ -67,7 +60,7 @@ public class SteelFenceScript : MonoBehaviour
 				}
 			}
 
-		} else if (waypoint.playerDirection == Direction.South) {
+		} else if (WaypointManagerScript.Instance.playerDirection == Direction.South) {
 
 			if (!rotCam.isLookBack) {
 
@@ -92,7 +85,7 @@ public class SteelFenceScript : MonoBehaviour
 				}
 			}
 
-		} else if (waypoint.playerDirection == Direction.West) {
+		} else if (WaypointManagerScript.Instance.playerDirection == Direction.West) {
 				
 			if (!rotCam.isLookBack) {
 
@@ -118,7 +111,7 @@ public class SteelFenceScript : MonoBehaviour
 				}
 			}
 
-		} else if (waypoint.playerDirection == Direction.East) {
+		} else if (WaypointManagerScript.Instance.playerDirection == Direction.East) {
 
 			if (!rotCam.isLookBack) {
 				transform.rotation = Quaternion.Euler (transform.rotation.x, 90f, transform.rotation.z);

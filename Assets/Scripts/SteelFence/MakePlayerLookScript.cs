@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
 
 public class MakePlayerLookScript : MonoBehaviour
 {
 	public Transform objectToLookAt;
-
-	RigidbodyFirstPersonController rbController;
-	RotateCamera rotCam;
 
 	public float slowTime = 0.25f;
 	public float originalTime;
@@ -20,11 +16,14 @@ public class MakePlayerLookScript : MonoBehaviour
 	public float timeToLookAt = 2f;
 	public float timeToLookCounter = 0f;
 
+	private RigidbodyFirstPersonController rbController;
+	private RotateCamera rotCam;
+
 	void Start ()
 	{
-		rbController = FindObjectOfType<RigidbodyFirstPersonController> ();
-
-		rotCam = FindObjectOfType<RotateCamera> ();
+		PlayerCoreController player = GameManagerScript.Instance.player;
+		rbController = player.rigidController;
+		rotCam = player.rotateCamera;
 
 		originalTime = Time.timeScale;
 	}

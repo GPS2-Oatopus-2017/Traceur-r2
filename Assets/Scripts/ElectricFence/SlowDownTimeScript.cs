@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
 
 public class SlowDownTimeScript : MonoBehaviour
 {
-
 	public float slowTime = 0.25f;
 
 	public float originalTime;
@@ -19,17 +17,16 @@ public class SlowDownTimeScript : MonoBehaviour
 
 	public int animCount;
 
-	RigidbodyFirstPersonController rbController;
-
-	RotateCamera rollCamera;
+	private RigidbodyFirstPersonController rbController;
+	private RotateCamera rollCamera;
 
 	void Start ()
 	{
 		originalTime = Time.timeScale;
 
-		rbController = FindObjectOfType<RigidbodyFirstPersonController> ();
-
-		rollCamera = FindObjectOfType<RotateCamera> ();
+		PlayerCoreController player = GameManagerScript.Instance.player;
+		rbController = player.rigidController;
+		rollCamera = player.rotateCamera;
 	}
 
 	void Update ()
@@ -44,8 +41,8 @@ public class SlowDownTimeScript : MonoBehaviour
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.gameObject.tag == "Player" && this.gameObject.layer == 12 && !rollCamera.isRolling) {
-
+		if (other.gameObject.tag == "Player" && this.gameObject.layer == 12 && !rollCamera.isRolling)
+		{
 			Time.timeScale = slowTime;
 
 			//Debug.Log ("ENTER Slow Motion");

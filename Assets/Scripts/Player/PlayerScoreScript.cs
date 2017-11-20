@@ -9,7 +9,7 @@ public class PlayerScoreScript : MonoBehaviour {
 	{
 		get { return mInstance; }
 	}
-		
+	
 	public GameObject curWaypoint,playerCollider, waypointCollider;
 	public Vector3 waypointCenter, playerCenter;
 	public float swipeLocation, playerDirection, time, health, reputation;
@@ -56,7 +56,7 @@ public class PlayerScoreScript : MonoBehaviour {
 		waypointCenter = curWaypoint.transform.position;
 		playerCenter = gameObject.transform.position;
 		playerDirection = gameObject.GetComponent<PlayerCoreController>().rigidController.rotAngle;
-
+		
 		if (playerDirection < 5 && playerDirection > 355 || playerDirection > 175 && playerDirection < 185 )
 		{
 			swipeLocation = calculateNearest(playerCenter.z,waypointCenter.z);
