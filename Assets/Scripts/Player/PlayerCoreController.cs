@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
 
 interface IPlayerComponent
 {
@@ -15,12 +14,18 @@ public class PlayerCoreController : MonoBehaviour
 	public RigidbodyFirstPersonController rigidController;
 	public PlayerAnimationController animController;
 	public PlayerStatusScript status;
+	public PlayerInteractScript interact;
+	public FallThenRollScript fallThenRoll;
+	public RotateCamera rotateCamera;
 
 	void Awake ()
 	{
 		rigidController = GetComponent<RigidbodyFirstPersonController> ();
 		animController = GetComponent<PlayerAnimationController> ();
 		status = GetComponent<PlayerStatusScript> ();
+		interact = GetComponent<PlayerInteractScript>();
+		fallThenRoll = GetComponent<FallThenRollScript>();
+		rotateCamera = GetComponent<RotateCamera>();
 
 		if (rigidController)
 			rigidController.SetPlayer (this);
@@ -28,6 +33,12 @@ public class PlayerCoreController : MonoBehaviour
 			animController.SetPlayer (this);
 		if (status)
 			status.SetPlayer (this);
+		if (interact)
+			interact.SetPlayer (this);
+		if (fallThenRoll)
+			fallThenRoll.SetPlayer (this);
+		if (rotateCamera)
+			rotateCamera.SetPlayer (this);
 	}
 
 	// Use this for initialization

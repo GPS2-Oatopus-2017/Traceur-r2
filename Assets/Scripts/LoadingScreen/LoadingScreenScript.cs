@@ -9,14 +9,14 @@ public class LoadingScreenScript : MonoBehaviour
 
 	public GameObject textGO;
 
-	public bool loadFinished;
 	public bool screenPressed;
+	public bool loadFinished;
 	public string sceneName;
 
 	void Awake ()
 	{
 		anim = GetComponent<Animator>();
-		loadFinished = false;
+		screenPressed = false;
 		StartCoroutine(LoadAsync());
 	}
 
@@ -29,22 +29,22 @@ public class LoadingScreenScript : MonoBehaviour
 			yield return null;
 		}
 
-		screenPressed = true;
+		loadFinished = true;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		anim.SetBool("LoadFinished", loadFinished);
-		if(screenPressed)
+		anim.SetBool("LoadFinished", screenPressed);
+		if(loadFinished)
 		{
 			if(Input.GetMouseButtonDown(0))
 			{
-				loadFinished = true;
+				screenPressed = true;
 				DialogueManager.Instance.startSystem = true;
 			}
 
-			textGO.SetActive(!loadFinished);
+			textGO.SetActive(!screenPressed);
 		}
 	}
 

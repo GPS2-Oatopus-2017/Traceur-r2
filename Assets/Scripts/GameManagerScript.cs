@@ -11,8 +11,8 @@ public class GameManagerScript : MonoBehaviour
 		get { return mInstance; }
 	}
 
+	[Header("Common Used Components")]
 	public PlayerCoreController player;
-	public float totalTimeLevel1 = 90f;
 
 	void Awake()
 	{
@@ -29,6 +29,9 @@ public class GameManagerScript : MonoBehaviour
 	{
 		CheckWinLoseConditions();
 	}
+
+	[Header("Level Time")]
+	public float totalTimeLevel1 = 90f;
 
 	[Header("WinLoseConditions")]
 	public TimerScript timerScript;

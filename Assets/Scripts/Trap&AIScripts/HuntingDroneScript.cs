@@ -139,12 +139,12 @@ public class HuntingDroneScript : MonoBehaviour {
 					if(randUpDown == 0)
 					{
 						target = droneGunHardPointUp.position + (player.transform.forward * targetOffset);
-						GameObject atkIndicator = Instantiate(enemyAttackIndicator, target, droneGunHardPointUp.rotation);
+						Instantiate(enemyAttackIndicator, target, droneGunHardPointUp.rotation);
 					}
 					else 
 					{
 						target = droneGunHardPointDown.position + (player.transform.forward * targetOffset);
-						GameObject atkIndicator = Instantiate(enemyAttackIndicator, target, droneGunHardPointDown.rotation);
+						Instantiate(enemyAttackIndicator, target, droneGunHardPointDown.rotation);
 					}
 				}
 			}

@@ -5,23 +5,26 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour 
 {
-    [Header("Variables")]
-    public int bsIndex = 0; // BeginningScene Index count.
-    public int feIndex = 0; // First Encounter Index count.
-    public int loseIndex = 0; // Lose Scene transition dialogue count.
-    public int winIndex = 0; // Win Scene transition dialogue count.
+	[Header("When this is true, the dialogue system starts (Loading Screen)")]
+	public bool startSystem = false;
+
+    [Header("Indices")]
+	[Tooltip("BeginningScene Index count")]
+	public int bsIndex = 0;
+	[Tooltip("First Encounter Index count")]
+	public int feIndex = 0;
+	[Tooltip("Lose Scene transition dialogue count")]
+	public int loseIndex = 0;
+	[Tooltip("Win Scene transition dialogue count")]
+    public int winIndex = 0;
 
     [Header("Beginning Scene Settings")]
-    public Image startingDialogue;
-    public float fadeTime;
-    Color colorToFadeTo;
     public Text beginningText;
     public GameObject beginningDialogue;
     public float speed;
     public Transform target;
-
     [Range(0.0f, 1.0f)]
-    public float nextLetter;
+    public float delayBetweenLetters;
 
     [Header("Text Settings")]
     public Text dialogue;   
@@ -54,7 +57,6 @@ public class DialogueManager : MonoBehaviour
     [Header("Booleans")]
     public bool[] objectSeen;
     public bool initTimer, initDialogue, startCD, youWin, youLose, canPress;
-	public bool startSystem = false;
 
 	[Header("Last Minute Stuff")]
 	public TimerScript timerScript;
@@ -277,7 +279,7 @@ public class DialogueManager : MonoBehaviour
         {
             beginningText.text = beginningScene[bsIndex].Substring(0, i); // Show next Text.
 
-            yield return new WaitForSeconds(nextLetter); // Delay between each text.
+            yield return new WaitForSeconds(delayBetweenLetters); // Delay between each text.
 
             if(i >= beginningScene[bsIndex].Length) //Check if all letters are already typed
             {

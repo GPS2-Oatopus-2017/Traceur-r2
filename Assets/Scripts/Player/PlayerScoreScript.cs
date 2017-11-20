@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScoreScript : MonoBehaviour {
-
+public class PlayerScoreScript : MonoBehaviour
+{
 	public GameObject curWaypoint,playerCollider, waypointCollider;
 	public Vector3 waypointCenter, playerCenter;
 	public float swipeLocation, playerDirection;
@@ -55,7 +55,7 @@ public class PlayerScoreScript : MonoBehaviour {
 		playerCenter = gameObject.transform.position;
 		playerDirection = gameObject.GetComponent<PlayerCoreController>().rigidController.rotAngle;
 
-		if(GameObject.Find("SwipeControlManager").GetComponent<SwipeScript>().swipeDirection != SwipeDirection.None)
+		if(SwipeScript.Instance.swipeDirection != SwipeDirection.None)
 		{
 			Debug.Log ("start calculating");
 			if (playerDirection < 10 && playerDirection > 350 || playerDirection > 170 && playerDirection < 190)
