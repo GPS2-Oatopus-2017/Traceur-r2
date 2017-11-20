@@ -60,11 +60,14 @@ public class WaypointManagerScript : MonoBehaviour
                 {
                     curEvent = EventType.SwipeLeft;
                     hasConfirmedEvent = true;
+					PlayerScoreScript.Instance.calculateDistance();
+					
                 }
                 else if (SwipeScript.Instance.GetSwipe() == SwipeDirection.Right || Input.GetKeyDown(KeyCode.D))
                 {
                     curEvent = EventType.SwipeRight;
                     hasConfirmedEvent = true;
+					PlayerScoreScript.Instance.calculateDistance();
                 }
                 else
                 {

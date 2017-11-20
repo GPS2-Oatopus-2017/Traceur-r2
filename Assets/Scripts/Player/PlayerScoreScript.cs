@@ -4,10 +4,24 @@ using UnityEngine;
 
 public class PlayerScoreScript : MonoBehaviour {
 
+	private static PlayerScoreScript mInstance;
+	public static PlayerScoreScript Instance
+	{
+		get { return mInstance; }
+	}
+		
 	public GameObject curWaypoint,playerCollider, waypointCollider;
 	public Vector3 waypointCenter, playerCenter;
-	public float swipeLocation, playerDirection;
-	public bool startCalculating;
+	public float swipeLocation, playerDirection, time, health, reputation;
+
+	public List<float> waypointScore = new List<float>();
+
+	void Awake()
+	{
+		if(mInstance == null) mInstance = this;
+		else if(mInstance != this) Destroy(this.gameObject);
+	}
+
 
 	// Use this for initialization
 	void Start () 
@@ -19,11 +33,7 @@ public class PlayerScoreScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (startCalculating)
-		{
-			calculateDistance();
-		}
-
+		
 	}
 
 	void FindPlayer()
@@ -37,39 +47,26 @@ public class PlayerScoreScript : MonoBehaviour {
 		if (col.gameObject.tag == "Waypoint")
 		{
 			curWaypoint = col.gameObject;
-			startCalculating = true;
 		}
 	}
+		
 
-	void OnTriggerExit (Collider col)
-	{
-		if (col.gameObject.tag == "Waypoint")
-		{
-			startCalculating = false;
-		}
-	}
-
-	void calculateDistance()
+	public void calculateDistance()
 	{
 		waypointCenter = curWaypoint.transform.position;
 		playerCenter = gameObject.transform.position;
 		playerDirection = gameObject.GetComponent<PlayerCoreController>().rigidController.rotAngle;
 
-		if(GameObject.Find("SwipeControlManager").GetComponent<SwipeScript>().swipeDirection != SwipeDirection.None)
+		if (playerDirection < 5 && playerDirection > 355 || playerDirection > 175 && playerDirection < 185 )
 		{
-			Debug.Log ("start calculating");
-			if (playerDirection < 10 && playerDirection > 350 || playerDirection > 170 && playerDirection < 190)
-			{
-				swipeLocation = calculateNearest(playerCenter.z,waypointCenter.z);
-				startCalculating = false;	
-			}
-			if (playerDirection < 100 && playerDirection > 80 || playerDirection > 260 && playerDirection < 280)
-			{
-				swipeLocation = calculateNearest(playerCenter.x,waypointCenter.x);
-				startCalculating = false;	
-			}
-
+			swipeLocation = calculateNearest(playerCenter.z,waypointCenter.z);
 		}
+		if (playerDirection < 95 && playerDirection > 85 || playerDirection > 265 && playerDirection < 275)
+		{
+			swipeLocation = calculateNearest(playerCenter.x,waypointCenter.x);
+		}
+
+		inputScore(swipeLocation);
 	}
 
 	float calculateNearest(float player, float waypoint)
@@ -97,5 +94,16 @@ public class PlayerScoreScript : MonoBehaviour {
 			result = 0;
 		}
 		return result;	
+	}
+
+	void inputScore(float score)
+	{
+		waypointScore.Add(score);
+	}
+
+	public void calculateFinalScore()
+	{
+		time = GameManagerScript.Instance.totalTimeLevel1;
+		health = PlayerStatusScript.Instance.currentHealth;
 	}
 }
