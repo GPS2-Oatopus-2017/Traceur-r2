@@ -18,7 +18,7 @@ public class StepOnMeToWin : MonoBehaviour
             if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
             {
                 Time.timeScale = 1.0f;
-                GameObject.FindWithTag(gameManager).GetComponent<ChangeSceneScript>().ChangeScenes(0);
+                GameObject.FindWithTag("GameController").GetComponent<ChangeSceneScript>().ChangeScenes(0);
                 MenuSettings.Instance.skipBS = false;
             }
         }

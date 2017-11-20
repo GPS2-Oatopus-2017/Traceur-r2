@@ -1949,6 +1949,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1768135534388154, guid: 572cd89f643cdcb41a40848479c1fb06,
     type: 2}
   m_PrefabInternal: {fileID: 325338550}
+--- !u!114 &326289061 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114627505085251644, guid: e5352dfc787d58f4389f6222890d1e93,
+    type: 2}
+  m_PrefabInternal: {fileID: 823122054}
+  m_Script: {fileID: 11500000, guid: c1e73dd4ebe08bd4d9fa9dc12a45a263, type: 3}
 --- !u!1 &332103441
 GameObject:
   m_ObjectHideFlags: 0
@@ -5660,7 +5666,79 @@ Transform:
   m_LocalScale: {x: 1, y: 1.0000001, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &886095755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1220416811987066, guid: 9822431f7f212ca44b7fb9abef3b7d1d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 886095757}
+  - component: {fileID: 886095756}
+  m_Layer: 0
+  m_Name: DistanceCalculationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &886095756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 886095755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad79933200c2b246a5cddaebd1efa39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  allNodeList:
+  - node: {fileID: 333460597}
+    value: 1
+  - node: {fileID: 476466080}
+    value: 1
+  - node: {fileID: 974918625}
+    value: 1
+  - node: {fileID: 1597160707}
+    value: 1
+  - node: {fileID: 675212598}
+    value: 1
+  - node: {fileID: 1580890389}
+    value: 1
+  - node: {fileID: 261681811}
+    value: 1
+  - node: {fileID: 1568040783}
+    value: 1
+  - node: {fileID: 1283527712}
+    value: 1
+  calculationNodeList: []
+  currNode:
+    node: {fileID: 0}
+    value: 0
+  nextNode:
+    node: {fileID: 0}
+    value: 0
+  characterDistanceTraveled: 0
+  calculatedDistanceAwayFromEnd: 0
+  offset: 25
+--- !u!4 &886095757
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4380643315885876, guid: 9822431f7f212ca44b7fb9abef3b7d1d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 886095755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &896582498 stripped
 Transform:
@@ -7631,25 +7709,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4935044913590020, guid: abae2e33037f7d04f8292e8849501ea5,
     type: 2}
   m_PrefabInternal: {fileID: 187702452}
---- !u!1 &1213226138 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1408378161992512, guid: 4707c4cd9a03cb34d806f67c9ea13cbd,
-    type: 2}
-  m_PrefabInternal: {fileID: 1238479954}
---- !u!114 &1213226139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1213226138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a844d1d8a15ff4a9ca619e78f004b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switchScenes:
-  - WinScene
-  - LoseScene
 --- !u!4 &1222536111 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4061224134374656, guid: 7de407c3d94ccd8438a533b23d03dfc3,
@@ -7716,9 +7775,9 @@ Prefab:
       objectReference: {fileID: 1832448692}
     - target: {fileID: 114026288684140790, guid: 4707c4cd9a03cb34d806f67c9ea13cbd,
         type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: timerScript
+      value: 
+      objectReference: {fileID: 326289061}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4707c4cd9a03cb34d806f67c9ea13cbd, type: 2}
   m_IsPrefabParent: 0
@@ -9382,7 +9441,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1805713299642266, guid: 76768c0397f4ea743a87931b154356a9, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76768c0397f4ea743a87931b154356a9, type: 2}
@@ -12586,6 +12645,11 @@ Prefab:
       propertyPath: delayBetweenLetters
       value: 0.04
       objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: timerScript
+      value: 
+      objectReference: {fileID: 326289061}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ab66f474c2fe5a49a9f84cf9006be47, type: 2}
   m_IsPrefabParent: 0
