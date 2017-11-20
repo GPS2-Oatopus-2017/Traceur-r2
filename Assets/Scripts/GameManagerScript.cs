@@ -32,7 +32,7 @@ public class GameManagerScript : MonoBehaviour
 
 	[Header("Level Time")]
 	public float totalTimeLevel1 = 90f;
-
+	
 	[Header("WinLoseConditions")]
 	public TimerScript timerScript;
 
