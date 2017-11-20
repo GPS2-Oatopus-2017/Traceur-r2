@@ -7,13 +7,14 @@ public class StepOnMeToWin : MonoBehaviour
 {
     public bool isEntered = false;
     public string gameManager;
+	public float score;
 
     void Update()
     {
         if(isEntered)
         {
             DialogueManager.Instance.WinSceneDialogue();
-
+			score = PlayerScoreScript.Instance.calculateFinalScore();
             if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
             {
                 Time.timeScale = 1.0f;

@@ -10,9 +10,9 @@ public class PlayerScoreScript : MonoBehaviour {
 		get { return mInstance; }
 	}
 	
-	public GameObject curWaypoint,playerCollider, waypointCollider;
-	public Vector3 waypointCenter, playerCenter;
-	public float swipeLocation, playerDirection, time, health, reputation;
+	public GameObject curWaypoint,playerCollider;
+	Vector3 waypointCenter, playerCenter;
+	float swipeLocation, time, health, reputation,finalScore;
 
 	public List<float> waypointScore = new List<float>();
 
@@ -49,51 +49,22 @@ public class PlayerScoreScript : MonoBehaviour {
 			curWaypoint = col.gameObject;
 		}
 	}
-		
+
+	void OnTriggerStay (Collider col)
+	{
+		if (col.gameObject.tag == "Waypoint")
+		{
+			waypointCenter = curWaypoint.transform.position;
+			playerCenter = gameObject.transform.position;
+		}
+	}
 
 	public void calculateDistance()
 	{
-		waypointCenter = curWaypoint.transform.position;
-		playerCenter = gameObject.transform.position;
-		playerDirection = gameObject.GetComponent<PlayerCoreController>().rigidController.rotAngle;
-		
-		if (playerDirection < 5 && playerDirection > 355 || playerDirection > 175 && playerDirection < 185 )
-		{
-			swipeLocation = calculateNearest(playerCenter.z,waypointCenter.z);
-		}
-		if (playerDirection < 95 && playerDirection > 85 || playerDirection > 265 && playerDirection < 275)
-		{
-			swipeLocation = calculateNearest(playerCenter.x,waypointCenter.x);
-		}
+		swipeLocation = Vector3.Distance(waypointCenter,playerCenter);
 
 		inputScore(swipeLocation);
-	}
-
-	float calculateNearest(float player, float waypoint)
-	{
-		float result;
-
-		if (waypoint > 0 && player > 0)
-		{
-			result = waypoint - player;	
-		}
-		else if (waypoint > 0 && player< 0)
-		{
-			result = waypoint - Mathf.Abs(player);
-		}
-		else if (waypoint < 0 && player > 0)
-		{
-			result = Mathf.Abs(waypoint) - player;
-		}
-		else if (waypoint < 0 && player < 0)
-		{
-			result = Mathf.Abs(waypoint) - Mathf.Abs(player);
-		}
-		else 
-		{
-			result = 0;
-		}
-		return result;	
+		swipeLocation = 0;
 	}
 
 	void inputScore(float score)
@@ -101,9 +72,30 @@ public class PlayerScoreScript : MonoBehaviour {
 		waypointScore.Add(score);
 	}
 
-	public void calculateFinalScore()
+	public float calculateFinalScore()
 	{
 		time = GameManagerScript.Instance.totalTimeLevel1;
 		health = PlayerStatusScript.Instance.currentHealth;
+		reputation = SpawnManagerScript.Instance.reputation;
+
+		finalScore = time * health * reputation; 
+
+		for (int i = 0; i < waypointScore.Count;i++)
+		{
+			if (waypointScore[i] > 4)
+			{
+				finalScore += 20;
+			}
+			else if (waypointScore[i] < 4 && waypointScore[i] > 1)
+			{
+				finalScore += 30;
+			}
+			else if (waypointScore[i] <= 1)
+			{
+				finalScore += 50;
+			}
+		}
+
+		return finalScore;
 	}
 }
