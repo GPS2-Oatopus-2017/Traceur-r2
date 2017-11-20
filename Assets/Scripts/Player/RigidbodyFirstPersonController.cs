@@ -138,11 +138,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			}
 		}
 
+		RotateCamera rotCamera;
 
 		private void Start ()
 		{
 			m_RigidBody = GetComponent<Rigidbody> ();
 			m_Capsule = GetComponent<CapsuleCollider> ();
+			rotCamera = FindObjectOfType<RotateCamera> ();
 			//mouseLook.Init (transform, cam.transform);
 		}
 
@@ -156,8 +158,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				}
 			}
 
-			if (canSlide && !isSliding && (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down || Input.GetKeyDown (KeyCode.S))) {
-				if (!RotateCamera.FindObjectOfType<RotateCamera> ().isEvent) {
+			if ((SwipeScript.Instance.GetSwipe () == SwipeDirection.Down || Input.GetKeyDown (KeyCode.S))) {
+				if (m_IsGrounded && canSlide && !isSliding && !rotCamera.isEvent) {
+
+					rotCamera.isRolling = true;
 					isSliding = true;
 					slideTimer = 0.0f;
 				}

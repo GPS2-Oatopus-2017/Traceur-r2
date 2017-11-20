@@ -15,6 +15,7 @@ public class RotateCamera : MonoBehaviour
 	public bool isRolling = false;
 	public bool isEvent = false;
 	public bool isAbleToRoll = false;
+	public bool isLookBack = false;
 
 	public float eventBraceTime = 1f;
 	public float eventCounter = 0f;
@@ -62,11 +63,16 @@ public class RotateCamera : MonoBehaviour
 		// Causes rotation within 1 second. ---//
 		float rotation = rotationSpeed * Time.deltaTime;
 
-		if (!isEvent && !isRolling && rbController.canSlide && (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down || Input.GetKeyDown (KeyCode.S))) {
-			
-			isRolling = true;
+		/*
+		if (!isEvent && !isRolling && rbController.canSlide) {
 
+			if ((SwipeScript.Instance.GetSwipe () == SwipeDirection.Down || Input.GetKeyDown (KeyCode.S))) {
+
+				//isRolling = true;
+
+			}
 		}
+		*/
 
 		if (isRolling) {
 

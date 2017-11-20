@@ -31,6 +31,8 @@ public class InteractScript : MonoBehaviour
 	public float activateObjectTimer = 2f;
 	public float activateCounter = 0f;
 
+	WaypointManagerScript waypoint;
+
 	void Awake ()
 	{
 		player = GetComponent<PlayerCoreController> ();
@@ -48,6 +50,7 @@ public class InteractScript : MonoBehaviour
 	void Start ()
 	{
 		rbController = FindObjectOfType<RigidbodyFirstPersonController> ();
+		waypoint = FindObjectOfType<WaypointManagerScript> ();
 	}
 
 	void Update ()
@@ -55,11 +58,11 @@ public class InteractScript : MonoBehaviour
 		Interaction ();
 	}
 
-//	void OnDrawGizmos()
-//	{
-//		Gizmos.color = Color.yellow;
-//		Gizmos.DrawSphere(transform.position, sphereCastThickness);
-//	}
+	//	void OnDrawGizmos()
+	//	{
+	//		Gizmos.color = Color.yellow;
+	//		Gizmos.DrawSphere(transform.position, sphereCastThickness);
+	//	}
 
 	void FixedUpdate ()
 	{
@@ -72,7 +75,7 @@ public class InteractScript : MonoBehaviour
 	//When left mouse button is pressed, shoot out a ray cast from screen to pointer.//
 	//If the player is within the radius of the object, it will go towards it.//
 
-	void Interaction()
+	void Interaction ()
 	{
 		#if UNITY_ANDROID && !UNITY_EDITOR
 		if((Input.touchCount > 0) && (Input.GetTouch (0).phase == TouchPhase.Began)) 
@@ -92,19 +95,16 @@ public class InteractScript : MonoBehaviour
 		}
 		#elif UNITY_EDITOR
 		//* For Testing Only -- Mouse Input
-		if(Input.GetMouseButtonDown (0)) 
-		{
+		if (Input.GetMouseButtonDown (0)) {
 			Ray raycast = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit raycastHit;
 
 //			if(Physics.SphereCast (raycast, sphereCastThickness, out raycastHit)) 
-			if(Physics.Raycast(raycast, out raycastHit, 1000.0f))
-			{
+			if (Physics.Raycast (raycast, out raycastHit, 1000.0f)) {
 				//Debug.Log(raycastHit.collider.tag);
 				//Debug.Log(raycastHit.collider.gameObject.name);
-				if(raycastHit.collider.CompareTag ("InteractableObjects")) 
-				{
-					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable>();
+				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
+					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable> ();
 					interact.Interacted ();
 				}
 			}
@@ -118,6 +118,9 @@ public class InteractScript : MonoBehaviour
 		if (Input.GetMouseButton (0) || Input.touchCount > 0) {
 
 			mouseRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+			//mouseRay = rbController.transform.position;
+
+			//if (Physics.Raycast (rbController.transform.position, Input.mousePosition, rayDistance)) {
 
 			if (Physics.Raycast (mouseRay, out hit, rayDistance)) {
 				
@@ -334,21 +337,32 @@ public class InteractScript : MonoBehaviour
 				//steelFence.canSteelDoorUp = false;
 				//steelFence.canSteelDoorDown = true;
 			}
-		
+
 			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.DOWN) && steelFence.canSteelDoorDown) {
-				
+
 				steelFence.isActivated = true;
-
-				//objectToStore.transform.Translate (-Vector3.up * pushDistance, Space.Self);
-
-				//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
 
 				activateCounter = 0f;
 
 				isUsingSteelDoor = false;
+			}
 
-				//steelFence.canSteelDoorUp = true;
-				//steelFence.canSteelDoorDown = false;
+			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
+
+				steelFence.isActivated = true;
+
+				activateCounter = 0f;
+
+				isUsingSteelDoor = false;
+			}
+		
+			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+				
+				steelFence.isActivated = true;
+
+				activateCounter = 0f;
+
+				isUsingSteelDoor = false;
 			}
 		}
 	}

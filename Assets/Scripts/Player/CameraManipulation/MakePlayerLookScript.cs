@@ -46,6 +46,7 @@ public class MakePlayerLookScript : MonoBehaviour
 				Time.timeScale = slowTime;
 				toLookAt = true;
 				lookOnce = false;
+				rotCam.isLookBack = true;
 				animCount = 0;
 			}
 		}
@@ -82,6 +83,8 @@ public class MakePlayerLookScript : MonoBehaviour
 					Time.timeScale = originalTime;
 					
 					toLookAt = false;
+
+					rotCam.isLookBack = false;
 
 					animCount = 0;
 
