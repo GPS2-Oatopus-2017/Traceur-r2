@@ -406,19 +406,19 @@ public class SoundManagerScript : MonoBehaviour
 
 	public void UpdateBGMVolume()
 	{
-		bgmAudioSource.volume = bgmVolume * FindAudioClipVolumeMultipliers(bgmAudioClipID);
+		bgmAudioSource.volume = bgmVolume;// * FindAudioClipVolumeMultipliers(bgmAudioClipID);
 	}
 
 	public void UpdateSFXVolume()
 	{
-		sfxAudioSource2DOneshot.volume = sfxVolume * FindAudioClipVolumeMultipliers(sfxAudioClipID2DOneShot);
+		sfxAudioSource2DOneshot.volume = sfxVolume;// * FindAudioClipVolumeMultipliers(sfxAudioClipID2DOneShot);
 		for(int i = 0; i < sfxAudioSourceList2DLoop.Count; i++)
 		{
-			sfxAudioSourceList2DLoop[i].volume = sfxVolume * FindAudioClipVolumeMultipliers(sfxAudioClipID2DLoop[i]);
+			sfxAudioSourceList2DLoop[i].volume = sfxVolume;// * FindAudioClipVolumeMultipliers(sfxAudioClipID2DLoop[i]);
 		}
 		for(int i = 0; i < sfxAudioSourceList3D.Count; i++)
 		{
-			sfxAudioSourceList3D[i].volume = sfxVolume * FindAudioClipVolumeMultipliers(sfxAudioClipID3D[i]);
+			sfxAudioSourceList3D[i].volume = sfxVolume;// * FindAudioClipVolumeMultipliers(sfxAudioClipID3D[i]);
 		}
 	}
 }

@@ -10023,16 +10023,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: bgmVolume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: audioClipInfoList.Array.data[3].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 8f8de606a2e66d74086d00e363d68aef, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2eec1bf49352f7e499119ba2fac11c14, type: 2}
   m_IsPrefabParent: 0
