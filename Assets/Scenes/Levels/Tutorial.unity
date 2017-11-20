@@ -12952,6 +12952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEntered: 0
   gameManager: GameController
+  score: 0
 --- !u!23 &1091720189
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13999,7 +14000,7 @@ MonoBehaviour:
   lookOnce: 1
   toLookAt: 0
   animCount: 0
-  timeToLookAt: 5
+  timeToLookAt: 2
   timeToLookCounter: 0
 --- !u!23 &1177504278
 MeshRenderer:
@@ -14059,7 +14060,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1177504275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.551001, y: 0.5, z: -30.899994}
+  m_LocalPosition: {x: 1.77, y: 0.5, z: -30.899994}
   m_LocalScale: {x: 1, y: 1, z: 11.023788}
   m_Children: []
   m_Father: {fileID: 0}
@@ -14577,14 +14578,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curWaypoint: {fileID: 0}
   playerCollider: {fileID: 0}
-  waypointCollider: {fileID: 0}
-  waypointCenter: {x: 0, y: 0, z: 0}
-  playerCenter: {x: 0, y: 0, z: 0}
-  swipeLocation: 0
-  playerDirection: 0
-  time: 0
-  health: 0
-  reputation: 0
   waypointScore: []
 --- !u!114 &1199361060
 MonoBehaviour:

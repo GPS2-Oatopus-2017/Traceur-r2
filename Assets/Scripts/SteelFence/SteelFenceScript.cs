@@ -33,110 +33,134 @@ public class SteelFenceScript : MonoBehaviour
 
 	void CheckDirectionInteraction ()
 	{
-		// Face the opposite direction of player. //
-		if (WaypointManagerScript.Instance.playerDirection == Direction.North) {
+		if (!rotCam.isLookBack)
+		{
+//			transform.rotation = Quaternion.Euler (transform.rotation.x, 0f, transform.rotation.z);
 
-			if (!rotCam.isLookBack) {
-
-				transform.rotation = Quaternion.Euler (transform.rotation.x, 0f, transform.rotation.z);
-
-				if (isOpen) {
-					canSteelDoorLeft = false;
-					canSteelDoorRight = true;
-				} else if (!isOpen) {
-					canSteelDoorLeft = true;
-					canSteelDoorRight = false;
-				}
-			} else if (rotCam.isLookBack) {
-
-				transform.rotation = Quaternion.Euler (transform.rotation.x, 180f, transform.rotation.z);
-
-				if (isOpen) {
-					canSteelDoorLeft = true;
-					canSteelDoorRight = false;
-				} else if (!isOpen) {
-					canSteelDoorLeft = false;
-					canSteelDoorRight = true;
-				}
+			if (isOpen) {
+				canSteelDoorLeft = false;
+				canSteelDoorRight = true;
+			} else if (!isOpen) {
+				canSteelDoorLeft = true;
+				canSteelDoorRight = false;
 			}
+		} else if (rotCam.isLookBack) {
 
-		} else if (WaypointManagerScript.Instance.playerDirection == Direction.South) {
+//			transform.rotation = Quaternion.Euler (transform.rotation.x, 180f, transform.rotation.z);
 
-			if (!rotCam.isLookBack) {
-
-				transform.rotation = Quaternion.Euler (transform.rotation.x, 180f, transform.rotation.z);
-
-				if (isOpen) {
-					canSteelDoorLeft = true;
-					canSteelDoorRight = false;
-				} else if (!isOpen) {
-					canSteelDoorLeft = false;
-					canSteelDoorRight = true;
-				}
-			} else if (rotCam.isLookBack) {
-				transform.rotation = Quaternion.Euler (transform.rotation.x, 0f, transform.rotation.z);
-
-				if (isOpen) {
-					canSteelDoorLeft = false;
-					canSteelDoorRight = true;
-				} else if (!isOpen) {
-					canSteelDoorLeft = true;
-					canSteelDoorRight = false;
-				}
-			}
-
-		} else if (WaypointManagerScript.Instance.playerDirection == Direction.West) {
-				
-			if (!rotCam.isLookBack) {
-
-				transform.rotation = Quaternion.Euler (transform.rotation.x, 270f, transform.rotation.z);
-
-				if (isOpen) {
-					canSteelDoorLeft = false;
-					canSteelDoorRight = true;
-				} else if (!isOpen) {
-					canSteelDoorLeft = true;
-					canSteelDoorRight = false;
-				}
-			} else if (rotCam.isLookBack) {
-				
-				transform.rotation = Quaternion.Euler (transform.rotation.x, 90f, transform.rotation.z);
-
-				if (isOpen) {
-					canSteelDoorLeft = true;
-					canSteelDoorRight = false;
-				} else if (!isOpen) {
-					canSteelDoorLeft = false;
-					canSteelDoorRight = true;
-				}
-			}
-
-		} else if (WaypointManagerScript.Instance.playerDirection == Direction.East) {
-
-			if (!rotCam.isLookBack) {
-				transform.rotation = Quaternion.Euler (transform.rotation.x, 90f, transform.rotation.z);
-
-				if (isOpen) {
-					canSteelDoorLeft = true;
-					canSteelDoorRight = false;
-				} else if (!isOpen) {
-					canSteelDoorLeft = false;
-					canSteelDoorRight = true;
-
-				} else if (rotCam.isLookBack) {
-
-					transform.rotation = Quaternion.Euler (transform.rotation.x, 270f, transform.rotation.z);
-
-					if (isOpen) {
-						canSteelDoorLeft = false;
-						canSteelDoorRight = true;
-					} else if (!isOpen) {
-						canSteelDoorLeft = true;
-						canSteelDoorRight = false;
-					}
-				}
+			if (isOpen) {
+				canSteelDoorLeft = true;
+				canSteelDoorRight = false;
+			} else if (!isOpen) {
+				canSteelDoorLeft = false;
+				canSteelDoorRight = true;
 			}
 		}
+
+//		// Face the opposite direction of player. //
+//		if (WaypointManagerScript.Instance.playerDirection == Direction.North)
+//		{
+//			if (!rotCam.isLookBack)
+//			{
+////				transform.rotation = Quaternion.Euler (transform.rotation.x, 0f, transform.rotation.z);
+//
+//				if (isOpen) {
+//					canSteelDoorLeft = false;
+//					canSteelDoorRight = true;
+//				} else if (!isOpen) {
+//					canSteelDoorLeft = true;
+//					canSteelDoorRight = false;
+//				}
+//			} else if (rotCam.isLookBack) {
+//
+////				transform.rotation = Quaternion.Euler (transform.rotation.x, 180f, transform.rotation.z);
+//
+//				if (isOpen) {
+//					canSteelDoorLeft = true;
+//					canSteelDoorRight = false;
+//				} else if (!isOpen) {
+//					canSteelDoorLeft = false;
+//					canSteelDoorRight = true;
+//				}
+//			}
+//
+//		} else if (WaypointManagerScript.Instance.playerDirection == Direction.South) {
+//
+//			if (!rotCam.isLookBack) {
+//
+////				transform.rotation = Quaternion.Euler (transform.rotation.x, 180f, transform.rotation.z);
+//
+//				if (isOpen) {
+//					canSteelDoorLeft = true;
+//					canSteelDoorRight = false;
+//				} else if (!isOpen) {
+//					canSteelDoorLeft = false;
+//					canSteelDoorRight = true;
+//				}
+//			} else if (rotCam.isLookBack) {
+////				transform.rotation = Quaternion.Euler (transform.rotation.x, 0f, transform.rotation.z);
+//
+//				if (isOpen) {
+//					canSteelDoorLeft = false;
+//					canSteelDoorRight = true;
+//				} else if (!isOpen) {
+//					canSteelDoorLeft = true;
+//					canSteelDoorRight = false;
+//				}
+//			}
+//
+//		} else if (WaypointManagerScript.Instance.playerDirection == Direction.West) {
+//				
+//			if (!rotCam.isLookBack) {
+//
+////				transform.rotation = Quaternion.Euler (transform.rotation.x, 270f, transform.rotation.z);
+//
+//				if (isOpen) {
+//					canSteelDoorLeft = false;
+//					canSteelDoorRight = true;
+//				} else if (!isOpen) {
+//					canSteelDoorLeft = true;
+//					canSteelDoorRight = false;
+//				}
+//			} else if (rotCam.isLookBack) {
+//				
+////				transform.rotation = Quaternion.Euler (transform.rotation.x, 90f, transform.rotation.z);
+//
+//				if (isOpen) {
+//					canSteelDoorLeft = true;
+//					canSteelDoorRight = false;
+//				} else if (!isOpen) {
+//					canSteelDoorLeft = false;
+//					canSteelDoorRight = true;
+//				}
+//			}
+//
+//		} else if (WaypointManagerScript.Instance.playerDirection == Direction.East) {
+//
+//			if (!rotCam.isLookBack) {
+////				transform.rotation = Quaternion.Euler (transform.rotation.x, 90f, transform.rotation.z);
+//
+//				if (isOpen) {
+//					canSteelDoorLeft = true;
+//					canSteelDoorRight = false;
+//				} else if (!isOpen) {
+//					canSteelDoorLeft = false;
+//					canSteelDoorRight = true;
+//
+//				} else if (rotCam.isLookBack) {
+//
+////					transform.rotation = Quaternion.Euler (transform.rotation.x, 270f, transform.rotation.z);
+//
+//					if (isOpen) {
+//						canSteelDoorLeft = false;
+//						canSteelDoorRight = true;
+//					} else if (!isOpen) {
+//						canSteelDoorLeft = true;
+//						canSteelDoorRight = false;
+//					}
+//				}
+//			}
+//		}
 	}
 
 	void CheckMoveFence ()
