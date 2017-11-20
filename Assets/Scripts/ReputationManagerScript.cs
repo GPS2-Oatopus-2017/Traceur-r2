@@ -98,7 +98,10 @@ public class ReputationManagerScript : MonoBehaviour {
 
 	void UpdateStatus()
 	{
-		for(int i=0; i<=reputation_Data.maxReputation; i++)
+		Debug.Log(currentRep);
+		Debug.Log(statusList[currentRep]);
+
+		for(int i = 0; i <= reputation_Data.maxReputation; i++)
 		{
 			if(currentRep == i)
 			{
