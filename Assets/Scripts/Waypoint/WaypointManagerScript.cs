@@ -117,11 +117,11 @@ public class WaypointManagerScript : MonoBehaviour
 		tracePlayerNodes.Add(node);
 		touchedNodes.Add(node);
 
-//		for(int i = 0; i < DistanceCalculation.Instance.calculationNodeList.Count; i++)
-//		{
-//			if(DistanceCalculation.Instance.calculationNodeList[i].node == node.transform)
-//				DistanceCalculation.Instance.ResetCalculation(i);
-//		}
+		for(int i = 0; i < DistanceCalculation.Instance.calculationNodeList.Count; i++)
+		{
+			if(DistanceCalculation.Instance.calculationNodeList[i].node == node.transform)
+				DistanceCalculation.Instance.ResetCalculation(i);
+		}
 	}
 
 	public void UnregisterNode(WaypointNodeScript node)
