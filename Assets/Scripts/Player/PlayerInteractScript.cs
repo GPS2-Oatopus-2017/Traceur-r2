@@ -6,6 +6,8 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 {
 	private PlayerCoreController m_Player;
 
+	public static PlayerInteractScript Instance;
+
 	public void SetPlayer (PlayerCoreController m_Player)
 	{
 		this.m_Player = m_Player;
@@ -52,18 +54,15 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			}
 		}
 		#elif UNITY_EDITOR
-		if (Input.GetMouseButtonDown (0))
-		{
+		if (Input.GetMouseButtonDown (0)) {
 			Ray raycast = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit raycastHit;
 
 //			if(Physics.SphereCast (raycast, sphereCastThickness, out raycastHit)) 
-			if (Physics.Raycast (raycast, out raycastHit, 1000.0f))
-			{
+			if (Physics.Raycast (raycast, out raycastHit, 1000.0f)) {
 				//Debug.Log(raycastHit.collider.tag);
 				//Debug.Log(raycastHit.collider.gameObject.name);
-				if (raycastHit.collider.CompareTag ("InteractableObjects"))
-				{
+				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
 					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable> ();
 					interact.Interacted ();
 				}
@@ -78,15 +77,12 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 
 	void CheckPushable ()
 	{
-		if (Input.GetMouseButtonDown(0)/* || Input.touchCount > 0*/)
-		{
+		if (Input.GetMouseButtonDown (0)/* || Input.touchCount > 0*/) {
 			Ray mouseRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 
-			if (Physics.Raycast (mouseRay, out hit, rayDistance))
-			{
-				if (hit.transform.tag == "Pushable" && !isUsingObject)
-				{
+			if (Physics.Raycast (mouseRay, out hit, rayDistance)) {
+				if (hit.transform.tag == "Pushable" && !isUsingObject) {
 					objectToStore = hit.transform.gameObject;
 
 					Debug.Log ("Pushing Object Detected");
@@ -94,8 +90,7 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 					isUsingObject = true;
 				}
 
-				if (hit.transform.tag == "SteelFence" && !isUsingSteelDoor)
-				{
+				if (hit.transform.tag == "SteelFence" && !isUsingSteelDoor) {
 					objectToStore = hit.transform.gameObject;
 
 					Debug.Log ("Steel Door Detected");
@@ -105,16 +100,14 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			}
 		}
 
-		if (isUsingObject)
-		{
+		if (isUsingObject) {
 			activateCounter += Time.deltaTime;
 
 			Vector3 playerPosition = new Vector3 (this.transform.position.x, objectToStore.transform.position.y, this.transform.position.z);
 
 			objectToStore.transform.LookAt (playerPosition);
 
-			if (activateCounter >= activateObjectTimer)
-			{
+			if (activateCounter >= activateObjectTimer) {
 				activateCounter = 0f;
 
 				isUsingObject = false;
@@ -122,8 +115,7 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			}
 
 //			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT)) {
-			if (SwipeScript.Instance.GetSwipe() == SwipeDirection.Left)
-			{
+			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left) {
 
 				objectToStore.transform.Translate (-Vector3.left * pushDistance, Space.Self);
 
@@ -136,8 +128,7 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			} 
 
 //			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT)) {
-			if (SwipeScript.Instance.GetSwipe() == SwipeDirection.Right)
-			{
+			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right) {
 				objectToStore.transform.Translate (-Vector3.right * pushDistance, Space.Self);
 
 				//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
@@ -149,8 +140,7 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			}
 		}
 
-		if (isUsingSteelDoor)
-		{
+		if (isUsingSteelDoor) {
 			SteelFenceScript steelFence = objectToStore.GetComponent<SteelFenceScript> ();
 
 			activateCounter += Time.deltaTime;
@@ -161,33 +151,32 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 
 			//gameObject.transform.LookAt (objectToStore.transform.position);
 
-			if (activateCounter >= activateObjectTimer)
-			{
+			if (activateCounter >= activateObjectTimer) {
 				activateCounter = 0f;
 
 				isUsingSteelDoor = false;
 			}
 
 //			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.UP) && steelFence.canSteelDoorUp) {
-			if (SwipeScript.Instance.GetSwipe() == SwipeDirection.Up && steelFence.canSteelDoorUp)
-			{
+			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Up && steelFence.canSteelDoorUp) {
+
 				steelFence.isActivated = true;
-
-				//objectToStore.transform.Translate (Vector3.up * pushDistance, Space.Self);
-
-				//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
 
 				activateCounter = 0f;
 
 				isUsingSteelDoor = false;
+
+				//objectToStore.transform.Translate (Vector3.up * pushDistance, Space.Self);
+
+				//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
 
 				//steelFence.canSteelDoorUp = false;
 				//steelFence.canSteelDoorDown = true;
 			}
 
 //			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.DOWN) && steelFence.canSteelDoorDown) {
-			if (SwipeScript.Instance.GetSwipe() == SwipeDirection.Down && steelFence.canSteelDoorDown)
-			{
+			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down && steelFence.canSteelDoorDown) {
+
 				steelFence.isActivated = true;
 
 				activateCounter = 0f;
@@ -196,8 +185,8 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			}
 
 //			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
-			if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Left && steelFence.canSteelDoorLeft)
-			{
+			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+
 				steelFence.isActivated = true;
 
 				activateCounter = 0f;
@@ -206,8 +195,8 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			}
 		
 //			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
-			if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Right && steelFence.canSteelDoorRight)
-			{
+			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+
 				steelFence.isActivated = true;
 
 				activateCounter = 0f;
