@@ -42,7 +42,6 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 		isActive = true;
 		isTapped = false;
 
-		//Temporary colours until animation or finalised textures are given
 		motionDetectorCurrentMaterial = GetComponent<Renderer>();
 		motionDetectorCurrentMaterial.material = normalState;
 	}
