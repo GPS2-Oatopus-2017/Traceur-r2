@@ -55,7 +55,7 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 
 	void motionDetectorMainFunctions()
 	{
-		if(isActive ==  true)
+		if(isActive == true)
         {
 			if(Vector3.Distance(transform.position, player.transform.position) <= motionSensor_Data.alertDistance && isActive == true && isTapped == false)
             {
