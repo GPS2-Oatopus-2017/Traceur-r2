@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5bcbb9499ae4d4a821959d0e07ad9b, type: 3}
+  m_Name: AI_Attack_Timing_Manager
+  m_EditorClassIdentifier: 
+  movementSpeed: 0
+  turnSpeed: 0
+  attackCount: 0
+  attackSpeed: 0
+  taserSlow: 0
+  taserSlowDuration: 0
+  damage: 0
+  alertDistance: 0
+  safeDistance: 0
+  spawnHDAmount: 0
+  increaseReputation: 0
+  timeForTopOrBottom: 5

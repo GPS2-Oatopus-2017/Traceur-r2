@@ -12,8 +12,6 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 			isTapped = true;
 			motionDetectorCurrentMaterial.material  = deactivatedState;
 		}
-
-		//Debug.Log("MD Touched!");
 	}
 
 	public TrapData motionSensor_Data;
@@ -71,7 +69,6 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 
                 SpawnManagerScript.Instance.CalculateSpawnPoint();
                 SpawnManagerScript.Instance.SpawnMultiple("Hunting_Droid",motionSensor_Data.spawnHDCount);
-                //PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity,2,0,3.5f,SpawnManagerScript.Instance.isHorizontal);
             }
         }
 	}

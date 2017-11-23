@@ -16,4 +16,5 @@ public class EnemyData : ScriptableObject
 	public float safeDistance;
 	public int spawnHDAmount;
 	public float increaseReputation;
+	public float timeForTopOrBottom;
 }

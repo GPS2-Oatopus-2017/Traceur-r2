@@ -18,7 +18,6 @@ public class HuntingDroneScript : MonoBehaviour {
 	public Transform droneGunHardPointDown;
 	public float fireIndication = 0.5f;
 	private float nextFire;
-	private int randUpDown;
 	private bool slowDown;
 
 	public bool isIndicated = false;
@@ -134,9 +133,7 @@ public class HuntingDroneScript : MonoBehaviour {
 				{
 					isIndicated = true;
 
-					randUpDown = Random.Range(0,2);
-
-					if(randUpDown == 0)
+					if(AIAttackTimingManagerScript.Instance.isTop == true)
 					{
 						target = droneGunHardPointUp.position + (player.transform.forward * targetOffset);
 						Instantiate(enemyAttackIndicator, target, droneGunHardPointUp.rotation);
@@ -153,7 +150,7 @@ public class HuntingDroneScript : MonoBehaviour {
 			{
 				nextFire = hunting_Drone.attackSpeed;
 
-				if(randUpDown == 0)
+				if(AIAttackTimingManagerScript.Instance.isTop == true)
 				{
 					GameObject newBullet = Instantiate(bullet, droneGunHardPointUp.position, droneGunHardPointUp.rotation); // Shoot from TOP HARDPOINT
 					BulletScript bulletScript = newBullet.GetComponent<BulletScript>();
@@ -167,6 +164,7 @@ public class HuntingDroneScript : MonoBehaviour {
 					bulletScript.fromTopHardpoint = false;
 					newBullet = null;
 				}
+
 				isIndicated = false;
 			}
 		}

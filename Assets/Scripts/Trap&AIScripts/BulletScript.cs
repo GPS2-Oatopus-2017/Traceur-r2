@@ -63,6 +63,7 @@ public class BulletScript : MonoBehaviour {
 		}
 	}
 
+
 	void OnTriggerEnter(Collider other)
 	{
 		if(this.bulletSphereCollider.enabled == true)
@@ -70,7 +71,6 @@ public class BulletScript : MonoBehaviour {
 			if(other.tag == "PlayerBulletCollider")
 			{
 				PlayerStatusScript.Instance.currentHealth -= 1;
-				//GameManagerScript.Instance.player.status.currentHealth -= 1;
 			}
 		}
 			
