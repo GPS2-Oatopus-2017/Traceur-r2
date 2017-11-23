@@ -10,7 +10,7 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 		{
 			isActive = false;
 			isTapped = true;
-			motionDetectorMaterial.material  = deactivatedState;
+			motionDetectorCurrentMaterial.material  = deactivatedState;
 		}
 
 		//Debug.Log("MD Touched!");
@@ -23,7 +23,7 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 	public bool isTapped;
 
 	//For Colour Material Changes
-	public Renderer motionDetectorMaterial;
+	public Renderer motionDetectorCurrentMaterial;
 	public Material normalState;
 	public Material activatedState;
 	public Material deactivatedState;
@@ -43,8 +43,8 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 		isTapped = false;
 
 		//Temporary colours until animation or finalised textures are given
-		motionDetectorMaterial = GetComponent<Renderer>();
-		motionDetectorMaterial.material = normalState;
+		motionDetectorCurrentMaterial = GetComponent<Renderer>();
+		motionDetectorCurrentMaterial.material = normalState;
 	}
 
 
@@ -63,7 +63,7 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 			if(Vector3.Distance(transform.position, player.transform.position) <= motionSensor_Data.alertDistance && isActive == true && isTapped == false)
             {
                 isActive = false;
-				motionDetectorMaterial.material  = activatedState;
+				motionDetectorCurrentMaterial.material  = activatedState;
 
                 if(ReputationManagerScript.Instance.currentRep == 0)
                 {

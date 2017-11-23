@@ -83,11 +83,12 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 19ce37b7b33865d4b9b37f48f6b600d4, type: 2}
+  - {fileID: 2100000, guid: 70e58b224116fe74f8d93409fe9cafa9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,6 +99,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -112,7 +114,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1945562805697604}
-  m_Mesh: {fileID: 4300000, guid: 1be2396ee33f6de4f99a6f9d8e5aa3a8, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 4c15eddc2010ff845a45055e83357763, type: 3}
 --- !u!54 &54341429689748382
 Rigidbody:
   m_ObjectHideFlags: 1
