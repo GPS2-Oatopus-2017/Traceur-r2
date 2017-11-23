@@ -23,6 +23,7 @@ TagManager:
   - SettingManager
   - SteelFence
   - PlayerBulletCollider
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
