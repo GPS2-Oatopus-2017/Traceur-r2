@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1048672645696052}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.564948, y: -0.00039382957, z: -29.101362}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   player: {fileID: 0}
   isActive: 0
   isTapped: 0
-  motionDetectorMaterial: {fileID: 0}
+  motionDetectorCurrentMaterial: {fileID: 0}
   normalState: {fileID: 2100000, guid: 16910052e2525b8428e00a55c54564a9, type: 2}
   activatedState: {fileID: 2100000, guid: 682fd2b1b97284647bcf6954ebebac15, type: 2}
   deactivatedState: {fileID: 2100000, guid: a53138cc47cd5e34e9d73bcc90f2bbf4, type: 2}
