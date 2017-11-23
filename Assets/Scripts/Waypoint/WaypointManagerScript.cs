@@ -30,6 +30,8 @@ public class WaypointManagerScript : MonoBehaviour
 	public List<WaypointNodeScript> tracePlayerNodes = new List<WaypointNodeScript> ();
 	public List<WaypointNodeScript> touchedNodes = new List<WaypointNodeScript> ();
 
+	public PlayerCoreController player;
+
 	public bool isInProximity {
 		get {
 			return touchedNodes.Count > 0;
@@ -48,7 +50,9 @@ public class WaypointManagerScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-
+		GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+		if(playerGO) player = playerGO.GetComponent<PlayerCoreController>();
+		else Debug.LogError("GameManager: Unable to find Player!");
 	}
 	
 	// Update is called once per frame
@@ -57,8 +61,7 @@ public class WaypointManagerScript : MonoBehaviour
 		if (isInProximity) {
 			if (!hasConfirmedEvent) {  
 				if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left || Input.GetKeyDown (KeyCode.A)) {
-
-					if (PlayerInteractScript.Instance.isUsingSteelDoor) {
+					if (player.interact.isUsingSteelDoor) {
 						curEvent = EventType.None;
 					} else {
 						curEvent = EventType.SwipeLeft;
@@ -68,7 +71,7 @@ public class WaypointManagerScript : MonoBehaviour
 					
 				} else if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D)) {
 
-					if (PlayerInteractScript.Instance.isUsingSteelDoor) {
+					if (player.interact.isUsingSteelDoor) {
 						curEvent = EventType.None;
 					} else {
 						curEvent = EventType.SwipeRight;
