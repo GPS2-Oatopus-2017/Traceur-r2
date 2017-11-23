@@ -82,7 +82,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1048672645696052}
-  m_Mesh: {fileID: 4300000, guid: c4668987e48bc3f44a0e8cff5a1772dc, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 70f687294fd931d4f9e3132a01cb4dcb, type: 3}
 --- !u!65 &65081961065739314
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -126,5 +126,8 @@ MonoBehaviour:
   motionSensor_Data: {fileID: 11400000, guid: 3881bc8e847e9e7429cd2fa6999d895c, type: 2}
   player: {fileID: 0}
   isActive: 0
-  rend: {fileID: 0}
   isTapped: 0
+  motionDetectorMaterial: {fileID: 0}
+  normalState: {fileID: 0}
+  activatedState: {fileID: 0}
+  deactivatedState: {fileID: 0}
