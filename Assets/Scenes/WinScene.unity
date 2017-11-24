@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScenes:
-  - MainMenu
+  - Level 1
 --- !u!4 &35215293
 Transform:
   m_ObjectHideFlags: 0

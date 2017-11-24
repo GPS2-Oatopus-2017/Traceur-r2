@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class FirstEncounterScript : MonoBehaviour 
 {
     [Header("Lists of Objects in-Scene")]
-    public GameObject dirIndicator;
     public List<GameObject> turn;
     public List<GameObject> lowObstacle;
     public List<GameObject> highObstacle;
@@ -34,8 +33,6 @@ public class FirstEncounterScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        dirIndicator.SetActive(false);
-
         for(int i = 0; i < seenObj.Length; i++) // Seen Object is all set to false because player have not seen these objects before.
         {
             seenObj[i] = false;
@@ -44,14 +41,6 @@ public class FirstEncounterScript : MonoBehaviour
 
     void Update()
     {
-        if(seenObj[5] == true)
-        {
-			if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Left || SwipeScript.Instance.GetSwipe() == SwipeDirection.Right || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
-            {
-                dirIndicator.SetActive(false);
-            }
-        }
-
         ObjectEncounter();
     }
 
@@ -63,7 +52,6 @@ public class FirstEncounterScript : MonoBehaviour
             {
                 //activateTimer = true;
                 seenObj[5] = true; // Player is currently withing range of an obj.
-                dirIndicator.SetActive(true);
             }
         }
 

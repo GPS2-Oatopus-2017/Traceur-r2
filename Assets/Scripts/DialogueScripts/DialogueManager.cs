@@ -135,7 +135,7 @@ public class DialogueManager : MonoBehaviour
             case 5:
                 countDown.text = "T";
                 popUps[2].SetActive(true);
-                SoundManagerScript.Instance.PlayOneShotSFX2D(countDownSound);
+                SoundManagerScript.Instance.PlaySFX2D(countDownSound, false);
                 break;
             case 3:
                 countDown.text = "3";
@@ -255,7 +255,7 @@ public class DialogueManager : MonoBehaviour
             if(FirstEncounterScript.Instance.seenObj[i] == true && objectSeen[i] == false) //seenObj = Is player currently looking at an object?
             {
                 SoundManagerScript.Instance.PlayOneShotSFX2D(firstEncounterSound[feIndex + i]); // Play dialogue for seen obj.
-                Time.timeScale = 0.1f;
+                //Time.timeScale = 0.1f;
                 StartCoroutine("RestoreTimeWhenAudioFinish");
 
                 dialogueBox.SetActive(true); // Enable dialogue box.
