@@ -39,7 +39,6 @@ public class PlayerScoreScript : MonoBehaviour {
 	void FindPlayer()
 	{
 		playerCollider = gameObject;
-
 	}
 
 	void OnTriggerEnter (Collider col)
@@ -74,7 +73,7 @@ public class PlayerScoreScript : MonoBehaviour {
 
 	public float calculateFinalScore()
 	{
-		time = GameManagerScript.Instance.totalTimeLevel1;
+		time = TimerScript.Instance.totalTimeLevel1;
 		health = PlayerStatusScript.Instance.currentHealth;
 		reputation = SpawnManagerScript.Instance.reputation;
 

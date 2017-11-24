@@ -5,10 +5,23 @@ using UnityEngine.UI;
 
 public class TimerScript : MonoBehaviour {
 
+	private static TimerScript mInstance;
+
+	public static TimerScript Instance
+	{
+		get {return mInstance;}
+	}
+
 	public float totalTimeLevel1;
 	public Image timerBar;
 	public bool hasStarted = false;
 	public Text timerText;
+
+	void Awake ()
+	{
+		if(mInstance == null) mInstance = this;
+		else if(mInstance != this) Destroy(this.gameObject);
+	}
 
 	// Use this for initialization
 	void Start () 
