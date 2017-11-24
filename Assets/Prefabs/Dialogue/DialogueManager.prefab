@@ -51,17 +51,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b898f779851b64bb8c2d538ae890a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startSystem: 1
   bsIndex: 0
   feIndex: 0
   loseIndex: 0
   winIndex: 0
-  startingDialogue: {fileID: 0}
-  fadeTime: 3
   beginningText: {fileID: 0}
   beginningDialogue: {fileID: 0}
   speed: 250
   target: {fileID: 0}
-  nextLetter: 0.04
+  delayBetweenLetters: 0.04
   dialogue: {fileID: 0}
   countDown: {fileID: 0}
   beginningScene:
@@ -92,11 +91,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  beginningSound: 320000003300000034000000
-  firstEncounterSound: 38000000390000003a0000003b0000003c000000350000003600000037000000
-  winSound: 3d0000003e0000003f00000040000000
-  loseSound: 410000004200000043000000
-  countDownSound: 44
+  beginningSound: 1c0000001d0000001e000000
+  firstEncounterSound: 22000000230000002400000025000000260000001f0000002000000021000000
+  winSound: 2700000028000000290000002a000000
+  loseSound: 2b0000002c0000002d000000
+  countDownSound: 11
   timer: 0
   showTimer: 0.5
   cdTimer: 0
