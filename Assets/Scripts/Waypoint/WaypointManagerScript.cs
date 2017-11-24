@@ -94,14 +94,24 @@ public class WaypointManagerScript : MonoBehaviour
 			case EventType.SwipeLeft:
 				if (hasConfirmedEvent) {
 					pointingNode = touchedNodes [0].data.leftNode ((int)playerDirection);
-					playerDirection = (Direction)(((int)playerDirection + 3) % (int)Direction.Total);
+					if (pointingNode) {
+						playerDirection = (Direction)(((int)playerDirection + 3) % (int)Direction.Total);
+					} else {
+						pointingNode = touchedNodes [0].data.forwardNode ((int)playerDirection);
+						hasConfirmedEvent = false;
+					}
 					curEvent = EventType.None;
 				}
 				break;
 			case EventType.SwipeRight:
 				if (hasConfirmedEvent) {
 					pointingNode = touchedNodes [0].data.rightNode ((int)playerDirection);
-					playerDirection = (Direction)(((int)playerDirection + 1) % (int)Direction.Total);
+					if (pointingNode) {
+						playerDirection = (Direction)(((int)playerDirection + 1) % (int)Direction.Total);
+					} else {
+						pointingNode = touchedNodes [0].data.forwardNode ((int)playerDirection);
+						hasConfirmedEvent = false;
+					}
 					curEvent = EventType.None;
 				}
 				break;
