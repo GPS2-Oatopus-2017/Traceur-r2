@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4484575831247344}
   - component: {fileID: 114026288684140790}
   - component: {fileID: 114921334121260026}
+  - component: {fileID: 114689056539498846}
+  - component: {fileID: 114901342605978646}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -53,8 +55,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  totalTimeLevel1: 90
+  totalTimeLevel1: 60
   timerScript: {fileID: 0}
+--- !u!114 &114689056539498846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1408378161992512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1032c5df263bac488d7d386bd56a4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  bgmSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  brightnessSlider: {fileID: 0}
+  sourcesToBePaused: []
+  gamePaused: 0
+--- !u!114 &114901342605978646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1408378161992512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4cbf6d210268814099bcf2bdb21e984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuWindows: []
+  startingLevel: 
+  sliders:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114921334121260026
 MonoBehaviour:
   m_ObjectHideFlags: 1

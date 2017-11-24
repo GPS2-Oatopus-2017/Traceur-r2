@@ -60,7 +60,7 @@ public class TimelineScript : MonoBehaviour {
 		surveillanceDrone.transform.position = startPoint;
 		huntingDrone.transform.position = startPoint;
 
-		calculatedDistanceAwayFromEnd = DistanceCalculation.Instance.calculatedDistanceAwayFromEnd;
+		calculatedDistanceAwayFromEnd = WaypointDistanceScript.Instance.totalDistance;
 
 		distance = endPoint.x - startPoint.x;
 
@@ -81,8 +81,8 @@ public class TimelineScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		calculatedDistanceAwayFromEnd = DistanceCalculation.Instance.calculatedDistanceAwayFromEnd;
-		characterDistanceTraveled = DistanceCalculation.Instance.characterDistanceTraveled;
+		calculatedDistanceAwayFromEnd = WaypointDistanceScript.Instance.totalDistance;
+		characterDistanceTraveled = WaypointDistanceScript.Instance.playerDistanceTraveled;
 		//temporary character running simulation
 //		if(characterDistanceTraveled >= calculatedDistanceAwayFromEnd)
 //		{

@@ -69,6 +69,21 @@ public class WaypointNodeScript : MonoBehaviour
     public WaypointNodeData data;
 	public WaypointNodeData prevData;
 
+	//By KK for distance calculation
+	public int value;
+	public WaypointNodeScript nextNode;
+	public List<WaypointNodeScript> connectedNodeList;
+
+	void Awake()
+	{
+		value = GetComponent<WaypointValue>().value;
+
+		for(int i = 0; i < GetComponent<WaypointValue>().connectedNodeList.Count; i++)
+		{
+			connectedNodeList.Add(GetComponent<WaypointValue>().connectedNodeList[i]);
+		}
+	}
+
     void OnValidate()
     {
         UpdateNodes();
@@ -199,6 +214,7 @@ public class WaypointNodeScript : MonoBehaviour
 			if(other.GetComponent<PlayerCoreController>())
 			{
 				WaypointManagerScript.Instance.RegisterNode(this);;
+				WaypointDistanceScript.Instance.ResetNodes(this);
 			}
 		}
 	}
