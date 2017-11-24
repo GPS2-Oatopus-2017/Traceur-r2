@@ -85,6 +85,15 @@ public class SteelFenceScript : MonoBehaviour
 			
 			timeCounter += Time.deltaTime;
 
+			if (WaypointManagerScript.Instance.playerDirection == Direction.West) {
+				transform.parent.rotation = Quaternion.Euler (transform.parent.rotation.x, 270f, transform.parent.rotation.z);
+			} else if (WaypointManagerScript.Instance.playerDirection == Direction.North) {
+				transform.parent.rotation = Quaternion.Euler (transform.parent.rotation.x, 0f, transform.parent.rotation.z);
+			} else if (WaypointManagerScript.Instance.playerDirection == Direction.East) {
+				transform.parent.rotation = Quaternion.Euler (transform.parent.rotation.x, 90f, transform.parent.rotation.z);
+			} else if (WaypointManagerScript.Instance.playerDirection == Direction.South) {
+				transform.parent.rotation = Quaternion.Euler (transform.parent.rotation.x, 180f, transform.parent.rotation.z);
+			}
 			//Vector3 playerPosition = new Vector3 (rbController.transform.position.x, transform.position.y, rbController.transform.position.z);
 
 			//transform.LookAt (playerPosition);

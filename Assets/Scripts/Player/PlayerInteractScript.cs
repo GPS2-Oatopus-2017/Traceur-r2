@@ -185,85 +185,43 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			}
 
 //			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
-			if (WaypointManagerScript.Instance.playerDirection == Direction.West || WaypointManagerScript.Instance.playerDirection == Direction.North) {
-				if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-					if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+			if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+				if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
 
-						steelFence.isActivated = true;
+					steelFence.isActivated = true;
 
-						activateCounter = 0f;
+					activateCounter = 0f;
 
-						isUsingSteelDoor = false;
-					}
-
-//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
-					if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
-
-						steelFence.isActivated = true;
-
-						activateCounter = 0f;
-
-						isUsingSteelDoor = false;
-					}
-				} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-					if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
-
-						steelFence.isActivated = true;
-
-						activateCounter = 0f;
-
-						isUsingSteelDoor = false;
-					}
-
-//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
-					if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
-
-						steelFence.isActivated = true;
-
-						activateCounter = 0f;
-
-						isUsingSteelDoor = false;
-					}
+					isUsingSteelDoor = false;
 				}
-			} else if (WaypointManagerScript.Instance.playerDirection == Direction.East || WaypointManagerScript.Instance.playerDirection == Direction.South) {
-				if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-					if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
-						steelFence.isActivated = true;
+//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+				if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
 
-						activateCounter = 0f;
+					steelFence.isActivated = true;
 
-						isUsingSteelDoor = false;
-					}
+					activateCounter = 0f;
 
-					//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
-					if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+					isUsingSteelDoor = false;
+				}
+			} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+				if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
 
-						steelFence.isActivated = true;
+					steelFence.isActivated = true;
 
-						activateCounter = 0f;
+					activateCounter = 0f;
 
-						isUsingSteelDoor = false;
-					}
-				} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-					if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+					isUsingSteelDoor = false;
+				}
 
-						steelFence.isActivated = true;
+//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+				if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
-						activateCounter = 0f;
+					steelFence.isActivated = true;
 
-						isUsingSteelDoor = false;
-					}
+					activateCounter = 0f;
 
-					//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
-					if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
-
-						steelFence.isActivated = true;
-
-						activateCounter = 0f;
-
-						isUsingSteelDoor = false;
-					}
+					isUsingSteelDoor = false;
 				}
 			}
 		}
