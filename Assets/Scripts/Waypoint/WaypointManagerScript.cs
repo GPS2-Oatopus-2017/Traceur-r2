@@ -66,7 +66,6 @@ public class WaypointManagerScript : MonoBehaviour
 					} else {
 						curEvent = EventType.SwipeLeft;
 						hasConfirmedEvent = true;
-						PlayerScoreScript.Instance.calculateDistance ();
 					}
 					
 				} else if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D)) {
@@ -76,7 +75,6 @@ public class WaypointManagerScript : MonoBehaviour
 					} else {
 						curEvent = EventType.SwipeRight;
 						hasConfirmedEvent = true;
-						PlayerScoreScript.Instance.calculateDistance ();
 					}
 
 				} else {
@@ -96,6 +94,7 @@ public class WaypointManagerScript : MonoBehaviour
 					pointingNode = touchedNodes [0].data.leftNode ((int)playerDirection);
 					if (pointingNode) {
 						playerDirection = (Direction)(((int)playerDirection + 3) % (int)Direction.Total);
+						ScoreManagerScript.Instance.MarkPrecision();
 					} else {
 						pointingNode = touchedNodes [0].data.forwardNode ((int)playerDirection);
 						hasConfirmedEvent = false;
@@ -108,6 +107,7 @@ public class WaypointManagerScript : MonoBehaviour
 					pointingNode = touchedNodes [0].data.rightNode ((int)playerDirection);
 					if (pointingNode) {
 						playerDirection = (Direction)(((int)playerDirection + 1) % (int)Direction.Total);
+						ScoreManagerScript.Instance.MarkPrecision();
 					} else {
 						pointingNode = touchedNodes [0].data.forwardNode ((int)playerDirection);
 						hasConfirmedEvent = false;
