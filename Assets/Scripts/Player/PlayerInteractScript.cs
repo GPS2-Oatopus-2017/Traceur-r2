@@ -13,8 +13,6 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 		this.m_Player = m_Player;
 	}
 
-	public float sphereCastThickness = 3.0f;
-
 	public float rayDistance = 10f;
 
 	public bool toOpenDoor;
@@ -28,8 +26,12 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 
 	void Update ()
 	{
-		Interaction ();
 		CheckPushable ();
+	}
+
+	void LateUpdate()
+	{
+		Interaction ();
 	}
 
 	//When left mouse button is pressed, shoot out a ray cast from screen to pointer.//
@@ -44,7 +46,7 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			RaycastHit raycastHit;
 
 //			if(Physics.SphereCast (raycast, sphereCastThickness, out raycastHit)) 
-			if(Physics.Raycast(raycast, out raycastHit, 1000.0f))
+			if(Physics.Raycast(raycast, out raycastHit, rayDistance))
 			{
 				if(raycastHit.collider.CompareTag ("InteractableObjects")) 
 				{
@@ -54,14 +56,17 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			}
 		}
 		#elif UNITY_EDITOR
-		if (Input.GetMouseButtonDown (0)) {
+		if (Input.GetMouseButtonDown (0))
+		{
 			Ray raycast = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit raycastHit;
 
+			Debug.DrawRay(raycast.origin, raycast.direction * rayDistance, Color.white, 10.0f, true);
 //			if(Physics.SphereCast (raycast, sphereCastThickness, out raycastHit)) 
-			if (Physics.Raycast (raycast, out raycastHit, 1000.0f)) {
+			if (Physics.Raycast (raycast, out raycastHit, rayDistance)) {
 				//Debug.Log(raycastHit.collider.tag);
-				//Debug.Log(raycastHit.collider.gameObject.name);
+//				Debug.DrawLine(raycast.origin, raycastHit.point, Color.white, 10.0f, true);
+				Debug.Log(raycastHit.collider.gameObject.name);
 				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
 					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable> ();
 					interact.Interacted ();
