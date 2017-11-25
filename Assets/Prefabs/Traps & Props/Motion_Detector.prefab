@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4935044913590020}
   - component: {fileID: 33242464224853570}
   - component: {fileID: 23583243291915996}
-  - component: {fileID: 95498212375227634}
   - component: {fileID: 114121100793835614}
   - component: {fileID: 65081961065739314}
   m_Layer: 0
@@ -53,7 +52,6 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -69,7 +67,6 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -97,23 +94,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0.5}
---- !u!95 &95498212375227634
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1048672645696052}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: c4668987e48bc3f44a0e8cff5a1772dc, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114121100793835614
 MonoBehaviour:
   m_ObjectHideFlags: 1
