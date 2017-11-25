@@ -108,10 +108,9 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			objectToStore.transform.LookAt (playerPosition);
 
 			if (activateCounter >= activateObjectTimer) {
+				
 				activateCounter = 0f;
-
 				isUsingObject = false;
-
 			}
 
 //			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT)) {
@@ -121,9 +120,7 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
 
 				activateCounter = 0f;
-
 				isUsingObject = false;
-
 			} 
 
 //			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT)) {
@@ -133,9 +130,7 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
 
 				activateCounter = 0f;
-
 				isUsingObject = false;
-
 			}
 		}
 
@@ -155,7 +150,6 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			if (activateCounter >= activateObjectTimer) {
 				
 				activateCounter = 0f;
-
 				isUsingSteelDoor = false;
 			}
 
@@ -163,9 +157,7 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Up && steelFence.canSteelDoorUp) {
 
 				steelFence.isActivated = true;
-
 				activateCounter = 0f;
-
 				isUsingSteelDoor = false;
 
 				//objectToStore.transform.Translate (Vector3.up * pushDistance, Space.Self);
@@ -177,215 +169,432 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			}
 
 //			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.DOWN) && steelFence.canSteelDoorDown) {
-			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down && steelFence.canSteelDoorDown) {
+			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down && !steelFence.canSteelDoorUp) {
 
 				steelFence.isActivated = true;
-
 				activateCounter = 0f;
-
 				isUsingSteelDoor = false;
 			}
 
+			if (GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 80f
+			    && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 100f) {
+
+				if (steelFence.transform.eulerAngles.y == 90f) {
+					
+					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					}
+				} else if (steelFence.transform.eulerAngles.y == 270f) {
+
+					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					}
+				}
+			} else if (GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 260
+			           && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 280f) {
+
+				if (steelFence.transform.eulerAngles.y == 270f) {
+
+					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					}
+				} else if (steelFence.transform.eulerAngles.y == 90f) {
+
+					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					}
+				}
+			} else if (GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 350
+			           || GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 10f) {
+
+				if (steelFence.transform.eulerAngles.y == 0) {
+
+					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					}
+				} else if (steelFence.transform.eulerAngles.y == 180) {
+
+					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					}
+				} 
+			} else if (GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 170
+			           && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 190f) {
+
+				if (steelFence.transform.eulerAngles.y == 180) {
+
+					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					}
+				} else if (steelFence.transform.eulerAngles.y == 0) {
+
+					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+
+							steelFence.isActivated = true;
+							activateCounter = 0f;
+							isUsingSteelDoor = false;
+						}
+					}
+				}
+			}
+		
+			//----------------------------------OLDEN----------------------------------//
+			//----------------------------------STUFF----------------------------------//
+			//----------------------------------BELOW----------------------------------//
+
+			/*
 //			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
-			if (WaypointManagerScript.Instance.playerDirection == Direction.West) {
+				if (WaypointManagerScript.Instance.playerDirection == Direction.West) {
 				
-				if (GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 80f
-				    && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 100f ||
-				    GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 260f
-				    && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 280f) {
+					if (GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 80f
+					    && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 100f ||
+					    GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 260f
+					    && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 280f) {
 
-					if (steelFence.transform.eulerAngles.y == 90f || steelFence.transform.eulerAngles.y == 270f) {
+						if (steelFence.transform.eulerAngles.y == 90f || steelFence.transform.eulerAngles.y == 270f) {
 
-						if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+							if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
 
-								steelFence.isActivated = true;
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
+								//if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && !steelFence.canSteelDoorLeft) {
 
-								activateCounter = 0f;
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
+							} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && !steelFence.canSteelDoorLeft) {
 
-								isUsingSteelDoor = false;
-							}
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
+								//if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
-//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
-
-								steelFence.isActivated = true;
-
-								activateCounter = 0f;
-
-								isUsingSteelDoor = false;
-							}
-						} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
-
-								steelFence.isActivated = true;
-
-								activateCounter = 0f;
-
-								isUsingSteelDoor = false;
-							}
-
-//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
-
-								steelFence.isActivated = true;
-
-								activateCounter = 0f;
-
-								isUsingSteelDoor = false;
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
 							}
 						}
 					}
-				}
-			} else if (WaypointManagerScript.Instance.playerDirection == Direction.East) {
+				} else if (WaypointManagerScript.Instance.playerDirection == Direction.East) {
 
-				if (GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 80f
-				    && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 100f ||
-				    GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 260f
-				    && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 280f) {
+					if (GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 80f
+					    && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 100f ||
+					    GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 260f
+					    && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 280f) {
 
-					if (steelFence.transform.eulerAngles.y == 90f || steelFence.transform.eulerAngles.y == 270f) {
+						if (steelFence.transform.eulerAngles.y == 90f || steelFence.transform.eulerAngles.y == 270f) {
 
-						if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+							if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
-								steelFence.isActivated = true;
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
+								//if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && !steelFence.canSteelDoorLeft) {
 
-								activateCounter = 0f;
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
+							} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && !steelFence.canSteelDoorLeft) {
 
-								isUsingSteelDoor = false;
-							}
-							//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
+								//if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
 
-								steelFence.isActivated = true;
-
-								activateCounter = 0f;
-
-								isUsingSteelDoor = false;
-							}
-						} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
-
-								steelFence.isActivated = true;
-
-								activateCounter = 0f;
-
-								isUsingSteelDoor = false;
-							}
-							//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
-
-								steelFence.isActivated = true;
-
-								activateCounter = 0f;
-
-								isUsingSteelDoor = false;
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
 							}
 						}
 					}
-				}
-			} else if (WaypointManagerScript.Instance.playerDirection == Direction.North) {
+				} else if (WaypointManagerScript.Instance.playerDirection == Direction.North) {
 
-				if (GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 350f
-				    || GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 10f ||
-				    GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 170f
-				    && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 190f) {
+					if (GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 350f
+					    || GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 10f ||
+					    GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 170f
+					    && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 190f) {
 
-					if (steelFence.transform.eulerAngles.y == 0f || steelFence.transform.eulerAngles.y == 180f) {
+						if (steelFence.transform.eulerAngles.y == 0f || steelFence.transform.eulerAngles.y == 180f) {
 
-						if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+							if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
 
-								steelFence.isActivated = true;
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
+								//if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && !steelFence.canSteelDoorLeft) {
 
-								activateCounter = 0f;
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
+							} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && !steelFence.canSteelDoorLeft) {
 
-								isUsingSteelDoor = false;
-							}
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
+								//if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
-							//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
-
-								steelFence.isActivated = true;
-
-								activateCounter = 0f;
-
-								isUsingSteelDoor = false;
-							}
-						} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
-
-								steelFence.isActivated = true;
-
-								activateCounter = 0f;
-
-								isUsingSteelDoor = false;
-							}
-
-							//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
-
-								steelFence.isActivated = true;
-
-								activateCounter = 0f;
-
-								isUsingSteelDoor = false;
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
 							}
 						}
 					}
-				}
-			} else if (WaypointManagerScript.Instance.playerDirection == Direction.South) {
+				} else if (WaypointManagerScript.Instance.playerDirection == Direction.South) {
 
-				if (GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 350f
-				    || GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 10f ||
-				    GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 170f
-				    && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 190f) {
+					if (GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 350f
+					    || GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 10f ||
+					    GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y >= 170f
+					    && GameManagerScript.Instance.player.rigidController.transform.eulerAngles.y <= 190f) {
 
-					if (steelFence.transform.eulerAngles.y == 0f || steelFence.transform.eulerAngles.y == 180f) {
+						if (steelFence.transform.eulerAngles.y == 0f || steelFence.transform.eulerAngles.y == 180f) {
 
-						if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+							if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
-								steelFence.isActivated = true;
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
+								//if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && !steelFence.canSteelDoorLeft) {
 
-								activateCounter = 0f;
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
+							} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && !steelFence.canSteelDoorLeft) {
 
-								isUsingSteelDoor = false;
-							}
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
+								//if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+								if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
 
-							//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
-
-								steelFence.isActivated = true;
-
-								activateCounter = 0f;
-
-								isUsingSteelDoor = false;
-							}
-						} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
-
-								steelFence.isActivated = true;
-
-								activateCounter = 0f;
-
-								isUsingSteelDoor = false;
-							}
-
-							//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
-							if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
-
-								steelFence.isActivated = true;
-
-								activateCounter = 0f;
-
-								isUsingSteelDoor = false;
+									steelFence.isActivated = true;
+									activateCounter = 0f;
+									isUsingSteelDoor = false;
+								}
 							}
 						}
 					}
 				}
 			}
+			*/
 		}
 	}
 }

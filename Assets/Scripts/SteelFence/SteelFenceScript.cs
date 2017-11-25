@@ -105,27 +105,7 @@ public class SteelFenceScript : MonoBehaviour
 
 				isActivated = false;
 
-				if (canSteelDoorUp) {
-					canSteelDoorUp = false;
-					canSteelDoorDown = true;
-
-				} else if (canSteelDoorDown) {
-					canSteelDoorUp = true;
-					canSteelDoorDown = false;
-
-				} else if (canSteelDoorLeft) {
-					if (!isOpen) {
-						isOpen = true;
-					} else if (isOpen) {
-						isOpen = false;
-					}
-				} else if (canSteelDoorRight) {
-					if (!isOpen) {
-						isOpen = true;
-					} else if (isOpen) {
-						isOpen = false;
-					}
-				}
+				isOpen = !isOpen;
 			}
 		}
 	}
