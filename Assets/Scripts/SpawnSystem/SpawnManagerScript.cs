@@ -66,15 +66,12 @@ public class SpawnManagerScript : MonoBehaviour {
 				Spawn("Surveillance_Drone");
 				//PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
 				//PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
-				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", spawn_Data.spawnSDCount[0]);
-				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", spawn_Data.spawnHDCount[0]);
 			}
 			else if(reputation == 2)
 			{
 				hdCount+=spawn_Data.spawnHDCount[1];
 				SpawnMultiple("Hunting_Droid",spawn_Data.spawnHDCount[1]);
 				//PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",spawnPoint,Quaternion.identity,2,offsetY,offset,isHorizontal);
-				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", spawn_Data.spawnHDCount[1]);
 			}
 			else if(reputation == 3)
 			{
@@ -85,8 +82,6 @@ public class SpawnManagerScript : MonoBehaviour {
 				ApplyOffsetVertically();
 				SpawnMultiple("Hunting_Droid",spawn_Data.spawnHDCount[2]);
 				//PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",spawnPoint,Quaternion.identity,2,offsetY,offset,isHorizontal);
-				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", spawn_Data.spawnSDCount[2]);
-				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", spawn_Data.spawnHDCount[2]);
 			}
 			else if(reputation == 4)
 			{
@@ -100,8 +95,6 @@ public class SpawnManagerScript : MonoBehaviour {
 				{
 					PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
 				}*/
-				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", spawn_Data.spawnSDCount[3]);
-				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", spawn_Data.spawnHDCount[3]);
 			}
 			else if(reputation == 5)
 			{
@@ -118,8 +111,6 @@ public class SpawnManagerScript : MonoBehaviour {
 //				{
 //					PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
 //				}
-				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", spawn_Data.spawnSDCount[4]);
-				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", spawn_Data.spawnHDCount[4]);
 			}
 		}
 	}
@@ -248,6 +239,8 @@ public class SpawnManagerScript : MonoBehaviour {
 
 	public void Spawn(string name)
 	{
+		TimelineScript.Instance.CreateEnemyIcon(name, 1);
+
 		CalculateSpawnPoint();
 		GameObject obj = PoolManagerScript.Instance.GetObject(name);
 		if(obj != null)
@@ -260,6 +253,8 @@ public class SpawnManagerScript : MonoBehaviour {
 
 	public void SpawnMultiple(string name, int amount)
 	{
+		TimelineScript.Instance.CreateEnemyIcon(name, amount);
+
 		CalculateSpawnPoint();
 		if(!isHorizontal)
 		{

@@ -37,7 +37,7 @@ Transform:
   m_GameObject: {fileID: 1697361152441738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.3255997, y: 2.24, z: -201.22096}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -66,7 +66,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ratio: 0.02
-  smallestScale: 0.3
+  largestScale: 1
+  destroyTime: 3
+  enlargeDelay: 0.1
 --- !u!212 &212156309060246944
 SpriteRenderer:
   m_ObjectHideFlags: 1
