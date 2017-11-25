@@ -347,15 +347,14 @@ MonoBehaviour:
   HDCount: 0
   enemySpawnPointOffsetA: 200
   enemySpawnPointOffsetB: 300
+  characterTimeline: 0
+  enemyTimelineA: 0
+  enemyTimelineB: 0
   characterDistanceTraveled: 0
   enemyDistanceTraveledA: 0
   enemyDistanceTraveledB: 0
-  totalDistance: 0
+  calculatedDistanceAwayFromEnd: 0
   speed: 100
-  createEnemyA: 0
-  createEnemyB: 0
-  destroyEnemyA: 0
-  destroyEnemyB: 0
 --- !u!114 &114265287289232716
 MonoBehaviour:
   m_ObjectHideFlags: 1
