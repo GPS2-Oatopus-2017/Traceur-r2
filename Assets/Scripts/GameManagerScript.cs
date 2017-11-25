@@ -53,7 +53,6 @@ public class GameManagerScript : MonoBehaviour
 		if(player.status.currentHealth <= 0)
 		{
 			DialogueManager.Instance.LoseSceneDialogue();
-			Destroy(ScoreManagerScript.Instance.gameObject);
 
 			if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
 			{
@@ -66,7 +65,6 @@ public class GameManagerScript : MonoBehaviour
 		if(timerScript.timeLevel1 <= 0)
 		{
 			DialogueManager.Instance.LoseSceneDialogue();
-			Destroy(ScoreManagerScript.Instance.gameObject);
 
 			player.status.currentHealth = 0;
 

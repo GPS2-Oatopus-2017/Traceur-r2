@@ -19,7 +19,6 @@ public class ScoreManagerScript : MonoBehaviour
 	{
 		if(mInstance == null) mInstance = this;
 		else if(mInstance != this) Destroy(this.gameObject);
-		DontDestroyOnLoad(gameObject);
 	}
 
 	void Start()

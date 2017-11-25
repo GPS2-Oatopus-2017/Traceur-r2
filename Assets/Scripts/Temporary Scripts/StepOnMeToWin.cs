@@ -11,8 +11,9 @@ public class StepOnMeToWin : MonoBehaviour
     {
         if(isEntered)
         {
-            DialogueManager.Instance.WinSceneDialogue();
+			DialogueManager.Instance.WinSceneDialogue();
 			ScoreManagerScript.Instance.MarkFinalScore();
+			DontDestroyOnLoad(ScoreManagerScript.Instance.gameObject);
             if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
             {
                 Time.timeScale = 1.0f;
