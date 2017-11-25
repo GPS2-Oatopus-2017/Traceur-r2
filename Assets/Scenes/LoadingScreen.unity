@@ -458,7 +458,7 @@ MonoBehaviour:
   textGO: {fileID: 1750182794}
   screenPressed: 0
   loadFinished: 0
-  sceneName: Tutorial_2.0
+  sceneName: Tutorial_3.0
 --- !u!1 &1772931670
 GameObject:
   m_ObjectHideFlags: 0
