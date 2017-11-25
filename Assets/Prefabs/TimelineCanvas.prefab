@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114206966169614272}
   m_Layer: 5
   m_Name: TimerPanel
-  m_TagString: Untagged
+  m_TagString: TimerScript
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e73dd4ebe08bd4d9fa9dc12a45a263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeLevel1: 0
   totalTimeLevel1: 0
   timerBar: {fileID: 0}
   hasStarted: 0
@@ -345,17 +346,16 @@ MonoBehaviour:
   huntingDrone: {fileID: 0}
   SDCount: 0
   HDCount: 0
-  enemySpawnPointOffsetA: 200
-  enemySpawnPointOffsetB: 300
+  enemySpawnPointOffsetA: 20
+  enemySpawnPointOffsetB: 20
+  characterTimeline: 0
+  enemyTimelineA: 0
+  enemyTimelineB: 0
   characterDistanceTraveled: 0
   enemyDistanceTraveledA: 0
   enemyDistanceTraveledB: 0
-  totalDistance: 0
+  calculatedDistanceAwayFromEnd: 0
   speed: 100
-  createEnemyA: 0
-  createEnemyB: 0
-  destroyEnemyA: 0
-  destroyEnemyB: 0
 --- !u!114 &114265287289232716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -875,7 +875,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1271662013487352}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -975,7 +975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.95889056, y: 0}
   m_AnchorMax: {x: 0.9688906, y: 1}
-  m_AnchoredPosition: {x: 0.30000305, y: 0}
+  m_AnchoredPosition: {x: 0.2999878, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224528182666949794
