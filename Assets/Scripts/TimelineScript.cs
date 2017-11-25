@@ -33,10 +33,10 @@ public class TimelineScript : MonoBehaviour {
 	public float calculatedDistanceAwayFromEnd;
 
 	public float speed;
-	public bool createEnemyA;
+	/*public bool createEnemyA;
 	public bool createEnemyB;
 	public bool destroyEnemyA;
-	public bool destroyEnemyB;
+	public bool destroyEnemyB;*/
 
 	void Awake()
 	{
@@ -72,10 +72,10 @@ public class TimelineScript : MonoBehaviour {
 		huntingDrone.SetActive(false);
 
 		//temporary assignment of variables
-		createEnemyA = false;
+		/*createEnemyA = false;
 		createEnemyA = false;
 		destroyEnemyA = false;
-		destroyEnemyB = false;
+		destroyEnemyB = false;*/
 	}
 	
 	// Update is called once per frame
@@ -104,11 +104,10 @@ public class TimelineScript : MonoBehaviour {
 			{
 				enemyDistanceTraveledA = calculatedDistanceAwayFromEnd;
 			}
-			else
-			{
-				enemyDistanceTraveledA += Time.deltaTime * speed;
-			}
+
+			enemyDistanceTraveledA = characterDistanceTraveled - enemySpawnPointOffsetA;
 			enemyTimelineA = (enemyDistanceTraveledA/ calculatedDistanceAwayFromEnd) * 100;
+			//enemyTimelineA = (enemyDistanceTraveledA/ calculatedDistanceAwayFromEnd) * 100;
 			surveillanceDrone.transform.position = new Vector3(startPoint.x + CalculateDistance(enemyTimelineA), startPoint.y, startPoint.z);
 		}
 		if(huntingDrone.activeSelf)
@@ -117,15 +116,29 @@ public class TimelineScript : MonoBehaviour {
 			{
 				enemyDistanceTraveledB = calculatedDistanceAwayFromEnd;
 			}
-			else
-			{
-				enemyDistanceTraveledB += Time.deltaTime * speed;
-			}
+
+			enemyDistanceTraveledB = characterDistanceTraveled - enemySpawnPointOffsetB;
 			enemyTimelineB = (enemyDistanceTraveledB/ calculatedDistanceAwayFromEnd) * 100;
+			//enemyTimelineB = (enemyDistanceTraveledB/ calculatedDistanceAwayFromEnd) * 100;
 			huntingDrone.transform.position = new Vector3(startPoint.x + CalculateDistance(enemyTimelineB), startPoint.y, startPoint.z);
 		}
 
-		//temporary spawning enemy
+		if(characterDistanceTraveled <= 0)
+		{
+			characterDistanceTraveled = 0;
+		}
+
+		if(enemyDistanceTraveledA <= 0)
+		{
+			enemyDistanceTraveledA = 0;
+		}
+
+		if(enemyDistanceTraveledB <= 0)
+		{
+			enemyDistanceTraveledB = 0;
+		}
+
+		/*//temporary spawning enemy
 		if(createEnemyA)
 		{
 			CreateEnemyIcon("Surveillance_Drone", 1);
@@ -145,7 +158,7 @@ public class TimelineScript : MonoBehaviour {
 		{
 			DestroyEnemyIcon("Hunting drone", 1);
 			destroyEnemyB = false;
-		}
+		}*/
 	}
 
 	float CalculateDistance(float timeline)
@@ -159,9 +172,12 @@ public class TimelineScript : MonoBehaviour {
 		GameObject enemyIcon = null;
 		if(enemy == "Surveillance_Drone") enemyIcon = surveillanceDrone;
 		else if(enemy == "Hunting_Droid") enemyIcon = huntingDrone;
+		else Debug.LogError("No enemy icon found.");
 
 		if(!enemyIcon.activeSelf)
 		{
+			enemyIcon.SetActive(true);
+
 			Vector3 charPos = character.transform.position;
 
 			if(enemyIcon == surveillanceDrone)
@@ -180,8 +196,6 @@ public class TimelineScript : MonoBehaviour {
 				enemyTimelineB = (enemyDistanceTraveledB/ calculatedDistanceAwayFromEnd) * 100;
 				huntingDrone.transform.position = new Vector3(startPoint.x + CalculateDistance(enemyTimelineB), startPoint.y, startPoint.z);
 			}
-
-			enemyIcon.SetActive(true);
 		}
 		else
 		{

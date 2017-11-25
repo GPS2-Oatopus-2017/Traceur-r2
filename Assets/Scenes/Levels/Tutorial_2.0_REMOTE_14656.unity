@@ -3692,7 +3692,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4402809420722768, guid: 29c85c051eeab7a4e800ac79658444c6, type: 2}
       propertyPath: m_RootOrder
-      value: 28
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 1964365395520790, guid: 29c85c051eeab7a4e800ac79658444c6, type: 2}
       propertyPath: m_Name
@@ -3784,7 +3784,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4940611128003200, guid: e0af196fae437fb428e58179067fa2c4, type: 2}
       propertyPath: m_RootOrder
-      value: 95
+      value: 94
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0af196fae437fb428e58179067fa2c4, type: 2}
@@ -5474,7 +5474,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4619728280020166, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -92.08
       objectReference: {fileID: 0}
     - target: {fileID: 4619728280020166, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
       propertyPath: m_LocalPosition.y
@@ -5502,7 +5502,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4619728280020166, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
       propertyPath: m_RootOrder
-      value: 88
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114986741524775702, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
@@ -5928,78 +5928,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 98
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &886095755
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1220416811987066, guid: 9822431f7f212ca44b7fb9abef3b7d1d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 886095757}
-  - component: {fileID: 886095756}
-  m_Layer: 0
-  m_Name: DistanceCalculationManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &886095756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 886095755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ad79933200c2b246a5cddaebd1efa39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  allNodeList:
-  - node: {fileID: 333460597}
-    value: 1
-  - node: {fileID: 476466080}
-    value: 1
-  - node: {fileID: 974918625}
-    value: 1
-  - node: {fileID: 1597160707}
-    value: 1
-  - node: {fileID: 675212598}
-    value: 1
-  - node: {fileID: 1580890389}
-    value: 1
-  - node: {fileID: 261681811}
-    value: 1
-  - node: {fileID: 1568040783}
-    value: 1
-  - node: {fileID: 1283527712}
-    value: 1
-  calculationNodeList: []
-  currNode:
-    node: {fileID: 0}
-    value: 0
-  nextNode:
-    node: {fileID: 0}
-    value: 0
-  characterDistanceTraveled: 0
-  calculatedDistanceAwayFromEnd: 0
-  offset: 25
---- !u!4 &886095757
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4380643315885876, guid: 9822431f7f212ca44b7fb9abef3b7d1d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 886095755}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 99
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &896582498 stripped
 Transform:
@@ -10047,7 +9975,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 87
+  m_RootOrder: 88
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &1466292840 stripped
 Transform:
@@ -16264,19 +16192,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
-      propertyPath: beginningText
-      value: 
-      objectReference: {fileID: 2083370993}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
-      propertyPath: beginningDialogue
-      value: 
-      objectReference: {fileID: 2083370994}
-    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
-        type: 2}
       propertyPath: target
       value: 
       objectReference: {fileID: 2083370989}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: popUps.Array.data[2]
+      value: 
+      objectReference: {fileID: 2083370988}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 2083370992}
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
       propertyPath: dialogue
@@ -16289,14 +16217,24 @@ Prefab:
       objectReference: {fileID: 2083370990}
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
-      propertyPath: dialogueBox
+      propertyPath: beginningDialogue
       value: 
-      objectReference: {fileID: 2083370992}
+      objectReference: {fileID: 2083370994}
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
-      propertyPath: popUps.Array.data[2]
+      propertyPath: beginningText
       value: 
-      objectReference: {fileID: 2083370988}
+      objectReference: {fileID: 2083370993}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: startingDialogue
+      value: 
+      objectReference: {fileID: 1536393687}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: delayBetweenLetters
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
       propertyPath: timerScript

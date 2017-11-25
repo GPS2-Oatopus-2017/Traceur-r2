@@ -6,24 +6,41 @@ public class EnemyAttackIndicatorScript : MonoBehaviour {
 
 	public float ratio;
 	private float defaultScale;
-	public float smallestScale = 0.2f;
-	private bool enlarging = false;
+	public float largestScale;
+	public float destroyTime;
 	private Transform player;
+	public float enlargeDelay;
+	private float enlargeTimer;
 
 	// Use this for initialization
 	void Start () 
 	{
 		player = GameObject.FindWithTag("Player").transform;
 		defaultScale = transform.localScale.x;
-		enlarging = false;
 
 		transform.LookAt(player.position);
+		Destroy(gameObject, destroyTime);
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if(!enlarging)
+		if(enlargeTimer >= enlargeDelay)
+		{
+			enlargeTimer = 0;
+			Vector3 temp = transform.localScale;
+			transform.localScale = new Vector3(temp.x += ratio, temp.y += ratio, temp.z += ratio);
+		}
+		else
+		{
+			enlargeTimer += 1f * Time.deltaTime;
+		}
+
+		if(transform.localScale.x > largestScale)
+		{
+			transform.localScale = new Vector3(largestScale, largestScale, largestScale);
+		}
+		/*if(!enlarging)
 		{
 			Vector3 temp = transform.localScale;
 			transform.localScale = new Vector3(temp.x -= ratio, temp.y -= ratio, temp.z -= ratio);
@@ -42,7 +59,7 @@ public class EnemyAttackIndicatorScript : MonoBehaviour {
 			{
 				enlarging = false;
 			}
-		}
+		}*/
 	}
 
 	void OnTriggerEnter(Collider other)
