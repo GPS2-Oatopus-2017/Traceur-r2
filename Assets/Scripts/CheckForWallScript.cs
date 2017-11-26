@@ -51,7 +51,6 @@ public class CheckForWallScript : MonoBehaviour
 	{
 		if (other.gameObject.layer == LayerMask.NameToLayer("Building") || other.gameObject.tag == "Pushable")
 		{
-	
 			Debug.Log ("Hit The Wall");
 	
 			//playerRb.AddForce (Vector3.back * 1000f * Time.deltaTime, ForceMode.Impulse);
@@ -71,7 +70,7 @@ public class CheckForWallScript : MonoBehaviour
 			//startPos = rbController.transform.position;
 
 			//endPos = rbController.transform.position + transform.forward * -knockbackDistance;
-
+			SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.SFX_KNOCK_ONE);
 			isKnockingBack = true;
 		}
 	}

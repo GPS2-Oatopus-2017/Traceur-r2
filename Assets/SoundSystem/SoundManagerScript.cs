@@ -128,18 +128,20 @@ public class SoundManagerScript : MonoBehaviour
 
 		DontDestroyOnLoad(gameObject);
 
-//		AudioSource[] audioSourceList = this.GetComponentsInChildren<AudioSource>();
-//
-//		for(int i = 0; i < audioSourceList.Length; i++)
-//		{
-//			if(audioSourceList[i].gameObject.tag == "SoundManager")
-//			{
-//				continue;
-//			}
-//
-//			audioSourceList[i].spatialBlend = 1.0f; // For 3D Sounds
-//			sfxAudioSourceList3D.Add(audioSourceList[i]);
-//		}
+		InvokeRepeating("UpdateAudioSourceList", 1.0f, 1.0f);
+	}
+
+	// Checks null sources and remove them per second
+	void UpdateAudioSourceList()
+	{
+		for(int i = 0; i < sfxAudioSourceList2DLoop.Count; i++)
+		{
+			if(!sfxAudioSourceList2DLoop[i]) sfxAudioSourceList2DLoop.RemoveAt(i--);
+		}
+		for(int i = 0; i < sfxAudioSourceList3D.Count; i++)
+		{
+			if(!sfxAudioSourceList3D[i]) sfxAudioSourceList3D.RemoveAt(i--);
+		}
 	}
 
 	AudioClip FindAudioClip(AudioClipID audioClipID)
@@ -188,12 +190,12 @@ public class SoundManagerScript : MonoBehaviour
 	}
 
 	//! BACKGROUND MUSIC (BGM)
-	public void PlayBGM(AudioClipID audioClipID)
+	public void PlayBGM(AudioClipID audioClipID, bool loop)
 	{
 		bgmAudioSource.clip = FindAudioClip(audioClipID);
 		bgmAudioClipID = audioClipID;
 		bgmAudioSource.volume = bgmVolume;
-		bgmAudioSource.loop = true;
+		bgmAudioSource.loop = loop;
 		bgmAudioSource.Play();
 	}
 

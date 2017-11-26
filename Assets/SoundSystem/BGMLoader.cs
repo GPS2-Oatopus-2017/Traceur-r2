@@ -7,24 +7,21 @@ public class BGMLoader : MonoBehaviour
 {
 	void Start()
 	{
+		SoundManagerScript.Instance.bgmAudioSource.Stop();
+		//Main Menu
 		if(SceneManager.GetActiveScene().name == "MainMenu")
 		{
-			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_MAIN_MENU);
+			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_MAIN_MENU, true);
 		}
-
-		if(SceneManager.GetActiveScene().name == "Tutorial")
+		//Win Scene
+		else if(SceneManager.GetActiveScene().name == "WinScene")
 		{
-			SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_MAIN_MENU);
+			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_WIN, true);
 		}
-
-		if(SceneManager.GetActiveScene().name == "WinScene")
+		//Lose Scene
+		else if(SceneManager.GetActiveScene().name == "LoseScene")
 		{
-			SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.BGM_WIN);
-		}
-
-		if(SceneManager.GetActiveScene().name == "LoseScene")
-		{
-			SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.BGM_LOSE);
+			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_LOSE, true);
 		}
 	}
 }

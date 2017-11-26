@@ -71,6 +71,7 @@ public class BulletScript : MonoBehaviour {
 			if(other.tag == "PlayerBulletCollider")
 			{
 				PlayerStatusScript.Instance.currentHealth -= 1;
+				SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.SFX_HIT);
 			}
 		}
 			

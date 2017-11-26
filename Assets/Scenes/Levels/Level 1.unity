@@ -1193,6 +1193,7 @@ MonoBehaviour:
   bgmSlider: {fileID: 86499861}
   sfxSlider: {fileID: 899975215}
   brightnessSlider: {fileID: 565668162}
+  sourcesToBePaused: []
   gamePaused: 0
 --- !u!1001 &75634803
 Prefab:
@@ -2255,9 +2256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd56e8c7c9417242bf9d7143ec24499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEntered: 0
-  gameManager: 
-  score: 0
 --- !u!1 &111932375
 GameObject:
   m_ObjectHideFlags: 0
@@ -17423,7 +17421,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &824480241
 GameObject:
@@ -25097,7 +25095,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1382137508
 Prefab:
@@ -28086,7 +28084,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1616565143080840, guid: b1808d4fca7607e46a7152e089c33127, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1808d4fca7607e46a7152e089c33127, type: 2}
@@ -29097,7 +29095,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ff17e42733b8149ab5091f62998998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dirIndicator: {fileID: 1090185456}
   turn:
   - {fileID: 1695271630}
   - {fileID: 1815948829}
@@ -29414,7 +29411,7 @@ Transform:
   - {fileID: 1916517193}
   - {fileID: 661189613}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1640676998
 MonoBehaviour:
@@ -36477,7 +36474,7 @@ Transform:
   m_LocalScale: {x: 20, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2141680728
 GameObject:

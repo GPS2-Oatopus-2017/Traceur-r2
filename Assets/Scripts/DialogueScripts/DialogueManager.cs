@@ -88,7 +88,6 @@ public class DialogueManager : MonoBehaviour
         canPress = false;
 
 		GameManagerScript.Instance.player.StopRunning();
-		SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_MAIN_MENU);
 
 		sceneReady = true;
     }
@@ -152,7 +151,7 @@ public class DialogueManager : MonoBehaviour
                 cdTimer = 0;
 
                 GameManagerScript.Instance.player.StartRunning();
-				SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.BGM_TUTO);
+				SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_TUTO, false);
                 timerScript.hasStarted = true;
                 break;
         }

@@ -26,6 +26,7 @@ TagManager:
   - EnemyBullet
   - ReputationManager
   - TimerScript
+  - ElectricFenceCylinders
   layers:
   - Default
   - TransparentFX
