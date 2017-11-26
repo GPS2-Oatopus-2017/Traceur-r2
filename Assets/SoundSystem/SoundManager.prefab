@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086bbc0d58f49d544a997db12db45154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmVolume: 0.1
+  bgmVolume: 0
   sfxVolume: 0.5
   volumeMultiplier:
   - 0.95
@@ -296,59 +296,62 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 91d355185f7d78d48a1466b56c59cb58, type: 3}
     priority: 0
   - audioClipID: 28
+    audioClip: {fileID: 8300000, guid: bd29803f38663a54295f804e52200437, type: 3}
+    priority: 0
+  - audioClipID: 29
     audioClip: {fileID: 8300000, guid: 6a8a694175e7112409538b208478f10c, type: 3}
     priority: 1
-  - audioClipID: 29
+  - audioClipID: 30
     audioClip: {fileID: 8300000, guid: 457cd7a50f174254d92b34e4c303c898, type: 3}
     priority: 1
-  - audioClipID: 30
+  - audioClipID: 31
     audioClip: {fileID: 8300000, guid: bce3864892115c842bc59ae07cfe900d, type: 3}
     priority: 1
-  - audioClipID: 31
+  - audioClipID: 32
     audioClip: {fileID: 8300000, guid: 6583b1505faa07e4d97037cb9ec40c1d, type: 3}
     priority: 1
-  - audioClipID: 32
+  - audioClipID: 33
     audioClip: {fileID: 8300000, guid: f63618d2e53579f4d8a2dec5cf895af1, type: 3}
     priority: 1
-  - audioClipID: 33
+  - audioClipID: 34
     audioClip: {fileID: 8300000, guid: e41220f63fc1b694b8fce5d6da7d7985, type: 3}
     priority: 1
-  - audioClipID: 34
+  - audioClipID: 35
     audioClip: {fileID: 8300000, guid: 9fd75507d1b8d2f4eb2c7cd226703224, type: 3}
     priority: 1
-  - audioClipID: 35
+  - audioClipID: 36
     audioClip: {fileID: 8300000, guid: e6e6743f0c8a24c4ead70453021a5e79, type: 3}
     priority: 1
-  - audioClipID: 36
+  - audioClipID: 37
     audioClip: {fileID: 8300000, guid: 2aeccea90a06e354aab41fe39d99270e, type: 3}
     priority: 1
-  - audioClipID: 37
+  - audioClipID: 38
     audioClip: {fileID: 8300000, guid: 1f6821890fad61d4f88683a1c063c7d8, type: 3}
     priority: 1
-  - audioClipID: 38
+  - audioClipID: 39
     audioClip: {fileID: 8300000, guid: 1613208713bfd13479fe0456d2e4d571, type: 3}
     priority: 1
-  - audioClipID: 39
+  - audioClipID: 40
     audioClip: {fileID: 8300000, guid: e65866a687ca0574fac9dd51d5a4553b, type: 3}
     priority: 1
-  - audioClipID: 40
+  - audioClipID: 41
     audioClip: {fileID: 8300000, guid: 5a581eb85764405419e8b621dd00c873, type: 3}
     priority: 1
-  - audioClipID: 41
+  - audioClipID: 42
     audioClip: {fileID: 8300000, guid: 2c0304f2e10f0874f9a76a1ac7603136, type: 3}
     priority: 1
-  - audioClipID: 42
+  - audioClipID: 43
     audioClip: {fileID: 8300000, guid: 44a2b34e35383ae4a8d2de2b15e59fb7, type: 3}
     priority: 1
-  - audioClipID: 43
+  - audioClipID: 44
     audioClip: {fileID: 8300000, guid: a57aec81887674d468b53de2d5840ac3, type: 3}
     priority: 1
-  - audioClipID: 44
+  - audioClipID: 45
     audioClip: {fileID: 8300000, guid: b25af10bd5193a547996519620359f5a, type: 3}
     priority: 1
-  - audioClipID: 45
+  - audioClipID: 46
     audioClip: {fileID: 8300000, guid: d324d01f63a0826488232ee037a485c0, type: 3}
-    priority: 1
+    priority: 0
   - audioClipID: 11
     audioClip: {fileID: 8300000, guid: 5363753e0aada9d4cbd01d141e254be5, type: 3}
     priority: 0
@@ -358,5 +361,8 @@ MonoBehaviour:
   sfxAudioClipID2DOneShot: 0
   sfxAudioSourceList2DLoop: []
   sfxAudioClipID2DLoop: 
-  sfxAudioSourceList3D: []
+  sfxAudioSourceList3D:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sfxAudioClipID3D: 

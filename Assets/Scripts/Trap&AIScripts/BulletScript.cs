@@ -72,6 +72,7 @@ public class BulletScript : MonoBehaviour {
 			{
 				PlayerStatusScript.Instance.currentHealth -= 1;
 				SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.SFX_HIT);
+				SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.SFX_GRUNT);
 			}
 		}
 			

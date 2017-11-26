@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b898f779851b64bb8c2d538ae890a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSystem: 1
+  startSystem: 0
   bsIndex: 0
   feIndex: 0
   loseIndex: 0
@@ -91,13 +91,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  beginningSound: 1c0000001d0000001e000000
-  firstEncounterSound: 22000000230000002400000025000000260000001f0000002000000021000000
-  winSound: 2700000028000000290000002a000000
-  loseSound: 2b0000002c0000002d000000
+  beginningSound: 1d0000001e0000001f000000
+  firstEncounterSound: 2300000024000000250000002600000027000000200000002100000022000000
+  winSound: 28000000290000002a0000002b000000
+  loseSound: 2c0000002d0000002e000000
   countDownSound: 11
   timer: 0
-  showTimer: 0.5
+  showTimer: 2.5
   cdTimer: 0
   setTime: 5
   b_Timer: 0

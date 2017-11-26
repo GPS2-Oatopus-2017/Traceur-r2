@@ -43,6 +43,7 @@ public enum AudioClipID
 	SFX_MD_BEEP,
 	SFX_MD_ACIVATED,
 	SFX_MD_DEACTIVATED,
+	SFX_GRUNT,
 
     //Amanda's
     A_BS_ONE,

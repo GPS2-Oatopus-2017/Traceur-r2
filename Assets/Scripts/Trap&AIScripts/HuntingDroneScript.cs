@@ -189,7 +189,9 @@ public class HuntingDroneScript : MonoBehaviour {
 				}
 
 				isIndicated = false;
+				SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_LASER, gameObject);
 			}
+			//SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_CHARGE, gameObject);
 		}
 	}
 
@@ -205,5 +207,6 @@ public class HuntingDroneScript : MonoBehaviour {
 			Vector3 appliedHoverForce = Vector3.up * propotionalHeight * hoverForce;
 			huntingDroneRigidbody.AddForce(appliedHoverForce, ForceMode.Acceleration);
 		}
+		SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_DRONE_HOVER, gameObject, true);
 	}
 }

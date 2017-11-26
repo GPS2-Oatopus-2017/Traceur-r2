@@ -42,6 +42,7 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 
 		motionDetectorCurrentMaterial = GetComponent<Renderer>();
 		motionDetectorCurrentMaterial.material = normalState;
+		SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_MD_BEEP, gameObject, true);
 	}
 
 
@@ -69,6 +70,7 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 
                 SpawnManagerScript.Instance.CalculateSpawnPoint();
                 SpawnManagerScript.Instance.SpawnMultiple("Hunting_Droid",motionSensor_Data.spawnHDCount);
+				SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_MD_ACIVATED, gameObject);
             }
         }
 	}

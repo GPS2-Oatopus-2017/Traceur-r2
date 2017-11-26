@@ -21,9 +21,9 @@ public class audioSourceTracker : MonoBehaviour {
 		
 	}
 
-	void OnDestroy()
-	{
-		SoundManagerScript.Instance.sfxAudioSourceList3D.Clear();
-		SoundManagerScript.Instance.sfxAudioSourceList3D.Capacity = 0;
-	}
+//	void OnDestroy()
+//	{
+//		SoundManagerScript.Instance.sfxAudioSourceList3D.Clear();
+//		SoundManagerScript.Instance.sfxAudioSourceList3D.Capacity = 0;
+//	}
 }

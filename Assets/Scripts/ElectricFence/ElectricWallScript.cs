@@ -8,6 +8,7 @@ public class ElectricWallScript : MonoBehaviour
     public float slowTimer;
     public float speedReducedValue;
     public GameObject player;
+	public GameObject cylinder;
     public bool playerIsSlowed;
 	public bool isActived;
 
@@ -64,6 +65,7 @@ public class ElectricWallScript : MonoBehaviour
 				Debug.Log("Enemy Despawned");
 				PoolManagerScript.Instance.Despawn(other.gameObject);
 			}
+			SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_FENCE_ACTIVE, cylinder);
 		}
     }
 }

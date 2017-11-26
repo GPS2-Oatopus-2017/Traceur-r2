@@ -163,6 +163,7 @@ public class RigidbodyFirstPersonController : MonoBehaviour, IPlayerComponent
 				isSliding = true;
 				slideTimer = 0.0f;
 			}
+			SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.SFX_ROLL);
 		}
 
 		Sliding ();

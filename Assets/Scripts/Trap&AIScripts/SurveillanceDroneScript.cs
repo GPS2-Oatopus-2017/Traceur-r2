@@ -123,6 +123,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 			{
 				ReputationManagerScript.Instance.currentRep += 1;
 			}
+			SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_DRONE_ALERT, gameObject);
 		}
 	}
 
@@ -206,5 +207,6 @@ public class SurveillanceDroneScript : MonoBehaviour {
 			Vector3 appliedHoverForce = Vector3.up * propotionalHeight * hoverForce;
 			surveillanceDroneRigidbody.AddForce(appliedHoverForce, ForceMode.Acceleration);
 		}
+		SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_DRONE_HOVER, gameObject, true);
 	}
 }

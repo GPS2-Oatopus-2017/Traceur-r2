@@ -2757,6 +2757,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
+        type: 2}
+      propertyPath: sfxAudioSourceList3D.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4986141098329564, guid: 2eec1bf49352f7e499119ba2fac11c14, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2788,6 +2793,11 @@ Prefab:
     - target: {fileID: 4986141098329564, guid: 2eec1bf49352f7e499119ba2fac11c14, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
+        type: 2}
+      propertyPath: bgmVolume
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2eec1bf49352f7e499119ba2fac11c14, type: 2}
