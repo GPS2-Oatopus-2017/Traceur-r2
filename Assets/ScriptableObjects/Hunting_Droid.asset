@@ -22,3 +22,4 @@ MonoBehaviour:
   safeDistance: 75
   spawnHDAmount: 0
   increaseReputation: 0
+  timeForTopOrBottom: 0

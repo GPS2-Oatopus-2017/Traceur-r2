@@ -26,8 +26,10 @@ public class SpawnManagerScript : MonoBehaviour {
 	public float prevDistance;
 	public float distance;
 	public Vector3 spawnPoint;
-	public float offsetY = 1.0f;
-	public float offset = 1.0f;
+//	public float offsetY = 1.0f;
+//	public float offset = 1.0f;
+	public float offsetY;
+	public float offset;
 	public int currentSpawnIndex;
 
 	void Awake()
@@ -79,7 +81,7 @@ public class SpawnManagerScript : MonoBehaviour {
 				hdCount+=spawn_Data.spawnHDCount[2];
 				Spawn("Surveillance_Drone");
 				//PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
-				ApplyOffsetVertically();
+			//	ApplyOffsetVertically();
 				SpawnMultiple("Hunting_Droid",spawn_Data.spawnHDCount[2]);
 				//PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",spawnPoint,Quaternion.identity,2,offsetY,offset,isHorizontal);
 			}
@@ -89,7 +91,7 @@ public class SpawnManagerScript : MonoBehaviour {
 				hdCount+=spawn_Data.spawnHDCount[3];
 				Spawn("Surveillance_Drone");
 				//PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
-				ApplyOffsetVertically();
+			//	ApplyOffsetVertically();
 				SpawnMultiple("Hunting_Droid",spawn_Data.spawnHDCount[3]);
 				/*for(int i=0; i<3; i++)
 				{
@@ -105,7 +107,7 @@ public class SpawnManagerScript : MonoBehaviour {
 //				{
 //					PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
 //				}
-				ApplyOffsetVertically();
+			//	ApplyOffsetVertically();
 				SpawnMultiple("Hunting_Droid",spawn_Data.spawnHDCount[4]);
 //				for(int i=0; i<3; i++)
 //				{
@@ -240,7 +242,6 @@ public class SpawnManagerScript : MonoBehaviour {
 	public void Spawn(string name)
 	{
 		TimelineScript.Instance.CreateEnemyIcon(name, 1);
-
 		CalculateSpawnPoint();
 		GameObject obj = PoolManagerScript.Instance.GetObject(name);
 		if(obj != null)
@@ -254,31 +255,31 @@ public class SpawnManagerScript : MonoBehaviour {
 	public void SpawnMultiple(string name, int amount)
 	{
 		TimelineScript.Instance.CreateEnemyIcon(name, amount);
-
 		CalculateSpawnPoint();
+		Vector3 tempPos = spawnPoint;
 		if(!isHorizontal)
 		{
-			spawnPoint.x -= offset;
+			tempPos.x -= offset;
 		}
 		else
 		{
-			spawnPoint.z -= offset;
+			tempPos.z -= offset;
 		}
 		for(int i=0; i<amount ; i++)
 		{
 			GameObject obj = PoolManagerScript.Instance.GetObject(name);
 			if(obj != null)
 			{
-				obj.transform.position = spawnPoint;
+				obj.transform.position = tempPos;
 				obj.SetActive(true);
 			}
 			if(!isHorizontal)
 			{
-				spawnPoint.x += offset;
+				tempPos.x += offset;
 			}
 			else
 			{
-				spawnPoint.z += offset;
+				tempPos.z += offset;
 			}
 		}
 	}

@@ -20,8 +20,24 @@ public class SurveillanceDroneScript : MonoBehaviour {
 	public int currentPoint = 0; 
 	private bool slowDown;
 
+	//variable for walking separately
+	public float offset;
+	public bool isHorizontal;
 	//public float distanceOfPlayer;
 
+	void OnEnable()
+	{
+		if(SpawnManagerScript.Instance.isHorizontal == true)
+		{
+			offset = transform.position.z - SpawnManagerScript.Instance.spawnPoint.z;
+			isHorizontal = true;
+		}
+		else if(SpawnManagerScript.Instance.isHorizontal == false)
+		{
+			offset = transform.position.x - SpawnManagerScript.Instance.spawnPoint.x;
+			isHorizontal = false;
+		}
+	}
 
 	void Awake()
 	{
@@ -130,6 +146,15 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 		chasingPosition = chasingTrans.position;
 		chasingPosition.y = transform.position.y;
+
+		if(isHorizontal)
+		{
+			chasingPosition.z += offset;
+		}
+		else if(!isHorizontal)
+		{
+			chasingPosition.x += offset;
+		}
 	}
 
 

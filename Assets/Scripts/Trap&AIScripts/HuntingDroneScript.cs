@@ -25,8 +25,25 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	public int currentPoint = 0;
 
+	//variable for walking separately
+	public float offset;
+	public bool isHorizontal;
 	//public float distanceOfPlayer;
 
+
+	void OnEnable()
+	{
+		if(SpawnManagerScript.Instance.isHorizontal == true)
+		{
+			offset = transform.position.z - SpawnManagerScript.Instance.spawnPoint.z;
+			isHorizontal = true;
+		}
+		else if(SpawnManagerScript.Instance.isHorizontal == false)
+		{
+			offset = transform.position.x - SpawnManagerScript.Instance.spawnPoint.x;
+			isHorizontal = false;
+		}
+	}
 
 	void Awake()
 	{
@@ -40,12 +57,9 @@ public class HuntingDroneScript : MonoBehaviour {
 		SpawnManagerScript.Instance.CalculateSpawnPoint();
 		currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
 		target = player.transform.position + player.transform.forward * targetOffset;
-
 		float randNum = Random.Range(3,6);
 		hoverHeight = randNum;
-
 		nextFire = hunting_Drone.attackSpeed;
-
 		slowDown = false;
 	}
 
@@ -90,6 +104,15 @@ public class HuntingDroneScript : MonoBehaviour {
 
 		chasingPosition = chasingTrans.position;
 		chasingPosition.y = transform.position.y;
+
+		if(isHorizontal)
+		{
+			chasingPosition.z += offset;
+		}
+		else if(!isHorizontal)
+		{
+			chasingPosition.x += offset;
+		}
 	}
 
 
