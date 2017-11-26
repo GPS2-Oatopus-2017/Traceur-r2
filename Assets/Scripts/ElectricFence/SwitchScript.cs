@@ -33,6 +33,7 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 		other = otherSwitch.GetComponent<SwitchScript>();
 		fenceBar = fence.transform.GetChild(1).gameObject;
 		wall = fence.GetComponent<ElectricWallScript>();
+		SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_FENCE_IDLE, fenceBar, true);
 	}
 
 
@@ -51,6 +52,7 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 			isOn = true;
 			other.isOn = true;
 			fenceBar.SetActive (true);
+			SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_FENCE_IDLE, fenceBar, true);
 			wall.isActived = true;
 		} 
 		else if(isOn == true) 
@@ -59,8 +61,11 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 			otherLever.transform.localEulerAngles = new Vector3(0,0,0);
 			isOn = false;
 			other.isOn = false;
+			SoundManagerScript.Instance.StopSFX3D(AudioClipID.SFX_FENCE_IDLE, fenceBar);
 			fenceBar.SetActive (false);
 			wall.isActived = false;
 		}
+		SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_SWITCH, gameObject);
+		SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_SWITCH, otherSwitch);
 	}
 }

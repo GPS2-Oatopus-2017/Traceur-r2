@@ -140,6 +140,7 @@ public class SoundManagerScript : MonoBehaviour
 //			audioSourceList[i].spatialBlend = 1.0f; // For 3D Sounds
 //			sfxAudioSourceList3D.Add(audioSourceList[i]);
 //		}
+
 	}
 
 	AudioClip FindAudioClip(AudioClipID audioClipID)
@@ -188,12 +189,12 @@ public class SoundManagerScript : MonoBehaviour
 	}
 
 	//! BACKGROUND MUSIC (BGM)
-	public void PlayBGM(AudioClipID audioClipID)
+	public void PlayBGM(AudioClipID audioClipID, bool loop)
 	{
 		bgmAudioSource.clip = FindAudioClip(audioClipID);
 		bgmAudioClipID = audioClipID;
 		bgmAudioSource.volume = bgmVolume;
-		bgmAudioSource.loop = true;
+		bgmAudioSource.loop = loop;
 		bgmAudioSource.Play();
 	}
 

@@ -208,6 +208,7 @@ public class RigidbodyFirstPersonController : MonoBehaviour, IPlayerComponent
 			m_RigidBody.drag = 5f;
 
 			if (m_Jump) {
+				SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.SFX_JUMP);
 				m_RigidBody.drag = 0f;
 				m_RigidBody.velocity = new Vector3 (m_RigidBody.velocity.x, 0f, m_RigidBody.velocity.z);
 				m_RigidBody.AddForce (new Vector3 (0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
