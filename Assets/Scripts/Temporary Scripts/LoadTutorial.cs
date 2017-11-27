@@ -7,6 +7,6 @@ public class LoadTutorial : MonoBehaviour
 {
 	public void LoadTutorialScene ()
 	{
-		SceneManager.LoadScene("LoadingScreen");
+		SceneManager.LoadSceneAsync("LoadingScreen", LoadSceneMode.Single);
 	}
 }
