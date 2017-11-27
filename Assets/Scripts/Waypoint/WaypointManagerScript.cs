@@ -19,6 +19,8 @@ public class WaypointManagerScript : MonoBehaviour
 		SwipeRight
 	}
 
+	private PlayerCoreController player;
+
 	public EventType curEvent;
 	public bool hasConfirmedEvent = true;
 
@@ -30,7 +32,8 @@ public class WaypointManagerScript : MonoBehaviour
 	public List<WaypointNodeScript> tracePlayerNodes = new List<WaypointNodeScript> ();
 	public List<WaypointNodeScript> touchedNodes = new List<WaypointNodeScript> ();
 
-	public PlayerCoreController player;
+	[Header("Settings")] [Range(0.0f, 1.0f)]
+	public float nearestPathSensitivity = 0.1f;
 
 	public bool isInProximity {
 		get {
@@ -50,9 +53,7 @@ public class WaypointManagerScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
-		if(playerGO) player = playerGO.GetComponent<PlayerCoreController>();
-		else Debug.LogError("GameManager: Unable to find Player!");
+		player = GameManagerScript.Instance.player;
 	}
 	
 	// Update is called once per frame
@@ -122,7 +123,12 @@ public class WaypointManagerScript : MonoBehaviour
 		}
 
 		if (pointingNode)
-			GameManagerScript.Instance.player.RotateTowards (pointingNode.transform.position);
+		{
+			Vector3 nearestPath = Vector3.Lerp(player.transform.position, pointingNode.transform.position, nearestPathSensitivity);
+			if((int)playerDirection % 2 == 0) nearestPath.x = pointingNode.transform.position.x;
+			else nearestPath.z = pointingNode.transform.position.z;
+			player.RotateTowards (nearestPath);
+		}
 	}
 
 	public void RegisterNode (WaypointNodeScript node)
