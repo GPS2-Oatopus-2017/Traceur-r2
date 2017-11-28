@@ -7,15 +7,16 @@ public class ElectricWallScript : MonoBehaviour
 	public TrapData electricFence_Data;
     public float slowTimer;
     public float speedReducedValue;
-    public GameObject player;
+	public PlayerCoreController player;
 	public GameObject cylinder;
     public bool playerIsSlowed;
 	public bool isActived;
 
+
 	void Start() 
 	{
+		player = GameManagerScript.Instance.player;
 		isActived = true;
-		player = GameObject.FindWithTag("Player");
 		slowTimer = electricFence_Data.slowDuration; // Set Countdown timer to the duration player is slowed
         playerIsSlowed = false; // Boolean indicating if player is slowed
 	}
@@ -26,8 +27,12 @@ public class ElectricWallScript : MonoBehaviour
         if(playerIsSlowed) // If player is slowed, do the following
         {
             slowTimer -= Time.deltaTime; // Countdown timer
-            player.GetComponent<PlayerCoreController>().ToggleRunning(false); //Player is slowed
 
+			if(player.GetComponent<PlayerCoreController>() != null)
+			{
+				player.GetComponent<PlayerCoreController>().ToggleRunning(false); //Player is slowed
+			}
+				
             if(slowTimer <= 0) // After timer reaches 0, slow debuff will be lifted
             {
                // slowTimer = slowDuration;

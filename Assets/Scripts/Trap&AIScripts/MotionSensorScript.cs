@@ -16,7 +16,7 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 
 	public TrapData motionSensor_Data;
 
-	public GameObject player;
+	public PlayerCoreController player;
 	public bool isActive;
 	public bool isTapped;
 
@@ -31,7 +31,7 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 
 	void Awake()
 	{
-		player = GameObject.FindWithTag("Player");
+		player = GameManagerScript.Instance.player;
 	}
 
 

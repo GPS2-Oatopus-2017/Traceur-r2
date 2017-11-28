@@ -35,13 +35,7 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 		wall = fence.GetComponent<ElectricWallScript>();
 		SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_FENCE_IDLE, fenceBar, true);
 	}
-
-
-	void Update ()
-	{
-		
-	}
-
+	
 
 	public void TurnLever()
 	{
@@ -65,6 +59,7 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 			fenceBar.SetActive (false);
 			wall.isActived = false;
 		}
+
 		SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_SWITCH, gameObject);
 		SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_SWITCH, otherSwitch);
 	}

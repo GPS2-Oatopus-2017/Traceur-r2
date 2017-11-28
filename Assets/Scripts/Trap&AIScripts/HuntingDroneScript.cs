@@ -5,7 +5,7 @@ using UnityEngine;
 public class HuntingDroneScript : MonoBehaviour {
 
 	public EnemyData hunting_Drone;
-	public GameObject player;
+	public PlayerCoreController player;
 	public GameObject enemyAttackIndicator;
 	public Vector3 chasingPosition;
 	private Vector3 target;
@@ -47,7 +47,7 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	void Awake()
 	{
-		player = GameObject.FindWithTag("Player");
+		player = GameManagerScript.Instance.player;
 		huntingDroneRigidbody = GetComponent<Rigidbody>();
 	}
 
@@ -207,6 +207,7 @@ public class HuntingDroneScript : MonoBehaviour {
 			Vector3 appliedHoverForce = Vector3.up * propotionalHeight * hoverForce;
 			huntingDroneRigidbody.AddForce(appliedHoverForce, ForceMode.Acceleration);
 		}
+
 		SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_DRONE_HOVER, gameObject, true);
 	}
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SurveillanceDroneScript : MonoBehaviour {
 
 	public EnemyData surveillance_Droid;
-	public GameObject player;
+	public PlayerCoreController player;
 	public Vector3 chasingPosition;
 	public float turnSpeed = 8.0f;
 	public float hoverForce = 90.0f;
@@ -41,7 +41,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	void Awake()
 	{
-		player = GameObject.FindWithTag("Player");
+		player = GameManagerScript.Instance.player;
 		surveillanceDroneRigidbody = GetComponent<Rigidbody>();
 	}
 
