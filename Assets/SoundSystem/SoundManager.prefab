@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086bbc0d58f49d544a997db12db45154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmVolume: 0
+  bgmVolume: 0.1
   sfxVolume: 0.5
   volumeMultiplier:
   - 0.95
@@ -230,7 +230,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 3caa6fed8efd8a54e895f2a04215e8fc, type: 3}
     priority: 0
   - audioClipID: 4
-    audioClip: {fileID: 8300000, guid: 8f8de606a2e66d74086d00e363d68aef, type: 3}
+    audioClip: {fileID: 8300000, guid: 10a0f2b7e3db3514faa602edd479ca91, type: 3}
     priority: 2
   - audioClipID: 5
     audioClip: {fileID: 8300000, guid: 8f8de606a2e66d74086d00e363d68aef, type: 3}
@@ -361,8 +361,5 @@ MonoBehaviour:
   sfxAudioClipID2DOneShot: 0
   sfxAudioSourceList2DLoop: []
   sfxAudioClipID2DLoop: 
-  sfxAudioSourceList3D:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  sfxAudioSourceList3D: []
   sfxAudioClipID3D: 
