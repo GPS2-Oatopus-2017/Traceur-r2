@@ -27,7 +27,7 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 	public float pushDistance = 5f;
 
 	//Temporary
-	[Header("SFX Stuff")]
+	[Header ("SFX Stuff")]
 	public GameObject motionDetector1;
 	public GameObject motionDetector2;
 	public GameObject steelFence1;
@@ -36,9 +36,10 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 	void Update ()
 	{
 		CheckPushable ();
+		//Interaction ();
 	}
 
-	void LateUpdate()
+	void LateUpdate ()
 	{
 		Interaction ();
 	}
@@ -65,19 +66,18 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			}
 		}
 		#elif UNITY_EDITOR
-		if (Input.GetMouseButtonDown (0))
-		{
+		if (Input.GetMouseButtonDown (0)) {
 			Ray raycast = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit raycastHit;
 
-			Debug.DrawRay(raycast.origin, raycast.direction * rayDistance, Color.white, 10.0f, true);
+			Debug.DrawRay (raycast.origin, raycast.direction * rayDistance, Color.white, 10.0f, true);
 //			if(Physics.SphereCast (raycast, sphereCastThickness, out raycastHit)) 
 			if (Physics.Raycast (raycast, out raycastHit, rayDistance)) {
 				//Debug.Log(raycastHit.collider.tag);
 //				Debug.DrawLine(raycast.origin, raycastHit.point, Color.white, 10.0f, true);
-				Debug.Log(raycastHit.collider.gameObject.name);
-				SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_MD_DEACTIVATED, motionDetector1);
-				SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_MD_DEACTIVATED, motionDetector2);
+				Debug.Log (raycastHit.collider.gameObject.name);
+				SoundManagerScript.Instance.PlayOneShotSFX3D (AudioClipID.SFX_MD_DEACTIVATED, motionDetector1);
+				SoundManagerScript.Instance.PlayOneShotSFX3D (AudioClipID.SFX_MD_DEACTIVATED, motionDetector2);
 				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
 					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable> ();
 					interact.Interacted ();
@@ -167,8 +167,8 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				isUsingSteelDoor = false;
 			}
 
-//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.UP) && steelFence.canSteelDoorUp) {
-			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Up && steelFence.canSteelDoorUp) {
+			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.UP) && steelFence.canSteelDoorUp) {
+//			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Up && steelFence.canSteelDoorUp) {
 
 				steelFence.isActivated = true;
 				activateCounter = 0f;
@@ -182,8 +182,8 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				//steelFence.canSteelDoorDown = true;
 			}
 
-//			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.DOWN) && steelFence.canSteelDoorDown) {
-			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down && !steelFence.canSteelDoorUp) {
+			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.DOWN) && steelFence.canSteelDoorDown) {
+//			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down && !steelFence.canSteelDoorUp) {
 
 				steelFence.isActivated = true;
 				activateCounter = 0f;
@@ -196,26 +196,30 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				if (steelFence.transform.eulerAngles.y == 90f) {
 					
 					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
 					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
@@ -225,26 +229,30 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				} else if (steelFence.transform.eulerAngles.y == 270f) {
 
 					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
 					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
@@ -258,26 +266,30 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				if (steelFence.transform.eulerAngles.y == 270f) {
 
 					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
 					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
@@ -287,26 +299,30 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				} else if (steelFence.transform.eulerAngles.y == 90f) {
 
 					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
 					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
@@ -320,26 +336,30 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				if (steelFence.transform.eulerAngles.y == 0) {
 
 					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
 					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
@@ -349,26 +369,30 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				} else if (steelFence.transform.eulerAngles.y == 180) {
 
 					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
 					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
@@ -382,26 +406,30 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				if (steelFence.transform.eulerAngles.y == 180) {
 
 					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
 					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
@@ -411,26 +439,30 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				} else if (steelFence.transform.eulerAngles.y == 0) {
 
 					if (!GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
 					} else if (GameManagerScript.Instance.player.rotateCamera.isLookBack) {
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT) && steelFence.canSteelDoorRight) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right && steelFence.canSteelDoorRight) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
 							isUsingSteelDoor = false;
 						}
-						if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
+						if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT) && steelFence.canSteelDoorLeft) {
+							//if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left && steelFence.canSteelDoorLeft) {
 
 							steelFence.isActivated = true;
 							activateCounter = 0f;
@@ -609,8 +641,8 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				}
 			}
 			*/
-		SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_FENCE, steelFence1);
-		SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_FENCE, steelFence2);
+			SoundManagerScript.Instance.PlayOneShotSFX3D (AudioClipID.SFX_FENCE, steelFence1);
+			SoundManagerScript.Instance.PlayOneShotSFX3D (AudioClipID.SFX_FENCE, steelFence2);
 		}
 	}
 }
