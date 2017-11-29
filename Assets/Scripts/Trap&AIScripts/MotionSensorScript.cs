@@ -28,15 +28,10 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 
 	//public float distanceOfPlayer;
 
-
-	void Awake()
-	{
-		player = GameManagerScript.Instance.player;
-	}
-
-
 	void Start() 
 	{
+		player = GameManagerScript.Instance.player;
+
 		isActive = true;
 		isTapped = false;
 

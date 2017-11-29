@@ -214,7 +214,7 @@ public class WaypointNodeScript : MonoBehaviour
 			if(other.GetComponent<PlayerCoreController>())
 			{
 				WaypointManagerScript.Instance.RegisterNode(this);;
-				WaypointDistanceScript.Instance.ResetNodes(this);
+//				WaypointDistanceScript.Instance.ResetNodes(this);
 			}
 		}
 	}
