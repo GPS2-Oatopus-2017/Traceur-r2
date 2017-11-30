@@ -1,0 +1,285 @@
+fileFormatVersion: 2
+guid: fdb181b148dcab1409c7c2e8b7c3a17e
+timeCreated: 1511943149
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bone001
+    100004: Bone001(mirrored)
+    100006: Bone002
+    100008: Bone002(mirrored)
+    100010: Bone003
+    100012: Bone003(mirrored)
+    100014: Bone005
+    100016: Bone005(mirrored)
+    100018: Bone006
+    100020: Bone006(mirrored)
+    100022: Bone007
+    100024: Bone007(mirrored)
+    100026: Bone008
+    100028: Bone008(mirrored)
+    100030: Bone009
+    100032: Bone009(mirrored)
+    100034: Bone010
+    100036: Bone010(mirrored)
+    100038: Bone011
+    100040: Bone011(mirrored)
+    100042: Bone012
+    100044: Bone012(mirrored)
+    100046: Bone013
+    100048: Bone013(mirrored)
+    100050: Bone014
+    100052: Bone014(mirrored)
+    100054: Box017
+    100056: Box018
+    100058: Box019
+    100060: Box020
+    100062: Box021
+    100064: Box022
+    100066: Box023
+    100068: Box025
+    100070: Box026
+    100072: Box027
+    100074: Box028
+    100076: Box029
+    100078: Box030
+    100080: Box031
+    100082: Box032
+    100084: Box034
+    100086: Camera001
+    100088: Camera001.Target
+    100090: Circle002
+    100092: Circle003
+    100094: Circle004
+    100096: Circle005
+    100098: IK Chain001
+    100100: IK Chain002
+    100102: Plane015
+    100104: Plane016
+    100106: Plane017
+    100108: Plane018
+    100110: Plane019
+    100112: Plane021
+    100114: Plane022
+    100116: Plane023
+    100118: Plane024
+    100120: Plane025
+    400000: //RootNode
+    400002: Bone001
+    400004: Bone001(mirrored)
+    400006: Bone002
+    400008: Bone002(mirrored)
+    400010: Bone003
+    400012: Bone003(mirrored)
+    400014: Bone005
+    400016: Bone005(mirrored)
+    400018: Bone006
+    400020: Bone006(mirrored)
+    400022: Bone007
+    400024: Bone007(mirrored)
+    400026: Bone008
+    400028: Bone008(mirrored)
+    400030: Bone009
+    400032: Bone009(mirrored)
+    400034: Bone010
+    400036: Bone010(mirrored)
+    400038: Bone011
+    400040: Bone011(mirrored)
+    400042: Bone012
+    400044: Bone012(mirrored)
+    400046: Bone013
+    400048: Bone013(mirrored)
+    400050: Bone014
+    400052: Bone014(mirrored)
+    400054: Box017
+    400056: Box018
+    400058: Box019
+    400060: Box020
+    400062: Box021
+    400064: Box022
+    400066: Box023
+    400068: Box025
+    400070: Box026
+    400072: Box027
+    400074: Box028
+    400076: Box029
+    400078: Box030
+    400080: Box031
+    400082: Box032
+    400084: Box034
+    400086: Camera001
+    400088: Camera001.Target
+    400090: Circle002
+    400092: Circle003
+    400094: Circle004
+    400096: Circle005
+    400098: IK Chain001
+    400100: IK Chain002
+    400102: Plane015
+    400104: Plane016
+    400106: Plane017
+    400108: Plane018
+    400110: Plane019
+    400112: Plane021
+    400114: Plane022
+    400116: Plane023
+    400118: Plane024
+    400120: Plane025
+    2000000: Camera001
+    2300000: Box017
+    2300002: Box018
+    2300004: Box019
+    2300006: Box020
+    2300008: Box021
+    2300010: Box022
+    2300012: Box023
+    2300014: Box025
+    2300016: Box026
+    2300018: Box027
+    2300020: Box028
+    2300022: Box029
+    2300024: Box030
+    2300026: Box031
+    2300028: Box032
+    2300030: Box034
+    2300032: Plane015
+    2300034: Plane016
+    2300036: Plane017
+    2300038: Plane018
+    2300040: Plane019
+    2300042: Plane021
+    2300044: Plane022
+    2300046: Plane023
+    2300048: Plane024
+    2300050: Plane025
+    3300000: Box017
+    3300002: Box018
+    3300004: Box019
+    3300006: Box020
+    3300008: Box021
+    3300010: Box022
+    3300012: Box023
+    3300014: Box025
+    3300016: Box026
+    3300018: Box027
+    3300020: Box028
+    3300022: Box029
+    3300024: Box030
+    3300026: Box031
+    3300028: Box032
+    3300030: Box034
+    3300032: Plane015
+    3300034: Plane016
+    3300036: Plane017
+    3300038: Plane018
+    3300040: Plane019
+    3300042: Plane021
+    3300044: Plane022
+    3300046: Plane023
+    3300048: Plane024
+    3300050: Plane025
+    4300000: Box023
+    4300002: Box025
+    4300004: Box017
+    4300006: Plane015
+    4300008: Box019
+    4300010: Plane017
+    4300012: Box020
+    4300014: Plane018
+    4300016: Box021
+    4300018: Plane019
+    4300020: Box018
+    4300022: Plane016
+    4300024: Box022
+    4300026: Box026
+    4300028: Plane021
+    4300030: Box030
+    4300032: Plane025
+    4300034: Box028
+    4300036: Plane023
+    4300038: Box027
+    4300040: Plane022
+    4300042: Box029
+    4300044: Plane024
+    4300046: Box034
+    4300048: Box032
+    4300050: Box031
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
