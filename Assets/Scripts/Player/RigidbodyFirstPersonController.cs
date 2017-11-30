@@ -163,7 +163,7 @@ public class RigidbodyFirstPersonController : MonoBehaviour, IPlayerComponent
 				isSliding = true;
 				slideTimer = 0.0f;
 			}
-			SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.SFX_ROLL);
+			SoundManagerScript.Instance.PlayOneShotSFX2D (AudioClipID.SFX_ROLL);
 		}
 
 		Sliding ();
@@ -209,7 +209,7 @@ public class RigidbodyFirstPersonController : MonoBehaviour, IPlayerComponent
 			m_RigidBody.drag = 5f;
 
 			if (m_Jump) {
-				SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.SFX_JUMP);
+				SoundManagerScript.Instance.PlayOneShotSFX2D (AudioClipID.SFX_JUMP);
 				m_RigidBody.drag = 0f;
 				m_RigidBody.velocity = new Vector3 (m_RigidBody.velocity.x, 0f, m_RigidBody.velocity.z);
 				m_RigidBody.AddForce (new Vector3 (0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
@@ -318,6 +318,9 @@ public class RigidbodyFirstPersonController : MonoBehaviour, IPlayerComponent
 	public float slideCooldown = 2f;
 	public float slideCooldownCounter = 0f;
 
+	public float slideRadius = 0.3f;
+	public float slideHeight = 1.0f;
+
 	private void Sliding ()
 	{
 		if (!isSliding)
@@ -347,8 +350,8 @@ public class RigidbodyFirstPersonController : MonoBehaviour, IPlayerComponent
 				//this.transform.Rotate (new Vector3 (transform.rotation.x + 90.0f, transform.rotation.y, transform.rotation.z));
 				//newXRotation = Mathf.LerpAngle (oldXRotation, 0.0f, 10 * Time.deltaTime);
 
-				m_Capsule.radius += 0.3f;
-				m_Capsule.height += 1.0f;
+				m_Capsule.radius += slideRadius;
+				m_Capsule.height += slideHeight;
 				doOnce = true;
 			}
 
@@ -365,8 +368,8 @@ public class RigidbodyFirstPersonController : MonoBehaviour, IPlayerComponent
 
 			if (doOnce) {
 				
-				m_Capsule.radius -= 0.3f;
-				m_Capsule.height -= 1.0f;
+				m_Capsule.radius -= slideRadius;
+				m_Capsule.height -= slideHeight;
 				doOnce = false;
 
 			}
