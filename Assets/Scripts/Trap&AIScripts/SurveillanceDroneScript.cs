@@ -39,11 +39,15 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		}
 	}
 
-	void Start()
+	void Awake()
 	{
 		player = GameManagerScript.Instance.player;
 		surveillanceDroneRigidbody = GetComponent<Rigidbody>();
+	}
 
+
+	void Start()
+	{
 		float randNum = Random.Range(3,6);
 		hoverHeight = randNum;
 		currentPoint = SpawnManagerScript.Instance.currentSpawnIndex;

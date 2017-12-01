@@ -11,8 +11,6 @@ public class GameManagerScript : MonoBehaviour
 		get { return mInstance; }
 	}
 
-	public bool UseCheckWinLoseConditions = true;
-
 	[Header("Common Used Components")]
 	public PlayerCoreController player;
 	public ReputationManagerScript repScript;
@@ -46,10 +44,7 @@ public class GameManagerScript : MonoBehaviour
 
 	void Update()
 	{
-		if (UseCheckWinLoseConditions)
-		{
-			CheckWinLoseConditions ();
-		}
+		CheckWinLoseConditions();
 	}
 
 	void CheckWinLoseConditions () 
