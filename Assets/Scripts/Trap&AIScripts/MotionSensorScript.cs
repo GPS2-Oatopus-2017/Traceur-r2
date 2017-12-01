@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class MotionSensorScript : MonoBehaviour, Iinteractable 
 {
+	public enum MotionDetectorState
+	{
+		Normal,
+		Alerted,
+		Deactivated
+	}
+
 	public void Interacted()
 	{
 		if(isActive == true)
@@ -11,6 +18,7 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 			isActive = false;
 			isTapped = true;
 			motionDetectorCurrentMaterial.material  = deactivatedState;
+			lRend.colorGradient = deactivateColor;
 		}
 	}
 
@@ -26,23 +34,28 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 	public Material activatedState;
 	public Material deactivatedState;
 
-	//public float distanceOfPlayer;
-
+	//for light change
+	private LineRenderer lRend;
+	public Gradient normalColor;
+	public Gradient alertColor;
+	public Gradient deactivateColor;
 
 	void Awake()
 	{
-		player = GameManagerScript.Instance.player;
+		//player = GameManagerScript.Instance.player;
 	}
 
 
 	void Start() 
 	{
+		player = GameManagerScript.Instance.player;
 		isActive = true;
 		isTapped = false;
-
+		lRend = GetComponent<LineRenderer>();
 		motionDetectorCurrentMaterial = GetComponent<Renderer>();
 		motionDetectorCurrentMaterial.material = normalState;
 		SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_MD_BEEP, gameObject, true);
+		lRend.colorGradient = normalColor; //light 
 	}
 
 
@@ -62,7 +75,7 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
             {
                 isActive = false;
 				motionDetectorCurrentMaterial.material  = activatedState;
-
+				lRend.colorGradient = alertColor;
                 if(ReputationManagerScript.Instance.currentRep == 0)
                 {
                     ReputationManagerScript.Instance.currentRep += 1;

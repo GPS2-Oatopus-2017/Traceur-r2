@@ -75,7 +75,6 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			if (Physics.Raycast (raycast, out raycastHit, rayDistance)) {
 				//Debug.Log(raycastHit.collider.tag);
 //				Debug.DrawLine(raycast.origin, raycastHit.point, Color.white, 10.0f, true);
-				Debug.Log (raycastHit.collider.gameObject.name);
 				SoundManagerScript.Instance.PlayOneShotSFX3D (AudioClipID.SFX_MD_DEACTIVATED, motionDetector1);
 				SoundManagerScript.Instance.PlayOneShotSFX3D (AudioClipID.SFX_MD_DEACTIVATED, motionDetector2);
 				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
