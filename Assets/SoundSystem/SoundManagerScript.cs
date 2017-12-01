@@ -133,7 +133,7 @@ public class SoundManagerScript : MonoBehaviour
 	}
 
 	// Checks null sources and remove them per second
-	void UpdateAudioSourceList()
+	public void UpdateAudioSourceList()
 	{
 		for(int i = 0; i < sfxAudioSourceList2DLoop.Count; i++)
 		{
@@ -146,7 +146,7 @@ public class SoundManagerScript : MonoBehaviour
 	}
 
 	AudioClip FindAudioClip(AudioClipID audioClipID)
-	{
+    {
 		for(int i=0; i<audioClipInfoList.Count; i++)
 		{
 			if(audioClipInfoList[i].audioClipID == audioClipID)
@@ -161,7 +161,7 @@ public class SoundManagerScript : MonoBehaviour
 	}
 
 	float FindAudioClipVolumeMultipliers(AudioClipID audioClipID)
-	{
+    {
 		for(int i=0; i<audioClipInfoList.Count; i++)
 		{
 			if(audioClipInfoList[i].audioClipID == audioClipID)
@@ -176,7 +176,7 @@ public class SoundManagerScript : MonoBehaviour
 	}
 
 	AudioSource FindAudioSource3D(GameObject go)
-	{
+    {
 		for(int i=0; i<sfxAudioSourceList3D.Count; i++)
 		{
 			if(sfxAudioSourceList3D[i].gameObject == go)
@@ -439,7 +439,7 @@ public class SoundManagerScript : MonoBehaviour
 		}
 		for(int i = 0; i < sfxAudioSourceList3D.Count; i++)
 		{
-			sfxAudioSourceList3D[i].volume = sfxVolume;// * FindAudioClipVolumeMultipliers(sfxAudioClipID3D[i]);
+    		sfxAudioSourceList3D[i].volume = sfxVolume;// * FindAudioClipVolumeMultipliers(sfxAudioClipID3D[i]);
 		}
 	}
 }

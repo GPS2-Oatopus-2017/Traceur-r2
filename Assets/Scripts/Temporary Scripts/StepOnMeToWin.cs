@@ -14,11 +14,15 @@ public class StepOnMeToWin : MonoBehaviour
 			DialogueManager.Instance.WinSceneDialogue();
 			ScoreManagerScript.Instance.MarkFinalScore();
 			DontDestroyOnLoad(ScoreManagerScript.Instance.gameObject);
-            if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
+
+            if(DialogueManager.Instance.canContinue)
             {
-                Time.timeScale = 1.0f;
-                GameObject.FindWithTag("GameController").GetComponent<ChangeSceneScript>().ChangeScenes(0);
-                MenuSettings.Instance.skipBS = false;
+                if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
+                {
+                    Time.timeScale = 1.0f;
+                    GameObject.FindWithTag("GameController").GetComponent<ChangeSceneScript>().ChangeScenes(0);
+                    MenuSettings.Instance.skipBS = false;
+                }
             }
         }
     }

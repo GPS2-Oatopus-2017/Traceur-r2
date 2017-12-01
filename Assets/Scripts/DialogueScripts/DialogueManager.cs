@@ -48,15 +48,16 @@ public class DialogueManager : MonoBehaviour
     [Header("Timers")]
     public float timer; 
     public float showTimer;
-    public float cdTimer; 
+    private float cdTimer; 
     public float setTime;
     private int curTimeCount = 5;
-    public float b_Timer;
+    private float b_Timer;
     public float setB_Timer;
+    public float continueTimer; // Timer for win/lose dialogue;
 
     [Header("Booleans")]
     public bool[] objectSeen;
-    public bool initTimer, initDialogue, startCD, youWin, youLose, canPress;
+    public bool initTimer, initDialogue, startCD, youWin, youLose, canPress, canContinue;
 
 	[Header("Last Minute Stuff")]
 	public TimerScript timerScript;
@@ -86,6 +87,7 @@ public class DialogueManager : MonoBehaviour
         youWin = false;
         youLose = false;
         canPress = false;
+        canContinue = false;
 
 		GameManagerScript.Instance.player.StopRunning();
 
@@ -223,6 +225,8 @@ public class DialogueManager : MonoBehaviour
 
             SoundManagerScript.Instance.PlayOneShotSFX2D(winSound[randomWinSoundList]);
 
+            StartCoroutine(ContinueBool());
+
             youWin = true;
         }
     }
@@ -241,6 +245,8 @@ public class DialogueManager : MonoBehaviour
             dialogue.text = loseDialogue[randomLoseSoundList];
 
             SoundManagerScript.Instance.PlayOneShotSFX2D(loseSound[randomLoseSoundList]);
+
+            StartCoroutine(ContinueBool());
 
             youLose = true;
         }
@@ -286,5 +292,11 @@ public class DialogueManager : MonoBehaviour
                 canPress = true;
             }
         }
+    }
+
+    IEnumerator ContinueBool()
+    {
+        yield return new WaitForSeconds(continueTimer);
+        canContinue = true;
     }
 }

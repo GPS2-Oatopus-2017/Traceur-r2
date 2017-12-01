@@ -20,6 +20,7 @@ public class MainMenuManager : MonoBehaviour
 
     void Start()
     {
+        SoundManagerScript.Instance.UpdateAudioSourceList();
         SetupBrightness(sliders[0]);
         SetupBGM(sliders[1]);
         SetupSFX(sliders[2]);
