@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4977821464072952}
   m_Layer: 10
-  m_Name: Model
+  m_Name: Building 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
