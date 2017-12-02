@@ -11,6 +11,7 @@ public class StepOnMeToWin : MonoBehaviour
     {
         if(isEntered)
         {
+			GameObject.FindWithTag("Player").GetComponent<PlayerCoreController>().StopRunning();
 			DialogueManager.Instance.WinSceneDialogue();
 			ScoreManagerScript.Instance.MarkFinalScore();
 			DontDestroyOnLoad(ScoreManagerScript.Instance.gameObject);

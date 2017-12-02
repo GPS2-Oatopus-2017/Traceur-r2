@@ -46,6 +46,7 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 			isOn = true;
 			other.isOn = true;
 			fenceBar.SetActive (true);
+			SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_FENCE_ACTIVE, this.gameObject);
 			SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_FENCE_IDLE, fenceBar, true);
 			wall.isActived = true;
 		} 
@@ -59,7 +60,6 @@ public class SwitchScript : MonoBehaviour, Iinteractable
 			fenceBar.SetActive (false);
 			wall.isActived = false;
 		}
-
 		SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_SWITCH, gameObject);
 		SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_SWITCH, otherSwitch);
 	}

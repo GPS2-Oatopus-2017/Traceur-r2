@@ -189,7 +189,7 @@ public class HuntingDroneScript : MonoBehaviour {
 				}
 
 				isIndicated = false;
-				SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_LASER, gameObject);
+				SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_LASER, this.gameObject);
 			}
 			//SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_CHARGE, gameObject);
 		}
@@ -208,6 +208,6 @@ public class HuntingDroneScript : MonoBehaviour {
 			huntingDroneRigidbody.AddForce(appliedHoverForce, ForceMode.Acceleration);
 		}
 
-		SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_DRONE_HOVER, gameObject, true);
+		SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_DRONE_HOVER, this.gameObject, true);
 	}
 }
