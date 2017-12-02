@@ -14191,7 +14191,7 @@ Prefab:
     - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
         type: 2}
       propertyPath: bgmVolume
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2eec1bf49352f7e499119ba2fac11c14, type: 2}

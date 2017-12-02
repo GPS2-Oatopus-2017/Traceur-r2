@@ -218,7 +218,7 @@ MonoBehaviour:
   volumeMultiplier:
   - 0.95
   - 0.9
-  - 0.02
+  - 0.08
   audioClipInfoList:
   - audioClipID: 7
     audioClip: {fileID: 8300000, guid: dfbf31b1f7219da48b81c79b7f88e24b, type: 3}
