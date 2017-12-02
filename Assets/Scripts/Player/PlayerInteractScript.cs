@@ -26,13 +26,6 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 
 	public float pushDistance = 5f;
 
-	//Temporary
-	[Header ("SFX Stuff")]
-	public GameObject motionDetector1;
-	public GameObject motionDetector2;
-	public GameObject steelFence1;
-	public GameObject steelFence2;
-
 	void Update ()
 	{
 		CheckPushable ();
@@ -75,8 +68,6 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 			if (Physics.Raycast (raycast, out raycastHit, rayDistance)) {
 				//Debug.Log(raycastHit.collider.tag);
 //				Debug.DrawLine(raycast.origin, raycastHit.point, Color.white, 10.0f, true);
-				SoundManagerScript.Instance.PlayOneShotSFX3D (AudioClipID.SFX_MD_DEACTIVATED, motionDetector1);
-				SoundManagerScript.Instance.PlayOneShotSFX3D (AudioClipID.SFX_MD_DEACTIVATED, motionDetector2);
 				if (raycastHit.collider.CompareTag ("InteractableObjects")) {
 					Iinteractable interact = raycastHit.collider.GetComponent<Iinteractable> ();
 					interact.Interacted ();
@@ -640,8 +631,6 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 				}
 			}
 			*/
-			SoundManagerScript.Instance.PlayOneShotSFX3D (AudioClipID.SFX_FENCE, steelFence1);
-			SoundManagerScript.Instance.PlayOneShotSFX3D (AudioClipID.SFX_FENCE, steelFence2);
 		}
 	}
 }

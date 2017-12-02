@@ -100,6 +100,7 @@ public class SteelFenceScript : MonoBehaviour
 			}
 
 			if (timeCounter >= timeToMove) {
+				SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_FENCE, this.gameObject);
 				
 				timeCounter = 0f;
 

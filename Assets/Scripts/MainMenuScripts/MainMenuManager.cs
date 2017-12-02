@@ -91,14 +91,4 @@ public class MainMenuManager : MonoBehaviour
 	{
 		SoundManagerScript.Instance.StopSFX2D(AudioClipID.SFX_MAIN_MENU);
 	}
-
-	public void bgmsliderchangeBegin()
-	{
-		SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_MAIN_MENU, false);
-	}
-
-	public void bgmsliderchangeEnd()
-	{
-		SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_MAIN_MENU);
-	}
 }

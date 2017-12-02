@@ -15,6 +15,8 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
 	{
 		if(isActive == true)
 		{
+			SoundManagerScript.Instance.StopSFX3D(AudioClipID.SFX_MD_BEEP, this.gameObject);
+			SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_MD_DEACTIVATED, this.gameObject);
 			isActive = false;
 			isTapped = true;
 			motionDetectorCurrentMaterial.material  = deactivatedState;
