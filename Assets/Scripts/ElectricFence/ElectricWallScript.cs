@@ -11,7 +11,7 @@ public class ElectricWallScript : MonoBehaviour
 	public GameObject cylinder;
     public bool playerIsSlowed;
 	public bool isActived;
-
+	bool isPlayed;
 
 	void Start() 
 	{
@@ -19,6 +19,7 @@ public class ElectricWallScript : MonoBehaviour
 		isActived = true;
 		slowTimer = electricFence_Data.slowDuration; // Set Countdown timer to the duration player is slowed
         playerIsSlowed = false; // Boolean indicating if player is slowed
+		isPlayed = false;
 	}
 
 
@@ -26,6 +27,11 @@ public class ElectricWallScript : MonoBehaviour
 	{
         if(playerIsSlowed) // If player is slowed, do the following
         {
+			if(!isPlayed)
+			{
+				GameManagerScript.Instance.player.animController.PlayShockedAnim();
+				isPlayed = true;
+			}
             slowTimer -= Time.deltaTime; // Countdown timer
 
 			if(player.GetComponent<PlayerCoreController>() != null)
@@ -52,7 +58,7 @@ public class ElectricWallScript : MonoBehaviour
 			if(other.gameObject.tag == "Player")
 			{
 				playerIsSlowed = true;
-
+				isPlayed = false;
 				Debug.Log("Player speed is reduced by " + speedReducedValue);
 			}
 
