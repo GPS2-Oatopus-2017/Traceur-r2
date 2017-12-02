@@ -17,6 +17,6 @@ public class ChangeSceneScript : MonoBehaviour
     public void ChangeScenes(int scene)
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(switchScenes[scene]);
+		SceneManager.LoadScene(switchScenes[scene], LoadSceneMode.Single);
     }
 }

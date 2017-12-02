@@ -11,7 +11,6 @@ public class LoadingScreenScript : MonoBehaviour
 
 	public bool screenPressed;
 	public bool loadFinished;
-	public string sceneName;
 
 	void Awake ()
 	{
@@ -22,7 +21,7 @@ public class LoadingScreenScript : MonoBehaviour
 
 	IEnumerator LoadAsync()
 	{
-		AsyncOperation async = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+		AsyncOperation async = SceneManager.LoadSceneAsync(SceneDataHolder.Instance.nextScene, LoadSceneMode.Additive);
 
 		while (!async.isDone)
 		{
