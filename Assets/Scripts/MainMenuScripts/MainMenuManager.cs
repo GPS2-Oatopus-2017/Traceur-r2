@@ -28,7 +28,9 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(startingLevel); //Start Game
+		SceneDataHolder.Instance.nextScene = startingLevel;
+		Debug.Log(SceneDataHolder.Instance.nextScene);
+		SceneManager.LoadSceneAsync("LoadingScreen", LoadSceneMode.Single); //Start Game
     }
 
     public void OpenMenu(int menu)

@@ -32,8 +32,11 @@ public class CheckForWallScript : MonoBehaviour
 	public Vector3 endPos;
 	public Vector3 startPos;
 
+	//for animation
+	bool isPlayed;
 	void Start ()
 	{
+		isPlayed = false;
 		rbController = FindObjectOfType<RigidbodyFirstPersonController> ();
 
 		originalSpeed = rbController.movementSettings.ForwardSpeed;
@@ -72,6 +75,7 @@ public class CheckForWallScript : MonoBehaviour
 			//endPos = rbController.transform.position + transform.forward * -knockbackDistance;
 			SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.SFX_KNOCK_ONE);
 			isKnockingBack = true;
+			isPlayed = false;
 		}
 	}
 
@@ -97,15 +101,19 @@ public class CheckForWallScript : MonoBehaviour
 			*/
 
 			if (knockbackCountdown <= knockbackTime) {
-
+				if(!isPlayed)
+				{
+					GameManagerScript.Instance.player.animController.PlayPushBackAnim();
+					isPlayed = true;
+				}
 				rbController.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionY;
 
 				knockbackCountdown += Time.deltaTime;
 
 				playerRb.velocity = -(transform.forward * knockbackForce);
 
-			} else {
 
+			} else {
 				knockbackCountdown = 0f;
 
 				isKnockingBack = false;

@@ -19,6 +19,10 @@ public class GameManagerScript : MonoBehaviour
 	[Header("Level Time")]
 	public float totalTimeLevel1;
 
+	[Header("Scenes")]
+	public string winScene;
+	public string loseScene;
+
 	void Awake()
 	{
 		//Singleton Setup
@@ -59,6 +63,7 @@ public class GameManagerScript : MonoBehaviour
     			if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
     			{
     				Time.timeScale = 1.0f;
+					SceneDataHolder.Instance.nextScene = loseScene;
     				GetComponent<ChangeSceneScript>().ChangeScenes(1);
     			}
             }
@@ -75,7 +80,8 @@ public class GameManagerScript : MonoBehaviour
             {
     			if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)))
     			{
-    				Time.timeScale = 1.0f;
+					Time.timeScale = 1.0f;
+					SceneDataHolder.Instance.nextScene = loseScene;
     				GetComponent<ChangeSceneScript>().ChangeScenes(1);
     			}
             }

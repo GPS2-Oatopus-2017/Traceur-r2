@@ -39,6 +39,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject[] popUps; // An array of GameObjects for pop-up UIs (i.e HealthBar, Time-line).
 
     [Header("SoundList")]
+	public AudioClipID levelBGM;
     public List<AudioClipID> beginningSound;
     public List<AudioClipID> firstEncounterSound;
     public List<AudioClipID> winSound;
@@ -58,6 +59,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Booleans")]
     public bool[] objectSeen;
     public bool initTimer, initDialogue, startCD, youWin, youLose, canPress, canContinue;
+	public bool overrideBS;
 
 	[Header("Last Minute Stuff")]
 	public TimerScript timerScript;
@@ -153,7 +155,7 @@ public class DialogueManager : MonoBehaviour
                 cdTimer = 0;
 
                 GameManagerScript.Instance.player.StartRunning();
-				SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_TUTO, false);
+				SoundManagerScript.Instance.PlayBGM(levelBGM, false);
                 timerScript.hasStarted = true;
                 break;
         }
@@ -161,53 +163,62 @@ public class DialogueManager : MonoBehaviour
 
     public void BeginningSceneDialogue() // Displays Dialogue in the beginning of the game 
     {
-        if(bsIndex < beginningScene.Count && MenuSettings.Instance.skipBS == false) //Beginning dialogue is not done :
-        {
-            beginningDialogue.SetActive(true);
+		if(overrideBS || MenuSettings.Instance.skipBS)
+		{
+			beginningDialogue.SetActive(false);
 
-            if(sceneReady)
-            {
-                Debug.Log("start");
-                sceneReady = false;
+			initDialogue = true; //Set initialDialogue boolean to true.
+			startCD = true; //Start counting-down.
+		}
+		else
+		{
+			if(bsIndex < beginningScene.Count)
+	        {
+	            beginningDialogue.SetActive(true);
 
-                StartCoroutine("TypeEffect"); // Start typing effect.
-                SoundManagerScript.Instance.PlaySFX2D(beginningSound[bsIndex], false);
-                return;
-            }
-            if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) && canPress == true || Input.GetMouseButtonDown(0)) && bsIndex <= beginningScene.Count && canPress == true)
-            {
-                SoundManagerScript.Instance.StopSFX2D(beginningSound[bsIndex]);
-                beginningText.text = " ";
-                StopCoroutine("TypeEffect"); // Stop ongoing coroutine.
-                bsIndex++; // Next line of dialogue.
-                canPress = false;
-                if(bsIndex < beginningScene.Count)
-                {
-                    StartCoroutine("TypeEffect"); // Start typing effect.
-                    SoundManagerScript.Instance.PlaySFX2D(beginningSound[bsIndex], false);
-                }
-            }
-        }
-        else //Once beginning dialogue is done, :
-        {
-            StopCoroutine("TypeEffect"); // Stop ongoing coroutine.
+	            if(sceneReady)
+	            {
+	                Debug.Log("start");
+	                sceneReady = false;
 
-            b_Timer -= Time.deltaTime;
+	                StartCoroutine("TypeEffect"); // Start typing effect.
+	                SoundManagerScript.Instance.PlaySFX2D(beginningSound[bsIndex], false);
+	                return;
+	            }
+	            if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) && canPress == true || Input.GetMouseButtonDown(0)) && bsIndex <= beginningScene.Count && canPress == true)
+	            {
+	                SoundManagerScript.Instance.StopSFX2D(beginningSound[bsIndex]);
+	                beginningText.text = " ";
+	                StopCoroutine("TypeEffect"); // Stop ongoing coroutine.
+	                bsIndex++; // Next line of dialogue.
+	                canPress = false;
+	                if(bsIndex < beginningScene.Count)
+	                {
+	                    StartCoroutine("TypeEffect"); // Start typing effect.
+	                    SoundManagerScript.Instance.PlaySFX2D(beginningSound[bsIndex], false);
+	                }
+	            }
+	        }
+	        else //Once beginning dialogue is done, :
+	        {
+	            StopCoroutine("TypeEffect"); // Stop ongoing coroutine.
 
-            if(b_Timer > 0 && MenuSettings.Instance.skipBS == false)
-            {
-                beginningDialogue.transform.position = Vector3.MoveTowards(beginningDialogue.transform.position, target.position, speed * Time.deltaTime);
-            }
+	            b_Timer -= Time.deltaTime;
 
-            else
-            {
-                beginningDialogue.SetActive(false);
+	            if(b_Timer > 0)
+	            {
+	                beginningDialogue.transform.position = Vector3.MoveTowards(beginningDialogue.transform.position, target.position, speed * Time.deltaTime);
+	            }
+	            else
+	            {
+	                beginningDialogue.SetActive(false);
 
-                initDialogue = true; //Set initialDialogue boolean to true.
-                startCD = true; //Start counting-down.
-                MenuSettings.Instance.skipBS = true;
-            }
-        }
+	                initDialogue = true; //Set initialDialogue boolean to true.
+	                startCD = true; //Start counting-down.
+	                MenuSettings.Instance.skipBS = true;
+	            }
+	        }
+		}
     }
 
     public void WinSceneDialogue() // Call this function at win scene, may not be nessecary if we transition to win scene.

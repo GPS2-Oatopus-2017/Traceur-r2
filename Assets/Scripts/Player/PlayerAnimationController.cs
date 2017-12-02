@@ -33,6 +33,21 @@ public class PlayerAnimationController : MonoBehaviour, IPlayerComponent
 		m_Animator.SetBool("isAlive",false);
 	}
 
+	public void PlayPushBackAnim()
+	{
+		m_Animator.SetTrigger("PushBackTrigger");
+	}
+
+	public void PlayShockedAnim()
+	{
+		m_Animator.SetTrigger("ShockedTrigger");
+	}
+
+	public void PlayDamagedAnim()
+	{
+		m_Animator.SetTrigger("DamagedTrigger");
+	}
+
 	public void SetisAlive()
 	{
 		m_Animator.SetBool("isAlive",true);

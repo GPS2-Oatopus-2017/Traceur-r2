@@ -208,7 +208,7 @@ MonoBehaviour:
   - {fileID: 1815508114}
   - {fileID: 1194214658}
   - {fileID: 79122331}
-  startingLevel: Level 1
+  startingLevel: Tutorial_3.0
   sliders:
   - {fileID: 1762409582}
   - {fileID: 702417732}
@@ -1261,7 +1261,6 @@ GameObject:
   - component: {fileID: 676188499}
   - component: {fileID: 676188501}
   - component: {fileID: 676188500}
-  - component: {fileID: 676188502}
   m_Layer: 0
   m_Name: MainWindow
   m_TagString: Untagged
@@ -1321,17 +1320,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 676188498}
---- !u!114 &676188502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 676188498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6edb145be230e724386ee8a7a43221df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &683589242
 Prefab:
   m_ObjectHideFlags: 0
@@ -1909,8 +1897,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 676188502}
-        m_MethodName: LoadTutorialScene
+      - m_Target: {fileID: 13667707}
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
