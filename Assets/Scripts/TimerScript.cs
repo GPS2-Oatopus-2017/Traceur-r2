@@ -39,6 +39,10 @@ public class TimerScript : MonoBehaviour
 		{
 			timeLevel1 -= Time.deltaTime;
 		}
+
+		if(timeLevel1 <= 0)
+			timeLevel1 = 0;
+		
 		timerBar.fillAmount = timeLevel1 / totalTimeLevel1 * 1;
 		float timer = Mathf.Round(timeLevel1);
 		timerText.text = timer.ToString();

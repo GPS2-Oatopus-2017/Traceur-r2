@@ -228,6 +228,7 @@ public class DialogueManager : MonoBehaviour
             StartCoroutine(ContinueBool());
 
             youWin = true;
+			timerScript.hasStarted = false;
         }
     }
 
@@ -249,6 +250,7 @@ public class DialogueManager : MonoBehaviour
             StartCoroutine(ContinueBool());
 
             youLose = true;
+			timerScript.hasStarted = false;
         }
     }
 

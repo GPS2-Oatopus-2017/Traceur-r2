@@ -65,10 +65,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8b1a1735e069d40b16819b3cd63675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ratio: 0.02
-  largestScale: 1
-  destroyTime: 3
-  enlargeDelay: 0.1
+  ratio: 0.05
+  smallestScale: 0.05
+  destroyTime: 3.5
+  shrinkDelay: 0.2
 --- !u!212 &212156309060246944
 SpriteRenderer:
   m_ObjectHideFlags: 1

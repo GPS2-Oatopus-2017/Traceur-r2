@@ -318,7 +318,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -420,7 +420,7 @@ MonoBehaviour:
   enemyAttackIndicator: {fileID: 1697361152441738, guid: 4f8630c6276de054b8e173f0785772cd,
     type: 2}
   chasingPosition: {x: 0, y: 0, z: 0}
-  targetOffset: 30
+  targetOffset: 10
   hoverForce: 90
   hoverHeight: 3.5
   bullet: {fileID: 1603877288706312, guid: 9be5e4fcb2e4e3d4bafb8ab115c2616b, type: 2}

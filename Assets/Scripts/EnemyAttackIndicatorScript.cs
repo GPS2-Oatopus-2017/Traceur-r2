@@ -6,11 +6,11 @@ public class EnemyAttackIndicatorScript : MonoBehaviour {
 
 	public float ratio;
 	private float defaultScale;
-	public float largestScale;
+	public float smallestScale;
 	public float destroyTime;
 	private Transform player;
-	public float enlargeDelay;
-	private float enlargeTimer;
+	public float shrinkDelay;
+	private float shrinkTimer;
 
 	// Use this for initialization
 	void Start () 
@@ -25,20 +25,20 @@ public class EnemyAttackIndicatorScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if(enlargeTimer >= enlargeDelay)
+		if(shrinkTimer >= shrinkDelay)
 		{
-			enlargeTimer = 0;
+			shrinkTimer = 0;
 			Vector3 temp = transform.localScale;
-			transform.localScale = new Vector3(temp.x += ratio, temp.y += ratio, temp.z += ratio);
+			transform.localScale = new Vector3(temp.x -= ratio, temp.y -= ratio, temp.z -= ratio);
 		}
 		else
 		{
-			enlargeTimer += 1f * Time.deltaTime;
+			shrinkTimer += 1f * Time.deltaTime;
 		}
 
-		if(transform.localScale.x > largestScale)
+		if(transform.localScale.x < smallestScale)
 		{
-			transform.localScale = new Vector3(largestScale, largestScale, largestScale);
+			transform.localScale = new Vector3(smallestScale, smallestScale, smallestScale);
 		}
 		/*if(!enlarging)
 		{
