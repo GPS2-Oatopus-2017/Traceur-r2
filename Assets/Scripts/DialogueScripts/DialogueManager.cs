@@ -214,8 +214,6 @@ public class DialogueManager : MonoBehaviour
     {                              // DialogueManager.Instance.WinSceneDialogue();\
         if(youWin == false)
         {
-            Time.timeScale = 0;
-
             int randomWinSoundList = Random.Range(0, winSound.Count);
 
             SoundManagerScript.Instance.StopSFX2D(winSound[randomWinSoundList]);

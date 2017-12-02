@@ -110,15 +110,15 @@ public class SoundManagerScript : MonoBehaviour
 	[Header("Sources")]
 	public AudioSource bgmAudioSource;
 	public AudioClipID bgmAudioClipID;
-//	public AudioClipPriority bgmPriority;
+	public AudioClipPriority bgmPriority;
 	public AudioSource sfxAudioSource2DOneshot;
 	public AudioClipID sfxAudioClipID2DOneShot;
 	public List<AudioSource> sfxAudioSourceList2DLoop = new List<AudioSource>();
 	public List<AudioClipID> sfxAudioClipID2DLoop = new List<AudioClipID>();
-//	public List<AudioClipPriority> sfxPriority2D = new List<AudioClipPriority>();
+	public List<AudioClipPriority> sfxPriority2D = new List<AudioClipPriority>();
 	public List<AudioSource> sfxAudioSourceList3D = new List<AudioSource>();
 	public List<AudioClipID> sfxAudioClipID3D = new List<AudioClipID>();
-//	public List<AudioClipPriority> sfxPriority3D = new List<AudioClipPriority>();
+	public List<AudioClipPriority> sfxPriority3D = new List<AudioClipPriority>();
 
 	// Preload before any Start() rins in other scripts
 	void Awake () 
@@ -130,6 +130,8 @@ public class SoundManagerScript : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 
 		InvokeRepeating("UpdateAudioSourceList", 1.0f, 1.0f);
+		InvokeRepeating("UpdateBGMVolume", 1.0f, 1.0f);
+		InvokeRepeating("UpdateSFXVolume", 1.0f, 1.0f);
 	}
 
 	// Checks null sources and remove them per second
@@ -137,11 +139,21 @@ public class SoundManagerScript : MonoBehaviour
 	{
 		for(int i = 0; i < sfxAudioSourceList2DLoop.Count; i++)
 		{
-			if(!sfxAudioSourceList2DLoop[i]) sfxAudioSourceList2DLoop.RemoveAt(i--);
+			if(!sfxAudioSourceList2DLoop[i])
+			{
+				sfxAudioSourceList2DLoop.RemoveAt(i);
+				sfxAudioClipID2DLoop.RemoveAt(i);
+				i--;
+			}
 		}
 		for(int i = 0; i < sfxAudioSourceList3D.Count; i++)
 		{
-			if(!sfxAudioSourceList3D[i]) sfxAudioSourceList3D.RemoveAt(i--);
+			if(!sfxAudioSourceList3D[i])
+			{
+				sfxAudioSourceList3D.RemoveAt(i);
+				sfxAudioClipID3D.RemoveAt(i);
+				i--;
+			}
 		}
 	}
 
@@ -185,7 +197,7 @@ public class SoundManagerScript : MonoBehaviour
 			}
 		}
 
-		Debug.LogError("Cannot Find Audio Source in : " + go.name);
+		Debug.LogWarning(go.name + "'s AudioSource is not registered in SoundManager");
 
 		return null;
 	}
@@ -427,19 +439,21 @@ public class SoundManagerScript : MonoBehaviour
 
 	public void UpdateBGMVolume()
 	{
-		bgmAudioSource.volume = bgmVolume;// * FindAudioClipVolumeMultipliers(bgmAudioClipID);
+		bgmAudioSource.volume = bgmVolume * FindAudioClipVolumeMultipliers(bgmAudioClipID);
 	}
 
 	public void UpdateSFXVolume()
 	{
-		sfxAudioSource2DOneshot.volume = sfxVolume;// * FindAudioClipVolumeMultipliers(sfxAudioClipID2DOneShot);
+		sfxAudioSource2DOneshot.volume = sfxVolume * FindAudioClipVolumeMultipliers(sfxAudioClipID2DOneShot);
 		for(int i = 0; i < sfxAudioSourceList2DLoop.Count; i++)
 		{
-			sfxAudioSourceList2DLoop[i].volume = sfxVolume;// * FindAudioClipVolumeMultipliers(sfxAudioClipID2DLoop[i]);
+			Debug.Log("update sfx volume 2D i:" + i);
+			sfxAudioSourceList2DLoop[i].volume = sfxVolume * FindAudioClipVolumeMultipliers(sfxAudioClipID2DLoop[i]);
 		}
 		for(int i = 0; i < sfxAudioSourceList3D.Count; i++)
 		{
-    		sfxAudioSourceList3D[i].volume = sfxVolume;// * FindAudioClipVolumeMultipliers(sfxAudioClipID3D[i]);
+			Debug.Log("update sfx volume 3D i:" + i);
+			sfxAudioSourceList3D[i].volume = sfxVolume * FindAudioClipVolumeMultipliers(sfxAudioClipID3D[i]);
 		}
 	}
 }

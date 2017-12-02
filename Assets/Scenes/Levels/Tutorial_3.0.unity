@@ -7531,10 +7531,9 @@ MonoBehaviour:
   - {fileID: 1525591667}
   - {fileID: 1617912978}
   - {fileID: 987176554}
-  - {fileID: 82293920865884116, guid: 6be8f92c38b319f45bf3df2e367a2ebb, type: 2}
-  - {fileID: 82488922785187140, guid: 495493adb7fbe7d4398e53a03b992955, type: 2}
-  - {fileID: 401920191}
   - {fileID: 332103446}
+  - {fileID: 401920191}
+  audioClipIDList: 180000000d0000000d00000019000000190000000c0000000c000000
 --- !u!1001 &834356352
 Prefab:
   m_ObjectHideFlags: 0
@@ -14293,7 +14292,7 @@ Prefab:
     - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
         type: 2}
       propertyPath: bgmVolume
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2eec1bf49352f7e499119ba2fac11c14, type: 2}
