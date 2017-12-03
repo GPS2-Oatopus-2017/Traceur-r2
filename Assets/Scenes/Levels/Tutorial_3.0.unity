@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.4384941, g: 0.4865846, b: 0.56685877, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3178,6 +3178,11 @@ Prefab:
     - target: {fileID: 1782163432663814, guid: 43ee86108fb67fe4099ea910deaf7d8f, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82294562110342012, guid: 43ee86108fb67fe4099ea910deaf7d8f,
+        type: 2}
+      propertyPath: MaxDistance
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43ee86108fb67fe4099ea910deaf7d8f, type: 2}
@@ -8526,6 +8531,11 @@ Prefab:
       propertyPath: m_Name
       value: Motion_Detector01
       objectReference: {fileID: 0}
+    - target: {fileID: 82515581800624424, guid: abae2e33037f7d04f8292e8849501ea5,
+        type: 2}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abae2e33037f7d04f8292e8849501ea5, type: 2}
   m_IsPrefabParent: 0
@@ -8780,6 +8790,11 @@ Prefab:
     - target: {fileID: 4935044913590020, guid: abae2e33037f7d04f8292e8849501ea5, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82515581800624424, guid: abae2e33037f7d04f8292e8849501ea5,
+        type: 2}
+      propertyPath: MaxDistance
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abae2e33037f7d04f8292e8849501ea5, type: 2}
