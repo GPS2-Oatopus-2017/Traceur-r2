@@ -20,14 +20,14 @@ public class BGMLoader : MonoBehaviour
 		{
 			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_WIN, true);
 		}
-		else
-			SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_WIN);
+//		else
+//			SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_WIN);
 		//Lose Scene
 		if(SceneManager.GetActiveScene().name == "LoseScene")
 		{
 			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_LOSE, true);
 		}
-		else
-			SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_LOSE);
+//		else
+//			SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_LOSE);
 	}
 }
