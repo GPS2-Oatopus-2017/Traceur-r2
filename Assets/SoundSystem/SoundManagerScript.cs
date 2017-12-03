@@ -67,6 +67,10 @@ public enum AudioClipID
     A_LS_ONE,
     A_LS_TWO,
     A_LS_THREE,
+
+
+	//Always at bottom
+	NONE,
 }
 
 //Audioclip Type
@@ -160,6 +164,11 @@ public class SoundManagerScript : MonoBehaviour
 
 	AudioClip FindAudioClip(AudioClipID audioClipID)
     {
+		if(audioClipID == AudioClipID.NONE)
+		{
+			return null;
+		}
+
 		for(int i=0; i<audioClipInfoList.Count; i++)
 		{
 			if(audioClipInfoList[i].audioClipID == audioClipID)
@@ -174,7 +183,12 @@ public class SoundManagerScript : MonoBehaviour
 	}
 
 	float FindAudioClipVolumeMultipliers(AudioClipID audioClipID)
-    {
+	{
+		if(audioClipID == AudioClipID.NONE)
+		{
+			return 0.0f;
+		}
+
 		for(int i=0; i<audioClipInfoList.Count; i++)
 		{
 			if(audioClipInfoList[i].audioClipID == audioClipID)
