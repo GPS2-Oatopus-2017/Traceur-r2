@@ -208,7 +208,7 @@ public class SoundManagerScript : MonoBehaviour
 	{
 		bgmAudioSource.clip = FindAudioClip(audioClipID);
 		bgmAudioClipID = audioClipID;
-		bgmAudioSource.volume = bgmVolume;
+		bgmAudioSource.volume = bgmVolume * FindAudioClipVolumeMultipliers(audioClipID);
 		bgmAudioSource.loop = loop;
 		bgmAudioSource.Play();
 	}
@@ -250,7 +250,7 @@ public class SoundManagerScript : MonoBehaviour
     }
 
     public void PlaySFX3D(AudioClipID audioClipID, GameObject go, bool loop = true)
-    {
+	{
         AudioClip clipToPlay = FindAudioClip(audioClipID);
 
         AudioSource source = FindAudioSource3D(go);

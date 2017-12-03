@@ -34,6 +34,11 @@ public class BGMLoader : MonoBehaviour
 		{
 			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_LOSE, true);
 		}
+		//Finish Credit
+		if(newScene.name == "EndCreditScene")
+		{
+			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_FINISH_CREDIT, true);
+		}
 	}
 
 //	void OnDestroy()
