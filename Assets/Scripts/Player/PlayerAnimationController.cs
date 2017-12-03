@@ -25,6 +25,9 @@ public class PlayerAnimationController : MonoBehaviour, IPlayerComponent
 		m_Animator.SetBool ("Running", m_Player.rigidController.Velocity.magnitude > float.Epsilon);
 		m_Animator.SetBool ("Jumping", m_Player.rigidController.Jumping);
 		m_Animator.SetFloat ("VerticalVelocity", m_Player.rigidController.Velocity.y);
+
+		if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Left) m_Animator.SetTrigger("TurnLeftTrigger");
+		if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Right) m_Animator.SetTrigger("TurnRightTrigger");
 	}
 
 	public void PlayDeathAnim()
