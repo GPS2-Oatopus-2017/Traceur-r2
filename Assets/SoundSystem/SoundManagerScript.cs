@@ -129,6 +129,7 @@ public class SoundManagerScript : MonoBehaviour
 
 		DontDestroyOnLoad(gameObject);
 
+		Debug.LogWarning("i'm runnin");
 		InvokeRepeating("UpdateAudioSourceList", 1.0f, 1.0f);
 		InvokeRepeating("UpdateBGMVolume", 1.0f, 1.0f);
 		InvokeRepeating("UpdateSFXVolume", 1.0f, 1.0f);
