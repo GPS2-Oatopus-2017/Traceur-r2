@@ -84,6 +84,7 @@ public class PlayerCoreController : MonoBehaviour
 
 	public void KillPlayer()
 	{
+		rigidController.cam.transform.rotation = Quaternion.identity;
 		animController.PlayDeathAnim();
 	}
 

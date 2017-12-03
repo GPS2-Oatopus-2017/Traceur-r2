@@ -837,7 +837,7 @@ Prefab:
     - target: {fileID: 224239409840555490, guid: 944e5817252b95a41825fc363e26f6ea,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -5.059929
+      value: -5.0598984
       objectReference: {fileID: 0}
     - target: {fileID: 1749157123986326, guid: 944e5817252b95a41825fc363e26f6ea, type: 2}
       propertyPath: m_IsActive
@@ -846,7 +846,7 @@ Prefab:
     - target: {fileID: 114688614324374494, guid: 944e5817252b95a41825fc363e26f6ea,
         type: 2}
       propertyPath: hasStarted
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1506193667859142, guid: 944e5817252b95a41825fc363e26f6ea, type: 2}
       propertyPath: m_IsActive
@@ -18256,7 +18256,7 @@ Prefab:
     - target: {fileID: 65585261952254806, guid: 83373abcd4134764592a8461c70d0bac,
         type: 2}
       propertyPath: m_Center.x
-      value: -5.89
+      value: -5.79
       objectReference: {fileID: 0}
     - target: {fileID: 1881258430402516, guid: 83373abcd4134764592a8461c70d0bac, type: 2}
       propertyPath: m_StaticEditorFlags
@@ -18277,7 +18277,12 @@ Prefab:
     - target: {fileID: 65585261952254806, guid: 83373abcd4134764592a8461c70d0bac,
         type: 2}
       propertyPath: m_Center.z
-      value: 1.17
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 65585261952254806, guid: 83373abcd4134764592a8461c70d0bac,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.47
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 83373abcd4134764592a8461c70d0bac, type: 2}
@@ -24584,6 +24589,11 @@ Prefab:
         type: 2}
       propertyPath: levelBGM
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: continueTimer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ab66f474c2fe5a49a9f84cf9006be47, type: 2}

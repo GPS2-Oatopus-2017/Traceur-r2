@@ -64,13 +64,13 @@ public class DoorScript : MonoBehaviour
 		}
 		else
 		{
-			if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Left || Input.GetKeyDown(KeyCode.A))
+			if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Left)
 			{
 				OpenDoor();
 				tapTimer = 0.0f;
 				isTappedByPlayer = false;
 			}
-			else if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Right || Input.GetKeyDown(KeyCode.D))
+			else if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Right)
 			{
 				CloseDoor();
 				tapTimer = 0.0f;

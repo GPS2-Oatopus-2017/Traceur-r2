@@ -31,6 +31,8 @@ public class RotateCamera : MonoBehaviour, IPlayerComponent
 
 	void Update ()
 	{
+		if(!GameManagerScript.Instance.player.status.isAlive) return;
+
 		CheckSlide ();
 	}
 

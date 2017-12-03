@@ -18,7 +18,8 @@ MonoBehaviour:
   taserSlow: 0
   taserSlowDuration: 0
   damage: 0
-  alertDistance: 25
+  alertDistance: 10
   safeDistance: 75
   spawnHDAmount: 1
   increaseReputation: 0
+  timeForTopOrBottom: 0

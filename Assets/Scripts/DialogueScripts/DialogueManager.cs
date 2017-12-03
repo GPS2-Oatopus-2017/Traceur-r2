@@ -98,7 +98,12 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-		if(!startSystem) return;
+		if(!startSystem)
+		{
+			if(Input.GetKeyDown(KeyCode.Return))
+				startSystem = true;
+			return;
+		}
 
         if(initTimer == true) //Timer only starts counting down after player sees an object for the first time
         {

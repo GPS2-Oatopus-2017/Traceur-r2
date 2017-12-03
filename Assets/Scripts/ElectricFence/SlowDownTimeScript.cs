@@ -36,6 +36,7 @@ public class SlowDownTimeScript : MonoBehaviour
 
 	void LateUpdate ()
 	{
+		if(!GameManagerScript.Instance.player.status.isAlive) return;
 		CheckLookSwitch ();
 	}
 

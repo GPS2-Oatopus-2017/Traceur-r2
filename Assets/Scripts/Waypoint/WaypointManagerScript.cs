@@ -61,7 +61,7 @@ public class WaypointManagerScript : MonoBehaviour
 	{
 		if (isInProximity) {
 			if (!hasConfirmedEvent) {  
-				if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left || Input.GetKeyDown (KeyCode.A)) {
+				if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left) {
 					if (player.interact.isUsingSteelDoor) {
 						curEvent = EventType.None;
 					} else {
@@ -69,7 +69,7 @@ public class WaypointManagerScript : MonoBehaviour
 						hasConfirmedEvent = true;
 					}
 					
-				} else if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D)) {
+				} else if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right) {
 
 					if (player.interact.isUsingSteelDoor) {
 						curEvent = EventType.None;

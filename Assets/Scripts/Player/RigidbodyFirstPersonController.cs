@@ -150,13 +150,13 @@ public class RigidbodyFirstPersonController : MonoBehaviour, IPlayerComponent
 	{
 		RotateView ();
 
-		if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Up && !m_Jump || Input.GetKeyDown (KeyCode.Space) && !m_Jump) {
+		if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Up && !m_Jump) {
 			if (!isSliding) {
 				m_Jump = true;
 			}
 		}
 
-		if ((SwipeScript.Instance.GetSwipe () == SwipeDirection.Down || Input.GetKeyDown (KeyCode.S))) {
+		if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down) {
 			if (m_IsGrounded && canSlide && !isSliding && !rotCamera.isEvent) {
 
 				rotCamera.isRolling = true;
@@ -284,11 +284,11 @@ public class RigidbodyFirstPersonController : MonoBehaviour, IPlayerComponent
 		//		float newYRotation = oldYRotation + (CrossPlatformInputManager.GetAxis ("Horizontal") * 100 * Time.deltaTime);
 
 
-//			if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Left || Input.GetKeyDown (KeyCode.A))
+//			if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Left)
 //			{
 //				rotAngle -= 90.0f;
 //			}
-//			else if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D))
+//			else if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Right)
 //			{
 //				rotAngle += 90.0f;
 //			}
