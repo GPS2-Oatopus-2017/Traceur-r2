@@ -41,13 +41,14 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	void Awake()
 	{
-		player = GameManagerScript.Instance.player;
+		//player = GameManagerScript.Instance.player;
 		surveillanceDroneRigidbody = GetComponent<Rigidbody>();
 	}
 
 
 	void Start()
 	{
+		player = GameManagerScript.Instance.player;
 		float randNum = Random.Range(3,6);
 		hoverHeight = randNum;
 		currentPoint = SpawnManagerScript.Instance.currentSpawnIndex;
@@ -63,7 +64,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		surveillanceDroneChaseFunctions();
 		surveillanceDroneMainFunctions();
 
-		if(ReputationManagerScript.Instance.currentRep == 0)
+		if(ReputationManagerScript.Instance.currentRep == 0 && hasBeenDetected)
 		{
 			PoolManagerScript.Instance.Despawn(this.gameObject);
 			TimelineScript.Instance.DestroyEnemyIcon(this.gameObject.name, 1);
