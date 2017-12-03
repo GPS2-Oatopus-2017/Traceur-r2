@@ -793,7 +793,7 @@ Prefab:
     - target: {fileID: 224762842288500064, guid: 944e5817252b95a41825fc363e26f6ea,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 3.2000427
+      value: 3.2000732
       objectReference: {fileID: 0}
     - target: {fileID: 224290949094005556, guid: 944e5817252b95a41825fc363e26f6ea,
         type: 2}
@@ -8583,6 +8583,11 @@ Transform:
   m_Father: {fileID: 1781109479}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &734992341 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1917701051219704, guid: 495493adb7fbe7d4398e53a03b992955,
+    type: 2}
+  m_PrefabInternal: {fileID: 262455509}
 --- !u!1001 &735333434
 Prefab:
   m_ObjectHideFlags: 0
@@ -13038,6 +13043,11 @@ Prefab:
       propertyPath: motionDetectors.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: surveillanceDrones.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4734511995618848, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 145
@@ -13503,6 +13513,16 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: surveillanceDrones.Array.data[0]
+      value: 
+      objectReference: {fileID: 1791871116}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: surveillanceDrones.Array.data[1]
+      value: 
+      objectReference: {fileID: 734992341}
     m_RemovedComponents:
     - {fileID: 95147478653850686, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
@@ -20189,6 +20209,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1783095172}
   m_Mesh: {fileID: 4300000, guid: 965a1a238e7b8da4d88cb9285ec83ff3, type: 3}
+--- !u!1 &1791871116 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1917701051219704, guid: 495493adb7fbe7d4398e53a03b992955,
+    type: 2}
+  m_PrefabInternal: {fileID: 1343450591}
 --- !u!1 &1798575029
 GameObject:
   m_ObjectHideFlags: 0
@@ -24481,8 +24506,43 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
+      propertyPath: winSound.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: loseSound.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: winDialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: loseDialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
       propertyPath: beginningScene.Array.size
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: beginningSound.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounter.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounterSound.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4915457647039098, guid: 6ab66f474c2fe5a49a9f84cf9006be47, type: 2}
       propertyPath: m_LocalPosition.x
@@ -24568,22 +24628,22 @@ Prefab:
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
       propertyPath: beginningScene.Array.data[2]
-      value: 
+      value: '"58 93"'
       objectReference: {fileID: 0}
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
       propertyPath: beginningScene.Array.data[0]
-      value: hi
+      value: '"Welcome back, Traceur."'
       objectReference: {fileID: 0}
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
       propertyPath: beginningScene.Array.data[1]
-      value: '"I will be guiding you through this simulation."'
+      value: '"Pick up the package at The Oatopus Club."'
       objectReference: {fileID: 0}
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
       propertyPath: overrideBS
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
         type: 2}
@@ -24594,6 +24654,167 @@ Prefab:
         type: 2}
       propertyPath: continueTimer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: beginningSound.Array.data[0]
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: beginningSound.Array.data[1]
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: beginningSound.Array.data[2]
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: loseDialogue.Array.data[0]
+      value: '"As predicted, Subject 22 is not ready for pickup mission."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: loseDialogue.Array.data[1]
+      value: '"Training sequence failed."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: loseDialogue.Array.data[2]
+      value: '"Simulation failed! What another waste of time."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: winDialogue.Array.data[0]
+      value: '"Traceur,  come back to me ."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: winDialogue.Array.data[1]
+      value: '"You passed the training sequence, initiate pickup mission."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: winDialogue.Array.data[2]
+      value: '"Seems like you''re not such a failure after all Subject 22, proceed
+        to pickup mission."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: winDialogue.Array.data[3]
+      value: '"Hmph! Impressive! Proceed with pickup mission."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: winSound.Array.data[1]
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: winSound.Array.data[2]
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: winSound.Array.data[3]
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: loseSound.Array.data[1]
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: loseSound.Array.data[2]
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: winSound.Array.data[0]
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: loseSound.Array.data[0]
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounter.Array.data[1]
+      value: '"Tap on the motion detector to initiate hacking protocol."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounter.Array.data[2]
+      value: '"Disable the electric fence to secure a safe passage"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounter.Array.data[3]
+      value: '"You can turn it back on to stop the drone."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounter.Array.data[4]
+      value: '"Please observe your surroundings."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounter.Array.data[5]
+      value: '"Please make a turn in front."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounter.Array.data[6]
+      value: '"Jump over the obstacle."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounter.Array.data[7]
+      value: '"Looks like you are able to roll under it."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounterSound.Array.data[1]
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounterSound.Array.data[2]
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounterSound.Array.data[3]
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounterSound.Array.data[4]
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounterSound.Array.data[5]
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounterSound.Array.data[6]
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounterSound.Array.data[7]
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: firstEncounterSound.Array.data[0]
+      value: 47
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ab66f474c2fe5a49a9f84cf9006be47, type: 2}
