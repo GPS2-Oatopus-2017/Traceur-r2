@@ -72,8 +72,13 @@ public class BulletScript : MonoBehaviour {
 			{
 				PlayerStatusScript.Instance.currentHealth -= 1;
 				GameManagerScript.Instance.player.animController.PlayDamagedAnim();
-				SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.SFX_HIT);
-				SoundManagerScript.Instance.PlayOneShotSFX2D(AudioClipID.SFX_GRUNT);
+				SoundManagerScript.Instance.PlaySFX2D(AudioClipID.SFX_HIT, false);
+				SoundManagerScript.Instance.PlaySFX2D(AudioClipID.SFX_GRUNT, false);
+				if(PlayerStatusScript.Instance.currentHealth <= 0)
+				{
+					SoundManagerScript.Instance.StopSFX2D(AudioClipID.SFX_HIT);
+					SoundManagerScript.Instance.StopSFX2D(AudioClipID.SFX_GRUNT);
+				}
 			}
 		}
 			
