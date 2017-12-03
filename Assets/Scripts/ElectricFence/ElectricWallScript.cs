@@ -16,6 +16,7 @@ public class ElectricWallScript : MonoBehaviour
 	void Start() 
 	{
 		player = GameManagerScript.Instance.player;
+		cylinder = this.transform.GetChild(1).gameObject;
 		isActived = true;
 		slowTimer = electricFence_Data.slowDuration; // Set Countdown timer to the duration player is slowed
         playerIsSlowed = false; // Boolean indicating if player is slowed
