@@ -5,29 +5,39 @@ using UnityEngine.SceneManagement;
 
 public class BGMLoader : MonoBehaviour
 {
-	void Start()
+	private static bool alreadySetup = false;
+
+	void Awake()
 	{
-		//SoundManagerScript.Instance.bgmAudioSource.Stop();
+		if(!alreadySetup)
+		{
+			SceneManager.activeSceneChanged += CheckBGM; // subscribe
+			alreadySetup = true;
+		}
+	}
+
+	void CheckBGM(Scene previousScene, Scene newScene)
+	{
+		SoundManagerScript.Instance.bgmAudioSource.Stop();
 		//Main Menu
-		if(SceneManager.GetActiveScene().name == "MainMenu")
+		if(newScene.name == "MainMenu")
 		{
 			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_MAIN_MENU, true);
 		}
-		else
-			SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_MAIN_MENU);
 		//Win Scene
-		if(SceneManager.GetActiveScene().name == "WinScene")
+		if(newScene.name == "WinScene")
 		{
 			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_WIN, true);
 		}
-//		else
-//			SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_WIN);
 		//Lose Scene
-		if(SceneManager.GetActiveScene().name == "LoseScene")
+		if(newScene.name == "LoseScene")
 		{
 			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_LOSE, true);
 		}
-//		else
-//			SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_LOSE);
 	}
+
+//	void OnDestroy()
+//	{
+//		SceneManager.activeSceneChanged -= CheckBGM; // unsubscribe
+//	}
 }
