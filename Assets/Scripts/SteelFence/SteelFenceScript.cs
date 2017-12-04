@@ -10,6 +10,7 @@ public class SteelFenceScript : MonoBehaviour
 	public bool canSteelDoorRight = false;
 
 	public bool isActivated = false;
+	public bool hasPlayedFenceAudio = false;
 
 	public float timeToMove = 1f;
 	public float timeCounter = 0f;
@@ -23,6 +24,7 @@ public class SteelFenceScript : MonoBehaviour
 	void Start ()
 	{
 		rotCam = GameManagerScript.Instance.player.rotateCamera;
+		hasPlayedFenceAudio = false;
 	}
 
 	void FixedUpdate ()
@@ -66,6 +68,12 @@ public class SteelFenceScript : MonoBehaviour
 	{
 		if (isActivated)
 		{
+			if(!hasPlayedFenceAudio)
+			{
+				SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_FENCE, this.gameObject);
+				hasPlayedFenceAudio = true;
+			}
+
 			timeCounter += Time.deltaTime;
 
 			//Vector3 playerPosition = new Vector3 (rbController.transform.position.x, transform.position.y, rbController.transform.position.z);
@@ -85,15 +93,19 @@ public class SteelFenceScript : MonoBehaviour
 				transform.Translate (Vector3.right * openSpeed * Time.deltaTime, Space.Self);
 			}
 
-			if (timeCounter >= timeToMove) {
-				SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_FENCE, this.gameObject);
-				
+			if (timeCounter >= timeToMove)
+			{
 				timeCounter = 0f;
 
 				isActivated = false;
+				hasPlayedFenceAudio = false;
 
 				isOpen = !isOpen;
 			}
+		}
+		else
+		{
+			hasPlayedFenceAudio = false;
 		}
 	}
 

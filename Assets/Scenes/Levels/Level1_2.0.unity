@@ -1343,6 +1343,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82003895899255436, guid: ddbd9485264b8714fadc1ca2e49bc4cc,
+        type: 2}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbd9485264b8714fadc1ca2e49bc4cc, type: 2}
   m_IsPrefabParent: 0
@@ -2524,6 +2529,11 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82003895899255436, guid: ddbd9485264b8714fadc1ca2e49bc4cc,
+        type: 2}
+      propertyPath: MaxDistance
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbd9485264b8714fadc1ca2e49bc4cc, type: 2}
@@ -6641,6 +6651,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82003895899255436, guid: ddbd9485264b8714fadc1ca2e49bc4cc,
+        type: 2}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbd9485264b8714fadc1ca2e49bc4cc, type: 2}
   m_IsPrefabParent: 0
@@ -7595,25 +7610,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4296156352714254, guid: 16d0237ec031e7a4998812518cf25df7,
     type: 2}
   m_PrefabInternal: {fileID: 934735824}
---- !u!1 &562156723 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1070864655148600, guid: f9d8943ff52de59429dd4c81970971c1,
-    type: 2}
-  m_PrefabInternal: {fileID: 292724575}
---- !u!114 &562156724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 562156723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64b4055f2a3e191449c484b76caa1a15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swipeThresholdX: 25
-  swipeThresholdY: 25
-  maxSwipeTime: 0.5
 --- !u!1001 &562373017
 Prefab:
   m_ObjectHideFlags: 0
@@ -16463,6 +16459,11 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82003895899255436, guid: ddbd9485264b8714fadc1ca2e49bc4cc,
+        type: 2}
+      propertyPath: MaxDistance
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbd9485264b8714fadc1ca2e49bc4cc, type: 2}
@@ -25446,6 +25447,11 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82003895899255436, guid: ddbd9485264b8714fadc1ca2e49bc4cc,
+        type: 2}
+      propertyPath: MaxDistance
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbd9485264b8714fadc1ca2e49bc4cc, type: 2}

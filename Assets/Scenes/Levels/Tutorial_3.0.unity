@@ -2858,7 +2858,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 6
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -4106,8 +4106,8 @@ MonoBehaviour:
   currentDoor: {fileID: 0}
   isUsingObject: 0
   isUsingSteelDoor: 0
-  activateObjectTimer: 2
-  activateCounter: 0
+  runDeactivateTimer: 0
+  deactivateTimer: 0
   pushDistance: 5
 --- !u!95 &455690555
 Animator:
@@ -5292,25 +5292,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4323124469693504, guid: 16f6d25fc567f644299a3b4306749a22,
     type: 2}
   m_PrefabInternal: {fileID: 1969426599}
---- !u!1 &562156723 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1070864655148600, guid: f9d8943ff52de59429dd4c81970971c1,
-    type: 2}
-  m_PrefabInternal: {fileID: 292724575}
---- !u!114 &562156724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 562156723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64b4055f2a3e191449c484b76caa1a15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swipeThresholdX: 50
-  swipeThresholdY: 50
-  maxSwipeTime: 0.5
 --- !u!1 &568482852
 GameObject:
   m_ObjectHideFlags: 0
@@ -14851,21 +14832,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16f6d25fc567f644299a3b4306749a22, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1781489383 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1700249115552856, guid: e48918becbe26b24697f78f26378ab79,
-    type: 2}
-  m_PrefabInternal: {fileID: 157836363}
---- !u!1 &1781489384 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1887012381045108, guid: e48918becbe26b24697f78f26378ab79,
-    type: 2}
-  m_PrefabInternal: {fileID: 157836363}
---- !u!1 &1781489385 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1027304754042458, guid: e48918becbe26b24697f78f26378ab79,
-    type: 2}
-  m_PrefabInternal: {fileID: 157836363}
 --- !u!1 &1781489386 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1978966202795286, guid: e48918becbe26b24697f78f26378ab79,
@@ -16383,6 +16349,11 @@ Prefab:
     - target: {fileID: 1419613706954822, guid: ddbd9485264b8714fadc1ca2e49bc4cc, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82003895899255436, guid: ddbd9485264b8714fadc1ca2e49bc4cc,
+        type: 2}
+      propertyPath: MaxDistance
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbd9485264b8714fadc1ca2e49bc4cc, type: 2}
