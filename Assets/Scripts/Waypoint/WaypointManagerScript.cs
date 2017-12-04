@@ -35,8 +35,10 @@ public class WaypointManagerScript : MonoBehaviour
 	[Header("Settings")] [Range(0.0f, 1.0f)]
 	public float nearestPathSensitivity = 0.1f;
 
-	public bool isInProximity {
-		get {
+	public bool isInProximity
+	{
+		get
+		{
 			return touchedNodes.Count > 0;
 		}
 	}
@@ -59,66 +61,91 @@ public class WaypointManagerScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (isInProximity) {
-			if (!hasConfirmedEvent) {  
-				if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left) {
-					if (player.interact.isUsingSteelDoor) {
+		if (isInProximity)
+		{
+			if (!hasConfirmedEvent)
+			{
+				if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left)
+				{
+					if (player.interact.isUsingSteelDoor)
+					{
 						curEvent = EventType.None;
-					} else {
+					}
+					else
+					{
 						curEvent = EventType.SwipeLeft;
 						hasConfirmedEvent = true;
 					}
 					
-				} else if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right) {
+				}
+				else if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right)
+				{
 
-					if (player.interact.isUsingSteelDoor) {
+					if (player.interact.isUsingSteelDoor)
+					{
 						curEvent = EventType.None;
-					} else {
+					}
+					else
+					{
 						curEvent = EventType.SwipeRight;
 						hasConfirmedEvent = true;
 					}
 
-				} else {
+				}
+				else
+				{
 					curEvent = EventType.MoveForward;
 					hasConfirmedEvent = false;
 				}
 			}
-		} else {
+		}
+		else
+		{
 			hasConfirmedEvent = false;
 			curEvent = EventType.None;
 		}
 
-		if (curEvent != EventType.None) {
-			switch (curEvent) {
-			case EventType.SwipeLeft:
-				if (hasConfirmedEvent) {
-					pointingNode = touchedNodes [0].data.leftNode ((int)playerDirection);
-					if (pointingNode) {
-						playerDirection = (Direction)(((int)playerDirection + 3) % (int)Direction.Total);
-						ScoreManagerScript.Instance.MarkPrecision();
-					} else {
-						pointingNode = touchedNodes [0].data.forwardNode ((int)playerDirection);
-						hasConfirmedEvent = false;
+		if (curEvent != EventType.None)
+		{
+			switch (curEvent)
+			{
+				case EventType.SwipeLeft:
+					if (hasConfirmedEvent)
+					{
+						pointingNode = touchedNodes [0].data.leftNode ((int)playerDirection);
+						if (pointingNode)
+						{
+							playerDirection = (Direction)(((int)playerDirection + 3) % (int)Direction.Total);
+							ScoreManagerScript.Instance.MarkPrecision();
+						}
+						else
+						{
+							pointingNode = touchedNodes [0].data.forwardNode ((int)playerDirection);
+							hasConfirmedEvent = false;
+						}
+						curEvent = EventType.None;
 					}
-					curEvent = EventType.None;
-				}
-				break;
-			case EventType.SwipeRight:
-				if (hasConfirmedEvent) {
-					pointingNode = touchedNodes [0].data.rightNode ((int)playerDirection);
-					if (pointingNode) {
-						playerDirection = (Direction)(((int)playerDirection + 1) % (int)Direction.Total);
-						ScoreManagerScript.Instance.MarkPrecision();
-					} else {
-						pointingNode = touchedNodes [0].data.forwardNode ((int)playerDirection);
-						hasConfirmedEvent = false;
+					break;
+				case EventType.SwipeRight:
+					if (hasConfirmedEvent)
+					{
+						pointingNode = touchedNodes [0].data.rightNode ((int)playerDirection);
+						if (pointingNode)
+						{
+							playerDirection = (Direction)(((int)playerDirection + 1) % (int)Direction.Total);
+							ScoreManagerScript.Instance.MarkPrecision();
+						}
+						else
+						{
+							pointingNode = touchedNodes [0].data.forwardNode ((int)playerDirection);
+							hasConfirmedEvent = false;
+						}
+						curEvent = EventType.None;
 					}
-					curEvent = EventType.None;
-				}
-				break;
-			case EventType.MoveForward:
-				pointingNode = touchedNodes [0].data.forwardNode ((int)playerDirection);
-				break;
+					break;
+				case EventType.MoveForward:
+					pointingNode = touchedNodes [0].data.forwardNode ((int)playerDirection);
+					break;
 			}
 		}
 
