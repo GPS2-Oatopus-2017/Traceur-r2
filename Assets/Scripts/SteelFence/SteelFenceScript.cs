@@ -33,51 +33,39 @@ public class SteelFenceScript : MonoBehaviour
 
 	void CheckDirectionInteraction ()
 	{
-		if (!rotCam.isLookBack) {
-//			transform.rotation = Quaternion.Euler (transform.rotation.x, 0f, transform.rotation.z);
-			if (WaypointManagerScript.Instance.playerDirection == Direction.West || WaypointManagerScript.Instance.playerDirection == Direction.North) {
-				if (!isOpen) {
-					canSteelDoorLeft = true;
-					canSteelDoorRight = false;
-				} else if (isOpen) {
-					canSteelDoorLeft = false;
-					canSteelDoorRight = true;
-				}
-			} else if (WaypointManagerScript.Instance.playerDirection == Direction.East || WaypointManagerScript.Instance.playerDirection == Direction.South) {
-				if (!isOpen) {
-					canSteelDoorLeft = false;
-					canSteelDoorRight = true;
-				} else if (isOpen) {
-					canSteelDoorLeft = true;
-					canSteelDoorRight = false;
-				}
+		Direction playerDir = WaypointManagerScript.Instance.playerDirection;
+		if (playerDir == Direction.West || playerDir == Direction.North)
+		{
+			if(rotCam.isLookBack)
+			{
+				canSteelDoorLeft = isOpen;
+				canSteelDoorRight = !isOpen;
 			}
-		} else if (rotCam.isLookBack) {
-//			transform.rotation = Quaternion.Euler (transform.rotation.x, 180f, transform.rotation.z);
-			if (WaypointManagerScript.Instance.playerDirection == Direction.West || WaypointManagerScript.Instance.playerDirection == Direction.North) {
-				if (!isOpen) {
-					canSteelDoorLeft = false;
-					canSteelDoorRight = true;
-				} else if (isOpen) {
-					canSteelDoorLeft = true;
-					canSteelDoorRight = false;
-				}
-			} else if (WaypointManagerScript.Instance.playerDirection == Direction.East || WaypointManagerScript.Instance.playerDirection == Direction.South) {
-				if (!isOpen) {
-					canSteelDoorLeft = true;
-					canSteelDoorRight = false;
-				} else if (isOpen) {
-					canSteelDoorLeft = false;
-					canSteelDoorRight = true;
-				}
+			else
+			{
+				canSteelDoorLeft = !isOpen;
+				canSteelDoorRight = isOpen;
+			}
+		}
+		else if (playerDir == Direction.East || playerDir == Direction.South)
+		{
+			if(rotCam.isLookBack)
+			{
+				canSteelDoorLeft = !isOpen;
+				canSteelDoorRight = isOpen;
+			}
+			else
+			{
+				canSteelDoorLeft = isOpen;
+				canSteelDoorRight = !isOpen;
 			}
 		}
 	}
 
 	void CheckMoveFence ()
 	{
-		if (isActivated) {
-			
+		if (isActivated)
+		{
 			timeCounter += Time.deltaTime;
 
 			//Vector3 playerPosition = new Vector3 (rbController.transform.position.x, transform.position.y, rbController.transform.position.z);
