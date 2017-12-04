@@ -24703,7 +24703,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1539136149}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -73, y: 1, z: 49.5}
+  m_LocalPosition: {x: -73, y: 1, z: 49.56}
   m_LocalScale: {x: 3.3954287, y: 1, z: 2.6585662}
   m_Children: []
   m_Father: {fileID: 905799528}
@@ -26513,7 +26513,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4619728280020166, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -74.5
+      value: -78.42
       objectReference: {fileID: 0}
     - target: {fileID: 4619728280020166, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
       propertyPath: m_LocalPosition.y
@@ -26521,7 +26521,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4619728280020166, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 50.1
+      value: 49.56
       objectReference: {fileID: 0}
     - target: {fileID: 4619728280020166, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
       propertyPath: m_LocalRotation.x
@@ -26561,12 +26561,12 @@ Prefab:
         type: 2}
       propertyPath: data.directionalNodes.Array.data[2]
       value: 
-      objectReference: {fileID: 120670721}
+      objectReference: {fileID: 0}
     - target: {fileID: 114986741524775702, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: prevData.directionalNodes.Array.data[2]
       value: 
-      objectReference: {fileID: 120670721}
+      objectReference: {fileID: 0}
     - target: {fileID: 114366779312147076, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: connectedNodeList.Array.data[0]
@@ -26581,6 +26581,16 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114986741524775702, guid: 572cd89f643cdcb41a40848479c1fb06,
+        type: 2}
+      propertyPath: data.directionalNodes.Array.data[1]
+      value: 
+      objectReference: {fileID: 120670721}
+    - target: {fileID: 114986741524775702, guid: 572cd89f643cdcb41a40848479c1fb06,
+        type: 2}
+      propertyPath: prevData.directionalNodes.Array.data[1]
+      value: 
+      objectReference: {fileID: 120670721}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
   m_IsPrefabParent: 0
@@ -26747,8 +26757,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: -26.2, y: 10.05, z: 2.3}
-  m_Center: {x: -64.5, y: 5.18, z: 52.6}
+  m_Size: {x: -28.8, y: 10.05, z: 2.3}
+  m_Center: {x: -64.71, y: 5.18, z: 52.6}
 --- !u!1 &1646832160
 GameObject:
   m_ObjectHideFlags: 0
@@ -30154,8 +30164,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 10.05, z: -82.34}
-  m_Center: {x: -50.6, y: 5.18, z: 12.4}
+  m_Size: {x: 3.2095566, y: 10.05, z: 82.34}
+  m_Center: {x: -49.40447, y: 5.18, z: 12.400002}
 --- !u!1001 &1887272044
 Prefab:
   m_ObjectHideFlags: 0
@@ -32710,12 +32720,12 @@ Prefab:
         type: 2}
       propertyPath: data.directionalNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 1675045720}
+      objectReference: {fileID: 0}
     - target: {fileID: 114986741524775702, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: prevData.directionalNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 1675045720}
+      objectReference: {fileID: 0}
     - target: {fileID: 114366779312147076, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: connectedNodeList.Array.data[0]
@@ -32730,6 +32740,16 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114986741524775702, guid: 572cd89f643cdcb41a40848479c1fb06,
+        type: 2}
+      propertyPath: data.directionalNodes.Array.data[3]
+      value: 
+      objectReference: {fileID: 1675045720}
+    - target: {fileID: 114986741524775702, guid: 572cd89f643cdcb41a40848479c1fb06,
+        type: 2}
+      propertyPath: prevData.directionalNodes.Array.data[3]
+      value: 
+      objectReference: {fileID: 1675045720}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
   m_IsPrefabParent: 0

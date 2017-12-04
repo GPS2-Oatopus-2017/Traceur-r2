@@ -50,7 +50,7 @@ public class CheckForWallScript : MonoBehaviour
 		CheckStun ();
 	}
 
-	void OnTriggerStay (Collider other)
+	void OnTriggerEnter (Collider other)
 	{
 		if (other.gameObject.layer == LayerMask.NameToLayer("Building") || other.gameObject.tag == "Pushable")
 		{
