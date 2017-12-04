@@ -23,3 +23,5 @@ MonoBehaviour:
   spawnHDAmount: 1
   increaseReputation: 0
   timeForTopOrBottom: 0
+  keptDistance: 10
+  atkIndicatorOffset: 0

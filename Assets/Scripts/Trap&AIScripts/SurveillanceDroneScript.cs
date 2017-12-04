@@ -166,7 +166,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 		if(hasBeenDetected == true)
 		{
-			if(Vector3.Distance(transform.position, player.transform.position) <= 2.0f)
+			if(Vector3.Distance(transform.position, player.transform.position) <= surveillance_Droid.keptDistance)
 			{
 				surveillanceDroneRigidbody.velocity = surveillanceDroneRigidbody.velocity * 0.9f;
 				slowDown = true;

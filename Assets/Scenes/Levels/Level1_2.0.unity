@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44300666, g: 0.49219567, b: 0.57192457, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -13779,6 +13779,11 @@ Prefab:
       propertyPath: surveillanceDrones.Array.data[1]
       value: 
       objectReference: {fileID: 734992341}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: highlightMat
+      value: 
+      objectReference: {fileID: 2100000, guid: b86aae0e0b501c740bbb84e65d6730ba, type: 2}
     m_RemovedComponents:
     - {fileID: 95147478653850686, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}

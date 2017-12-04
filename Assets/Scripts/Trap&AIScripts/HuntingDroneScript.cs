@@ -56,6 +56,7 @@ public class HuntingDroneScript : MonoBehaviour {
 	{
 		SpawnManagerScript.Instance.CalculateSpawnPoint();
 		currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
+		targetOffset = hunting_Drone.keptDistance + hunting_Drone.atkIndicatorOffset;
 		target = player.transform.position + player.transform.forward * targetOffset;
 		float randNum = Random.Range(3,6);
 		hoverHeight = randNum;
@@ -121,7 +122,7 @@ public class HuntingDroneScript : MonoBehaviour {
 		nextFire -= Time.deltaTime;
 		transform.LookAt(chasingPosition);
 
-		if(Vector3.Distance(transform.position, player.transform.position) <= 2.0f)
+		if(Vector3.Distance(transform.position, player.transform.position) <= hunting_Drone.keptDistance)
 		{
 			huntingDroneRigidbody.velocity = huntingDroneRigidbody.velocity * 0.9f;
 			slowDown = true;
@@ -158,11 +159,13 @@ public class HuntingDroneScript : MonoBehaviour {
 
 					if(AIAttackTimingManagerScript.Instance.isTop == true)
 					{
+						targetOffset = hunting_Drone.keptDistance + hunting_Drone.atkIndicatorOffset;
 						target = droneGunHardPointUp.position + (player.transform.forward * targetOffset);
 						Instantiate(enemyAttackIndicator, target, droneGunHardPointUp.rotation);
 					}
 					else 
 					{
+						targetOffset = hunting_Drone.keptDistance + hunting_Drone.atkIndicatorOffset;
 						target = droneGunHardPointDown.position + (player.transform.forward * targetOffset);
 						Instantiate(enemyAttackIndicator, target, droneGunHardPointDown.rotation);
 					}
