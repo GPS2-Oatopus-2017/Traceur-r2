@@ -19,12 +19,10 @@ public class SteelFenceScript : MonoBehaviour
 	public bool isOpen = false;
 
 	private RotateCamera rotCam;
-	private RigidbodyFirstPersonController rbController;
 
 	void Start ()
 	{
 		rotCam = GameManagerScript.Instance.player.rotateCamera;
-		rbController = FindObjectOfType<RigidbodyFirstPersonController> ();
 	}
 
 	void FixedUpdate ()

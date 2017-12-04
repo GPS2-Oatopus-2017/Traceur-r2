@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyAttackIndicatorScript : MonoBehaviour {
 
 	public float ratio;
-	private float defaultScale;
 	public float smallestScale;
 	public float destroyTime;
 	private Transform player;
@@ -16,7 +15,6 @@ public class EnemyAttackIndicatorScript : MonoBehaviour {
 	void Start () 
 	{
 		player = GameObject.FindWithTag("Player").transform;
-		defaultScale = transform.localScale.x;
 
 		transform.LookAt(player.position);
 		Destroy(gameObject, destroyTime);
