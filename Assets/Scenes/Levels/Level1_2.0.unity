@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44300666, g: 0.49219567, b: 0.57192457, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4413,6 +4413,26 @@ Prefab:
     - target: {fileID: 1978966202795286, guid: e48918becbe26b24697f78f26378ab79, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114411175734576516, guid: e48918becbe26b24697f78f26378ab79,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1238479955}
+    - target: {fileID: 114411175734576516, guid: e48918becbe26b24697f78f26378ab79,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: sfxsliderchangeEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 114411175734576516, guid: e48918becbe26b24697f78f26378ab79,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1238479955}
+    - target: {fileID: 114411175734576516, guid: e48918becbe26b24697f78f26378ab79,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: sfxsliderchangeBegin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e48918becbe26b24697f78f26378ab79, type: 2}
@@ -14500,6 +14520,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4707c4cd9a03cb34d806f67c9ea13cbd, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1238479955 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114901342605978646, guid: 4707c4cd9a03cb34d806f67c9ea13cbd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1238479954}
+  m_Script: {fileID: 11500000, guid: e4cbf6d210268814099bcf2bdb21e984, type: 3}
 --- !u!114 &1238479959 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114689056539498846, guid: 4707c4cd9a03cb34d806f67c9ea13cbd,
