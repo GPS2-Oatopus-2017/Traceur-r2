@@ -462,12 +462,10 @@ public class SoundManagerScript : MonoBehaviour
 		sfxAudioSource2DOneshot.volume = sfxVolume * FindAudioClipVolumeMultipliers(sfxAudioClipID2DOneShot);
 		for(int i = 0; i < sfxAudioSourceList2DLoop.Count; i++)
 		{
-			Debug.Log("update sfx volume 2D i:" + i);
 			sfxAudioSourceList2DLoop[i].volume = sfxVolume * FindAudioClipVolumeMultipliers(sfxAudioClipID2DLoop[i]);
 		}
 		for(int i = 0; i < sfxAudioSourceList3D.Count; i++)
 		{
-			Debug.Log("update sfx volume 3D i:" + i);
 			sfxAudioSourceList3D[i].volume = sfxVolume * FindAudioClipVolumeMultipliers(sfxAudioClipID3D[i]);
 		}
 	}
