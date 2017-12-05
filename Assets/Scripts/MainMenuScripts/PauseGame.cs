@@ -62,4 +62,18 @@ public class PauseGame : MonoBehaviour
 
         sourcesToBePaused.Clear();
     }
+
+	public void ExitToMainMenu()
+	{
+		Time.timeScale = 1;
+		pauseMenu.SetActive(false);
+		gamePaused = false;
+
+		for(int i = 0; i < sourcesToBePaused.Count; i++)
+		{
+			sourcesToBePaused[i].Stop();
+		}
+
+		sourcesToBePaused.Clear();
+	}
 }

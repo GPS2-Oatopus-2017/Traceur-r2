@@ -10,11 +10,11 @@ public class StepOnMeToWin : MonoBehaviour
     void Update()
     {
         if(isEntered)
-        {
-			GameObject.FindWithTag("Player").GetComponent<PlayerCoreController>().StopRunning();
+		{
+			GameManagerScript.Instance.player.StopRunning();
+			GameManagerScript.Instance.player.hasWon = true;
 			DialogueManager.Instance.WinSceneDialogue();
 			ScoreManagerScript.Instance.MarkFinalScore();
-			DontDestroyOnLoad(ScoreManagerScript.Instance.gameObject);
 
             if(DialogueManager.Instance.canContinue)
             {

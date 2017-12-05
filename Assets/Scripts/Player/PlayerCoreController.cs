@@ -88,6 +88,17 @@ public class PlayerCoreController : MonoBehaviour
 		animController.PlayDeathAnim();
 	}
 
+	public void ToggleWin(bool b)
+	{
+		status.hasWon = b;
+	}
+
+	public bool hasWon
+	{
+		get{return status.hasWon;}
+		set{status.hasWon = value;}
+	}
+
 //	public void ToggleisAlive()
 //	{
 //		animController.SetisAlive();

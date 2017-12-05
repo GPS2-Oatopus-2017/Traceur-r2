@@ -15,7 +15,7 @@ public class TurnIndicator : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		
+		hideTimer = 0;
 	}
 	
 	// Update is called once per frame

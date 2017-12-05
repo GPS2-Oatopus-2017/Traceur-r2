@@ -70,11 +70,11 @@ public class BulletScript : MonoBehaviour {
 		{
 			if(other.tag == "PlayerBulletCollider")
 			{
-				PlayerStatusScript.Instance.currentHealth -= 1;
+				GameManagerScript.Instance.player.status.currentHealth -= 1;
 				GameManagerScript.Instance.player.animController.PlayDamagedAnim();
 				SoundManagerScript.Instance.PlaySFX2D(AudioClipID.SFX_HIT, false);
 				SoundManagerScript.Instance.PlaySFX2D(AudioClipID.SFX_GRUNT, false);
-				if(PlayerStatusScript.Instance.currentHealth <= 0)
+				if(GameManagerScript.Instance.player.status.currentHealth <= 0)
 				{
 					SoundManagerScript.Instance.StopSFX2D(AudioClipID.SFX_HIT);
 					SoundManagerScript.Instance.StopSFX2D(AudioClipID.SFX_GRUNT);

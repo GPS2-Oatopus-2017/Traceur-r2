@@ -19,8 +19,6 @@ public class ScoreManagerScript : MonoBehaviour
 	{
 		if(mInstance == null) mInstance = this;
 		else if(mInstance != this) Destroy(this.gameObject);
-
-		DontDestroyOnLoad(gameObject);
 	}
 
 	void Start()
@@ -33,8 +31,6 @@ public class ScoreManagerScript : MonoBehaviour
 
 	public int totalScore_int = 0;
 	private float totalScore = 0.0f;
-	[HideInInspector]
-	public int finalScore = 0;
 	public float precisionScore = 0.0f;
 
 	void Update()
@@ -69,6 +65,6 @@ public class ScoreManagerScript : MonoBehaviour
 
 	public void MarkFinalScore()
 	{
-		finalScore = totalScore_int;
+		ScoreDataHolder.Instance.lastScore = totalScore_int;
 	}
 }

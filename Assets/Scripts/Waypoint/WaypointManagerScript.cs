@@ -35,6 +35,11 @@ public class WaypointManagerScript : MonoBehaviour
 	[Header("Settings")] [Range(0.0f, 1.0f)]
 	public float nearestPathSensitivity = 0.1f;
 
+	[Header("Delay")]
+	public float delayBetweenTurns = 0.5f;
+	public bool isDelaying = false;
+	private float delayTimer = 0.0f;
+
 	public bool isInProximity
 	{
 		get
@@ -56,53 +61,73 @@ public class WaypointManagerScript : MonoBehaviour
 	void Start ()
 	{
 		player = GameManagerScript.Instance.player;
+		isDelaying = false;
+
+		//Update player's direction
+		float pRot = player.transform.eulerAngles.y;
+		if(pRot >= 350.0f || pRot <= 10.0f ) playerDirection = Direction.North;
+		else if(pRot >= 80.0f  && pRot <= 100.0f) playerDirection = Direction.East;
+		else if(pRot >= 170.0f && pRot <= 190.0f) playerDirection = Direction.South;
+		else if(pRot >= 260.0f && pRot <= 280.0f) playerDirection = Direction.West;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if (isInProximity)
+		if(isDelaying)
 		{
-			if (!hasConfirmedEvent)
+			delayTimer += Time.deltaTime;
+			if(delayTimer >= delayBetweenTurns)
 			{
-				if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left)
-				{
-					if (player.interact.isUsingSteelDoor)
-					{
-						curEvent = EventType.None;
-					}
-					else
-					{
-						curEvent = EventType.SwipeLeft;
-						hasConfirmedEvent = true;
-					}
-					
-				}
-				else if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right)
-				{
-
-					if (player.interact.isUsingSteelDoor)
-					{
-						curEvent = EventType.None;
-					}
-					else
-					{
-						curEvent = EventType.SwipeRight;
-						hasConfirmedEvent = true;
-					}
-
-				}
-				else
-				{
-					curEvent = EventType.MoveForward;
-					hasConfirmedEvent = false;
-				}
+				delayTimer = 0.0f;
+				isDelaying = false;
 			}
 		}
 		else
 		{
-			hasConfirmedEvent = false;
-			curEvent = EventType.None;
+			if (isInProximity)
+			{
+				if (!hasConfirmedEvent)
+				{
+					if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left)
+					{
+						if (player.interact.isUsingSteelDoor)
+						{
+							curEvent = EventType.None;
+						}
+						else
+						{
+							curEvent = EventType.SwipeLeft;
+							hasConfirmedEvent = true;
+						}
+						
+					}
+					else if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right)
+					{
+
+						if (player.interact.isUsingSteelDoor)
+						{
+							curEvent = EventType.None;
+						}
+						else
+						{
+							curEvent = EventType.SwipeRight;
+							hasConfirmedEvent = true;
+						}
+
+					}
+					else
+					{
+						curEvent = EventType.MoveForward;
+						hasConfirmedEvent = false;
+					}
+				}
+			}
+			else
+			{
+				hasConfirmedEvent = false;
+				curEvent = EventType.None;
+			}
 		}
 
 		if (curEvent != EventType.None)
@@ -117,6 +142,8 @@ public class WaypointManagerScript : MonoBehaviour
 						{
 							playerDirection = (Direction)(((int)playerDirection + 3) % (int)Direction.Total);
 							ScoreManagerScript.Instance.MarkPrecision();
+							delayTimer = 0.0f;
+							isDelaying = true;
 						}
 						else
 						{
@@ -134,6 +161,8 @@ public class WaypointManagerScript : MonoBehaviour
 						{
 							playerDirection = (Direction)(((int)playerDirection + 1) % (int)Direction.Total);
 							ScoreManagerScript.Instance.MarkPrecision();
+							delayTimer = 0.0f;
+							isDelaying = true;
 						}
 						else
 						{

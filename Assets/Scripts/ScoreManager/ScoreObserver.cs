@@ -11,14 +11,6 @@ public class ScoreObserver : MonoBehaviour
 	void Start ()
 	{
 		m_Text = GetComponent<Text>();
-		if(ScoreManagerScript.Instance)
-		{
-			m_Text.text = ScoreManagerScript.Instance.finalScore.ToString();
-			Destroy(ScoreManagerScript.Instance.gameObject);
-		}
-		else
-		{
-			Debug.LogWarning("ScoreObserver: ScoreManagerScript is not found!");
-		}
+		m_Text.text = ScoreDataHolder.Instance.lastScore.ToString();
 	}
 }

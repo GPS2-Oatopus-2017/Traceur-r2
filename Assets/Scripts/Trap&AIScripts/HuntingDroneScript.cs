@@ -70,7 +70,7 @@ public class HuntingDroneScript : MonoBehaviour {
 		huntngDroneChaseFunctions();
 		huntingDroneMainFunctions();
 
-		if(ReputationManagerScript.Instance.currentRep == 0)
+		if(ReputationManagerScript.Instance.currentRep == 0 || GameManagerScript.Instance.player.hasWon)
 		{
 			PoolManagerScript.Instance.Despawn(this.gameObject);
 			TimelineScript.Instance.DestroyEnemyIcon(this.gameObject.name, 1);

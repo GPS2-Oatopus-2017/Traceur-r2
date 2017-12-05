@@ -36,11 +36,11 @@ sysinfo.txt
 *.unitypackage
 
 # Lightmap Files for Levels
-Assets/Scenes/Levels/Tutorial/
+Assets/Scenes/Levels/Tutorial
 Assets/Scenes/Levels/Tutorial.meta
-Assets/Scenes/Levels/Tutorial_3.0/
+Assets/Scenes/Levels/Tutorial_3.0
 Assets/Scenes/Levels/Tutorial_3.0.meta
-Assets/Scenes/Levels/Level 1/
+Assets/Scenes/Levels/Level 1
 Assets/Scenes/Levels/Level 1.meta
-Assets/Scenes/Levels/Level1_2.0/
+Assets/Scenes/Levels/Level1_2.0
 Assets/Scenes/Levels/Level1_2.0.meta

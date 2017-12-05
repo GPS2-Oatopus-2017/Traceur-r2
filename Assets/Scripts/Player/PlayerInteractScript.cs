@@ -44,7 +44,7 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 	//When left mouse button is pressed, shoot out a ray cast from screen to pointer.//
 	//If the player is within the radius of the object, it will go towards it.//
 
-	GameObject objectToStore;
+//	GameObject objectToStore;
 	SteelFenceScript curSteelFence;
 
 	void Interaction ()
@@ -72,7 +72,7 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 
 					if (raycastHit.collider.CompareTag ("Pushable"))
 					{
-						objectToStore = raycastHit.collider.gameObject;
+//						objectToStore = raycastHit.collider.gameObject;
 
 						Debug.Log ("Pushing Object Detected");
 
@@ -120,7 +120,7 @@ public class PlayerInteractScript : MonoBehaviour, IPlayerComponent
 
 				if (raycastHit.collider.CompareTag ("Pushable"))
 				{
-					objectToStore = raycastHit.collider.gameObject;
+//					objectToStore = raycastHit.collider.gameObject;
 
 					Debug.Log ("Pushing Object Detected");
 

@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Traceur
+  m_Shaders:
+    data:
+      first: {fileID: 66, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: 
+          passType: 0
+    data:
+      first: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: DIRECTIONAL
+          passType: 4
+        - keywords: DIRECTIONAL LIGHTMAP_ON
+          passType: 4
+        - keywords: DIRECTIONAL _EMISSION
+          passType: 4
+        - keywords: DIRECTIONAL LIGHTMAP_ON _EMISSION
+          passType: 4
+        - keywords: DIRECTIONAL INSTANCING_ON
+          passType: 4
+        - keywords: DIRECTIONAL INSTANCING_ON _EMISSION
+          passType: 4
+        - keywords: DIRECTIONAL _ALPHATEST_ON
+          passType: 4
+        - keywords: DIRECTIONAL _ALPHATEST_ON _EMISSION
+          passType: 4
+        - keywords: DIRECTIONAL INSTANCING_ON _ALPHATEST_ON
+          passType: 4
+        - keywords: DIRECTIONAL INSTANCING_ON _ALPHATEST_ON _EMISSION
+          passType: 4
+        - keywords: SHADOWS_DEPTH
+          passType: 8
+        - keywords: SHADOWS_DEPTH _ALPHATEST_ON
+          passType: 8
+        - keywords: 
+          passType: 11
+        - keywords: _EMISSION
+          passType: 11
+    data:
+      first: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: DIRECTIONAL
+          passType: 4
+        - keywords: DIRECTIONAL INSTANCING_ON
+          passType: 4
+    data:
+      first: {fileID: 104, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: 
+          passType: 0
+    data:
+      first: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: _SUNDISK_SIMPLE
+          passType: 0
+    data:
+      first: {fileID: 9000, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: 
+          passType: 0
+    data:
+      first: {fileID: 9001, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: 
+          passType: 0
+    data:
+      first: {fileID: 9002, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: 
+          passType: 0
+    data:
+      first: {fileID: 9003, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: 
+          passType: 0
+    data:
+      first: {fileID: 10703, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: DIRECTIONAL
+          passType: 4
+        - keywords: DIRECTIONAL INSTANCING_ON
+          passType: 4
+        - keywords: SHADOWS_DEPTH
+          passType: 8
+    data:
+      first: {fileID: 10704, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: DIRECTIONAL
+          passType: 4
+        - keywords: DIRECTIONAL INSTANCING_ON
+          passType: 4
+    data:
+      first: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: 
+          passType: 0
+    data:
+      first: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: 
+          passType: 0
+    data:
+      first: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: 
+          passType: 0
+    data:
+      first: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: ETC1_EXTERNAL_ALPHA
+          passType: 0
+    data:
+      first: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: 
+          passType: 0
+    data:
+      first: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+      second:
+        variants:
+        - keywords: 
+          passType: 0
+    data:
+      first: {fileID: 4800000, guid: 8ce0a6f4c8cae334d8a5617f302b6769, type: 3}
+      second:
+        variants:
+        - keywords: UNITY_COLORSPACE_GAMMA USER_LUT
+          passType: 0
+    data:
+      first: {fileID: 4800000, guid: 27bf34f3c6d5dfb4eb225fe68c51be1b, type: 3}
+      second:
+        variants:
+        - keywords: 
+          passType: 0
+    data:
+      first: {fileID: 4800000, guid: 44b54c59129572f469a949a22bc08cd0, type: 3}
+      second:
+        variants:
+        - keywords: _COLOR_OFF _TEX_OFF
+          passType: 0
+    data:
+      first: {fileID: 4800000, guid: 76374158b4c4e5744b394e9290aae693, type: 3}
+      second:
+        variants:
+        - keywords: 
+          passType: 0
+        - keywords: _COLOR_ON _TEX_OFF
+          passType: 0
+        - keywords: SHADOWS_DEPTH
+          passType: 8

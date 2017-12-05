@@ -64,7 +64,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		surveillanceDroneChaseFunctions();
 		surveillanceDroneMainFunctions();
 
-		if(ReputationManagerScript.Instance.currentRep == 0 && hasBeenDetected)
+		if((ReputationManagerScript.Instance.currentRep == 0 && hasBeenDetected) || GameManagerScript.Instance.player.hasWon)
 		{
 			PoolManagerScript.Instance.Despawn(this.gameObject);
 			TimelineScript.Instance.DestroyEnemyIcon(this.gameObject.name, 1);

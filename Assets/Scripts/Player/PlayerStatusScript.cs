@@ -13,13 +13,7 @@ public class PlayerStatusScript : MonoBehaviour, IPlayerComponent
 	public PlayerStatsData data;
 	public int currentHealth;
 	public bool isAlive;
-	int temp;
-	public static PlayerStatusScript Instance;
-
-	void Awake()
-	{
-		Instance = this;
-	}
+	public bool hasWon;
 
 	// Use this for initialization
 	void Start () 
@@ -27,6 +21,7 @@ public class PlayerStatusScript : MonoBehaviour, IPlayerComponent
 		//temp = health;
 		currentHealth = data.maxHealth;
 		isAlive = true;
+		hasWon = false;
 		//m_Player.animController.SetisAlive();
 	}
 	
