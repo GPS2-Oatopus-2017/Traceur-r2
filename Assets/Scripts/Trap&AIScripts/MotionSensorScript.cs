@@ -78,10 +78,11 @@ public class MotionSensorScript : MonoBehaviour, Iinteractable
                 isActive = false;
 				motionDetectorCurrentMaterial.material  = activatedState;
 				lRend.colorGradient = alertColor;
-                if(ReputationManagerScript.Instance.currentRep == 0)
+                if(ReputationManagerScript.Instance.currentRep <= 0 )
                 {
-                    ReputationManagerScript.Instance.currentRep += 1;
-                }
+                   	ReputationManagerScript.Instance.currentRep = 1;
+				}
+				ReputationManagerScript.Instance.resetCounter = 0;
 
                 SpawnManagerScript.Instance.CalculateSpawnPoint();
                 SpawnManagerScript.Instance.SpawnMultiple("Hunting_Droid",motionSensor_Data.spawnHDCount);
