@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SlowDownTimeScript : MonoBehaviour
 {
+	public bool useDirection = false;
+	public Direction detectDirection;
+
 	public float slowTime = 0.25f;
 
 	public float originalTime;
@@ -18,6 +21,7 @@ public class SlowDownTimeScript : MonoBehaviour
 	public int animCount;
 
 	private RigidbodyFirstPersonController rbController;
+	private PlayerStatusScript status;
 	private RotateCamera rollCamera;
 
 	void Start ()
@@ -26,17 +30,13 @@ public class SlowDownTimeScript : MonoBehaviour
 
 		PlayerCoreController player = GameManagerScript.Instance.player;
 		rbController = player.rigidController;
+		status = player.status;
 		rollCamera = player.rotateCamera;
-	}
-
-	void Update ()
-	{
-		
 	}
 
 	void LateUpdate ()
 	{
-		if(!GameManagerScript.Instance.player.status.isAlive) return;
+		if(!status.isAlive) return;
 		CheckLookSwitch ();
 	}
 
@@ -44,13 +44,16 @@ public class SlowDownTimeScript : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Player" && this.gameObject.layer == 12 && !rollCamera.isRolling)
 		{
-			Time.timeScale = slowTime;
+			if(!useDirection || (useDirection && detectDirection == WaypointManagerScript.Instance.playerDirection))
+			{
+				Time.timeScale = slowTime;
 
-			//Debug.Log ("ENTER Slow Motion");
+				//Debug.Log ("ENTER Slow Motion");
 
-			nearSwitch = true;
+				nearSwitch = true;
 
-			rollCamera.isEvent = true;
+				rollCamera.isEvent = true;
+			}
 		}
 	}
 
