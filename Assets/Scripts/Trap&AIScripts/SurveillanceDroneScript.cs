@@ -49,8 +49,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 	void Start()
 	{
 		player = GameManagerScript.Instance.player;
-		float randNum = Random.Range(3,6);
-		hoverHeight = randNum;
+		hoverHeight = 4;
 		currentPoint = SpawnManagerScript.Instance.currentSpawnIndex;
 		hasBeenDetected = false;
 		hasCalculatedPlayerPosition = false;
@@ -76,7 +75,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		droneHoveringFunction();
+//		droneHoveringFunction();
 	}
 
 
@@ -197,17 +196,17 @@ public class SurveillanceDroneScript : MonoBehaviour {
 	}
 
 
-	void droneHoveringFunction()
-	{
-		Ray hoverRay = new Ray (transform.position, -transform.up);
-		RaycastHit hoverHit;
-
-		if(Physics.Raycast(hoverRay, out hoverHit, hoverHeight))
-		{
-			float propotionalHeight = (hoverHeight - hoverHit.distance) / hoverHeight;
-			Vector3 appliedHoverForce = Vector3.up * propotionalHeight * hoverForce;
-			surveillanceDroneRigidbody.AddForce(appliedHoverForce, ForceMode.Acceleration);
-		}
-		SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_DRONE_HOVER, gameObject, true);
-	}
+//	void droneHoveringFunction()
+//	{
+//		Ray hoverRay = new Ray (transform.position, -transform.up);
+//		RaycastHit hoverHit;
+//
+//		if(Physics.Raycast(hoverRay, out hoverHit, hoverHeight))
+//		{
+//			float propotionalHeight = (hoverHeight - hoverHit.distance) / hoverHeight;
+//			Vector3 appliedHoverForce = Vector3.up * propotionalHeight * hoverForce;
+//			surveillanceDroneRigidbody.AddForce(appliedHoverForce, ForceMode.Acceleration);
+//		}
+//		SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_DRONE_HOVER, gameObject, true);
+//	}
 }

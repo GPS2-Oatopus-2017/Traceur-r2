@@ -9,25 +9,29 @@ public class BulletScript : MonoBehaviour {
 	public bool fromTopHardpoint;
 
 	private Rigidbody bulletRigidbody;
-	private SphereCollider bulletSphereCollider;
+	private Collider bulletCollider;
 
 
 	void Awake()
 	{
 		bulletRigidbody = GetComponent<Rigidbody>();
-		bulletSphereCollider = GetComponent<SphereCollider>();
+		bulletCollider = GetComponent<Collider>();
 	}
 		
 
 	void Start() 
 	{
 		bulletRigidbody.velocity = transform.forward * bulletSpeed;
+		Vector3 dir = GameManagerScript.Instance.player.transform.position - transform.position;
+		dir.y = 0.0f;
+		transform.rotation = Quaternion.LookRotation(dir);
+//		transform.LookAt(GameManagerScript.Instance.player.transform);
 	}
 
 
 	void Update() 
 	{
-		transform.LookAt(GameManagerScript.Instance.player.transform);
+//		transform.LookAt(GameManagerScript.Instance.player.transform);
 		collisionChecker();
 		selfDestructFunction();
 	}
@@ -50,7 +54,7 @@ public class BulletScript : MonoBehaviour {
 		{
 			if(GameManagerScript.Instance.player.rigidController.isSliding == true)
 			{
-				this.bulletSphereCollider.enabled = false;
+				this.bulletCollider.enabled = false;
 			}
 		}
 
@@ -58,7 +62,7 @@ public class BulletScript : MonoBehaviour {
 		{
 			if(GameManagerScript.Instance.player.rigidController.Jumping == true)
 			{
-				this.bulletSphereCollider.enabled = false;
+				this.bulletCollider.enabled = false;
 			}
 		}
 	}
@@ -66,7 +70,7 @@ public class BulletScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if(this.bulletSphereCollider.enabled == true)
+		if(this.bulletCollider.enabled == true)
 		{
 			if(other.tag == "PlayerBulletCollider")
 			{

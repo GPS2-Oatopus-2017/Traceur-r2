@@ -58,8 +58,7 @@ public class HuntingDroneScript : MonoBehaviour {
 		currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
 		targetOffset = hunting_Drone.keptDistance + hunting_Drone.atkIndicatorOffset;
 		target = player.transform.position + player.transform.forward * targetOffset;
-		float randNum = Random.Range(3,6);
-		hoverHeight = randNum;
+		hoverHeight = 4;
 		nextFire = hunting_Drone.attackSpeed;
 		slowDown = false;
 	}
@@ -98,7 +97,7 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		droneHoveringFunction();
+//		droneHoveringFunction();
 	}
 
 
@@ -215,18 +214,18 @@ public class HuntingDroneScript : MonoBehaviour {
 	}
 
 
-	void droneHoveringFunction()
-	{
-		Ray hoverRay = new Ray (transform.position, -transform.up);
-		RaycastHit hoverHit;
-
-		if(Physics.Raycast(hoverRay, out hoverHit, hoverHeight))
-		{
-			float propotionalHeight = (hoverHeight - hoverHit.distance) / hoverHeight;
-			Vector3 appliedHoverForce = Vector3.up * propotionalHeight * hoverForce;
-			huntingDroneRigidbody.AddForce(appliedHoverForce, ForceMode.Acceleration);
-		}
-
-		SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_DRONE_HOVER, this.gameObject, true);
-	}
+//	void droneHoveringFunction()
+//	{
+//		Ray hoverRay = new Ray (transform.position, -transform.up);
+//		RaycastHit hoverHit;
+//
+//		if(Physics.Raycast(hoverRay, out hoverHit, hoverHeight))
+//		{
+//			float propotionalHeight = (hoverHeight - hoverHit.distance) / hoverHeight;
+//			Vector3 appliedHoverForce = Vector3.up * propotionalHeight * hoverForce;
+//			huntingDroneRigidbody.AddForce(appliedHoverForce, ForceMode.Acceleration);
+//		}
+//
+//		SoundManagerScript.Instance.PlaySFX3D(AudioClipID.SFX_DRONE_HOVER, this.gameObject, true);
+//	}
 }
