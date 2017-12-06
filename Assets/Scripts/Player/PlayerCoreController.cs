@@ -17,6 +17,7 @@ public class PlayerCoreController : MonoBehaviour
 	public PlayerInteractScript interact;
 	public FallThenRollScript fallThenRoll;
 	public RotateCamera rotateCamera;
+	public Transform killerPos;
 
 	void Awake ()
 	{
@@ -84,7 +85,8 @@ public class PlayerCoreController : MonoBehaviour
 
 	public void KillPlayer()
 	{
-		rigidController.cam.transform.rotation = Quaternion.identity;
+		Time.timeScale = 1.0f;
+		rigidController.cam.transform.localRotation = Quaternion.identity;
 		animController.PlayDeathAnim();
 	}
 

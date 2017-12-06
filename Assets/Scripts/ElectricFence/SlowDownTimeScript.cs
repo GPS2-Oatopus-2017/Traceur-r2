@@ -81,6 +81,16 @@ public class SlowDownTimeScript : MonoBehaviour
 
 	void CheckLookSwitch ()
 	{
+		if (!status.isAlive)
+		{
+			animCount = 0;
+			nearSwitch = false;
+			rollCamera.isEvent = false;
+			rbController.cam.transform.localRotation = Quaternion.identity;
+			Time.timeScale = originalTime;
+			return;
+		}
+
 		if (nearSwitch) {
 
 //			Debug.Log ("LOOKING AT OBJECT: " + switchToLook); !!

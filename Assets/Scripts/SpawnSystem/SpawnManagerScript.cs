@@ -119,6 +119,8 @@ public class SpawnManagerScript : MonoBehaviour {
 
 	void LateUpdate()
 	{
+		if(!GameManagerScript.Instance.player.status.isAlive) return;
+
 		if(reputation >= 1 && reputation == ReputationManagerScript.Instance.currentRep)
 		{
 			countDownTimer += Time.deltaTime;

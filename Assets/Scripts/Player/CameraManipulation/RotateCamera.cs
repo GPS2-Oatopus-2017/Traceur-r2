@@ -38,6 +38,14 @@ public class RotateCamera : MonoBehaviour, IPlayerComponent
 
 	void CheckSlide ()
 	{
+		if(!m_Player.status.isAlive)
+		{
+			rotationCounter = rotationAmount;
+			isRolling = false;
+			m_Player.rigidController.cam.transform.localRotation = Quaternion.identity;
+			return;
+		}
+
 		// Causes rotation within 1 second. ---//
 		float rotation = rotationSpeed * Time.deltaTime;
 

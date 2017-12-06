@@ -158,6 +158,8 @@ public class ReputationManagerScript : MonoBehaviour {
 
 	void LateUpdate()
 	{
+		if(!GameManagerScript.Instance.player.status.isAlive) return;
+
 		if(currentRep == lastRep && currentRep != 0)
 		{
 			resetCounter += Time.deltaTime;

@@ -67,10 +67,26 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	void Update()
 	{
-		huntngDroneChaseFunctions();
-		huntingDroneMainFunctions();
-
-		if(ReputationManagerScript.Instance.currentRep == 0 || GameManagerScript.Instance.player.hasWon)
+		if(!GameManagerScript.Instance.player.hasWon)
+		{
+			huntngDroneChaseFunctions();
+			huntingDroneMainFunctions();
+			if(!GameManagerScript.Instance.player.status.isAlive)
+			{
+//				transform.Translate(player.transform.position * Time.deltaTime * hunting_Drone.movementSpeed);
+//				transform.Translate(Vector3.forward * Time.deltaTime * hunting_Drone.movementSpeed);
+				transform.position = Vector3.MoveTowards(transform.position, player.killerPos.position, Time.deltaTime * hunting_Drone.movementSpeed);
+			}
+			else
+			{
+				if(ReputationManagerScript.Instance.currentRep == 0)
+				{
+					PoolManagerScript.Instance.Despawn(this.gameObject);
+					TimelineScript.Instance.DestroyEnemyIcon(this.gameObject.name, 1);
+				}
+			}
+		}
+		else
 		{
 			PoolManagerScript.Instance.Despawn(this.gameObject);
 			TimelineScript.Instance.DestroyEnemyIcon(this.gameObject.name, 1);
