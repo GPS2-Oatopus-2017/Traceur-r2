@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ActivateMe : MonoBehaviour 
 {       
     public GameObject dirIndicator;
+	public GameObject text;
     public GameObject player;
     public float distanceFromObject;
 
@@ -14,6 +15,10 @@ public class ActivateMe : MonoBehaviour
 	void Start () 
     {
         dirIndicator.SetActive(false);
+		if(text != null)
+		{
+			text.SetActive(false);
+		}
 	}
 	
 	// Update is called once per frame
@@ -22,6 +27,10 @@ public class ActivateMe : MonoBehaviour
         if(Vector3.Distance(transform.position, player.transform.position) <= distanceFromObject)
         {
             dirIndicator.SetActive(true);
+			if(text != null)
+			{
+				text.SetActive(true);
+			}
         }
 	}
 }

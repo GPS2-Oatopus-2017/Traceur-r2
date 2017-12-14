@@ -27,6 +27,7 @@ TagManager:
   - ReputationManager
   - TimerScript
   - ElectricFenceCylinders
+  - TutorialIndicator
   layers:
   - Default
   - TransparentFX
