@@ -21,6 +21,8 @@ public class PauseGame : MonoBehaviour
 
     public void Pause()
     {
+		if(DialogueManager.Instance.youWin || DialogueManager.Instance.youLose) return; //Cannot pause while in win/lose dialogue
+
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         gamePaused = true;
