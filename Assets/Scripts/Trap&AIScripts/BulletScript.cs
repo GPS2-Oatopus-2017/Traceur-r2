@@ -8,6 +8,8 @@ public class BulletScript : MonoBehaviour {
 	public float selfDestructTimer = 5.0f;
 	public bool fromTopHardpoint;
 
+	public GameObject explosionPrefab;
+
 	private Rigidbody bulletRigidbody;
 	private Collider bulletCollider;
 
@@ -78,14 +80,20 @@ public class BulletScript : MonoBehaviour {
 				GameManagerScript.Instance.player.animController.PlayDamagedAnim();
 				SoundManagerScript.Instance.PlaySFX2D(AudioClipID.SFX_HIT, false);
 				SoundManagerScript.Instance.PlaySFX2D(AudioClipID.SFX_GRUNT, false);
+				Transform camTrans = GameManagerScript.Instance.player.rigidController.cam.transform;
+				Vector3 spawnPos = camTrans.position;
+				if(fromTopHardpoint) spawnPos.y += 2.0f;
+				else spawnPos.y -= 2.0f;
+				Quaternion spawnRot = camTrans.rotation;
+				Instantiate(explosionPrefab, spawnPos, spawnRot, camTrans);
 				if(GameManagerScript.Instance.player.status.currentHealth <= 0)
 				{
 					SoundManagerScript.Instance.StopSFX2D(AudioClipID.SFX_HIT);
 					SoundManagerScript.Instance.StopSFX2D(AudioClipID.SFX_GRUNT);
 				}
+
+				Destroy(gameObject);
 			}
 		}
-			
-		Destroy(gameObject);
 	}
 }

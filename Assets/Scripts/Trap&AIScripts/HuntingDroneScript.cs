@@ -18,6 +18,7 @@ public class HuntingDroneScript : MonoBehaviour {
 	public Transform droneGunHardPointDown;
 	public float fireIndication = 0.5f;
 	private float nextFire;
+	private bool shootTop = false;
 	private bool slowDown;
 
 	public bool isIndicated = false;
@@ -172,16 +173,23 @@ public class HuntingDroneScript : MonoBehaviour {
 				{
 					isIndicated = true;
 
-					if(AIAttackTimingManagerScript.Instance.isTop == true)
+					SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_CHARGE, gameObject);
+					shootTop = AIAttackTimingManagerScript.Instance.isTop;
+
+					if(shootTop)
 					{
 						targetOffset = hunting_Drone.keptDistance + hunting_Drone.atkIndicatorOffset;
 						target = droneGunHardPointUp.position + (player.transform.forward * targetOffset);
+						if(isHorizontal) target.z = player.transform.position.z;
+						else target.x = player.transform.position.x;
 						Instantiate(enemyAttackIndicator, target, droneGunHardPointUp.rotation);
 					}
 					else 
 					{
 						targetOffset = hunting_Drone.keptDistance + hunting_Drone.atkIndicatorOffset;
 						target = droneGunHardPointDown.position + (player.transform.forward * targetOffset);
+						if(isHorizontal) target.z = player.transform.position.z;
+						else target.x = player.transform.position.x;
 						Instantiate(enemyAttackIndicator, target, droneGunHardPointDown.rotation);
 					}
 				}
@@ -191,7 +199,7 @@ public class HuntingDroneScript : MonoBehaviour {
 			{
 				nextFire = hunting_Drone.attackSpeed;
 
-				if(AIAttackTimingManagerScript.Instance.isTop == true)
+				if(shootTop)
 				{
 					GameObject newBullet = Instantiate(bullet, droneGunHardPointUp.position, droneGunHardPointUp.rotation); // Shoot from TOP HARDPOINT
 					BulletScript bulletScript = newBullet.GetComponent<BulletScript>();
@@ -209,7 +217,6 @@ public class HuntingDroneScript : MonoBehaviour {
 				isIndicated = false;
 				SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_LASER, this.gameObject);
 			}
-			//SoundManagerScript.Instance.PlayOneShotSFX3D(AudioClipID.SFX_CHARGE, gameObject);
 		}
 	}
 
