@@ -24,4 +24,4 @@ MonoBehaviour:
   increaseReputation: 0
   timeForTopOrBottom: 0
   keptDistance: 15
-  atkIndicatorOffset: 8
+  atkIndicatorOffset: 16

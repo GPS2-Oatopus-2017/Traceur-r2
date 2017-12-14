@@ -318,7 +318,7 @@ MonoBehaviour:
   bullet: {fileID: 1546835931863768, guid: 75f2f7c7448011a49bc7440b053045bc, type: 2}
   droneGunHardPointUp: {fileID: 4647988466822208}
   droneGunHardPointDown: {fileID: 4124878211275884}
-  fireIndication: 1
+  fireIndication: 2
   isIndicated: 0
   isWithinRange: 0
   currentPoint: 0
