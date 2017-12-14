@@ -20,7 +20,8 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Beginning Scene Settings")]
     public Text beginningText;
-    public GameObject beginningDialogue;
+	public GameObject beginningDialogue;
+	public GameObject beginningPressAnyKeyBox;
     public float speed;
     public Transform target;
     [Range(0.0f, 1.0f)]
@@ -34,8 +35,9 @@ public class DialogueManager : MonoBehaviour
     public List<string> loseDialogue;
     public List<string> winDialogue;
 
-    [Header("Game Objects")]
-    public GameObject dialogueBox;
+	[Header("Game Objects")]
+	public GameObject dialogueBox;
+	public GameObject pressAnyKeyBox;
     public GameObject[] popUps; // An array of GameObjects for pop-up UIs (i.e HealthBar, Time-line).
 
     [Header("SoundList")]
@@ -88,8 +90,10 @@ public class DialogueManager : MonoBehaviour
         startCD = false;        //Timer for CountDownTimer is set to false.
         youWin = false;
         youLose = false;
-        canPress = false;
-        canContinue = false;
+		canPress = false;
+		beginningPressAnyKeyBox.SetActive(canPress);
+		canContinue = false;
+		pressAnyKeyBox.SetActive(canContinue);
 
 		GameManagerScript.Instance.player.StopRunning();
 
@@ -155,7 +159,9 @@ public class DialogueManager : MonoBehaviour
                 countDown.text = "1";
                 break;
             case 0:
-                startCD = false;
+				startCD = false;
+				popUps[0].SetActive(true);
+				popUps[1].SetActive(true);
                 popUps[2].SetActive(false);
                 cdTimer = 0;
 
@@ -196,7 +202,8 @@ public class DialogueManager : MonoBehaviour
 	                beginningText.text = " ";
 	                StopCoroutine("TypeEffect"); // Stop ongoing coroutine.
 	                bsIndex++; // Next line of dialogue.
-	                canPress = false;
+					canPress = false;
+					beginningPressAnyKeyBox.SetActive(canPress);
 	                if(bsIndex < beginningScene.Count)
 	                {
 	                    StartCoroutine("TypeEffect"); // Start typing effect.
@@ -306,6 +313,7 @@ public class DialogueManager : MonoBehaviour
             if(i >= beginningScene[bsIndex].Length) //Check if all letters are already typed
             {
                 canPress = true;
+				beginningPressAnyKeyBox.SetActive(canPress);
             }
         }
     }
@@ -314,5 +322,6 @@ public class DialogueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(continueTimer);
         canContinue = true;
+		pressAnyKeyBox.SetActive(canContinue);
     }
 }
