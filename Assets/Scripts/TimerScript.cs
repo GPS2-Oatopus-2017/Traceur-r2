@@ -29,7 +29,7 @@ public class TimerScript : MonoBehaviour
 	{
 		timeLevel1 = totalTimeLevel1;
 		timerBar = GetComponentInChildren<Image>();
-		timerText.text = timeLevel1.ToString();
+		timerText.text = StringExtension.ToStringLite(Mathf.RoundToInt(timeLevel1));
 	}
 	
 	// Update is called once per frame
@@ -44,7 +44,6 @@ public class TimerScript : MonoBehaviour
 			timeLevel1 = 0;
 		
 		timerBar.fillAmount = timeLevel1 / totalTimeLevel1 * 1;
-		float timer = Mathf.Round(timeLevel1);
-		timerText.text = timer.ToString();
+		timerText.text = StringExtension.ToStringLite(Mathf.RoundToInt(timeLevel1));
 	}
 }
