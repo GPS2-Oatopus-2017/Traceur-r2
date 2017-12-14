@@ -69,6 +69,7 @@ public class PauseGame : MonoBehaviour
 	{
 		Time.timeScale = 1;
 		pauseMenu.SetActive(false);
+		MenuSettings.Instance.skipBS = false;
 		gamePaused = false;
 
 		for(int i = 0; i < sourcesToBePaused.Count; i++)
