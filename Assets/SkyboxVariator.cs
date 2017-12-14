@@ -16,6 +16,7 @@ public class SkyboxVariator : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		RenderSettings.skybox.SetFloat("_Rotation", startRot + (Time.time * (negator ? -speed : speed)));
+		if(RenderSettings.skybox)
+			RenderSettings.skybox.SetFloat("_Rotation", startRot + (Time.time * (negator ? -speed : speed)));
 	}
 }
