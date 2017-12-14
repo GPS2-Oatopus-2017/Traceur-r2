@@ -19955,6 +19955,11 @@ Prefab:
       propertyPath: currentHealth
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 65556928717575720, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 95147478653850686, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
