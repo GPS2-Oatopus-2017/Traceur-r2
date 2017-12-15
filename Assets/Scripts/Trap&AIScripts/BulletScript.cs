@@ -24,9 +24,9 @@ public class BulletScript : MonoBehaviour {
 	void Start() 
 	{
 		bulletRigidbody.velocity = transform.forward * bulletSpeed;
-		Vector3 dir = GameManagerScript.Instance.player.transform.position - transform.position;
-		dir.y = 0.0f;
-		transform.rotation = Quaternion.LookRotation(dir);
+//		Vector3 dir = GameManagerScript.Instance.player.transform.position - transform.position;
+//		dir.y = 0.0f;
+//		transform.rotation = Quaternion.LookRotation(dir);
 //		transform.LookAt(GameManagerScript.Instance.player.transform);
 	}
 

@@ -31,6 +31,8 @@ public class HuntingDroneScript : MonoBehaviour {
 	public bool isHorizontal;
 	//public float distanceOfPlayer;
 
+	private Transform aiTrans;
+
 
 	void OnEnable()
 	{
@@ -182,7 +184,12 @@ public class HuntingDroneScript : MonoBehaviour {
 						target = droneGunHardPointUp.position + (player.transform.forward * targetOffset);
 						if(isHorizontal) target.z = player.transform.position.z;
 						else target.x = player.transform.position.x;
-						Instantiate(enemyAttackIndicator, target, droneGunHardPointUp.rotation);
+						aiTrans = Instantiate(enemyAttackIndicator, target, droneGunHardPointUp.rotation).transform;
+//						if(AIAttackTimingManagerScript.Instance.tutorialFirstTime)
+//						{
+							target.y -= 1.0f;
+							Instantiate(AIAttackTimingManagerScript.Instance.indicatorDown, target, droneGunHardPointUp.rotation, aiTrans);
+//						}
 					}
 					else 
 					{
@@ -190,7 +197,12 @@ public class HuntingDroneScript : MonoBehaviour {
 						target = droneGunHardPointDown.position + (player.transform.forward * targetOffset);
 						if(isHorizontal) target.z = player.transform.position.z;
 						else target.x = player.transform.position.x;
-						Instantiate(enemyAttackIndicator, target, droneGunHardPointDown.rotation);
+						aiTrans = Instantiate(enemyAttackIndicator, target, droneGunHardPointDown.rotation).transform;
+//						if(AIAttackTimingManagerScript.Instance.tutorialFirstTime)
+//						{
+							target.y += 1.0f;
+							Instantiate(AIAttackTimingManagerScript.Instance.indicatorUp, target, droneGunHardPointUp.rotation, aiTrans);
+//						}
 					}
 				}
 			}
@@ -204,14 +216,14 @@ public class HuntingDroneScript : MonoBehaviour {
 					GameObject newBullet = Instantiate(bullet, droneGunHardPointUp.position, droneGunHardPointUp.rotation); // Shoot from TOP HARDPOINT
 					BulletScript bulletScript = newBullet.GetComponent<BulletScript>();
 					bulletScript.fromTopHardpoint = true;
-					newBullet = null;
+					if(aiTrans) newBullet.transform.LookAt(aiTrans);
 				}
 				else
 				{
 					GameObject newBullet = Instantiate(bullet, droneGunHardPointDown.position, droneGunHardPointDown.rotation); // Shoot from BOTTOM HARDPOINT
 					BulletScript bulletScript = newBullet.GetComponent<BulletScript>();
 					bulletScript.fromTopHardpoint = false;
-					newBullet = null;
+					if(aiTrans) newBullet.transform.LookAt(aiTrans);
 				}
 
 				isIndicated = false;

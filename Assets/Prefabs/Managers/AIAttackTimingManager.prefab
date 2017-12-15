@@ -55,3 +55,8 @@ MonoBehaviour:
     type: 2}
   timer: 0
   isTop: 0
+  tutorialFirstTime: 1
+  indicatorUp: {fileID: 1973352849624150, guid: 7322724453d1c814ea068a92d639b89a,
+    type: 2}
+  indicatorDown: {fileID: 1737373466223264, guid: 6f6392f8f506f22438bd2d41bec29340,
+    type: 2}

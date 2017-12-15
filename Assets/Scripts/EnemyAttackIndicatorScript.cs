@@ -10,6 +10,7 @@ public class EnemyAttackIndicatorScript : MonoBehaviour {
 	private Transform player;
 	public float shrinkDelay;
 	private float shrinkTimer;
+	public Transform spriteTrans;
 
 	// Use this for initialization
 	void Start () 
@@ -26,17 +27,17 @@ public class EnemyAttackIndicatorScript : MonoBehaviour {
 		if(shrinkTimer >= shrinkDelay)
 		{
 			shrinkTimer = 0;
-			Vector3 temp = transform.localScale;
-			transform.localScale = new Vector3(temp.x -= ratio, temp.y -= ratio, temp.z -= ratio);
+			Vector3 temp = spriteTrans.localScale;
+			spriteTrans.localScale = new Vector3(temp.x -= ratio, temp.y -= ratio, temp.z -= ratio);
 		}
 		else
 		{
 			shrinkTimer += 1f * Time.deltaTime;
 		}
 
-		if(transform.localScale.x < smallestScale)
+		if(spriteTrans.localScale.x < smallestScale)
 		{
-			transform.localScale = new Vector3(smallestScale, smallestScale, smallestScale);
+			spriteTrans.localScale = new Vector3(smallestScale, smallestScale, smallestScale);
 		}
 		/*if(!enlarging)
 		{
@@ -58,13 +59,5 @@ public class EnemyAttackIndicatorScript : MonoBehaviour {
 				enlarging = false;
 			}
 		}*/
-	}
-
-	void OnTriggerEnter(Collider other)
-	{
-		if(other.tag == ("Bullet"))
-		{
-			Destroy(gameObject);
-		}
 	}
 }

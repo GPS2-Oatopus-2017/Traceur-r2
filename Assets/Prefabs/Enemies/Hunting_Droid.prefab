@@ -309,7 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hunting_Drone: {fileID: 11400000, guid: 0e45a285535afaf42a42967ec4702130, type: 2}
   player: {fileID: 0}
-  enemyAttackIndicator: {fileID: 1697361152441738, guid: 4f8630c6276de054b8e173f0785772cd,
+  enemyAttackIndicator: {fileID: 1767720879759678, guid: f2d79dcd29727284b8809f24c0a37e19,
     type: 2}
   chasingPosition: {x: 0, y: 0, z: 0}
   targetOffset: 10

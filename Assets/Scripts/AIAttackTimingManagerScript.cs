@@ -17,9 +17,12 @@ public class AIAttackTimingManagerScript : MonoBehaviour {
 	}
 
 	public EnemyData ai_attack_timing_manager;
-
 	public float timer;
 	public bool isTop;
+
+	public bool tutorialFirstTime;
+	public GameObject indicatorUp;
+	public GameObject indicatorDown;
 
 
 	void Start()
