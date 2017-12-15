@@ -168,7 +168,6 @@ GameObject:
   - component: {fileID: 33489726880914656}
   - component: {fileID: 23116862171672090}
   - component: {fileID: 114223560673024602}
-  - component: {fileID: 114254162029975288}
   - component: {fileID: 82912453038851400}
   m_Layer: 0
   m_Name: Cylinder001
@@ -508,28 +507,6 @@ MonoBehaviour:
   spriteAmount: 8
   fps: 15
   allRandom: 0
---- !u!114 &114254162029975288
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1985219180281790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b01b5cce3223ab64c8d2a12932e414cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rends:
-  - {fileID: 120039238709455920}
-  - {fileID: 120631088689418872}
-  - {fileID: 120863610772666736}
-  - {fileID: 120698216975896216}
-  - {fileID: 120108709569840548}
-  - {fileID: 120337451546626234}
-  - {fileID: 120094445171094698}
-  spriteAmount: 8
-  fps: 15
-  allRandom: 0
 --- !u!114 &114261560819419638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -545,8 +522,11 @@ MonoBehaviour:
   slowTimer: 3
   speedReducedValue: 2
   player: {fileID: 0}
+  cylinder: {fileID: 0}
   playerIsSlowed: 0
   isActived: 1
+  electricEffectPrefab: {fileID: 1126481613855822, guid: c10f2332a94da3a4c9e55bddb3d0787d,
+    type: 2}
 --- !u!120 &120039238709455920
 LineRenderer:
   m_ObjectHideFlags: 1

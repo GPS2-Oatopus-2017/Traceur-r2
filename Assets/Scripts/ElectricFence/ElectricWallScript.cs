@@ -12,6 +12,7 @@ public class ElectricWallScript : MonoBehaviour
     public bool playerIsSlowed;
 	public bool isActived;
 	bool isPlayed;
+	public GameObject electricEffectPrefab;
 
 	void Start() 
 	{
@@ -22,7 +23,6 @@ public class ElectricWallScript : MonoBehaviour
         playerIsSlowed = false; // Boolean indicating if player is slowed
 		isPlayed = false;
 	}
-
 
 	void Update() 
 	{
@@ -60,6 +60,8 @@ public class ElectricWallScript : MonoBehaviour
 			{
 				playerIsSlowed = true;
 				isPlayed = false;
+				Transform camTrans = player.rigidController.cam.transform;
+				Instantiate(electricEffectPrefab, camTrans.position, camTrans.rotation, camTrans);
 				Debug.Log("Player speed is reduced by " + speedReducedValue);
 			}
 
